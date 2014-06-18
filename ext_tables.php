@@ -83,7 +83,7 @@ $TCA['tx_abdownloads_category'] = Array (
  */
 
 // Enable workspace versioning only for TYPO3 versions 4.0 and higher
-if( t3lib_div::int_from_ver(TYPO3_version ) >= 4000000 )	{
+if( t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version ) >= 4000000 )	{
 	$TCA['tx_abdownloads_download']['ctrl']['versioningWS'] = true;
 } else	{
 	$TCA['tx_abdownloads_download']['ctrl']['versioning'] = true;

@@ -235,8 +235,8 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 		global $LANG;
 
 		// Get action and uid values
-		$action = t3lib_div::GPvar( 'action' );
-		$uid = t3lib_div::GPvar( 'uid' );
+		$action = t3lib_div::_GP( 'action' );
+		$uid = t3lib_div::_GP( 'uid' );
 
 		switch( (string)$this->MOD_SETTINGS['function'] ) {
 			/**
@@ -315,9 +315,9 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			 * FUNCTION: Import categories/downloads from DB
 			 */
   			case 4:
-				$type = t3lib_div::GPvar( 'type' );
-				$table = t3lib_div::GPvar( 'table' );
-				$generateQuery = t3lib_div::GPvar( 'generateQuery' );
+				$type = t3lib_div::_GP( 'type' );
+				$table = t3lib_div::_GP( 'table' );
+				$generateQuery = t3lib_div::_GP( 'generateQuery' );
 
   				// Decide what to do
   				if( $action == null || $action == '' ) {
@@ -331,9 +331,9 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			 * FUNCTION: Import categories/downloads from CSV
 			 */
 			case 5:
-				$type = t3lib_div::GPvar( 'type' );
-				$importCSV = t3lib_div::GPvar( 'importCSV' );
-				$overwriteExisting = t3lib_div::GPvar( 'overwriteExisting' );
+				$type = t3lib_div::_GP( 'type' );
+				$importCSV = t3lib_div::_GP( 'importCSV' );
+				$overwriteExisting = t3lib_div::_GP( 'overwriteExisting' );
 
   				// Decide what to do
   				if( $action == null || $action == '' ) {
@@ -347,13 +347,13 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			 * FUNCTION: Export categories/downloads
 			 */
   			case 6:
-				$type = t3lib_div::GPvar( 'type' );
-				$properties = t3lib_div::GPvar( 'properties' );
+				$type = t3lib_div::_GP( 'type' );
+				$properties = t3lib_div::_GP( 'properties' );
 				if( is_array( $properties ) )
 					$properties = implode( ',', $properties );
 
-				$outputFormat = t3lib_div::GPvar( 'outputFormat' );
-				$generateOutput = t3lib_div::GPvar( 'generateOutput' );
+				$outputFormat = t3lib_div::_GP( 'outputFormat' );
+				$generateOutput = t3lib_div::_GP( 'generateOutput' );
 
   				// Decide what to do
   				if( $action == null || $action == '' ) {
@@ -428,9 +428,9 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 
 		// Debugging output
 		if( $this->debug ) {
-			t3lib_div::print_array( $downloadsToApprove );
-			t3lib_div::print_array( $downloadsToApproveWithoutCategory );
-			t3lib_div::print_array( $categories );
+			t3lib_utility_Debug::printArray( $downloadsToApprove );
+			t3lib_utility_Debug::printArray( $downloadsToApproveWithoutCategory );
+			t3lib_utility_Debug::printArray( $categories );
 		}
 
 		$content .= '<table width="100%">';
@@ -562,7 +562,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 
 		// Debugging output
 		if( $this->debug ) {
-			t3lib_div::print_array( $downloadsReportedBroken );
+			t3lib_utility_Debug::printArray( $downloadsReportedBroken );
 		}
 
 		// Ouput downloads
@@ -628,7 +628,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 		$flexarray = t3lib_div::xml2array( $flexform[0]['pi_flexform'] );
 
 		if( $this->debug )
-			t3lib_div::print_array( $flexarray );
+			t3lib_utility_Debug::printArray( $flexarray );
 
 		if( is_array( $flexarray ) ) {
 			$listLimit = $flexarray['data']['s_display']['lDEF']['listLimit']['vDEF'] ? $flexarray['data']['s_display']['lDEF']['listLimit']['vDEF'] : 10;
@@ -637,7 +637,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 		}
 
 		// Get and set pagebrowser values
-		$pointer = t3lib_div::GPvar( 'pointer' );
+		$pointer = t3lib_div::_GP( 'pointer' );
 		if ( $pointer > 0 ) {
 			$pointer = $pointer * $listLimit;
 		} else {
@@ -669,7 +669,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 
 		// Debugging output
 		if( $this->debug ) {
-			t3lib_div::print_array( $downloads );
+			t3lib_utility_Debug::printArray( $downloads );
 		}
 
 		// Check the downloads
@@ -833,8 +833,8 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 
 		// Step 3: Show fields form
 		if( $type != null && $table != null ) {
-			$fields = t3lib_div::GPvar( 'field' );
-			$defines = t3lib_div::GPvar( 'define' );
+			$fields = t3lib_div::_GP( 'field' );
+			$defines = t3lib_div::_GP( 'define' );
 			$fieldBlacklist = array( 't3ver_', 't3_' );
 
 			$content .= '<img src="import_step_3.gif" border="0" /> <b>Assign the foreign database fields to the available database fields of this extension:</b><br />';
@@ -1350,10 +1350,10 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			$download = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( 'label,description,file,category', $theTable, $theField . '=' . $GLOBALS['TYPO3_DB']->quoteStr( $theValue, $theTable ) . ' ' . $whereClause, $groupBy, $orderBy, $limit );			
 
 			// Get variables from POST values or database record
-			$label = t3lib_div::GPvar( 'label' ) ? t3lib_div::GPvar( 'label' ) : $download[0]['label'];
-			$description = t3lib_div::GPvar( 'description' ) ? t3lib_div::GPvar( 'description' ) : $download[0]['description'];
-			$file = t3lib_div::GPvar( 'file' ) ? t3lib_div::GPvar( 'file' ) : $download[0]['file'];
-			$categoryUID = t3lib_div::GPvar( 'categoryUID' ) ? t3lib_div::GPvar( 'categoryUID' ) : $download[0]['category'];
+			$label = t3lib_div::_GP( 'label' ) ? t3lib_div::_GP( 'label' ) : $download[0]['label'];
+			$description = t3lib_div::_GP( 'description' ) ? t3lib_div::_GP( 'description' ) : $download[0]['description'];
+			$file = t3lib_div::_GP( 'file' ) ? t3lib_div::_GP( 'file' ) : $download[0]['file'];
+			$categoryUID = t3lib_div::_GP( 'categoryUID' ) ? t3lib_div::_GP( 'categoryUID' ) : $download[0]['category'];
 
 			if( $this->debug ) {
 				echo urldecode( $_SERVER['QUERY_STRING'] ) . "<br />";
@@ -1362,7 +1362,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 				echo "description: " . $description . "<br />";
 				echo "file: " . $file . "<br />";
 				echo "categoryUID: " . $categoryUID . "<br />";
-				t3lib_div::print_array( $download );
+				t3lib_utility_Debug::printArray( $download );
 			}
 
 			// Update the download record
@@ -1458,9 +1458,9 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 		// Initializing variables:
 		$pointer = intval( $_GET[$pointerName] );
 		$count = $this->internal['res_count'];
-		$results_at_a_time = t3lib_div::intInRange( $this->internal['results_at_a_time'], 1, 1000);
-		$maxPages = t3lib_div::intInRange( $this->internal['maxPages'], 1, 100);
-		$max = t3lib_div::intInRange( ceil( $count/$results_at_a_time), 1, $maxPages );
+		$results_at_a_time = t3lib_utility_Math::forceIntegerInRange( $this->internal['results_at_a_time'], 1, 1000);
+		$maxPages = t3lib_utility_Math::forceIntegerInRange( $this->internal['maxPages'], 1, 100);
+		$max = t3lib_utility_Math::forceIntegerInRange( ceil( $count/$results_at_a_time), 1, $maxPages );
 		$downloads = array();
 
 		// Make browse-table/downloads:
@@ -1547,7 +1547,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 					$output .= "\n\t<meta name=\"author\" content=\"Modern Downloads (ab_downloads) Export Generator\" />";
 					$output .= "\n\t<meta name=\"DC.Creator\" content=\"Modern Downloads (ab_downloads) Export Generator\" />\n</head>\n<body>\n<h2>\n";
 
-					$output .= t3lib_div::view_array( $downloads ) . "\n";
+					$output .= t3lib_utility_Debug::viewArray( $downloads ) . "\n";
 
 					$output .= "</h2>\n</body>\n</html>";
 				break;

@@ -196,7 +196,7 @@ class tx_abdownloads_treeview {
 		--> this is needed because xajax collides with rtehtmlarea and prevents rtehtmlarea from loading
 		*/
 		// debug($GLOBALS['BE_USER']->uc);
-		if (t3lib_div::int_from_ver(TYPO3_version) < 4001000 && $this->table == 'tx_abdownloads_download' && !$GLOBALS['BE_USER']->uc['moduleData']['xMOD_alt_doc.php']['disableRTE'] && t3lib_extMgm::isLoaded('rtehtmlarea')) {
+		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 4001000 && $this->table == 'tx_abdownloads_download' && !$GLOBALS['BE_USER']->uc['moduleData']['xMOD_alt_doc.php']['disableRTE'] && t3lib_extMgm::isLoaded('rtehtmlarea')) {
 			$this->useXajax = false;
 		}
 
@@ -264,12 +264,12 @@ class tx_abdownloads_treeview {
 		$objResponse->addAssign('ab_downloads_cat_tree', 'innerHTML', $content);
 
 		// 		$this->debug['treeItemC'] = $this->treeItemC;
-		// 		$objResponse->addAssign('debug-tree', 'innerHTML', t3lib_div::view_array($this->debug));
+		// 		$objResponse->addAssign('debug-tree', 'innerHTML', t3lib_utility_Debug::viewArray($this->debug));
 
 		$config = $this->PA['fieldConf']['config'];
 		$size = intval($config['size']);
-		$config['autoSizeMax'] = t3lib_div::intInRange($config['autoSizeMax'],0);
-		$height = $config['autoSizeMax'] ? t3lib_div::intInRange($this->treeItemC+2,t3lib_div::intInRange($size,1),$config['autoSizeMax']) : $size;
+		$config['autoSizeMax'] = t3lib_utility_Math::forceIntegerInRange($config['autoSizeMax'],0);
+		$height = $config['autoSizeMax'] ? t3lib_utility_Math::forceIntegerInRange($this->treeItemC+2,t3lib_utility_Math::forceIntegerInRange($size,1),$config['autoSizeMax']) : $size;
 		// hardcoded: 16 is the height of the icons
 		$height=$height*16;
 		$objResponse->addAssign('tree-div', 'style.height', $height.'px;');
@@ -551,9 +551,9 @@ class tx_abdownloads_treeview {
 					$item.= '<input type="hidden" name="'.$PA['itemFormElName'].'_mul" value="'.($config['multiple']?1:0).'" />';
 
 					// Set max and min items:
-					$maxitems = t3lib_div::intInRange($config['maxitems'],0);
+					$maxitems = t3lib_utility_Math::forceIntegerInRange($config['maxitems'],0);
 					if (!$maxitems)	$maxitems=100000;
-					$minitems = t3lib_div::intInRange($config['minitems'],0);
+					$minitems = t3lib_utility_Math::forceIntegerInRange($config['minitems'],0);
 
 					// Register the required number of elements:
 					$this->pObj->requiredElements[$PA['itemFormElName']] = array($minitems,$maxitems,'imgName'=>$table.'_'.$row['uid'].'_'.$field);
@@ -591,13 +591,13 @@ class tx_abdownloads_treeview {
 
 						$width = 280; // default width for the field with the category tree
 						if (intval($confArr['categoryTreeWidth'])) { // if a value is set in extConf take this one.
-							$width = t3lib_div::intInRange($confArr['categoryTreeWidth'],1,600);
+							$width = t3lib_utility_Math::forceIntegerInRange($confArr['categoryTreeWidth'],1,600);
 						} elseif ($GLOBALS['CLIENT']['BROWSER']=='msie') { // to suppress the unneeded horizontal scrollbar IE needs a width of at least 320px
 							$width = 320;
 						}
 
-						$config['autoSizeMax'] = t3lib_div::intInRange($config['autoSizeMax'],0);
-						$height = $config['autoSizeMax'] ? t3lib_div::intInRange($this->treeItemC+2,t3lib_div::intInRange($size,1),$config['autoSizeMax']) : $size;
+						$config['autoSizeMax'] = t3lib_utility_Math::forceIntegerInRange($config['autoSizeMax'],0);
+						$height = $config['autoSizeMax'] ? t3lib_utility_Math::forceIntegerInRange($this->treeItemC+2,t3lib_utility_Math::forceIntegerInRange($size,1),$config['autoSizeMax']) : $size;
 						// hardcoded: 16 is the height of the icons
 						$height=$height*16;
 
@@ -613,7 +613,7 @@ class tx_abdownloads_treeview {
 						// Put together the select form with selected elements:
 						$selector_itemListStyle = isset($config['itemListStyle']) ? ' style="'.htmlspecialchars($config['itemListStyle']).'"' : ' style="'.$this->pObj->defaultMultipleSelectorStyle.'"';
 						$itemArray = array();
-						$size = $config['autoSizeMax'] ? t3lib_div::intInRange(count($itemArray)+1,t3lib_div::intInRange($size,1),$config['autoSizeMax']) : $size;
+						$size = $config['autoSizeMax'] ? t3lib_utility_Math::forceIntegerInRange(count($itemArray)+1,t3lib_utility_Math::forceIntegerInRange($size,1),$config['autoSizeMax']) : $size;
 						$thumbnails = '<select style="width:150px;" name="'.$PA['itemFormElName'].'_sel"'.$this->pObj->insertDefStyle('select').($size?' size="'.$size.'"':'').' onchange="'.htmlspecialchars($sOnChange).'"'.$PA['onFocus'].$selector_itemListStyle.'>';
 						#$thumbnails = '<select                       name="'.$PA['itemFormElName'].'_sel"'.$this->pObj->insertDefStyle('select').($size?' size="'.$size.'"':'').' onchange="'.htmlspecialchars($sOnChange).'"'.$PA['onFocus'].$selector_itemListStyle.'>';
 						foreach($selItems as $p)	{
@@ -639,11 +639,11 @@ class tx_abdownloads_treeview {
 					}
 					$sWidth = 150; // default width for the left field of the category select
 					if (intval($confArr['categorySelectedWidth'])) {
-						$sWidth = t3lib_div::intInRange($confArr['categorySelectedWidth'],1,600);
+						$sWidth = t3lib_utility_Math::forceIntegerInRange($confArr['categorySelectedWidth'],1,600);
 					}
 					$params=array(
 					'size' => $size,
-					'autoSizeMax' => t3lib_div::intInRange($config['autoSizeMax'],0),
+					'autoSizeMax' => t3lib_utility_Math::forceIntegerInRange($config['autoSizeMax'],0),
 					#'style' => isset($config['selectedListStyle']) ? ' style="'.htmlspecialchars($config['selectedListStyle']).'"' : ' style="'.$this->pObj->defaultMultipleSelectorStyle.'"',
 					'style' => ' style="width:'.$sWidth.'px;"',
 					'dontShowMoveIcons' => ($maxitems<=1),

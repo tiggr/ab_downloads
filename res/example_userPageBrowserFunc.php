@@ -73,9 +73,9 @@ function user_substPageBrowser( $markerArray, $conf ) {
 	$tableParams = $pObj->conf['pageBrowser.']['tableParams'];
 	$pointer = $pObj->piVars['pointer'];
 	$count = $pObj->internal['res_count'];
-	$results_at_a_time = t3lib_div::intInRange( $pObj->internal['results_at_a_time'], 1, 1000 );
-	$maxPages = t3lib_div::intInRange( $pObj->internal['maxPages'], 1, 100 );
-	$max = t3lib_div::intInRange( ceil( $count / $results_at_a_time ), 1, $maxPages );
+	$results_at_a_time = t3lib_utility_Math::forceIntegerInRange( $pObj->internal['results_at_a_time'], 1, 1000 );
+	$maxPages = t3lib_utility_Math::forceIntegerInRange( $pObj->internal['maxPages'], 1, 100 );
+	$max = t3lib_utility_Math::forceIntegerInRange( ceil( $count / $results_at_a_time ), 1, $maxPages );
 	$pointer = intval( $pointer );
 	$action = $pObj->internal['action'];
 	$categoryUID = $pObj->internal['category_uid'];

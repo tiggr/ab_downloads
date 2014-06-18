@@ -196,13 +196,13 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			$GLOBALS['TYPO3_DB']->store_lastBuiltQuery = true;
 
-			t3lib_div::print_array( $conf );
+			t3lib_utility_Debug::printArray( $conf );
 
 			if( $this->full_debug )
-				t3lib_div::print_array( get_object_vars( $GLOBALS['TSFE'] ) );
+				t3lib_utility_Debug::printArray( get_object_vars( $GLOBALS['TSFE'] ) );
 
 			echo '<br />FLEXFORM CONFIGURATION:<br />';
-			t3lib_div::print_array( $this->flexform );
+			t3lib_utility_Debug::printArray( $this->flexform );
 			echo '<br />';
 		}
 
@@ -476,7 +476,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 	
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		// Get record overlay
@@ -595,7 +595,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		// Get record overlay
@@ -782,7 +782,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		// Get record overlay
@@ -980,7 +980,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			if( $this->debugDB ) {
 				$GLOBALS['TSFE']->set_no_cache();
-				t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+				t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 			}
 
 			// Get record overlay
@@ -1212,7 +1212,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 					if( $this->debugDB ) {
 						$GLOBALS['TSFE']->set_no_cache();
-						t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+						t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 					}
 
 					// Get record overlay
@@ -1406,7 +1406,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		// Get record overlay
@@ -1566,7 +1566,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		// Get record overlay
@@ -1741,7 +1741,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			if( $this->debug ) {
 				$GLOBALS['TSFE']->set_no_cache();
-				t3lib_div::debug( $download );
+				t3lib_utility_Debug::debug( $download );
 			}
 
 			if( is_array( $download ) && $download[0]['pid'] > 0 ) {
@@ -2071,7 +2071,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			if( $this->debug ) {
 				$GLOBALS['TSFE']->set_no_cache();
-				t3lib_div::debug( $download );
+				t3lib_utility_Debug::debug( $download );
 			}
 
 			// Generate values for marker array
@@ -2211,7 +2211,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			if( $this->debug ) {
 				$GLOBALS['TSFE']->set_no_cache();
-				t3lib_div::debug( $download );
+				t3lib_utility_Debug::debug( $download );
 			}
 	
 			// Generate values for marker array
@@ -2348,9 +2348,9 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$tableParams = $this->conf['pageBrowser.']['tableParams'];
 		$pointer = intval( $this->piVars[$pointerName] );
 		$count = $this->internal['res_count'];
-		$results_at_a_time = t3lib_div::intInRange( $this->internal['results_at_a_time'], 1, 1000);
-		$maxPages = t3lib_div::intInRange( $this->internal['maxPages'], 1, 100);
-		$max = t3lib_div::intInRange( ceil( $count/$results_at_a_time), 1, $maxPages );
+		$results_at_a_time = t3lib_utility_Math::forceIntegerInRange( $this->internal['results_at_a_time'], 1, 1000);
+		$maxPages = t3lib_utility_Math::forceIntegerInRange( $this->internal['maxPages'], 1, 100);
+		$max = t3lib_utility_Math::forceIntegerInRange( ceil( $count/$results_at_a_time), 1, $maxPages );
 		$action = $this->internal['action'];
 		$categoryUID = $this->internal['category_uid'];
 		$links = array();
@@ -2460,7 +2460,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		// Get record overlay
@@ -2691,7 +2691,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		return $downloadResult;
@@ -2719,7 +2719,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		return $categoryResult;
@@ -2749,7 +2749,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 		}
 
 		$categories = $this->getRecordOverlay( $categoriesResult, $this->tablePrefix . 'category' );
@@ -2817,7 +2817,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $this->debug ) {
 			$GLOBALS['TSFE']->set_no_cache();
-			t3lib_div::print_array( $mandatoryFieldsExploded );
+			t3lib_utility_Debug::printArray( $mandatoryFieldsExploded );
 		}
 
 		if( is_array( $mandatoryFieldsExploded ) ) {
@@ -3010,7 +3010,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 	
 			if( $this->debugDB ) {
 				$GLOBALS['TSFE']->set_no_cache();
-				t3lib_div::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
+				t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 			}
 	
 			$language = $GLOBALS['TYPO3_DB']->sql_fetch_assoc( $languageResult );
