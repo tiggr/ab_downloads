@@ -343,7 +343,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		return $this->pi_wrapInBaseClass( $content );
 	}
-	
+
 	/*************************************
 	 *
 	 * Basic views
@@ -471,7 +471,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$limit = '';
 			$downloadsInCurrentCategoryResults = $GLOBALS['TYPO3_DB']->exec_SELECT_mm_query( $databaseTable . '.*', $databaseTable, $relationTable, $foreignTable, ' AND ' . $theField . '=' . $GLOBALS['TYPO3_DB']->fullQuoteStr( $theValue, $databaseTable ) . ' ' . $whereClause, $groupBy, $orderBy, $limit );
 		}
-	
+
 		if( $this->debugDB ) {
 			$GLOBALS['TSFE']->set_no_cache();
 			t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
@@ -938,7 +938,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			// Remove duplicates
 			$searchWordsArray = array_unique( $searchWordsArray );
-			
+
 			// Construct where clause
 			$whereClause = '';
 			foreach( $searchWordsArray as $id => $searchFor ) {
@@ -1026,7 +1026,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				// Substitute the sub sub part markers with the given subpartcontents.
 				$templateCode = $this->cObj->substituteSubpart( $templateCode, '###' . $subSub_nodownloads . '###', '' );
 				$templateCode = $this->cObj->substituteSubpart( $templateCode, '###' . $subSub_downloads . '###', $subpartContent );
-	
+
 				// For next step -> LL VALUES
 				$markerArray = array();
 				$markerArray['###RESULT_MESSAGE###'] = sprintf( $this->local_cObj->stdWrap( $this->pi_getLL( 'll_result'), $localConf['resultMessage_stdWrap.'] ), $searchFor, count( $downloads ) );
@@ -1222,7 +1222,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 						// Get category record
 						$categoryResult = $this->getCategoryRecords( 'uid', $categoryUID );
-	
+
 						// Get record overlay
 						$category = $this->getRecordOverlay( $categoryResult, $this->tablePrefix . 'category' );
 
@@ -1242,7 +1242,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 						$markerArrayDownload['###CATEGORY_PATH###'] = $this->local_cObj->stdWrap( $this->getCategoryPath( $categoryUID ), $localConf['categoryPath_stdWrap.'] );
 						$markerArrayDownload['###CATEGORY_ICON###'] = $this->getImageLink( $topDownloads[$i], 'image', 'category', 'top', $categoryUID );
 						$markerArrayDownload['###CATEGORY_LABEL###'] = $this->local_cObj->stdWrap( $download, $localConf['categoryLabel_stdWrap.'] );
-		
+
 						if( $topDownloads[$i]['description'] ) {
 							$markerArrayDownload['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $topDownloads[$i]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
 						} else {
@@ -1265,7 +1265,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 						// Prepare top message
 						$markerArrayMessage = array();
 						$markerArrayMessage['###TOP_MESSAGE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_top' ) . $downloadLimit . ': ' . $fieldName ) ), $localConf['topMessage_stdWrap.'] );
-	
+
 						$wrappedSubpartArray = array();
 						$subpartArray['###TOP_DOWNLOAD###'] = $downloadList;
 						$content .= $this->cObj->substituteMarkerArrayCached( $templateCode, $markerArrayMessage, $subpartArray, $wrappedSubpartArray);
@@ -1273,7 +1273,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 						// Prepare top message
 						$markerArrayMessage = array();
 						$markerArrayMessage['###TOP_MESSAGE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_top' ) . $downloadLimit . ': ' . $fieldName ) ), $localConf['topMessage_stdWrap.'] );
-	
+
 						$wrappedSubpartArray = array();
 						$subpartArray['###TOP_DOWNLOAD###'] = '-';
 						$content .= $this->cObj->substituteMarkerArrayCached( $templateCode, $markerArrayMessage, $subpartArray, $wrappedSubpartArray);
@@ -1300,7 +1300,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
  	 * @return	string		The generated HTML source for this view.
  	 */
  	function displayCatalog( $categoryUID = 0, $level = 0 ) {
- 
+
 		// Init some vars
 		$action = 'getviewcatalog';
 		$content = '';
@@ -1312,7 +1312,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$subSub_downloads = 'DOWNLOADS';
 		$subSubSub_subcategories = 'SUBCATEGORIES';
 		$subSubSub_download = 'DOWNLOAD';
-	
+
 		// Get the html source between subpart markers from the template file
 		$templateCode = $this->cObj->getSubpart( $this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###' );
 
@@ -1653,7 +1653,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		return $content;
 	}
-	
+
 	/*************************************
 	 *
 	 * Additional views after user interaction
@@ -1762,7 +1762,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					$GLOBALS['TSFE']->page['title'] .= " : " . htmlspecialchars( trim( $download[0]['label'] ) );
 					$GLOBALS['TSFE']->indexedDocTitle = htmlspecialchars( trim( $download[0]['label'] ) );
 				}
-	
+
 				// Finally substitute the marker array
 				$templateCode = $this->cObj->substituteMarkerArray( $templateCode, $markerArray );
 			} else {
@@ -2078,7 +2078,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$form_yes_button_value = htmlspecialchars( trim( $this->pi_getLL( 'FORM_YES_BUTTON' ) ) );
 			$form_no_button_name = $this->prefixId . '[cancel_button]';
 			$form_no_button_value = htmlspecialchars( trim( $this->pi_getLL( 'FORM_NO_BUTTON' ) ) );
-	
+
 			$markerArray = array();
 			$markerArray['###FORM_ACTION###'] = $this->local_cObj->stdWrap( $form_action, '' );
 			$markerArray['###FORM_YES_BUTTON_NAME###'] = $this->local_cObj->stdWrap( $form_yes_button_name, '' );
@@ -2087,13 +2087,13 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$markerArray['###FORM_NO_BUTTON_VALUE###'] = $this->local_cObj->stdWrap( $form_no_button_value, '' );
 			$markerArray['###DOWNLOAD_LABEL###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $download[0]['label'] ) ), '' );
 			$markerArray['###LINK_BACK_TO_CATEGORY###'] = '<a href="javascript:history.back()">' . htmlspecialchars( trim( $this->pi_getLL( 'll_back' ) ) ) . '</a>';
-	
+
 			/**
 			 * LL VALUES
 			 */
-	
+
 			$markerArray['###LL_REPORT_DOWNLOAD_BROKEN_TEXT###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_report_download_broken_text' ) ) ), $this->conf['reportDownloadBrokenText_stdWrap.'] );
-	
+
 			// Finally substitute the marker array
 			$templateCode = $this->cObj->substituteMarkerArray( $templateCode, $markerArray );
 		} else {
@@ -2133,14 +2133,14 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$download = $this->getRecordOverlay( $downloadResult, $this->tablePrefix . 'download' );
 
 			if( $download[0]['status'] == 1 ) {
-	
+
 				// Update the status of the download to 'Reported broken' => '2'
 				$whereClause = "uid=$uid";
 				$updateFields = array(
 						'status' => '2',
 				);
 				$GLOBALS['TYPO3_DB']->exec_UPDATEquery( $this->tablePrefix . 'download', $whereClause, $updateFields );
-		
+
 				// Generate and send notification email to admin
 				$name = $this->pi_getFFvalue( $this->flexform, 'adminName', 's_notification' ) ? $this->pi_getFFvalue( $this->flexform, 'adminName', 's_notification' ) : $this->conf['adminName'];
 				$email = $this->pi_getFFvalue( $this->flexform, 'adminEmail', 's_notification' ) ? $this->pi_getFFvalue( $this->flexform, 'adminEmail', 's_notification' ) : $this->conf['adminEmail'];
@@ -2148,23 +2148,23 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$ll_label = htmlspecialchars( trim( $this->pi_getLL( 'll_label' ) ) );
 				$ll_description = htmlspecialchars( trim( $this->pi_getLL( 'll_description' ) ) );
 				$ll_category = htmlspecialchars( trim( $this->pi_getLL( 'll_category' ) ) );
-	
+
 				$headers = "From: \"$name\" <$email>\r\n";
 				$headers .= "X-Mailer: Modern Downloads Info Mailer\r\n";
-	
+
 				$message = $ll_label . ': ' . $download[0]['label'] . "\r\n" .
 					   $ll_description . ': ' . $download[0]['description'] . "\r\n" .
 					   $ll_category . ': ' . $this->getCategoryPath( $download[0]['category'], false );
-	
+
 				$encoding = $GLOBALS['TSFE']->config['config']['notification_email_encoding'] ? $GLOBALS['TSFE']->config['config']['notification_email_encoding'] : 'quoted-printable';
-		
+
 				t3lib_div::plainMailEncoded( $email, $subject, $message, $headers, $encoding );
-		
+
 				$markerArray = array();
-	
+
 				$markerArray['###LINK_BACK_TO_CATEGORY###'] = '<a href="javascript:history.go(-2)">' . htmlspecialchars( trim( $this->pi_getLL( 'll_back' ) ) ) . '</a>';
 				$markerArray['###LL_LI_BROKEN_THX###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_li_broken_thx' ) ) ), '' );
-		
+
 				// Finally substitute the marker array
 				$templateCode = $this->cObj->substituteMarkerArray( $templateCode, $markerArray );
 			} else {
@@ -2211,14 +2211,14 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$GLOBALS['TSFE']->set_no_cache();
 				t3lib_utility_Debug::debug( $download );
 			}
-	
+
 			// Generate values for marker array
 			$form_action = $this->pi_getPageLink( $GLOBALS['TSFE']->id, '_self', array( 'tx_abdownloads_pi1[action]' => 'getviewratedownload', 'tx_abdownloads_pi1[uid]' => $uid, 'tx_abdownloads_pi1[category_uid]' => $categoryUID, 'no_cache' => '1' ) );
 			$form_submit_button_name = $this->prefixId . '[submit_button]';
 			$form_submit_button_value = htmlspecialchars( trim( $this->pi_getLL( 'FORM_SUBMIT_BUTTON' ) ) );
 			$form_cancel_button_name = $this->prefixId . '[cancel_button]';
 			$form_cancel_button_value = htmlspecialchars( trim( $this->pi_getLL( 'FORM_CANCEL_BUTTON' ) ) );
-	
+
 			$markerArray = array();
 			$markerArray['###FORM_ACTION###'] = $this->local_cObj->stdWrap( $form_action, '' );
 			$markerArray['###FORM_SUBMIT_BUTTON_NAME###'] = $this->local_cObj->stdWrap( $form_submit_button_name, '' );
@@ -2239,7 +2239,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$markerArray['###LL_VERY_GOOD###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_very_good' ) ) ), '' );
 			$markerArray['###LL_RATING_CURRENT###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_rating_current' ) ) ), '' );
 			$markerArray['###LL_VOTES###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_votes' ) ) ), '' );
-	
+
 			// Finally substitute the marker array
 			$templateCode = $this->cObj->substituteMarkerArray( $templateCode, $markerArray );
 		} else {
@@ -2277,24 +2277,24 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			// Get record overlay
 			$download = $this->getRecordOverlay( $downloadResult, $this->tablePrefix . 'download' );
-	
+
 			// Get user's IP address
 			$ip = t3lib_div::getIndpEnv( 'REMOTE_ADDR' );
-	
+
 			// Check for multiple-rating
 			if( !t3lib_div::cmpIP( $ip, $download[0]['vote_ip'] ) ) {
 
 				// Get old rating and votes of the download
 				$oldRating = $download[0]['rating'];
 				$oldVotes = $download[0]['votes'];
-	
+
 				// Get submitted rating
 				$submittedRating = intval( $this->piVars['rating'] );
-	
+
 				if( $submittedRating > 0 ) {
 					$newVotes = $oldVotes + 1;
 					$newRating = ( $oldRating * $oldVotes + $submittedRating ) / $newVotes;
-	
+
 					// Update rating, votes and vote_ip of the download
 					$whereClause = "uid=$uid";
 					$updateFields = array(
@@ -2305,12 +2305,12 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					$GLOBALS['TYPO3_DB']->exec_UPDATEquery( $this->tablePrefix . 'download', $whereClause, $updateFields );
 				}
 			}
-	
+
 			$markerArray = array();
 
 			$markerArray['###LINK_BACK_TO_CATEGORY###'] = '<a href="javascript:history.go(-2)">' . htmlspecialchars( trim( $this->pi_getLL( 'll_back' ) ) ) . '</a>';
 			$markerArray['###LL_LI_RATE_THX###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_li_rate_thx' ) ) ), '' );
-	
+
 			// Finally substitute the marker array
 			$templateCode = $this->cObj->substituteMarkerArray( $templateCode, $markerArray );
 		} else {
@@ -2321,7 +2321,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$content = $templateCode;
 		return $content;
 	}
-	
+
 	/*************************************
 	 *
 	 * Helper functions
@@ -2549,7 +2549,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 						$content = ' ' . $this->pi_LinkTP( $categoryLabel, array( 'tx_abdownloads_pi1[category_uid]' => $categoryUID, 'tx_abdownloads_pi1[cid]' => $this->cObj->data['uid'] ), $this->allowCaching, $pageID ) . $content;
 					}
 				} else {
-					$content = ' ' . $categoryLabel . $content; 
+					$content = ' ' . $categoryLabel . $content;
 				}
 
 				// Set categoryUID to parent category to continue one level up
@@ -2786,7 +2786,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $blacklist ) {
 			$blacklistArray = t3lib_div::trimExplode( ',', $blacklist );
-	
+
 			foreach( $blacklistArray as $index => $word ) {
 				if( stristr( $text, $word ) )
 					return true;
@@ -2950,14 +2950,14 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					// Get flexform config for displaying of image and create config
 					$imageMaxHeight = intval( $this->pi_getFFvalue( $this->flexform, 'categoryImageMaxHeight', 's_image' ) ? $this->pi_getFFvalue( $this->flexform, 'categoryImageMaxHeight', 's_image' ) : $this->conf['categoryImageMaxHeight'] );
 					$imageMaxWidth = intval( $this->pi_getFFvalue( $this->flexform, 'categoryImageMaxWidth', 's_image' ) ? $this->pi_getFFvalue( $this->flexform, 'categoryImageMaxWidth', 's_image' ) : $this->conf['categoryImageMaxWidth'] );
-		
+
 					$pictureConfig = array();
 					$pictureConfig['image.']['file'] = 'uploads/tx_abdownloads/categoryImages/' . $record[$field];
 					$pictureConfig['image.']['file.']['maxW'] = intval( $imageMaxWidth );
 					$pictureConfig['image.']['file.']['maxH'] = intval( $imageMaxHeight );
 					$pictureConfig['image.']['altText'] = htmlspecialchars( trim( $record['label'] ) );
 					$pictureConfig['image.']['titleText'] = htmlspecialchars( trim( $record['label'] ) );
-	
+
 					return $this->local_cObj->IMAGE( $pictureConfig['image.'] );
 				} else {
 					return $this->local_cObj->fileResource( $this->conf['iconCategory'], 'alt="' . htmlspecialchars( trim( $record['label'] ) ) . '" title="' . htmlspecialchars( trim( $record['label'] ) ) . '"' );
@@ -3005,14 +3005,14 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$orderBy = '';
 			$limit = '';
 			$languageResult = $GLOBALS['TYPO3_DB']->exec_SELECTquery( '*', $databaseTable, $whereClause, $groupBy, $orderBy, $limit );
-	
+
 			if( $this->debugDB ) {
 				$GLOBALS['TSFE']->set_no_cache();
 				t3lib_utility_Debug::debug( $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery );
 			}
-	
+
 			$language = $GLOBALS['TYPO3_DB']->sql_fetch_assoc( $languageResult );
-	
+
 			return $language['lg_name_en'];
 		}
 
@@ -3039,7 +3039,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$count += 1;
 				$string .= $this->local_cObj->fileResource( $this->conf['iconStar'], 'alt="'.$iconText.'" title="'.$iconText.'"' );
 			}
-	
+
 			if( $rating >= 1 ) {
 				$count += 1;
 				$string .= $this->local_cObj->fileResource( $this->conf['iconHalfStar'], 'alt="'.$iconText.'" title="'.$iconText.'"' );
@@ -3049,7 +3049,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$count += 1;
 				$string .= $this->local_cObj->fileResource( $this->conf['iconDisabledStar'], 'alt="'.$iconText.'" title="'.$iconText.'"' );
 			}
-	
+
 			return $string;
 		}
 
@@ -3177,7 +3177,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$array['###DOWNLOAD_FILENAME###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['file'] ) ), '' );
 		$array['###DOWNLOAD_FILEICON###'] = $this->getFileIcon( $record );
 		$array['###DOWNLOAD_TYPE###'] = $this->local_cObj->stdWrap( strtoupper( $fileInformation['fileext'] ), '' );
-		$array['###DOWNLOAD_SIZE###'] = $this->local_cObj->stdWrap( $this->fileFunc->formatSize( $fileInformation['size'] ) . 'Byte', '' );
+		$array['###DOWNLOAD_SIZE###'] = $this->local_cObj->stdWrap( t3lib_div::formatSize( $fileInformation['size'] ) . 'Byte', '' );
 		$array['###DOWNLOAD_DATE###'] = $this->local_cObj->stdWrap( $record['crdate'], $this->conf['date_stdWrap.'] );
 		$array['###DOWNLOAD_TIME###'] = $this->local_cObj->stdWrap( $record['crdate'], $this->conf['time_stdWrap.'] );
 		$array['###DOWNLOAD_CLICKS###'] = $this->local_cObj->stdWrap( $record['clicks'], '' );

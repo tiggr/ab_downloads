@@ -177,7 +177,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 				</script>
 			';
 
-			$headerSection = $this->doc->getHeader( 'pages', $this->pageinfo, $this->pageinfo['_thePath'] ) . '<br />' . $LANG->php3Lang['labels']['path'] . ': ' . t3lib_div::fixed_lgd_pre( $this->pageinfo['_thePath'],50);
+			$headerSection = $this->doc->getHeader( 'pages', $this->pageinfo, $this->pageinfo['_thePath'] ) . '<br />' . $LANG->php3Lang['labels']['path'] . ': ' . t3lib_div::fixed_lgd_cs( $this->pageinfo['_thePath'],-50);
 
 			$this->content .= $this->doc->startPage( $LANG->getLL( 'title' ) );
 			$this->content .= $this->doc->header( $LANG->getLL( 'title' ) );
@@ -485,16 +485,16 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			// Downloads without category
 			for( $i = 0; $i < count( $downloadsToApproveWithoutCategory ); $i++ ) {
 				$content .= '<form action="' . $_SERVER['PHP_SELF'] . '" method="POST">';
-	
+
 				// Alternating row colors
 				$content .= $switch ? '<tr bgcolor="' . $doc['bgColor5'] . '">' : '<tr>' ;
 				$switch = !$switch;
-	
+
 				// Starting content
 				$content .= '<td style="vertical-align:top;"><input type="text" name="label" value="' . $downloadsToApproveWithoutCategory[$i]['label'] . '" size="30" /></td>';
 				$content .= '<td><textarea name="description" rows="5">' . t3lib_div::formatForTextarea( $downloadsToApproveWithoutCategory[$i]['description'] ) . '</textarea></td>';
 				$content .= '<td style="vertical-align:top;"><input type="text" name="file" value="' . $downloadsToApproveWithoutCategory[$i]['file'] . '" size="30" /></td>';
-	
+
 				$content .= '<td style="vertical-align:top;"><select name="categoryUID"><option value="0"></option>';
 				foreach( $categories as $category ) {
 					$content .= '<option value="' . $category['uid'] . '">';
@@ -507,7 +507,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 					$content .= $category['label'] . '</option>';
 				}
 				$content .= '</select></td>';
-	
+
 				$content .= '<td style="vertical-align:top;"><input type="image" src="action_accept.gif" style="border:0px;" alt="' . $LANG->getLL( 'ViewDownloadsToApprove_accept' ) . '" title="' . $LANG->getLL( 'ViewDownloadsToApprove_accept' ) . '" /></td>';
 				$content .= "<td style=\"vertical-align:top;\"><a href=\"?action=getViewDeleteDownload&id=" . $this->id . "&uid=" . $downloadsToApproveWithoutCategory[$i]['uid'] . "\"><img src=\"action_delete.gif\" border=\"0\" alt=\"" . $LANG->getLL( 'ViewDownloadsToApprove_delete' ) . "\" title=\"" . $LANG->getLL( 'ViewDownloadsToApprove_delete' ) . "\"></a></td>";
 				$content .= '</tr>';
@@ -913,7 +913,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 
 		return $content;
 	}
-	
+
 	/**
 	 * getViewImportCategoriesDownloadsCSV( $type = null, $importCSV = null, $overwriteExisting = null )
 	 *
@@ -989,16 +989,16 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 							if( $this->existingEntry( $insertFields['uid'], $fieldTable ) && $overwriteExisting ) {
 								$whereClause = 'uid=' . $insertFields['uid'];
 								$GLOBALS['TYPO3_DB']->exec_UPDATEquery( $this->tablePrefix . $fieldTable, $whereClause, $insertFields );
-								$content .= 'Download ' . $insertFields['uid'] . ' (' . $insertFields['file'] . ') successfully updated in the database.<br />'; 
+								$content .= 'Download ' . $insertFields['uid'] . ' (' . $insertFields['file'] . ') successfully updated in the database.<br />';
 							} else {
 								$GLOBALS['TYPO3_DB']->exec_INSERTquery( $this->tablePrefix . $fieldTable, $insertFields );
-								$content .= 'Download ' . $insertFields['uid'] . ' (' . $insertFields['file'] . ') successfully added to the database.<br />'; 
+								$content .= 'Download ' . $insertFields['uid'] . ' (' . $insertFields['file'] . ') successfully added to the database.<br />';
 							}
 						} elseif( $fieldTable == 'category' ) {
 							if( $this->existingEntry( $insertFields['uid'], $fieldTable ) && $overwriteExisting ) {
 								$whereClause = 'uid=' . $insertFields['uid'];
 								$GLOBALS['TYPO3_DB']->exec_UPDATEquery( $this->tablePrefix . $fieldTable, $whereClause, $insertFields );
-								$content .= 'Category ' . $insertFields['uid'] . ' (' . $insertFields['label'] . ') successfully updated in the database.<br />'; 
+								$content .= 'Category ' . $insertFields['uid'] . ' (' . $insertFields['label'] . ') successfully updated in the database.<br />';
 							} else {
 								$GLOBALS['TYPO3_DB']->exec_INSERTquery( $this->tablePrefix . $fieldTable, $insertFields );
 								$content .= 'Category ' . $insertFields['uid'] . ' (' . $insertFields['label'] . ') successfully added to the database.<br />';
@@ -1105,9 +1105,9 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 					$content .= '<option value="' . $typesType  . '">' . $typesType . '</option>';
 				}
 			}
-	
+
 			$content .= '</select></form><br /><br />';
-			
+
 		}
 
 		// Step 4: Output categories/downloads
@@ -1121,7 +1121,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			$content .= '<input type="hidden" name="properties" value="' . $properties . '" />';
 			$content .= '<input type="hidden" name="outputFormat" value="' . $outputFormat . '" />';
 			$content .= '</form><br /><br />';
-			
+
 		}
 
 		// Step 5: Generate output
@@ -1344,7 +1344,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			$groupBy = '';
 			$orderBy = '';
 			$limit = '';
-			$download = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( 'label,description,file,category', $theTable, $theField . '=' . $GLOBALS['TYPO3_DB']->quoteStr( $theValue, $theTable ) . ' ' . $whereClause, $groupBy, $orderBy, $limit );			
+			$download = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( 'label,description,file,category', $theTable, $theField . '=' . $GLOBALS['TYPO3_DB']->quoteStr( $theValue, $theTable ) . ' ' . $whereClause, $groupBy, $orderBy, $limit );
 
 			// Get variables from POST values or database record
 			$label = t3lib_div::_GP( 'label' ) ? t3lib_div::_GP( 'label' ) : $download[0]['label'];
@@ -1530,9 +1530,9 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			$orderBy = '';
 			$limit = '';
 			$downloads = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows( $properties, $theTable, $theField . ' ' . $theValue . $whereClause, $groupBy, $orderBy, $limit );
-	
+
 			$output = null;
-	
+
 			switch( $outputFormat ) {
 				case 'HTML':
 					$output .= '<?xml version="1.0" encoding="' . $TYPO3_CONF_VARS['BE']['forceCharset'] . '"?>
@@ -1548,11 +1548,11 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 
 					$output .= "</h2>\n</body>\n</html>";
 				break;
-	
+
 				case 'XML':
 					$output .= t3lib_div::array2xml_cs( $downloads, $identifier );
 				break;
-	
+
 				case 'TXT':
 					$output .= "=================================================================================\n";
 					$output .= "Modern Downloads (ab_downloads) $type on " . t3lib_div::getIndpEnv( 'HTTP_HOST' ) . " : $outputFormat export\n";
@@ -1563,7 +1563,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 						$output .= "---------------------------------------------------------------------------------\n";
 					}
 				break;
-				
+
 				case 'CSV':
 					$output .= t3lib_div::csvValues( t3lib_div::trimExplode( ',', $properties ) ) . "\n";
 
@@ -1572,7 +1572,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 					}
 				break;
 			}
-	
+
 			return $output;
 		}
 	}
@@ -1622,7 +1622,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			}
 		}
 	}
-	
+
 	/**
 	 * existingEntry( $uid = null, $table = null )
 	 *
