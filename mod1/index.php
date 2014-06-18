@@ -182,7 +182,7 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 			$this->content .= $this->doc->startPage( $LANG->getLL( 'title' ) );
 			$this->content .= $this->doc->header( $LANG->getLL( 'title' ) );
 			$this->content .= $this->doc->spacer( 5 );
-			$this->content .= $this->doc->section( '', $this->doc->funcMenu( $headerSection, t3lib_BEfunc::getFuncMenu( $this->id, 'SET[function]', $this->MOD_SETTINGS['function'], $this->MOD_MENU['function'] ) ) );
+			$this->content .= $this->doc->section( '', $this->doc->funcMenu( $headerSection, t3lib_BEfunc::getFuncMenu( $this->id, 'SET[function]', $this->MOD_SETTINGS['function'], $this->MOD_MENU['function'], 'index.php' ) ) );
 			$this->content .= $this->doc->divider( 5 );
 
 			// Render content
