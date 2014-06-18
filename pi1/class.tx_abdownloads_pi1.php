@@ -75,8 +75,6 @@
  *
  */
 
-require_once( PATH_tslib . 'class.tslib_pibase.php' );
-require_once( PATH_t3lib . 'class.t3lib_basicfilefunc.php' );
 
 /**
  * Plugin 'downloads' for the 'ab_downloads' extension.

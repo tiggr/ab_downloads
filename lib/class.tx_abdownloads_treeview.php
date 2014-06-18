@@ -61,7 +61,6 @@
  * @subpackage	tx_abdownloads
  */
 
-require_once(PATH_t3lib.'class.t3lib_treeview.php');
 require_once(t3lib_extMgm::extPath('ab_downloads').'lib/class.tx_abdownloads_div.php');
 
 /**

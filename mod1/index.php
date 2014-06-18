@@ -67,10 +67,7 @@
 unset( $MCONF );
 require ( 'conf.php' );
 require ( $BACK_PATH. 'init.php' );
-require ( $BACK_PATH. 'template.php' );
 $LANG->includeLLFile( 'EXT:ab_downloads/mod1/locallang.xml' );
-require_once ( PATH_t3lib . 'class.t3lib_scbase.php' );
-require_once ( PATH_t3lib . 'class.t3lib_div.php' );
 
 $BE_USER->modAccess( $MCONF, 1 );	//  This checks permissions and exits if the users has no permission for entry.
 
