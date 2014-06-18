@@ -1,0 +1,937 @@
+###############################################################################################
+
+###CATEGORY_LABEL### - This is the label of the category.
+###CATEGORY_DESCRIPTION### - This is the description of the category.
+###CATEGORY_ICON### - This is the icon of the category.
+###CATEGORY_PATH### - Path menu with categories.
+###CATEGORY_DOWNLOAD_COUNT###
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###DOWNLOAD_FILENAME### - This is the filename of a download.
+###DOWNLOAD_FILEICON### - This is the MIME icon for a download.
+###DOWNLOAD_TYPE### - This is the type of a download.
+###DOWNLOAD_SIZE### - This is the size of a download.
+###DOWNLOAD_DESCRIPTION### - Detailed description of a download.
+###DOWNLOAD_SPONSORED_DESCRIPTION### - Detailed description of a sponsored download.
+###DOWNLOAD_LANGUAGE### - This is the language of a download.
+###DOWNLOAD_LICENSE### - This is the license of a download.
+###DOWNLOAD_HOMEPAGE### - This is the homepage of a download.
+###DOWNLOAD_IMAGE### - The image.
+###DOWNLOAD_TEASER### - This is the download teaser.
+###DOWNLOAD_DATE### - This is the date of adding.
+###DOWNLOAD_TIME### - This is the time of adding.
+###DOWNLOAD_CLICKS###  - The number of clicks.
+###DOWNLOAD_RATING### - The rating.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###DOWNLOAD_RATING_STARS### - The stars representation of the rating.
+###DOWNLOAD_HREF### - This is the href of a download.
+###DOWNLOAD_DETAILS### - URL for a download's detail page.
+###DOWNLOAD_ICON### - This is the icon of a download.
+###DOWNLOAD_ADD_NEW### - Url for the add new download page.
+###DOWNLOAD_REPORT_BROKEN### - Link to the report broken download page.
+###DOWNLOAD_RATE### - Link to the rating page.
+###DOWNLOAD_COUNT_TOTAL###
+
+###LL_CATS###
+###LL_DOWNLOADS###
+###LL_TOTAL###
+
+###LL_FILENAME###
+###LL_TYPE###
+###LL_SIZE###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+###LL_IMAGE###
+###LL_DATE_ADDED###
+###LL_CLICKS###
+###LL_RATING###
+###LL_VOTES###
+###LL_DOWNLOAD###
+
+###DOWNLOAD_ADD_NEW###
+###BROWSE_DOWNLOADS###
+
+###EDIT_PANEL###
+
+<!-- ###VIEW_CATEGORY### begin -->
+
+	<!-- ###PATHMENU### begin -->
+	<div class="tx_abdownloads_listView_categoryPath">###CATEGORY_PATH###</div>
+	<!-- ###PATHMENU### end -->
+
+	<br />
+
+	<!-- ###ADDITIONAL### begin -->
+		###DOWNLOAD_ADD_NEW###
+	<!-- ###ADDITIONAL### end -->
+
+	<!-- ###CATEGORIES### begin -->
+	<div class="tx_abdownloads_listView_categories">
+		<table>
+		<tr>
+			<td colspan="2">###LL_CATS### (###DOWNLOAD_COUNT_TOTAL### ###LL_DOWNLOADS### ###LL_TOTAL###)</td>
+		</tr>
+	
+		<!-- ###CATEGORY### begin -->
+		<tr>
+			<td>###CATEGORY_ICON###</td>
+			<td>###CATEGORY_LABEL### (###CATEGORY_DOWNLOAD_COUNT### ###LL_DOWNLOADS### ###LL_TOTAL###)</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>###CATEGORY_DESCRIPTION###</td>
+		</tr>
+		<!-- ###CATEGORY### end -->
+		</table>
+	</div>
+	<!-- ###CATEGORIES### end -->
+
+	<!-- ###DOWNLOADS### begin -->
+	<div class="tx_abdownloads_listView_downloads">
+		<table>
+		<tr>
+			<td colspan="2">###LL_DOWNLOADS###</td>
+		</tr>
+		<!-- ###DOWNLOAD### begin -->
+			<!-- ###DOWNLOAD_1### begin -->
+			<tr>
+				<td>###DOWNLOAD_ICON###</td>
+				<td>###DOWNLOAD_LABEL###</td>
+			</tr>		
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_TEASER###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_CLICKS### ###LL_CLICKS### | ###DOWNLOAD_RATING_STARS### | ###DOWNLOAD_DETAILS### | ###DOWNLOAD_REPORT_BROKEN### | ###DOWNLOAD_RATE###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_IMAGE###</td>
+			</tr>
+			<!-- ###DOWNLOAD_1### end -->
+			<!-- ###DOWNLOAD_2### begin -->
+			<tr>
+				<td>###DOWNLOAD_ICON###</td>
+				<td>###DOWNLOAD_LABEL###</td>
+			</tr>		
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_TEASER###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_CLICKS### ###LL_CLICKS### | ###DOWNLOAD_RATING_STARS### | ###DOWNLOAD_DETAILS### | ###DOWNLOAD_REPORT_BROKEN### | ###DOWNLOAD_RATE###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_IMAGE###</td>
+			</tr>
+			<!-- ###DOWNLOAD_2### end -->
+		<!-- ###DOWNLOAD### end -->
+		</table>
+	</div>
+	<!-- ###DOWNLOADS### end -->
+
+	###BROWSE_DOWNLOADS###
+<!-- ###VIEW_CATEGORY### end -->
+
+###############################################################################################
+
+###CATEGORY_LABEL### - This is the label of the category.
+###CATEGORY_DESCRIPTION### - This is the description of the category.
+###CATEGORY_ICON### - This is the icon of the category.
+###CATEGORY_ANCHOR### - This is the anchor of the category.
+###CATEGORY_DOWNLOAD_COUNT###
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###DOWNLOAD_FILENAME### - This is the filename of a download.
+###DOWNLOAD_FILEICON### - This is the MIME icon for a download.
+###DOWNLOAD_TYPE### - This is the type of a download.
+###DOWNLOAD_SIZE### - This is the size of a download.
+###DOWNLOAD_DESCRIPTION### - Detailed description of a download.
+###DOWNLOAD_SPONSORED_DESCRIPTION### - Detailed description of a sponsored download.
+###DOWNLOAD_LANGUAGE### - This is the language of a download.
+###DOWNLOAD_LICENSE### - This is the license of a download.
+###DOWNLOAD_HOMEPAGE### - This is the homepage of a download.
+###DOWNLOAD_IMAGE### - The image.
+###DOWNLOAD_TEASER### - This is the download teaser.
+###DOWNLOAD_DATE### - This is the date of adding.
+###DOWNLOAD_TIME### - This is the time of adding.
+###DOWNLOAD_CLICKS###  - The number of clicks.
+###DOWNLOAD_RATING### - The rating.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###DOWNLOAD_RATING_STARS### - The stars representation of the rating.
+###DOWNLOAD_HREF### - This is the href of a download.
+###DOWNLOAD_DETAILS### - URL for a download's detail page.
+###DOWNLOAD_ICON### - This is the icon of a download.
+###DOWNLOAD_ADD_NEW### - Url for the add new download page.
+###DOWNLOAD_REPORT_BROKEN### - Link to the report broken download page.
+###DOWNLOAD_RATE### - Link to the rating page.
+###DOWNLOAD_COUNT_TOTAL###
+
+###LL_FILENAME###
+###LL_TYPE###
+###LL_SIZE###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+###LL_IMAGE###
+###LL_DATE_ADDED###
+###LL_CLICKS###
+###LL_RATING###
+###LL_VOTES###
+###LL_DOWNLOAD###
+
+###DOWNLOAD_ADD_NEW###
+
+###INDENTION###
+###LEVEL###
+
+###EDIT_PANEL###
+
+<!-- ###VIEW_TREE### begin -->
+
+	<div class="tx_abdownloads_treeView_category tx_abdownloads_treeView_category_level_###LEVEL###">
+		<a name="###CATEGORY_ANCHOR###"></a>
+		<div style="margin-left:###INDENTION###px;">
+			###CATEGORY_ICON### ###CATEGORY_LABEL### - ###DOWNLOAD_ADD_NEW###
+
+			###CATEGORY_DESCRIPTION###
+		</div>
+	</div>
+	<!-- ###TREE_DOWNLOAD### begin -->
+	<div class="tx_abdownloads_treeView_downloads">
+		<table style="margin-left:###INDENTION###px;margin-bottom:10px;">
+		<tr>
+			<td>###DOWNLOAD_ICON###</td>
+			<td>###DOWNLOAD_LABEL###</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>###DOWNLOAD_TEASER###</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>###DOWNLOAD_CLICKS### ###LL_CLICKS### | ###DOWNLOAD_RATING_STARS### | ###DOWNLOAD_DETAILS### | ###DOWNLOAD_REPORT_BROKEN### | ###DOWNLOAD_RATE###</td>
+		</tr>
+		</table>
+	</div>
+	<!-- ###TREE_DOWNLOAD### end -->
+
+<!-- ###VIEW_TREE### end -->
+
+###############################################################################################
+
+###FORM_ACTION### - The query results are sent to this page. MUST look like this: '<form action="###FORM_ACTION###" method="post">'
+###FORM_SEARCH_VALUE###
+###FORM_SUBMIT_BUTTON_VALUE###
+
+###CATEGORY_LABEL### - This is the label of the category.
+###CATEGORY_DESCRIPTION### - This is the description of the category.
+###CATEGORY_ICON### - This is the icon of the category.
+###CATEGORY_PATH### - Path menu with categories.
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###DOWNLOAD_FILENAME### - This is the filename of a download.
+###DOWNLOAD_FILEICON### - This is the MIME icon for a download.
+###DOWNLOAD_TYPE### - This is the type of a download.
+###DOWNLOAD_SIZE### - This is the size of a download.
+###DOWNLOAD_DESCRIPTION### - Detailed description of a download.
+###DOWNLOAD_SPONSORED_DESCRIPTION### - Detailed description of a sponsored download.
+###DOWNLOAD_LANGUAGE### - This is the language of a download.
+###DOWNLOAD_LICENSE### - This is the license of a download.
+###DOWNLOAD_HOMEPAGE### - This is the homepage of a download.
+###DOWNLOAD_IMAGE### - The image.
+###DOWNLOAD_TEASER### - This is the download teaser.
+###DOWNLOAD_DATE### - This is the date of adding.
+###DOWNLOAD_TIME### - This is the time of adding.
+###DOWNLOAD_CLICKS###  - The number of clicks.
+###DOWNLOAD_RATING### - The rating.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###DOWNLOAD_RATING_STARS### - The stars representation of the rating.
+###DOWNLOAD_HREF### - This is the href of a download.
+###DOWNLOAD_DETAILS### - URL for a download's detail page.
+###DOWNLOAD_ICON### - This is the icon of a download.
+###DOWNLOAD_REPORT_BROKEN### - Link to the report broken download page.
+###DOWNLOAD_RATE### - Link to the rating page.
+
+###LL_DOWNLOADS###
+###LL_TOTAL###
+
+###LL_FILENAME###
+###LL_TYPE###
+###LL_SIZE###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+###LL_IMAGE###
+###LL_DATE_ADDED###
+###LL_CLICKS###
+###LL_RATING###
+###LL_VOTES###
+###LL_DOWNLOAD###
+
+###BROWSE_DOWNLOADS###
+
+###NO_DOWNLOADS_MESSAGE### - The "No downloads found" text.
+###RESULT_MESSAGE### - The search result text.
+
+###EDIT_PANEL###
+
+<!-- ###VIEW_SEARCH### begin -->
+
+	<!-- ###FORM### begin -->
+
+	<!--
+	List search box:
+	-->
+	<div class="tx_abdownloads_searchView_searchBox">
+		<form action="###FORM_ACTION###" method="post" style="margin: 0 0 0 0;">
+		<table>
+			<tr>
+				<td><input type="text" name="tx_abdownloads_pi1[sword]" value="###FORM_SEARCH_VALUE###" class="tx_abdownloads_searchView_searchBox_searchWord" /></td>
+				<td><input type="submit" value="###FORM_SUBMIT_BUTTON_VALUE###" class="tx_abdownloads_searchView_searchBox_button" />
+				<input type="hidden" name="no_cache" value="1" />
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+	<!-- ###FORM### end -->
+
+	<div class="tx_abdownloads_searchView_resultMessage">###RESULT_MESSAGE###</div>
+
+	<br />
+
+	<table>
+	<tr>
+		<td colspan="2">###LL_DOWNLOADS###</td>
+	</tr>
+
+	<!-- ###NODOWNLOADS### begin -->
+	<tr>
+		<td colspan="2"><div class="tx_abdownloads_searchView_noDownloadsMessage">###NO_DOWNLOADS_MESSAGE###</div></td>
+	</tr>
+	<!-- ###NODOWNLOADS### end -->
+
+	<!-- ###DOWNLOADS### begin -->
+	<tr>
+		<td></td>
+		<td><div class="tx_abdownloads_searchView_categoryPath">###CATEGORY_PATH###</div></td>
+	</tr>	
+	<tr>
+		<td>###DOWNLOAD_ICON###</td>
+		<td>###DOWNLOAD_LABEL###</td>
+	</tr>		
+	<tr>
+		<td></td>
+		<td>###DOWNLOAD_TEASER###</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>###DOWNLOAD_CLICKS### ###LL_CLICKS### | ###DOWNLOAD_RATING_STARS### | ###DOWNLOAD_DETAILS### | ###DOWNLOAD_REPORT_BROKEN### | ###DOWNLOAD_RATE###</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>###DOWNLOAD_IMAGE###</td>
+	</tr>
+	<!-- ###DOWNLOADS### end -->
+	</table>
+
+	###BROWSE_DOWNLOADS###
+<!-- ###VIEW_SEARCH### end -->
+
+###############################################################################################
+
+###CATEGORY_LABEL### - This is the label of the category.
+###CATEGORY_DESCRIPTION### - This is the description of the category.
+###CATEGORY_ICON### - This is the icon of the category.
+###CATEGORY_PATH### - Path menu with categories.
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###DOWNLOAD_FILENAME### - This is the filename of a download.
+###DOWNLOAD_FILEICON### - This is the MIME icon for a download.
+###DOWNLOAD_TYPE### - This is the type of a download.
+###DOWNLOAD_SIZE### - This is the size of a download.
+###DOWNLOAD_DESCRIPTION### - Detailed description of a download.
+###DOWNLOAD_SPONSORED_DESCRIPTION### - Detailed description of a sponsored download.
+###DOWNLOAD_LANGUAGE### - This is the language of a download.
+###DOWNLOAD_LICENSE### - This is the license of a download.
+###DOWNLOAD_HOMEPAGE### - This is the homepage of a download.
+###DOWNLOAD_IMAGE### - The image.
+###DOWNLOAD_TEASER### - This is the download teaser.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###DOWNLOAD_RATING_STARS### - The stars representation of the rating.
+###DOWNLOAD_HREF### - This is the href of a download.
+###DOWNLOAD_DETAILS### - URL for a download's detail page.
+###DOWNLOAD_ICON### - This is the icon of a download.
+###DOWNLOAD_VALUE### - The value of the selected download property (rating, clicks, creation time) within a TOP list.
+
+###LL_FILENAME###
+###LL_TYPE###
+###LL_SIZE###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+###LL_IMAGE###
+###LL_DATE_ADDED###
+###LL_CLICKS###
+###LL_RATING###
+###LL_VOTES###
+###LL_DOWNLOAD###
+
+###TOP_MESSAGE### - The title of the selected TOP list.
+
+###EDIT_PANEL###
+
+<!-- ###VIEW_TOP### begin -->
+
+	<div class="tx_abdownloads_topView_downloads">
+		###TOP_MESSAGE###
+	
+		<!-- ###TOP_DOWNLOAD### begin -->
+		<div class="tx_abdownloads_topView_download">###DOWNLOAD_LABEL### ###DOWNLOAD_VALUE###</div>
+		<!-- ###TOP_DOWNLOAD### end -->
+	</div>
+
+<!-- ###VIEW_TOP### end -->
+
+###############################################################################################
+
+###CATEGORY_LABEL### - This is the label of the category.
+###CATEGORY_DESCRIPTION### - This is the description of the category.
+###CATEGORY_ICON### - This is the icon of the category.
+###CATEGORY_PATH### - Path menu with categories.
+###CATEGORY_DOWNLOAD_COUNT###
+
+###SUBCATEGORY_LABEL###
+###SUBCATEGORY_DESCRIPTION### - This is the description of the category.
+###SUBCATEGORY_ICON### - This is the icon of the category.
+###SUBCATEGORY_DOWNLOAD_COUNT###
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###DOWNLOAD_FILENAME### - This is the filename of a download.
+###DOWNLOAD_FILEICON### - This is the MIME icon for a download.
+###DOWNLOAD_TYPE### - This is the type of a download.
+###DOWNLOAD_SIZE### - This is the size of a download.
+###DOWNLOAD_DESCRIPTION### - Detailed description of a download.
+###DOWNLOAD_SPONSORED_DESCRIPTION### - Detailed description of a sponsored download.
+###DOWNLOAD_LANGUAGE### - This is the language of a download.
+###DOWNLOAD_LICENSE### - This is the license of a download.
+###DOWNLOAD_HOMEPAGE### - This is the homepage of a download.
+###DOWNLOAD_IMAGE### - The image.
+###DOWNLOAD_TEASER### - This is the download teaser.
+###DOWNLOAD_DATE### - This is the date of adding.
+###DOWNLOAD_TIME### - This is the time of adding.
+###DOWNLOAD_CLICKS###  - The number of clicks.
+###DOWNLOAD_RATING### - The rating.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###DOWNLOAD_RATING_STARS### - The stars representation of the rating.
+###DOWNLOAD_HREF### - This is the href of a download.
+###DOWNLOAD_DETAILS### - URL for a download's detail page.
+###DOWNLOAD_ICON### - This is the icon of a download.
+###DOWNLOAD_ADD_NEW### - Url for the add new download page.
+###DOWNLOAD_REPORT_BROKEN### - Link to the report broken download page.
+###DOWNLOAD_RATE### - Link to the rating page.
+###DOWNLOAD_COUNT_TOTAL###
+
+###LL_CATS###
+###LL_DOWNLOADS###
+###LL_TOTAL###
+
+###LL_FILENAME###
+###LL_TYPE###
+###LL_SIZE###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+###LL_IMAGE###
+###LL_DATE_ADDED###
+###LL_CLICKS###
+###LL_RATING###
+###LL_VOTES###
+###LL_DOWNLOAD###
+
+###DOWNLOAD_ADD_NEW###
+###BROWSE_DOWNLOADS###
+
+###EDIT_PANEL###
+
+<!-- ###VIEW_CATALOG### begin -->
+
+	<!-- ###PATHMENU### begin -->
+		<div class="tx_abdownloads_catalogView_categoryPath">###CATEGORY_PATH###</div>
+	<!-- ###PATHMENU### end -->
+
+	<br />
+
+	<!-- ###ADDITIONAL### begin -->
+		###DOWNLOAD_ADD_NEW###
+	<!-- ###ADDITIONAL### end -->
+
+	<div class="tx_abdownloads_catalogView_categories">
+		<!-- ###CATEGORY### begin -->
+		<div class="tx_abdownloads_catalogView_category">
+			###CATEGORY_ICON### ###CATEGORY_LABEL### (###CATEGORY_DOWNLOAD_COUNT### ###LL_DOWNLOADS###)
+
+			<div class="tx_abdownloads_catalogView_subcategories">
+				<!-- ###SUBCATEGORIES### begin -->###SUBCATEGORY_LABEL###<!-- ###SUBCATEGORIES### end -->
+			</div>
+
+			###CATEGORY_DESCRIPTION###
+		</div>
+		<!-- ###CATEGORY### end -->
+	</div>
+
+	<!-- ###DOWNLOADS### begin -->
+	<div class="tx_abdownloads_listView_downloads">
+		<table>
+		<tr>
+			<td colspan="2">###LL_DOWNLOADS###</td>
+		</tr>
+		<!-- ###DOWNLOAD### begin -->
+			<!-- ###DOWNLOAD_1### begin -->
+			<tr>
+				<td>###DOWNLOAD_ICON###</td>
+				<td>###DOWNLOAD_LABEL###</td>
+			</tr>		
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_TEASER###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_CLICKS### ###LL_CLICKS### | ###DOWNLOAD_RATING_STARS### | ###DOWNLOAD_DETAILS### | ###DOWNLOAD_REPORT_BROKEN### | ###DOWNLOAD_RATE###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_IMAGE###</td>
+			</tr>
+			<!-- ###DOWNLOAD_1### end -->
+			<!-- ###DOWNLOAD_2### begin -->
+			<tr>
+				<td>###DOWNLOAD_ICON###</td>
+				<td>###DOWNLOAD_LABEL###</td>
+			</tr>		
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_TEASER###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_CLICKS### ###LL_CLICKS### | ###DOWNLOAD_RATING_STARS### | ###DOWNLOAD_DETAILS### | ###DOWNLOAD_REPORT_BROKEN### | ###DOWNLOAD_RATE###</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>###DOWNLOAD_IMAGE###</td>
+			</tr>
+			<!-- ###DOWNLOAD_2### end -->
+		<!-- ###DOWNLOAD### end -->
+		</table>
+	</div>
+	<!-- ###DOWNLOADS### end -->
+
+	###BROWSE_DOWNLOADS###
+
+	<!-- ###NEXT_ROW### begin -->
+	<br/>
+	<!-- ###NEXT_ROW### end -->
+<!-- ###VIEW_CATALOG### end -->
+
+###############################################################################################
+
+###CATEGORY_PATH### - Path menu with categories.
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###DOWNLOAD_FILENAME### - This is the filename of a download.
+###DOWNLOAD_FILEICON### - This is the MIME icon for a download.
+###DOWNLOAD_TYPE### - This is the type of a download.
+###DOWNLOAD_SIZE### - This is the size of a download.
+###DOWNLOAD_DESCRIPTION### - Detailed description of a download.
+###DOWNLOAD_SPONSORED_DESCRIPTION### - Detailed description of a sponsored download.
+###DOWNLOAD_LANGUAGE### - This is the language of a download.
+###DOWNLOAD_LICENSE### - This is the license of a download.
+###DOWNLOAD_HOMEPAGE### - This is the homepage of a download.
+###DOWNLOAD_IMAGE### - The image.
+###DOWNLOAD_TEASER### - This is the download teaser.
+###DOWNLOAD_DATE### - This is the date of adding.
+###DOWNLOAD_TIME### - This is the time of adding.
+###DOWNLOAD_CLICKS###  - The number of clicks.
+###DOWNLOAD_RATING### - The rating.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###DOWNLOAD_RATING_STARS### - The stars representation of the rating.
+###DOWNLOAD_HREF### - This is the href of a download.
+###DOWNLOAD_DETAILS### - URL for a download's detail page.
+###DOWNLOAD_ICON### - This is the icon of a download.
+###LINK_BACK_TO_CATEGORY### - This download sends the user back to the category view he comes from.
+
+###LL_DOWNLOADS###
+###LL_TOTAL###
+
+###LL_FILENAME###
+###LL_TYPE###
+###LL_SIZE###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+###LL_IMAGE###
+###LL_DATE_ADDED###
+###LL_CLICKS###
+###LL_RATING###
+###LL_VOTES###
+###LL_DOWNLOAD###
+
+###EDIT_PANEL###
+
+<!-- ###VIEW_DETAILS_FOR_DOWNLOAD### begin -->
+
+	<div class="tx_abdownloads_categoryPath">###CATEGORY_PATH###</div>
+
+	<div class="tx_abdownloads_viewDetailsForDownload">
+		<table>
+		<tr>
+			<td colspan="2">###DOWNLOAD_LABEL###</td>
+		</tr>
+		<tr>
+			<td valign="top">###LL_FILENAME###:</td>
+			<td>###DOWNLOAD_FILENAME###</td>
+		</tr>
+		<tr>
+			<td valign="top">###LL_TYPE###:</td>
+			<td>###DOWNLOAD_TYPE###</td>
+		</tr>
+		<tr>
+			<td valign="top">###LL_SIZE###:</td>
+			<td>###DOWNLOAD_SIZE###</td>
+		</tr>
+		<tr>
+			<td valign="top">###LL_DESCRIPTION###:</td>
+			<td>###DOWNLOAD_DESCRIPTION###</td>
+		</tr>
+		<tr>
+			<td valign="top">###LL_IMAGE###:</td>
+			<td>###DOWNLOAD_IMAGE###</td>
+		</tr>
+		<tr>
+			<td>###LL_DATE_ADDED###:</td>
+			<td>###DOWNLOAD_DATE###<br />###DOWNLOAD_TIME###</td>
+		</tr>
+		<tr>
+			<td>###LL_CLICKS###:</td>
+			<td>###DOWNLOAD_CLICKS###</td>
+		</tr>
+		<tr>
+			<td>###LL_RATING### (###LL_VOTES###):</td>
+			<td>###DOWNLOAD_RATING### (###DOWNLOAD_VOTES###)<br />###DOWNLOAD_RATING_STARS###</td>
+		</tr>
+		<tr>
+			<td>###LL_DOWNLOAD###:</td>
+			<td><a href="###DOWNLOAD_HREF###">###DOWNLOAD_FILEICON###</a></td>
+		</tr>
+		</table>
+	</div>
+
+	###LINK_BACK_TO_CATEGORY###
+
+<!-- ###VIEW_DETAILS_FOR_DOWNLOAD### end -->
+
+###############################################################################################
+
+###LINK_BACK_TO_CATEGORY###
+
+###FORM_ACTION### - The query results are sent to this page. MUST look like this: '<form action="###FORM_ACTION###" method="post">'
+###MAX_FILE_SIZE_RAW###
+###MAX_FILE_SIZE###
+###FORM_LABEL_NAME### - The 'name' attribute for the Label input field.
+###FORM_LABEL_VALUE### - The submitted value for label.
+###FORM_CATEGORY###
+###FORM_CONTACT_NAME###
+###FORM_CONTACT_VALUE###
+###FORM_IMAGE_NAME###
+###FORM_DESCRIPTION_NAME###
+###FORM_DESCRIPTION_VALUE###
+###FORM_SUBMIT_BUTTON_NAME###
+###FORM_SUBMIT_BUTTON_VALUE###
+###FORM_CANCEL_BUTTON_NAME###
+###FORM_CANCEL_BUTTON_VALUE###
+###FORM_ERRORMSG### - Marker for error messages that may occur.
+
+###SR_FREECAP_NOTICE###
+###SR_FREECAP_CANT_READ###
+###SR_FREECAP_IMAGE###
+
+###CAPTCHA_NOTICE###
+###CAPTCHA_IMAGE###
+
+###LL_ADD_DOWNLOAD###
+###LL_ADD_DOWNLOAD_TEXT###
+###LL_LABEL###
+###LL_LABEL_EXAMPLE###
+###LL_CATEGORY###
+###LL_CONTACT###
+###LL_CONTACT_EXAMPLE###
+###LL_IMAGE###
+###LL_IMAGE_EXAMPLE###
+###LL_FILE###
+###LL_MAXIMUM###
+###LL_DESCRIPTION###
+###LL_LANGUAGE###
+###LL_LICENSE###
+###LL_HOMEPAGE###
+
+<!-- ###VIEW_ADD_NEW_DOWNLOAD### begin -->
+
+	<div class="tx_abdownloads_viewAddNewDownload">
+		###LL_ADD_DOWNLOAD###
+	
+		<br /><br />
+	
+		###LL_ADD_DOWNLOAD_TEXT###
+	
+		<div class="tx_abdownloads_formErrorMsg">###FORM_ERRORMSG###</div>
+
+		<form enctype="multipart/form-data" action="###FORM_ACTION###" method="post">
+		<input type="hidden" name="MAX_FILE_SIZE" value="###MAX_FILE_SIZE_RAW###">
+		<table width="100%" border="0">
+			<tr>
+				<td>###LL_LABEL###:</td>
+				<td><input type="text" name="###FORM_LABEL_NAME###" value="###FORM_LABEL_VALUE###" size="30" maxlenght="30" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><small>###LL_LABEL_EXAMPLE###</small></td>
+			</tr>
+			<tr>
+				<td>###LL_CATEGORY###:</td>
+				<td>###FORM_CATEGORY###</td>
+			</tr>
+			<tr>
+				<td>###LL_CONTACT###:</td>
+				<td><input type="text" name="###FORM_CONTACT_NAME###" value="###FORM_CONTACT_VALUE###" size="60" maxlenght="60" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><small>###LL_CONTACT_EXAMPLE###</small></td>
+			</tr>
+			<tr>
+				<td>###LL_IMAGE###:</td>
+				<td><input type="file" name="image" size="40" /></td>
+			</tr>
+			<tr>
+				<td>###LL_FILE###:<br/>(###LL_MAXIMUM###: ###MAX_FILE_SIZE###)</td>
+				<td><input type="file" name="file" size="40" /></td>
+			</tr>
+			<tr>
+				<td>###LL_DESCRIPTION###:</td>
+				<td><textarea name="###FORM_DESCRIPTION_NAME###" cols="34" rows="8">###FORM_DESCRIPTION_VALUE###</textarea></td>
+			</tr>
+			<!-- ###CAPTCHA### begin -->
+			<tr>
+				<td>###SR_FREECAP_NOTICE###:<br />###SR_FREECAP_CANT_READ###</td>
+				<td>###SR_FREECAP_IMAGE###<br /><input type="text" name="tx_abdownloads_pi1[captchaResponse]" size="60" maxlenght="60" /></td>
+			</tr>
+			<tr>
+				<td>###CAPTCHA_NOTICE###:</td>
+				<td>###CAPTCHA_IMAGE###<br /><input type="text" name="tx_ablinklist_pi1[captchaResponse]" size="60" maxlenght="60" /></td>
+			</tr>
+			<!-- ###CAPTCHA### end -->
+			<tr>
+				<td colspan="2" align="right">
+					<input type="submit" name="###FORM_SUBMIT_BUTTON_NAME###" value="###FORM_SUBMIT_BUTTON_VALUE###" />
+					<input type="submit" name="###FORM_CANCEL_BUTTON_NAME###" value="###FORM_CANCEL_BUTTON_VALUE###" />
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+
+	###LINK_BACK_TO_CATEGORY###
+
+<!-- ###VIEW_ADD_NEW_DOWNLOAD### end -->
+
+###############################################################################################
+
+###DOWNLOAD_LABEL### - This is the label of a download.
+###LINK_BACK_TO_CATEGORY###
+
+###FORM_ACTION### - The query results are sent to this page. MUST look like this: '<form action="###FORM_ACTION###" method="post">'
+###FORM_YES_BUTTON_NAME###
+###FORM_YES_BUTTON_VALUE###
+###FORM_NO_BUTTON_NAME###
+###FORM_NO_BUTTON_VALUE###
+
+###LL_REPORT_DOWNLOAD_BROKEN_TEXT###
+
+<!-- ###VIEW_REPORT_BROKEN_DOWNLOAD### begin -->
+
+	<div class="tx_abdownloads_viewReportBrokenDownload">
+		 ###LL_REPORT_DOWNLOAD_BROKEN_TEXT###
+	
+		<br />
+	
+		<form action="###FORM_ACTION###" method="post">
+		<table width="100%" border="0">
+			<tr>
+				<td><b>&raquo; ###DOWNLOAD_LABEL###</b></td>
+			</tr>
+			<tr>
+				<td align="right">
+					<input type="submit" name="###FORM_YES_BUTTON_NAME###" value="###FORM_YES_BUTTON_VALUE###" />
+					<input type="submit" name="###FORM_NO_BUTTON_NAME###" value="###FORM_NO_BUTTON_VALUE###" />
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+
+	###LINK_BACK_TO_CATEGORY###
+
+<!-- ###VIEW_REPORT_BROKEN_DOWNLOAD### end -->
+
+###############################################################################################
+
+###DOWNLOAD_LABEL###
+###DOWNLOAD_RATING### - The rating.
+###DOWNLOAD_VOTES### - The number of rating votes.
+###LINK_BACK_TO_CATEGORY###
+
+###FORM_YES_BUTTON_NAME###
+###FORM_YES_BUTTON_VALUE###
+###FORM_NO_BUTTON_NAME###
+###FORM_NO_BUTTON_VALUE###
+
+###LL_RATE_DOWNLOAD_TEXT###
+###LL_RATING_CURRENT###
+###LL_VOTES###
+###LL_VERY_BAD###
+###LL_VERY_GOOD###
+
+<!-- ###VIEW_RATE_DOWNLOAD### begin -->
+
+	<div class="tx_abdownloads_viewRateDownload">
+		<form action="###FORM_ACTION###" method="post">
+		<table>
+		<tr>
+			<td colspan="11">###LL_RATE_DOWNLOAD_TEXT###<br />1 = ###LL_VERY_BAD###, 10 = ###LL_VERY_GOOD###</td>
+		</tr>
+		<tr>
+			<td colspan="11"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="10"><b>&raquo; ###DOWNLOAD_LABEL###</b></td>
+		</tr>
+		<tr>
+			<td colspan="11"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="10"><b>###LL_RATING_CURRENT### (###LL_VOTES###):</b> ###DOWNLOAD_RATING### (###DOWNLOAD_VOTES###)</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="1"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="2"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="3"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="4"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="5" checked="checked"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="6"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="7"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="8"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="9"></td>
+			<td align="center"><input type="radio" name="tx_abdownloads_pi1[rating]" value="10"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td align="center">1</td>
+			<td align="center">2</td>
+			<td align="center">3</td>
+			<td align="center">4</td>
+			<td align="center">5</td>
+			<td align="center">6</td>
+			<td align="center">7</td>
+			<td align="center">8</td>
+			<td align="center">9</td>
+			<td align="center">10</td>
+		</tr>
+		<tr>
+			<td colspan="11"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="11">
+				<input type="submit" name="###FORM_SUBMIT_BUTTON_NAME###" value="###FORM_SUBMIT_BUTTON_VALUE###" />
+				<input type="submit" name="###FORM_CANCEL_BUTTON_NAME###" value="###FORM_CANCEL_BUTTON_VALUE###" />
+			</td>
+		</tr>
+		</table>
+		</form>
+	</div>
+
+	###LINK_BACK_TO_CATEGORY###
+
+<!-- ###VIEW_RATE_DOWNLOAD### end -->
+
+###############################################################################################
+
+###LINK_BACK_TO_CATEGORY### - This download sends the user back to the category view he comes from.
+
+###LL_LI_ADD_THX###
+
+<!-- ###VIEW_ADD_NEW_DOWNLOAD_RESULT### begin -->
+
+	<div class="tx_abdownloads_viewAddNewDownloadResult">
+		###LL_LI_ADD_THX###
+
+		<br />
+
+		###LINK_BACK_TO_CATEGORY###
+	</div>
+
+<!-- ###VIEW_ADD_NEW_DOWNLOAD_RESULT### end -->
+
+###############################################################################################
+
+###LINK_BACK_TO_CATEGORY###  - This download sends the user back to the category view he comes from.
+
+###LL_LI_BROKEN_THX###
+
+<!-- ###VIEW_REPORT_BROKEN_DOWNLOAD_RESULT### begin -->
+
+	<div class="tx_abdownloads_viewReportBrokenDownloadResult">
+		###LL_LI_BROKEN_THX###
+
+		<br />
+
+		###LINK_BACK_TO_CATEGORY###
+	</div>
+
+<!-- ###VIEW_REPORT_BROKEN_DOWNLOAD_RESULT### end -->
+
+###############################################################################################
+
+###LINK_BACK_TO_CATEGORY###  - This download sends the user back to the category view he comes from.
+
+###LL_LI_RATE_THX###
+
+<!-- ###VIEW_RATE_DOWNLOAD_RESULT### begin -->
+
+	<div class="tx_abdownloads_viewRateDownloadResult">
+		###LL_LI_RATE_THX###
+	
+		<br />
+	
+		###LINK_BACK_TO_CATEGORY###
+	</div>
+
+<!-- ###VIEW_RATE_DOWNLOAD_RESULT### end -->
+
+###############################################################################################

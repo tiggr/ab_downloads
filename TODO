@@ -1,0 +1,35 @@
+2009-07-23 Andreas Bulling
+
+	* Add registration/confirmation form (Andreas Rainer, July 9, 2008 / Ingo May 1, 2008)
+	  checkbox, email, address
+
+2009-07-22 Andreas Bulling
+
+	* Fix bug related to editlock
+	* Fix bug related to cid
+	* output message if no downloads/categories have been found
+	* clear cache if a new download was added or download counter was increased
+
+2008-01-30 Torben Jensen
+
+	* Possibility to delete the file from the backend, so you don't end up with 100s of files without links connected to them.
+
+2007-06-30 Stefan Hörndler
+
+	* Possibility to show the language flag(s) after a download.
+
+2007-05-10 Axel Jindra
+
+	* Possibility to define a GRSP (general record storage page).
+
+2007-01-16 Benjamin Mack
+
+	* Possibility to use an alternation in the CATEGORY, CATALOG, SEARCH and TREE view.
+
+2005-11-14 Joern Bock
+
+	* Sorting of downloads dependent on category
+
+2005-11-14 Andreas Bulling
+
+	* Switch from eregi to other search method.

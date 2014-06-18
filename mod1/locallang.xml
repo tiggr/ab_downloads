@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for ab_downloads backend module</description>
+		<type>module</type>
+		<csh_table></csh_table>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">Modern Downloads</label>
+			<label index="function1">Approve downloads</label>
+			<label index="function2">Downloads reported broken</label>
+			<label index="function3">Check for broken downloads</label>
+			<label index="function4">Import categories/downloads from DB</label>
+			<label index="function5">Import categories/downloads from CSV</label>
+			<label index="function6">Export categories/downloads</label>
+			<label index="function7">Statistics</label>
+			<label index="label_back">&amp;laquo; Back</label>
+			<label index="legend">Legend:</label>
+			<label index="error">Error</label>
+			<label index="errorPageSelect">Please select the page with the CATEGORY/TREE/CATALOG/SEARCH/TOP plugin in the left frame.</label>
+			<label index="ViewDownloadsToApprove_title">Downloads to approve</label>
+			<label index="ViewDownloadsToApprove_accept">Accept this download</label>
+			<label index="ViewDownloadsToApprove_delete">Delete this download</label>
+			<label index="ViewAcceptDownload_title">Accept this download</label>
+			<label index="ViewDeleteDownload_title">Delete this download</label>
+			<label index="ViewEnableDownload_title">Enable this download</label>
+			<label index="ViewDisableDownload_title">Disable this download</label>
+			<label index="ViewDownloadsToApprove_text">Here you can see an overview of downloads submitted by frontend users. By clicking on the two icons besides a download you can 'Accept' or 'Delete' a download. You can also select a different category for the download.</label>
+			<label index="ViewDownloadsReportedBroken_title">Downloads reported broken</label>
+			<label index="ViewDownloadsReportedBroken_text">Here you can see downloads reported broken by frontend users. This does NOT necessarily mean that the downloads really don't work but that you have to check them.</label>
+			<label index="ViewDownloadsReportedBroken_disable">Disable this download (will not be shown in the frontend any more)</label>
+			<label index="ViewCheckForBrokenDownloads_title">Check for broken downloads</label>
+			<label index="ViewCheckForBrokenDownloads_text">Here you can see an overview of all downloads and their availability (online/offline). Furthermore you have the possibility to enable/disable certain downloads by clicking on the icons besides a download.</label>
+			<label index="ViewCheckForBrokenDownloads_online">Download seems to be online</label>
+			<label index="ViewCheckForBrokenDownloads_offline">Download seems to be offline</label>
+			<label index="ViewCheckForBrokenDownloads_enable">Enable this download</label>
+			<label index="ViewImportCategoriesDownloadsDB_text">Here you can generate a SQL query to import categories or downloads from other download/database tables. Just follow the instructions step by step.</label>
+			<label index="ViewImportCategoriesDownloadsCSV_text">Here you can import categories or downloads from a CSV file.</label>
+			<label index="ViewStatistics_text">Here you can view statistics on the categories or downloads in the database.</label>
+			<label index="ViewStatistics_categoriesCount">Total number of categories</label>
+			<label index="ViewStatistics_categoriesDeletedCount">Number of deleted categories</label>
+			<label index="ViewStatistics_categoriesHiddenCount">Number of hidden categories</label>
+			<label index="ViewStatistics_downloadsCount">Total number of downloads</label>
+			<label index="ViewStatistics_downloadsClicksCount">Total number of clicks</label>
+			<label index="ViewStatistics_downloadsVotesCount">Total number of votes</label>
+			<label index="ViewStatistics_downloadsDeletedCount">Number of deleted downloads</label>
+			<label index="ViewStatistics_downloadsHiddenCount">Number of hidden downloads</label>
+			<label index="ViewStatistics_downloadsStageEditingCount">Number of downloads in stage &quot;Editing&quot;</label>
+			<label index="ViewStatistics_downloadsStageReviewCount">Number of downloads in stage &quot;Review&quot;</label>
+			<label index="ViewStatistics_downloadsStagePublishCount">Number of downloads in stage &quot;Publish&quot;</label>
+			<label index="ViewStatistics_downloadsPublishedCount">Number of published downloads</label>
+			<label index="ViewStatistics_downloadsPendingCount">Number of pending downloads</label>
+			<label index="ViewStatistics_downloadsApprovedCount">Number of approved downloads</label>
+			<label index="ViewStatistics_downloadsReportedBrokenCount">Number of downloads reported broken</label>
+			<label index="ViewStatistics_downloadsDisabledCount">Number of disabled downloads</label>
+		</languageKey>
+		<languageKey index="dk" type="array">
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">Moderne Downloads</label>
+			<label index="function1">Downloads bestätigen</label>
+			<label index="function2">Als nicht funktionierend gemeldete Downloads</label>
+			<label index="function3">Downloads überprüfen</label>
+			<label index="function4">Kategorien/Downloads aus DB importieren</label>
+			<label index="function5">Kategorien/Downloads aus CSV importieren</label>
+			<label index="function6">Kategorien/Links exportieren</label>
+			<label index="function7">Statistiken</label>
+			<label index="label_back">&amp;laquo; Zurück</label>
+			<label index="legend">Legende:</label>
+			<label index="error">Fehler</label>
+			<label index="errorPageSelect">Bitte wählen Sie im downloaden Frame die Seite mit dem CATEGORY/TREE/CATALOG/SEARCH/TOP Plugin aus.</label>
+			<label index="ViewDownloadsToApprove_title">Downloads, die zu überprüfen sind</label>
+			<label index="ViewDownloadsToApprove_accept">Diesen Download akzeptieren</label>
+			<label index="ViewDownloadsToApprove_delete">Diesen Download löschen</label>
+			<label index="ViewAcceptDownload_title">Download bestätigen</label>
+			<label index="ViewDeleteDownload_title">Download löschen</label>
+			<label index="ViewEnableDownload_title">Download aktivieren</label>
+			<label index="ViewDisableDownload_title">Download abschalten</label>
+			<label index="ViewDownloadsToApprove_text">Hier wird eine Übersicht von allen Downloads angezeigt, die von Frontend Benutzern vorgeschlagen worden sind. Mit den zwei Icons neben einem Download Record, kann der entsprechende Download 'Bestätigt' oder 'Gelöscht' werden. Es kann ausserdem eine andere Kategorie für den Download ausgewählt werden.</label>
+			<label index="ViewDownloadsReportedBroken_title">Als nicht funktionierend gemeldete Downloads</label>
+			<label index="ViewDownloadsReportedBroken_text">Die folgenden Downloads sind von Frontend Usern als nicht funktionierend gemeldet worden. Das muss nicht in jedem Fall heißen, dass ein Download auch tatsächlich nicht funktioniert!</label>
+			<label index="ViewDownloadsReportedBroken_disable">Abschalten (wird im Frontend nicht mehr angezeigt)</label>
+			<label index="ViewCheckForBrokenDownloads_title">Auf nicht funktionierende Downloads überprüfen</label>
+			<label index="ViewCheckForBrokenDownloads_text">Hier werden alle Downloads mit ihrer Verfügbarkeit (online oder offline) angezeigt. Zusätzlich können Downloads aktiviert bzw. deaktiviert werden.</label>
+			<label index="ViewCheckForBrokenDownloads_online">Der Download scheint online zu sein</label>
+			<label index="ViewCheckForBrokenDownloads_offline">Der Download scheint offline zu sein</label>
+			<label index="ViewCheckForBrokenDownloads_enable">Download aktivieren</label>
+			<label index="ViewImportCategoriesDownloadsDB_text">Hier kann eine SQL Anfrage generiert werden, mit der Kategorien oder Downloads von anderen Download Plugins/Datenbanktabellen importiert werden können. Folgen Sie einfach Schritt für Schritt den Instruktionen.</label>
+			<label index="ViewImportCategoriesDownloadsCSV_text">Hier können Kategorien oder Downloads aus einer CSV-Datei importiert werden.</label>
+			<label index="ViewStatistics_text">Hier können Statistiken über die Kategorien oder Downloads in der Datenbank angezeigt werden.</label>
+		</languageKey>
+		<languageKey index="no" type="array">
+		</languageKey>
+		<languageKey index="it" type="array">
+		</languageKey>
+		<languageKey index="fr" type="array">
+		</languageKey>
+		<languageKey index="es" type="array">
+		</languageKey>
+		<languageKey index="nl" type="array">
+		</languageKey>
+		<languageKey index="cz" type="array">
+		</languageKey>
+		<languageKey index="pl" type="array">
+		</languageKey>
+		<languageKey index="si" type="array">
+		</languageKey>
+		<languageKey index="fi" type="array">
+		</languageKey>
+		<languageKey index="tr" type="array">
+		</languageKey>
+		<languageKey index="se" type="array">
+		</languageKey>
+		<languageKey index="pt" type="array">
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="title">Современный каталог файлов</label>
+			<label index="function1">Одобренные файлы</label>
+			<label index="function2">Нерабочие ссылки</label>
+			<label index="function3">Проверить нерабочие ссылки</label>
+			<label index="function6">Экспорт категорий/файлов каталога</label>
+			<label index="function7">Статистика</label>
+			<label index="label_back">&amp;laquo; Назад</label>
+			<label index="legend">Легенда:</label>
+			<label index="error">Ошибка</label>
+			<label index="errorPageSelect">Пожалуйста, выберите в левом фрейме страницу с CATEGORY/TREE/CATALOG/SEARCH/TOP плагином</label>
+			<label index="ViewDownloadsToApprove_title">Файлы для одобрения</label>
+			<label index="ViewDownloadsToApprove_accept">Принять этот файл каталога</label>
+			<label index="ViewDownloadsToApprove_delete">Удалить этот файл каталога</label>
+			<label index="ViewAcceptDownload_title">Принять этот файл каталога</label>
+			<label index="ViewDeleteDownload_title">Удалить этот файл каталога</label>
+			<label index="ViewEnableDownload_title">Разрешить этот файл</label>
+			<label index="ViewDisableDownload_title">Запретить этот файл</label>
+			<label index="ViewDownloadsToApprove_text">Здесь вы можете видеть обзор ссылок на файлы, предложенных пользователями сайта. Кликая на одну из двух иконок рядом со ссылкой на файл, вы можете &quot;Принять&quot; или &quot;Удалить&quot; ссылку на файл. Вы также можете выбрать другую категорию для ссылки.</label>
+			<label index="ViewDownloadsReportedBroken_title">Нерабочие ссылки на файлы</label>
+			<label index="ViewDownloadsReportedBroken_text">Здесь вы можете видеть ссылки на файлы, о которых сообщено как о нерабочих. Это не обязательно значит, что ссылка действительно не работает, но вам следует проверить это.</label>
+			<label index="ViewDownloadsReportedBroken_disable">Запретить ссылку на файл (теперь не будет показана на сайте)</label>
+			<label index="ViewCheckForBrokenDownloads_title">Проверить нерабочие ссылки</label>
+			<label index="ViewCheckForBrokenDownloads_text">Здесь вы можете видеть обзор всех ссылок на файлы и их доступность (онлайн/оффлайн). Кроме того, у вас есть возможность разрешить/запретить определённые ссылки на файлы, кликая на иконки рядом со ссылкой.</label>
+			<label index="ViewCheckForBrokenDownloads_online">Ссылка, видимо, онлайн</label>
+			<label index="ViewCheckForBrokenDownloads_offline">Ссылка, видимо, оффлайн</label>
+			<label index="ViewCheckForBrokenDownloads_enable">Разрешить эту ссылку</label>
+			<label index="ViewImportCategoriesDownloadsDB_text">Здесь вы можете сгенерировать SQL-запрос, чтобы импортировать категории/файлы каталога из других таблиц базы данных. Просто следуйте пошаговой инструкции.</label>
+			<label index="ViewStatistics_text">Здесь вы можете видеть статистику по категориям/файлам каталога.</label>
+			<label index="ViewStatistics_categoriesCount">Общее число категорий</label>
+			<label index="ViewStatistics_categoriesDeletedCount">Число удалённых категорий</label>
+			<label index="ViewStatistics_categoriesHiddenCount">Число скрытых категорий</label>
+			<label index="ViewStatistics_downloadsCount">Общее число файлов каталога</label>
+			<label index="ViewStatistics_downloadsClicksCount">Общее число скачиваний</label>
+			<label index="ViewStatistics_downloadsVotesCount">Общее число голосов в голосованиях</label>
+			<label index="ViewStatistics_downloadsDeletedCount">Число удалённых записей каталога</label>
+			<label index="ViewStatistics_downloadsHiddenCount">Число скрытых записей</label>
+			<label index="ViewStatistics_downloadsStageEditingCount">Число записей в состоянии &quot;Правка&quot;</label>
+			<label index="ViewStatistics_downloadsStageReviewCount">Число записей в состоянии &quot;Одобрено&quot;</label>
+			<label index="ViewStatistics_downloadsStagePublishCount">Число записей в состоянии &quot;Опубликовано&quot;</label>
+			<label index="ViewStatistics_downloadsPublishedCount">Число опубликованных записей</label>
+			<label index="ViewStatistics_downloadsPendingCount">Число ожидающих записей</label>
+			<label index="ViewStatistics_downloadsApprovedCount">Число подтвержденных записей</label>
+			<label index="ViewStatistics_downloadsReportedBrokenCount">Число записей, сообщенных как нерабочие</label>
+			<label index="ViewStatistics_downloadsDisabledCount">Число запрещенных записей</label>
+		</languageKey>
+		<languageKey index="ro" type="array">
+		</languageKey>
+		<languageKey index="ch" type="array">
+		</languageKey>
+		<languageKey index="sk" type="array">
+		</languageKey>
+		<languageKey index="lt" type="array">
+		</languageKey>
+		<languageKey index="is" type="array">
+		</languageKey>
+		<languageKey index="hr" type="array">
+		</languageKey>
+		<languageKey index="hu" type="array">
+		</languageKey>
+		<languageKey index="gl" type="array">
+		</languageKey>
+		<languageKey index="th" type="array">
+		</languageKey>
+		<languageKey index="gr" type="array">
+		</languageKey>
+		<languageKey index="hk" type="array">
+		</languageKey>
+		<languageKey index="eu" type="array">
+		</languageKey>
+		<languageKey index="bg" type="array">
+		</languageKey>
+		<languageKey index="br" type="array">
+		</languageKey>
+		<languageKey index="et" type="array">
+		</languageKey>
+		<languageKey index="ar" type="array">
+		</languageKey>
+		<languageKey index="he" type="array">
+		</languageKey>
+		<languageKey index="ua" type="array">
+		</languageKey>
+		<languageKey index="lv" type="array">
+		</languageKey>
+		<languageKey index="jp" type="array">
+		</languageKey>
+		<languageKey index="vn" type="array">
+		</languageKey>
+		<languageKey index="ca" type="array">
+		</languageKey>
+		<languageKey index="ba" type="array">
+		</languageKey>
+		<languageKey index="kr" type="array">
+		</languageKey>
+		<languageKey index="eo" type="array">
+		</languageKey>
+		<languageKey index="my" type="array">
+		</languageKey>
+		<languageKey index="hi" type="array">
+		</languageKey>
+	</data>
+	<orig_hash type="array">
+		<languageKey index="dk" type="array">
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title" type="integer">69460194</label>
+			<label index="function1" type="integer">119578201</label>
+			<label index="function2" type="integer">212628640</label>
+			<label index="function3" type="integer">207002744</label>
+			<label index="label_back" type="integer">217450108</label>
+			<label index="legend" type="integer">134507669</label>
+			<label index="error" type="integer">151171285</label>
+			<label index="errorPageSelect" type="integer">37982457</label>
+			<label index="ViewDownloadsToApprove_title" type="integer">207937090</label>
+			<label index="ViewDownloadsToApprove_accept" type="integer">210987842</label>
+			<label index="ViewDownloadsToApprove_delete" type="integer">190787124</label>
+			<label index="ViewAcceptDownload_title" type="integer">210987842</label>
+			<label index="ViewDeleteDownload_title" type="integer">190787124</label>
+			<label index="ViewDownloadsToApprove_text" type="integer">235208147</label>
+			<label index="ViewDownloadsReportedBroken_title" type="integer">212628640</label>
+			<label index="ViewDownloadsReportedBroken_text" type="integer">216900578</label>
+			<label index="ViewDownloadsReportedBroken_disable" type="integer">44420432</label>
+			<label index="ViewDisableDownload_title" type="integer">95180040</label>
+			<label index="ViewCheckForBrokenDownloads_title" type="integer">83369051</label>
+			<label index="ViewCheckForBrokenDownloads_text" type="integer">5733032</label>
+			<label index="ViewCheckForBrokenDownloads_online" type="integer">246627362</label>
+			<label index="ViewCheckForBrokenDownloads_offline" type="integer">70264913</label>
+			<label index="ViewCheckForBrokenDownloads_enable" type="integer">175965664</label>
+			<label index="ViewEnableDownload_title" type="integer">175965664</label>
+			<label index="ViewImportCategoriesDownloadsDB_text" type="integer">19361569</label>
+		</languageKey>
+		<languageKey index="no" type="array">
+		</languageKey>
+		<languageKey index="it" type="array">
+		</languageKey>
+		<languageKey index="fr" type="array">
+		</languageKey>
+		<languageKey index="es" type="array">
+		</languageKey>
+		<languageKey index="nl" type="array">
+		</languageKey>
+		<languageKey index="cz" type="array">
+		</languageKey>
+		<languageKey index="pl" type="array">
+		</languageKey>
+		<languageKey index="si" type="array">
+		</languageKey>
+		<languageKey index="fi" type="array">
+		</languageKey>
+		<languageKey index="tr" type="array">
+		</languageKey>
+		<languageKey index="se" type="array">
+		</languageKey>
+		<languageKey index="pt" type="array">
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="title" type="integer">69460194</label>
+			<label index="function1" type="integer">119578201</label>
+			<label index="function2" type="integer">212628640</label>
+			<label index="function3" type="integer">207002744</label>
+			<label index="function6" type="integer">98289907</label>
+			<label index="function7" type="integer">204727300</label>
+			<label index="label_back" type="integer">217450108</label>
+			<label index="legend" type="integer">134507669</label>
+			<label index="error" type="integer">151171285</label>
+			<label index="errorPageSelect" type="integer">37982457</label>
+			<label index="ViewDownloadsToApprove_title" type="integer">207937090</label>
+			<label index="ViewDownloadsToApprove_accept" type="integer">210987842</label>
+			<label index="ViewDownloadsToApprove_delete" type="integer">190787124</label>
+			<label index="ViewAcceptDownload_title" type="integer">210987842</label>
+			<label index="ViewDeleteDownload_title" type="integer">190787124</label>
+			<label index="ViewEnableDownload_title" type="integer">175965664</label>
+			<label index="ViewDisableDownload_title" type="integer">95180040</label>
+			<label index="ViewDownloadsToApprove_text" type="integer">235208147</label>
+			<label index="ViewDownloadsReportedBroken_title" type="integer">212628640</label>
+			<label index="ViewDownloadsReportedBroken_text" type="integer">216900578</label>
+			<label index="ViewDownloadsReportedBroken_disable" type="integer">44420432</label>
+			<label index="ViewCheckForBrokenDownloads_title" type="integer">83369051</label>
+			<label index="ViewCheckForBrokenDownloads_text" type="integer">5733032</label>
+			<label index="ViewCheckForBrokenDownloads_online" type="integer">246627362</label>
+			<label index="ViewCheckForBrokenDownloads_offline" type="integer">70264913</label>
+			<label index="ViewCheckForBrokenDownloads_enable" type="integer">175965664</label>
+			<label index="ViewImportCategoriesDownloadsDB_text" type="integer">19361569</label>
+			<label index="ViewStatistics_text" type="integer">232120977</label>
+			<label index="ViewStatistics_categoriesCount" type="integer">165663893</label>
+			<label index="ViewStatistics_categoriesDeletedCount" type="integer">7295739</label>
+			<label index="ViewStatistics_categoriesHiddenCount" type="integer">73263418</label>
+			<label index="ViewStatistics_downloadsCount" type="integer">105403716</label>
+			<label index="ViewStatistics_downloadsClicksCount" type="integer">67780841</label>
+			<label index="ViewStatistics_downloadsVotesCount" type="integer">24064550</label>
+			<label index="ViewStatistics_downloadsDeletedCount" type="integer">117619610</label>
+			<label index="ViewStatistics_downloadsHiddenCount" type="integer">128808037</label>
+			<label index="ViewStatistics_downloadsStageEditingCount" type="integer">5023431</label>
+			<label index="ViewStatistics_downloadsStageReviewCount" type="integer">104511033</label>
+			<label index="ViewStatistics_downloadsStagePublishCount" type="integer">93601897</label>
+			<label index="ViewStatistics_downloadsPublishedCount" type="integer">180537613</label>
+			<label index="ViewStatistics_downloadsPendingCount" type="integer">129008162</label>
+			<label index="ViewStatistics_downloadsApprovedCount" type="integer">50916796</label>
+			<label index="ViewStatistics_downloadsReportedBrokenCount" type="integer">9397695</label>
+			<label index="ViewStatistics_downloadsDisabledCount" type="integer">71041651</label>
+		</languageKey>
+		<languageKey index="ro" type="array">
+		</languageKey>
+		<languageKey index="ch" type="array">
+		</languageKey>
+		<languageKey index="sk" type="array">
+		</languageKey>
+		<languageKey index="lt" type="array">
+		</languageKey>
+		<languageKey index="is" type="array">
+		</languageKey>
+		<languageKey index="hr" type="array">
+		</languageKey>
+		<languageKey index="hu" type="array">
+		</languageKey>
+		<languageKey index="gl" type="array">
+		</languageKey>
+		<languageKey index="th" type="array">
+		</languageKey>
+		<languageKey index="gr" type="array">
+		</languageKey>
+		<languageKey index="hk" type="array">
+		</languageKey>
+		<languageKey index="eu" type="array">
+		</languageKey>
+		<languageKey index="bg" type="array">
+		</languageKey>
+		<languageKey index="br" type="array">
+		</languageKey>
+		<languageKey index="et" type="array">
+		</languageKey>
+		<languageKey index="ar" type="array">
+		</languageKey>
+		<languageKey index="he" type="array">
+		</languageKey>
+		<languageKey index="ua" type="array">
+		</languageKey>
+		<languageKey index="lv" type="array">
+		</languageKey>
+		<languageKey index="jp" type="array">
+		</languageKey>
+		<languageKey index="vn" type="array">
+		</languageKey>
+		<languageKey index="ca" type="array">
+		</languageKey>
+		<languageKey index="ba" type="array">
+		</languageKey>
+		<languageKey index="kr" type="array">
+		</languageKey>
+		<languageKey index="eo" type="array">
+		</languageKey>
+		<languageKey index="my" type="array">
+		</languageKey>
+		<languageKey index="hi" type="array">
+		</languageKey>
+	</orig_hash>
+	<orig_text type="array">
+		<languageKey index="dk" type="array">
+		</languageKey>
+		<languageKey index="de" type="array">
+		</languageKey>
+		<languageKey index="no" type="array">
+		</languageKey>
+		<languageKey index="it" type="array">
+		</languageKey>
+		<languageKey index="fr" type="array">
+		</languageKey>
+		<languageKey index="es" type="array">
+		</languageKey>
+		<languageKey index="nl" type="array">
+		</languageKey>
+		<languageKey index="cz" type="array">
+		</languageKey>
+		<languageKey index="pl" type="array">
+		</languageKey>
+		<languageKey index="si" type="array">
+		</languageKey>
+		<languageKey index="fi" type="array">
+		</languageKey>
+		<languageKey index="tr" type="array">
+		</languageKey>
+		<languageKey index="se" type="array">
+		</languageKey>
+		<languageKey index="pt" type="array">
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="title">Modern Downloads</label>
+			<label index="function1">Approve downloads</label>
+			<label index="function2">Downloads reported broken</label>
+			<label index="function3">Check for non-working downloads</label>
+			<label index="function6">Export categories/downloads</label>
+			<label index="function7">Statistics</label>
+			<label index="label_back">&amp;laquo; Back</label>
+			<label index="legend">Legend:</label>
+			<label index="error">Error</label>
+			<label index="errorPageSelect">Please select the page with the CATEGORY/TREE/CATALOG/SEARCH/TOP plugin in the left frame.</label>
+			<label index="ViewDownloadsToApprove_title">Downloads to approve</label>
+			<label index="ViewDownloadsToApprove_accept">Accept this download</label>
+			<label index="ViewDownloadsToApprove_delete">Delete this download</label>
+			<label index="ViewAcceptDownload_title">Accept this download</label>
+			<label index="ViewDeleteDownload_title">Delete this download</label>
+			<label index="ViewEnableDownload_title">Enable this download</label>
+			<label index="ViewDisableDownload_title">Disable this download</label>
+			<label index="ViewDownloadsToApprove_text">Here you can see an overview of downloads submitted by frontend users. By clicking on the two icons besides a download you can 'Accept' or 'Delete' a download. You can also select a different category for the download.</label>
+			<label index="ViewDownloadsReportedBroken_title">Downloads reported broken</label>
+			<label index="ViewDownloadsReportedBroken_text">Here you can see downloads reported broken by frontend users. This does NOT necessarily mean that the downloads really don't work but that you have to check them.</label>
+			<label index="ViewDownloadsReportedBroken_disable">Disable this download (will not be shown in the frontend any more)</label>
+			<label index="ViewCheckForBrokenDownloads_title">Check for broken downloads</label>
+			<label index="ViewCheckForBrokenDownloads_text">Here you can see an overview of all downloads and their availability (online/offline). Furthermore you have the possibility to enable/disable certain downloads by clicking on the icons besides a download.</label>
+			<label index="ViewCheckForBrokenDownloads_online">Download seems to be online</label>
+			<label index="ViewCheckForBrokenDownloads_offline">Download seems to be offline</label>
+			<label index="ViewCheckForBrokenDownloads_enable">Enable this download</label>
+			<label index="ViewImportCategoriesDownloadsDB_text">Here you can generate a SQL query to import categories/downloads from other download/database tables. Just follow the instructions step by step.</label>
+			<label index="ViewStatistics_text">Here you can view statistics on the categories/downloads in the database.</label>
+			<label index="ViewStatistics_categoriesCount">Total number of categories</label>
+			<label index="ViewStatistics_categoriesDeletedCount">Number of deleted categories</label>
+			<label index="ViewStatistics_categoriesHiddenCount">Number of hidden categories</label>
+			<label index="ViewStatistics_downloadsCount">Total number of downloads</label>
+			<label index="ViewStatistics_downloadsClicksCount">Total number of clicks</label>
+			<label index="ViewStatistics_downloadsVotesCount">Total number of votes</label>
+			<label index="ViewStatistics_downloadsDeletedCount">Number of deleted downloads</label>
+			<label index="ViewStatistics_downloadsHiddenCount">Number of hidden downloads</label>
+			<label index="ViewStatistics_downloadsStageEditingCount">Number of downloads in stage &quot;Editing&quot;</label>
+			<label index="ViewStatistics_downloadsStageReviewCount">Number of downloads in stage &quot;Review&quot;</label>
+			<label index="ViewStatistics_downloadsStagePublishCount">Number of downloads in stage &quot;Publish&quot;</label>
+			<label index="ViewStatistics_downloadsPublishedCount">Number of published downloads</label>
+			<label index="ViewStatistics_downloadsPendingCount">Number of pending downloads</label>
+			<label index="ViewStatistics_downloadsApprovedCount">Number of approved downloads</label>
+			<label index="ViewStatistics_downloadsReportedBrokenCount">Number of downloads reported broken</label>
+			<label index="ViewStatistics_downloadsDisabledCount">Number of disabled downloads</label>
+		</languageKey>
+		<languageKey index="ro" type="array">
+		</languageKey>
+		<languageKey index="ch" type="array">
+		</languageKey>
+		<languageKey index="sk" type="array">
+		</languageKey>
+		<languageKey index="lt" type="array">
+		</languageKey>
+		<languageKey index="is" type="array">
+		</languageKey>
+		<languageKey index="hr" type="array">
+		</languageKey>
+		<languageKey index="hu" type="array">
+		</languageKey>
+		<languageKey index="gl" type="array">
+		</languageKey>
+		<languageKey index="th" type="array">
+		</languageKey>
+		<languageKey index="gr" type="array">
+		</languageKey>
+		<languageKey index="hk" type="array">
+		</languageKey>
+		<languageKey index="eu" type="array">
+		</languageKey>
+		<languageKey index="bg" type="array">
+		</languageKey>
+		<languageKey index="br" type="array">
+		</languageKey>
+		<languageKey index="et" type="array">
+		</languageKey>
+		<languageKey index="ar" type="array">
+		</languageKey>
+		<languageKey index="he" type="array">
+		</languageKey>
+		<languageKey index="ua" type="array">
+		</languageKey>
+		<languageKey index="lv" type="array">
+		</languageKey>
+		<languageKey index="jp" type="array">
+		</languageKey>
+		<languageKey index="vn" type="array">
+		</languageKey>
+		<languageKey index="ca" type="array">
+		</languageKey>
+		<languageKey index="ba" type="array">
+		</languageKey>
+		<languageKey index="kr" type="array">
+		</languageKey>
+		<languageKey index="eo" type="array">
+		</languageKey>
+		<languageKey index="my" type="array">
+		</languageKey>
+		<languageKey index="hi" type="array">
+		</languageKey>
+	</orig_text>
+</T3locallang>

@@ -1,0 +1,109 @@
+/**
+ *
+ * Example RealURL setup for extension ab_downloads
+ *
+ */
+
+$TYPO3_CONF_VARS['EXTCONF']['realurl'] = array(
+	'_DEFAULT' => array(
+		'init' => array(
+			'enableCHashCache' => 1,
+			'enableUrlDecodeCache' => 1,
+			'enableUrlEncodeCache' => 1,
+			'appendMissingSlash' => 'ifNotFile',
+		),
+		'redirects' => array(),
+		'preVars' => array(
+			array(
+				'GETvar' => 'no_cache',
+				'valueMap' => array(
+					'nc' => 1,
+				),
+				'noMatch' => 'bypass',
+			),
+			array(
+				'GETvar' => 'L',
+				'valueMap' => array(
+					'de' => '0',
+					'en' => '1',
+				),
+				'noMatch' => 'bypass',
+			),
+		),
+		'pagePath' => array(
+			'type' => 'user',
+			'userFunc' => 'EXT:realurl/class.tx_realurl_advanced.php:&tx_realurl_advanced->main',
+			'spaceCharacter' => '-',
+			'languageGetVar' => 'L',
+			'expireDays' => 7,
+			###### Set your root page ID here ######
+			'rootpage_id' => 1,
+		),
+		'fixedPostVars' => array(),
+		'postVarSets' => array(
+			'_DEFAULT' => array(
+				'action' => array(
+					array(
+						'GETvar' => 'tx_abdownloads_pi1[action]',
+						'valueMap' => array(
+							'show-category' => 'getviewcategory',
+							'propose-a-new-download' => 'getviewaddnewdownload', 
+							'open-download' => 'getviewclickeddownload', 
+							'show-details-for-download' => 'getviewdetailsfordownload', 
+							'report-broken-download' => 'getviewreportbrokendownload',
+							'rate-download' => 'getviewratedownload',
+						),
+					),
+				),
+				'category' => array(
+					array(
+						'GETvar' => 'tx_abdownloads_pi1[category_uid]',
+						'valueMap' => array(
+							'home' => '0',
+						),
+						'lookUpTable' => array(
+							'table' => 'tx_abdownloads_category',
+							'id_field' => 'uid',
+							'alias_field' => 'label',
+							'addWhereClause' => ' AND NOT deleted',
+							'useUniqueCache' => 1,
+							'useUniqueCache_conf' => array(
+								'strtolower' => 1,
+								'spaceCharacter' => '-',
+							),
+						),
+					),
+				),
+				'download' => array(
+					array(
+						'GETvar' => 'tx_abdownloads_pi1[uid]',
+						'lookUpTable' => array(
+							'table' => 'tx_abdownloads_download',
+							'id_field' => 'uid',
+							'alias_field' => 'label',
+							'addWhereClause' => ' AND NOT deleted',
+							'useUniqueCache' => 1,
+							'useUniqueCache_conf' => array(
+								'strtolower' => 1,
+								'spaceCharacter' => '-',
+							),
+						),
+					),
+					array(
+						'GETvar' => 'cHash',
+					),
+				),
+				'element' => array(
+					array(
+						'GETvar' => 'tx_abdownloads_pi1[cid]',
+						),
+					),
+				'pointer' => array(
+					array(
+						'GETvar' => 'tx_abdownloads_pi1[pointer]',
+						),
+					),
+			),
+		),
+	),
+);

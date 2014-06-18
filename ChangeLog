@@ -1,0 +1,377 @@
+2009-07-30 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.6
+	  Added support for the "Captcha Library" extension (extension key: "captcha").
+	  Therefore extended the "Use captcha extension" FlexForm option and the ###CAPTCHA### subsubpart in the ###VIEW_ADD_NEW_LINK### template subpart.
+	  *** Please update your templates! ***
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Added piping of all browser output through htmlspecialchars() and trim().
+	  Thanks to Patric Pesch for initiating this improvement with a related question for extension Modern Linklist (ab_linklist).
+
+	  Renamed LIST view to CATEGORY view.
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Added the possibility to use several search words as well as AND, OR, and NOT in the search form.
+
+	  Added export and import functionality for the CSV format.
+	  Thanks to Tomas Kruta for initiating this improvement with a related question for extension Modern Linklist (ab_linklist).
+
+	  Changed behaviour of the backend module: Removed check if the page with the plugin was selected.
+	  Thanks to Dirk Weise for suggesting this.
+
+	  Fixed a bug where the dropdowns in the "Import categories/downloads from DB" backend form weren't shown properly.
+
+	  Fixed a bug where downloadLabel_stdWrap wasn't applied to images/labels linked to the target URL.
+	  Thanks to Bernd Wilke for pointing this out and providing the corresponding code for extension Modern Linklist (ab_linklist).
+
+	  Updated the documentation.
+
+2008-04-27 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.5
+	  For file extensions for which no icon is provided a default icon is used, now.
+	  Thanks to Susanne Moog for pointing this out.
+
+	  Added the possibility to define sponsored downloads which are always shown first in the different views.
+	  Therefore added the "Don't prefer sponsored downloads" FlexForm option.
+	  Thanks to Alexander Hartmann for suggesting and funding this for extension Modern Linklist (ab_linklist).
+
+	  Added the possibility to provide an additional description for sponsored downloads in the backend's FlexForm.
+	  Therefore added the ###DOWNLOAD_SPONSORED_DESCRIPTION### marker to the ###VIEW_CATEGORY###, ###VIEW_TREE###, ###VIEW_SEARCH###, ###VIEW_TOP###, ###VIEW_CATALOG### and ###VIEW_DETAILS_FOR_DOWNLOAD### template subparts and the "Sponsored Description" FlexForm option.
+	  *** Please update your templates! ***
+	  Thanks to Alexander Hartmann for suggesting and funding this for extension Modern Linklist (ab_linklist).
+
+	  Added the possibility to define the sort order of the categories and downloads as "random" in the backend.
+	  Therefore extended the "Sort downloads by" and "Sort categories by" FlexForm options.
+	  Thanks to Alexander Hartmann for suggesting and funding this for extension Modern Linklist (ab_linklist).
+
+	  Added the possibility to tag downloads with additional search terms in the backend's FlexForm.
+	  Therefore added the "Tags (comma separated)" FlexForm option and extended the search function.
+	  Thanks to Alexander Hartmann for suggesting and funding this for extension Modern Linklist (ab_linklist).
+
+	  Fixed a bug where links set in the description field with the RTE weren't displayed in the teaser in the different views.
+	  Thanks to Christian Bülter for pointing this out and providing the corresponding code for extension Modern Linklist (ab_linklist).
+
+	  Added the possibility to define an arbitrary number of alternating layouts ###DOWNLOAD_X### in the ###VIEW_CATEGORY### and ###VIEW_CATALOG### template subparts (defaults to 2 if not set).
+	  Therefore added the "Number of alternating template layouts" FlexForm option.
+	  Thanks to Benjamin Mack for initiating this improvement with a related question.
+
+	  Fixed a bug where the mandatory category field was not marked in the "Propose a new download" form.
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Reorganized and cleaned up the backend FlexForm.
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Updated the documentation.
+
+2008-03-20 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.4
+	  Added the possibility to use several instances of the plugin simultaneously.
+	  Thanks to Alexander Reinhard for suggesting this and providing the corresponding code.
+
+	  Fixed a bug where it was not possible to assign more than one usergroup to a download/category.
+	  Thanks to Philipp Grimm and Patrick Gourdain for pointing this out.
+
+	  Transferred fix for bug #0000061 from extension Modern Linklist (ab_linklist).
+
+2007-10-20 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.3
+	  Added the first version of the documentation.
+
+	  Added support for frontend editing of download records.
+	  Therefore added the ###EDIT_PANEL### marker to the ###VIEW_CATEGORY###, ###VIEW_TREE###, ###VIEW_SEARCH###,
+	  ###VIEW_TOP###, ###VIEW_CATALOG### and ###VIEW_DETAILS_FOR_DOWNLOAD### template subparts.
+	  *** Please notice: You have to enable the edit panels in the "Editing" section of the Admin Panel. ***
+	  Thanks to Wolfgang Schröder for suggesting this for extension Modern Linklist (ab_linklist).
+
+	  Improved the "Mandatory fields for frontend form" FlexForm option.
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Changed the behaviour of the "stars"-representation for the download ratings.
+	  In any case, five stars are shown while each star represents a rating value of 2.
+	  Thanks to Oliver Groß for suggesting this.
+
+	  Fixed a bug in getViewReportBrokenDownloadResult() which allowed malicious users to change the status of a download by modifying the tx_abdownloads_pi1[uid] GET parameter.
+	  Thanks to Philipp Wintermantel for pointing this out for extension Modern Linklist (ab_linklist).
+
+	  Transferred fix for bug #0000042 from extension Modern Linklist (ab_linklist).
+
+	  Transferred fix for bug #0000051 from extension Modern Linklist (ab_linklist).
+
+2007-09-01 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.2
+	  Added the possibility to select if images/labels shall be linked to the target file in the backend.
+	  Therefore extended the "Link images" and "Link labels" FlexForm options.
+	  Thanks to Dominik Ehegoetz for suggesting and funding this for extension Modern Linklist (ab_linklist).
+
+	  Added the possibility to define the sys_language_mode with TypoScript.
+	  sys_language_mode == 'strict': If a certain language is requested, select only download records from the default language which have a translation.
+
+	  Added support for AJAX-based category trees in the backend forms (required extension: "xajax").
+	  This significantly speeds up rendering while expanding and collapsing huge category trees.
+
+	  Added the "recordMarkerHook" to fillMarkerArray() which allows to use additional markers for each download.
+	  Thanks to Sven Jürgens for suggesting this for extension Modern Linklist (ab_linklist).
+
+	  Fixed a bug where downloads from unselected sysfolders were shown in the SEARCH view.
+	  Thanks to Axel Jindra for pointing this out.
+
+	  Fixed a bug where the database field was filled even if no image had been submitted in the "Propose a new download" form.
+	  Thanks to Uwe Klenner for pointing this out for extension Modern Linklist (ab_linklist).
+
+	  Modified extension constraints to depend on static_info_tables.
+	  Fixes bug #0000050.
+
+	  Transferred fix for bug #0000033 from extension Modern Linklist (ab_linklist).
+
+	  Fixed some minor XHTML errors in the templates.
+	  Thanks to Steffen Gebert for pointing this out for extension Modern Linklist (ab_linklist).
+
+	  Completed French translation.
+	  Thanks to David.
+
+2007-04-27 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.1
+	  Replaced the static form in the SEARCH view with a template-based one.
+	  Therefore added the ###FORM### subsubpart to the ###VIEW_SEARCH### template subpart and extended all provided CSS definitions.
+	  *** Please update your templates! ***
+	  Thanks to Armin Bothur for initiating this improvement with a related question.
+
+	  Added the possibility to define an imageLinkWrap with TypoScript applied to images in all views if the "Link images" FlexForm option is not set.
+	  Therefore added a default downloadImage.imageLinkWrap in the different TypoScript setups.
+	  Thanks to Sebastian Hofmann for suggesting and funding this.
+
+	  Added the possibility to use the download language, the download license and the download homepage in all views.
+	  Therefore added the ###DOWNLOAD_LANGUAGE###, ###DOWNLOAD_LICENSE### and ###DOWNLOAD_HOMEPAGE### markers to the ###VIEW_CATEGORY###,
+	  ###VIEW_TREE###, ###VIEW_SEARCH###, ###VIEW_TOP###, ###VIEW_CATALOG### and ###VIEW_DETAILS_FOR_DOWNLOAD### template subparts.
+	  *** Please update your templates! ***
+	  Thanks to Sebastian Hofmann for suggesting and funding this.
+
+	  Removed supernumerous <br/> tags from the description's stdWraps in the static TypoScript setup.
+	  Thanks to Arnd Sturm for pointing this out for extension Modern Linklist (ab_linklist).
+
+	  Increased the maximum file size of downloads to 500000 KB.
+
+	  Increased the maximum input size and removed the range limitation for clicks and votes in the backend's FlexForm.
+
+	  Added missing target="_blank" to topView.downloadLabel.ATagParams.
+
+	  Fixed a bug where the "Sort downloads by", "Sort order (downloads)" and "Maximum number of downloads shown per category" FlexForm options
+	  weren't taken into account in the SEARCH view.
+
+	  Fixed a major bug where downloads weren't displayed in the TOP view.
+	  Thanks to Gert Kaae Hansen for pointing this out for extension Modern Linklist (ab_linklist) and providing access to his development server.
+
+	  Fixed a bug where file size, extension and icon of a download weren't shown in the detailed download view (accidentally introduced in 1.9.0).
+	  Thanks to Andreas Kippnick for pointing this out.
+
+2007-04-08 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.9.0
+	  Extended the UPDATE! function in the sense that both the "tx_abdownloads_category_catuid_before_mm" table and
+	  the "catuid_before" field from "tx_abdownloads_category" get dropped after a successful update.
+
+	  Added the possibility to define the default status of proposed downloads in the backend's FlexForm.
+	  Therefore added the "Default status of proposed downloads" FlexForm option.
+	  Thanks to Christian Hechenblaikner for suggesting this.
+
+	  Added the possibility to directly edit download records by clicking on their labels in the backend module.
+
+	  Added the possibility to use MIME icons for downloads in all views.
+	  Therefore added the ###DOWNLOAD_FILEICON### marker to the ###VIEW_CATEGORY###, ###VIEW_TREE###, ###VIEW_SEARCH###,
+	  ###VIEW_TOP### and ###VIEW_CATALOG### template subparts.
+	  *** Please update your templates! ***
+	  Thanks to Christian Hechenblaikner for suggesting this.
+
+	  Improved the "PID of page with LIST/TREE plugin (if different)" FlexForm option.
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Improved the "Start category ID" FlexForm option.
+	  *** Please notice: Make sure that all previously defined settings are still correct after the update. ***
+
+	  Fixed a bug where category icons weren't displayed in the TREE view.
+
+	  Fixed a bug where links set in the description fields with the RTE weren't displayed in the different views.
+	  Thanks to Christian Nagl for pointing this out and providing the corresponding code.
+
+	  Fixed a bug where a single random TOP list wasn't displayed in the frontend.
+
+	  Fixed a bug where the ###DOWNLOAD_ICON### marker wasn't substituted correctly in the TREE view.
+
+	  Fixed bug #0000025.
+
+2007-03-18 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.9
+	  Fixed a bug where the category path wasn't displayed correctly in the TOP and SEARCH views.
+	  Thanks to Boris Pietschmann for pointing this out.
+
+	  Fixed bugs where the ###DOWNLOAD_TYPE### and ###DOWNLOAD_SIZE### weren't filled correctly in different views.
+	  Thanks to Christian Hechenblaikner for pointing this out.
+
+	  Fixed a bug where linked image were linked to the detailed download view in the detailed download view.
+
+	  Fixed a bug where the file size couldn't be determined correctly for sending it in the HTTP header.
+	  Thanks to Andreas Fritz for pointing this out.
+
+	  Fixed a bug where a mandatory category was always considered as not having been submitted in the "Propose a new download" form.
+	  Thanks to Richard Albrecht for initiating this fix with a related question.
+
+	  Fixed a bug where category icons weren't displayed in the different views.
+	  Thanks to Axel Jindra for pointing this out.
+
+	  Fixed a bug where an optional category wasn't stored into the database in the "Propose a new download" form.
+	  Thanks to Wolf for pointing this out.
+
+	  Fixed a bug where the captcha validation didn't work in the "Propose a new download" form.
+	  Thanks to Wolf for pointing this out.
+
+2007-02-04 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.8
+	  Added the possibility to show a definable number of randomly selected downloads in the TOP view.
+	  Therefore added the "Show how many random downloads" FlexForm option.
+
+	  Expanded the size of the category trees in the "Edit record" backend forms for categories and downloads.
+
+	  Fixed a bug where the ATagParams weren't saved correctly for generated image links.
+	  Thanks to Peter Wernig for initiating this fix with a related question.
+
+	  Fixed a bug where the backend option "PID of page with LIST/TREE plugin" wasn't taken into account in the TOP view.
+	  Thanks to Peter Wernig for initiating this fix with a related question.
+
+	  Fixed a bug where linked images didn't work in the different views.
+
+	  Fixed a bug where the file size of a download wasn't shown in the LIST view.
+	  Thanks to Benjamin Mack for pointing this out and providing the corresponding fix.
+
+	  Transferred fix for bug #0000016 from extension Modern Linklist (ab_linklist).
+
+	  Fixed bug #0000021.
+
+	  Completed Russian translation.
+	  Thanks to Alexey Boriskin.
+
+2007-01-21 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.7
+	  Added the possibility to use all meaningful markers in the ###VIEW_CATEGORY###, ###VIEW_TREE###, ###VIEW_SEARCH###,
+	  ###VIEW_TOP### and ###VIEW_CATALOG### template subparts.
+	  *** Please update your templates! ***
+
+	  Added an export functionality which allows to export categories/downloads to different output formats (HTML, XML and TXT are supported so far).
+
+	  Added the possibility to define the maximum filesize of downloads in the backend's FlexForm.
+	  Therefore added the "Maximum filesize of downloads" FlexForm option.
+
+	  For the sake of uniformity renamed all ###IMAGE### markers to ###DOWNLOAD_IMAGE### in the templates.
+	  *** Please update your templates! ***
+
+	  For the sake of uniformity renamed all ###LL_LIS### markers to ###LL_DOWNLOADS### and ###LL_DO### to ###LL_DOWNLOAD### in the templates.
+	  *** Please update your templates! ***
+
+2007-01-14 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.6
+	  Added the possibility to define the file path for downloads in the constant editor.
+	  Thanks to Markus Vifian for suggesting this.
+
+	  Added the possibility to define an image for a download.
+	  Thanks to Oliver Grohs for suggesting this.
+	  *** Please update your templates! ***
+
+	  Enabled rich text editing (RTE) for the description field of categories and downloads.
+
+	  Fixed a bug where the downloads weren't shown in the TREE view.
+
+	  Fixed a bug where the parent category of category records wasn't shown in the backend page module.
+
+	  Fixed a bug where empty fields were set for a download record in the "Downloads reported broken" backend view.
+
+	  Fixed bug #0000015.
+
+2007-01-12 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.5
+	  Extended the UPDATE! function of the extension again.
+
+	  Added the possibility to select if labels shall be linked directly or to the detailed download view in the backend.
+	  Therefore extended the "Link labels" FlexForm option.
+	  Thanks to Dominik Ehegoetz for suggesting this.
+
+	  Added the possibility to define the mandatory fields for the "Propose a new download" form in the backend's FlexForm.
+	  Therefore added the "Mandatory fields for frontend form (separated by comma)" FlexForm option.
+	  Thanks to Oliver Troch for suggesting this.
+
+	  Introduced new icons for the frontend and backend.
+	  Thanks to Mark James for providing them on http://www.famfamfam.com/lab/icons/silk/.
+
+	  Extended the category select in the "Approve downloads" backend view.
+
+	  Fixed a bug where the filesize() function wasn't able to stat a download in PHP versions lower than 5.0.0.
+	  Thanks to Reinhold Hornbach for initiating this fix with a related question.
+
+	  Fixed the category trees in the "Edit record" backend forms for categories and downloads.
+
+	  Fixed a bug where downloads couldn't get accepted and new values weren't taken into account in the "Approve downloads" backend view.
+
+	  Transferred fix for bug #0000012 from extension Modern Linklist (ab_linklist).
+
+2006-12-17 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.4
+	  Extended the UPDATE! function of the extension to update the database according to the new database scheme.
+	  *** Please run the UPDATE! function of the extension in the extension manager after installing the new version! ***
+
+	  Fixed a bug where downloads weren't displayed due to a wrong SQL query.
+
+	  Fixed a bug where the MM-relation wasn't inserted into the database in getViewAddNewDownloadResult().
+
+	  Fixed a bug where downloads in the topmost category weren't displayed.
+
+	* Version 1.8.3
+	  Added support for multiple categories per download.
+	  Thanks to Valery Romanchev for suggesting this and providing some code.
+
+	  Added the possibility to set/use the "Recursive" FlexForm option for the "Startingpoint".
+
+	  Extended the debugging output shown in the different views and forms.
+
+	  The "Check for non-working downloads" backend view now displays all available downloads except disabled ones.
+
+2006-12-10 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.2
+	  Added a statistics functionality which allows to view statistics on the categories/downloads in the database.
+
+	  Added support for versioning of downloads and workspaces.
+	  *** Please run the UPDATE! function of the extension in the extension manager after installing the new version if you haven't used versioning before! ***
+
+	  Added support for the starttime and endtime database fields.
+
+	  Added some compatibility code concerning fe_group for TYPO3 versions lower than 4.0.
+
+	  Changed the behaviour of the "Delete this download" backend function: The corresponding download doesn't get deleted anymore but the deleted
+	  field in the database is set to "1" instead.
+
+	  Fixed a bug where it was not possible to select an existing file in the filesystem to be attached to a download in the backend.
+	  Thanks to Axel Jindra for pointing this out.
+
+2006-12-06 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.1
+	  Fixed a bug where the locallang.xml was not included correctly in class.tx_abdownloads_pi1_wizicon.php.
+	  Thanks to Stefan Galinski for pointing this out and providing the corresponding code.
+
+	  Fixed a bug with "config.sys_language_overlay" set to "hideNonTranslated" and the language overlay result set of categories/links being empty.
+	  Thanks to Stefan Galinski for pointing this out and providing the corresponding code.
+
+2006-12-03 Andreas Bulling <typo3@andreas-bulling.de>
+
+	* Version 1.8.0
+	  Initial release to the TER based on extension Modern Linklist (ab_linklist) version 1.8.0.

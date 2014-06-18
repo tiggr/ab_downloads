@@ -1,0 +1,115 @@
+plugin.tx_abdownloads_pi1 {
+
+	## ENABLE FEATURES
+	# cat=plugin.tx_abdownloads_pi1/enable/1; type=boolean; label= Allow caching: Allow caching of displayed categories/downloads?
+	allowCaching = 1
+
+	# cat=plugin.tx_abdownloads_pi1/enable/2; type=boolean; label= Pagebrowser: Don't display pagebrowser?
+	noPageBrowser = 0
+
+	# cat=plugin.tx_abdownloads_pi1/enable/3; type=boolean; label= Rating stars: Don't display rating stars in the category view?
+	noStarsInCategoryView = 0
+
+	# cat=plugin.tx_abdownloads_pi1/enable/4; type=boolean; label= Details link: Don't display details link in the category view?
+	noDetailsInCategoryView = 0
+
+	# cat=plugin.tx_abdownloads_pi1/enable/5; type=boolean; label= Report broken link: Don't display report broken link in the category view?
+	noReportingInCategoryView = 0
+
+	# cat=plugin.tx_abdownloads_pi1/enable/6; type=boolean; label= Rate link: Don't display rate link in the category view?
+	noRatingInCategoryView = 0
+
+	# cat=plugin.tx_abdownloads_pi1/enable/7; type=boolean; label= Tease downloads: Tease downloads in the category view?
+	teaseDownloads = 0
+
+	# cat=plugin.tx_abdownloads_pi1/enable/8; type=boolean; label= Allow add downloads: Allow not logged-in users to propose new downloads?
+	allowAddDownloads = 0
+
+	## DIMENSIONS, WIDTHS, HEIGHTS, PIXELS
+	# cat=plugin.tx_abdownloads_pi1/dims/1; type=int+; label= Maximum image width: The maximum width for images in the category view.
+	imageMaxWidthCategory = 600
+
+	# cat=plugin.tx_abdownloads_pi1/dims/2; type=int+; label= Maximum image height: The maximum height for images in the category view.
+	imageMaxHeightCategory = 100
+
+	# cat=plugin.tx_abdownloads_pi1/dims/3; type=int+; label= Maximum image width: The maximum width for images in the detailed download view.
+	imageMaxWidthDetailed = 600
+
+	# cat=plugin.tx_abdownloads_pi1/dims/4; type=int+; label= Maximum image height: The maximum height for images in the detailed download view.
+	imageMaxHeightDetailed = 100
+
+	# cat=plugin.tx_abdownloads_pi1/dims/5; type=int+; label= Maximum image width: The maximum width for category images.
+	categoryImageMaxWidth = 25
+
+	# cat=plugin.tx_abdownloads_pi1/dims/6; type=int+; label= Maximum image height: The maximum height for category images.
+	categoryImageMaxHeight = 15
+
+
+	## FILES
+	# cat=plugin.tx_abdownloads_pi1/file/1; type=file[html,htm,tmpl,txt]; label= HTML template file: HTML template file used for displaying the downloads.
+	file.templateFile = EXT:ab_downloads/pi1/tx_abdownloads_pi1_css.tmpl
+
+	# cat=plugin.tx_abdownloads_pi1/file/2; type=file[gif,png,jpg]; label= Category icon: Icon displayed in front of category links.
+	file.iconCategory = EXT:ab_downloads/pi1/icon_category.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/3; type=file[gif,png,jpg]; label= Download icon: Icon displayed in front of download links.
+	file.iconDownload = EXT:ab_downloads/pi1/icon_download.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/4; type=file[gif,png,jpg]; label= Star icon: Icon for stars displaying the rating.
+	file.iconStar = EXT:ab_downloads/pi1/icon_star.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/5; type=file[gif,png,jpg]; label= Half star icon: Icon for half stars displaying the rating.
+	file.iconHalfStar = EXT:ab_downloads/pi1/icon_half_star.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/6; type=file[gif,png,jpg]; label= Disabled star icon: Icon for disabled stars displaying the rating.
+	file.iconDisabledStar = EXT:ab_downloads/pi1/icon_disabled_star.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/7; type=file[gif,png,jpg]; label= Details icon: Icon for the details link.
+	file.iconDetails = EXT:ab_downloads/pi1/icon_details.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/8; type=file[gif,png,jpg]; label= Report broken icon: Icon for the report broken link.
+	file.iconReportBroken = EXT:ab_downloads/pi1/icon_report_broken.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/9; type=file[gif,png,jpg]; label= Disabled report broken icon: Disabled icon for the report broken link.
+	file.iconReportBrokenDisabled = EXT:ab_downloads/pi1/icon_report_broken_disabled.gif
+
+	# cat=plugin.tx_abdownloads_pi1/file/10; type=file[gif,png,jpg]; label= Rate icon: Icon for the rate link.
+	file.iconRate = EXT:ab_downloads/pi1/icon_rate.gif
+
+
+	## LINKS AND TARGETS
+	# cat=plugin.tx_abdownloads_pi1/links/1; type=text; label= Starting Point (sysfolderList): The PID of the page (or comma separated list pf PIDs) where your categories/downloads are located.
+	sysfolderList = 0
+
+
+	## OTHERS
+	# cat=plugin.tx_abdownloads_pi1//1; type=options[0,1,2,3]; label= Default status of downloads: The default status of proposed downloads.
+	statusAddedDownloads = 0
+
+	# cat=plugin.tx_abdownloads_pi1//2; type=text; label= Name: Name of admin (used in notification emails).
+	adminName = Modern Downloads
+
+	# cat=plugin.tx_abdownloads_pi1//3; type=text; label= E-Mail address: E-Mail address admin mails are sent to.
+	adminEmail = john@doe.com
+
+	# cat=plugin.tx_abdownloads_pi1//4; type=text; label= E-Mail subject: Subject for "New download added" emails.
+	emailSubjectAdd = Modern Downloads - New download added
+
+	# cat=plugin.tx_abdownloads_pi1//5; type=text; label= E-Mail subject: Subject for "Download reported broken" emails.
+	emailSubjectBroken = Modern Downloads - Download reported broken
+
+	# cat=plugin.tx_abdownloads_pi1//6; type=text; label= Date format: The date format.
+	date_stdWrap.strftime = %B %d, %Y
+
+	# cat=plugin.tx_abdownloads_pi1//7; type=text; label= Time format: The time format.
+	time_stdWrap.strftime = %H:%M:%S %p
+
+	# cat=plugin.tx_abdownloads_pi1//8; type=int+; label= List limit: The maximum number of downloads shown per category.
+	listLimit = 10
+
+	# cat=plugin.tx_abdownloads_pi1//9; type=text; label= File path: The relative path to the files.
+	filePath = uploads/tx_abdownloads/files/
+
+	# cat=plugin.tx_abdownloads_pi1//10; type=int+; label= Maximum filesize: The maximum filesize for downloads in bytes.
+	maxFileSize = 2097152
+}

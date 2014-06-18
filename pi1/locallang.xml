@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for ab_downloads FE plugin</description>
+		<type>database</type>
+		<csh_table></csh_table>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="FORM_SUBMIT_BUTTON">Send</label>
+			<label index="FORM_CANCEL_BUTTON">Cancel</label>
+			<label index="FORM_YES_BUTTON">Yes</label>
+			<label index="FORM_NO_BUTTON">No</label>
+			<label index="error_required_not_filled">Please fill in all required fields. </label>
+			<label index="error_invalid_contact">The contact address given is not valid. Please correct your input.</label>
+			<label index="error_invalid_captcha">The word did not match the one displayed in the image.</label>
+			<label index="error_blacklisted_words">Your label and/or description contains blacklisted words. Pleaste correct your input.</label>
+			<label index="no_downloads_message">No downloads found</label>
+			<label index="non_public_download_message">You requested a non-public version of an ab_downloads download.</label>
+			<label index="no_image_message">-</label>
+			<label index="captcha_notice">Please enter here the word as displayed in the picture.</label>
+			<label index="ll_top">TOP</label>
+			<label index="ll_home">Home</label>
+			<label index="ll_cats">Categories</label>
+			<label index="ll_category">Category</label>
+			<label index="ll_downloads">Downloads</label>
+			<label index="ll_downloads_lower">downloads</label>
+			<label index="ll_download">Download</label>
+			<label index="ll_clicks">Clicks</label>
+			<label index="ll_clicks_lower">clicks</label>
+			<label index="ll_details">Details</label>
+			<label index="ll_label">Label</label>
+			<label index="ll_label_example">e.g. download.tar.gz or My download</label>
+			<label index="ll_filename">Filename</label>
+			<label index="ll_type">Type</label>
+			<label index="ll_size">Size</label>
+			<label index="ll_description">Description</label>
+			<label index="ll_sponsored_description">Sponsored Description</label>
+			<label index="ll_language">Language</label>
+			<label index="ll_license">License</label>
+			<label index="ll_homepage">Homepage</label>
+			<label index="ll_added">Date added</label>
+			<label index="ll_rating">Rating</label>
+			<label index="ll_rating_current">Current Rating</label>
+			<label index="ll_votes">Votes</label>
+			<label index="ll_crdate">Date of adding</label>
+			<label index="ll_random">Randomly</label>
+			<label index="ll_back">Go back</label>
+			<label index="ll_total">total</label>
+			<label index="ll_very_bad">very bad</label>
+			<label index="ll_very_good">very good</label>
+			<label index="ll_maximum">Maximum</label>
+			<label index="ll_result">Your search for &quot;&lt;b&gt;%s&lt;/b&gt;&quot; yielded &lt;b&gt;%s&lt;/b&gt; result(s)</label>
+			<label index="ll_report_download_broken">Report broken download</label>
+			<label index="ll_reported_download_broken">Download already reported broken</label>
+			<label index="ll_report_download_broken_text">Do you want to report this download as broken?</label>
+			<label index="ll_li_broken_thx">Thank you very much for your help!</label>
+			<label index="ll_rate_download">Rate download</label>
+			<label index="ll_rate_download_text">Please select a mark for the following download. </label>
+			<label index="ll_li_rate_thx">Thank you very much for your voting!</label>
+			<label index="ll_add_download">Propose a new download</label>
+			<label index="ll_add_download_text">Here you are able to propose a new download. Please fill in all fields and submit the form. </label>
+			<label index="ll_li_add_thx">Thanks for your proposal!&lt;br /&gt;After verification the download will be approved as soon as possible.</label>
+			<label index="ll_appr_li_add_thx">Thanks for your proposal!&lt;br /&gt;The download has been approved.</label>
+			<label index="ll_file">File</label>
+			<label index="ll_image">Image</label>
+			<label index="ll_contact">Contact Address</label>
+			<label index="ll_contact_example">e.g. me@foo.bar</label>
+		</languageKey>
+		<languageKey index="dk" type="array">
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="FORM_SUBMIT_BUTTON">Absenden</label>
+			<label index="FORM_CANCEL_BUTTON">Abbrechen</label>
+			<label index="FORM_YES_BUTTON">Ja</label>
+			<label index="FORM_NO_BUTTON">Nein</label>
+			<label index="error_required_not_filled">Bitte füllen Sie alle Pflichtfelder aus!</label>
+			<label index="error_invalid_contact">Die eingegebene Kontaktadresse ist ungültig. Bitte korrigieren Sie Ihre Eingabe.</label>
+			<label index="error_invalid_captcha">Das eingegebene Wort stimmt nicht mit dem im Bild angezeigten überein.</label>
+			<label index="error_blacklisted_words">Der eingegebene Titel und/oder die Beschreibung enthalten verbotene Wörter.&lt;br /&gt;Bitte korrigieren Sie Ihre Eingabe.</label>
+			<label index="no_downloads_message">Keine Downloads gefunden</label>
+			<label index="non_public_download_message">Sie haben eine nicht-öffentliche Version eines ab_downloads Downloads angefordert.</label>
+			<label index="no_image_message">-</label>
+			<label index="captcha_notice">Bitte geben Sie hier das Wort ein, das im Bild angezeigt wird.</label>
+			<label index="ll_top">TOP</label>
+			<label index="ll_home">Home</label>
+			<label index="ll_cats">Kategorien</label>
+			<label index="ll_category">Kategorie</label>
+			<label index="ll_downloads">Downloads</label>
+			<label index="ll_downloads_lower">Downloads</label>
+			<label index="ll_download">Download</label>
+			<label index="ll_clicks">Zugriffe</label>
+			<label index="ll_clicks_lower">Zugriffe</label>
+			<label index="ll_details">Details</label>
+			<label index="ll_label">Titel</label>
+			<label index="ll_label_example">z.B. download.tar.gz oder mein Download</label>
+			<label index="ll_filename">Dateiname</label>
+			<label index="ll_type">Typ</label>
+			<label index="ll_size">Größe</label>
+			<label index="ll_description">Beschreibung</label>
+			<label index="ll_sponsored_description">Gesponserte Beschreibung</label>
+			<label index="ll_language">Sprache</label>
+			<label index="ll_license">Lizenz</label>
+			<label index="ll_homepage">Homepage</label>
+			<label index="ll_added">Eingetragen am</label>
+			<label index="ll_rating">Bewertung</label>
+			<label index="ll_rating_current">Aktuelle Bewertung</label>
+			<label index="ll_votes">Stimmen</label>
+			<label index="ll_crdate">Aktuellste Einträge</label>
+			<label index="ll_random">Zufällig</label>
+			<label index="ll_back">Zurück</label>
+			<label index="ll_total">insgesamt</label>
+			<label index="ll_very_bad">sehr schlecht</label>
+			<label index="ll_very_good">sehr gut</label>
+			<label index="ll_maximum">Maximal</label>
+			<label index="ll_result">Ihre Suche nach &quot;&lt;b&gt;%s&lt;/b&gt;&quot; erbrachte &lt;b&gt;%s&lt;/b&gt; Ergebnis(se)</label>
+			<label index="ll_report_download_broken">Download als nicht funktionierend melden</label>
+			<label index="ll_reported_download_broken">Download bereits als nicht funktionierend gemeldet</label>
+			<label index="ll_report_download_broken_text">Wollen Sie den folgenden Download als nicht funktionierend melden?</label>
+			<label index="ll_li_broken_thx">Vielen Dank für Ihre Mitarbeit!&lt;br /&gt;Ich werde mich baldmöglichst um eine Korrektur des Downloads bemühen. </label>
+			<label index="ll_rate_download">Download bewerten</label>
+			<label index="ll_rate_download_text">Bitte wählen Sie für die Bewertung folgender Seite eine Note.</label>
+			<label index="ll_li_rate_thx">Vielen Dank für Ihre Bewertung!</label>
+			<label index="ll_add_download">Neuen Download vorschlagen</label>
+			<label index="ll_add_download_text">Bitte füllen Sie für einen neuen Eintrag folgendes Formular aus.</label>
+			<label index="ll_li_add_thx">Vielen Dank für Ihren Vorschlag!&lt;br /&gt;Der Download wird nach Prüfung baldmöglichst freigeschaltet.</label>
+			<label index="ll_appr_li_add_thx">Vielen Dank für Ihren Vorschlag!&lt;br /&gt;Der Link ist freigeschaltet.</label>
+			<label index="ll_file">Datei</label>
+			<label index="ll_image">Bild</label>
+			<label index="ll_contact">Kontaktadresse</label>
+			<label index="ll_contact_example">z.B. ich@foo.bar</label>
+		</languageKey>
+		<languageKey index="no" type="array">
+		</languageKey>
+		<languageKey index="it" type="array">
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="FORM_SUBMIT_BUTTON">Envoyer</label>
+			<label index="FORM_CANCEL_BUTTON">Annuler</label>
+			<label index="FORM_YES_BUTTON">Oui</label>
+			<label index="FORM_NO_BUTTON">Non</label>
+			<label index="error_required_not_filled">Veuillez saisir tous les champs obligatoires.</label>
+			<label index="error_invalid_contact">L'adresse de contact n'est pas valide. Veuillez svp corriger votre saisie.</label>
+			<label index="error_invalid_captcha">La saisie ne correspond pas à l'image affichée.</label>
+			<label index="error_blacklisted_words">Votre libellé et/ou votre description contient des mots non-autorisé, veuillez svp corriger votre saisie.</label>
+			<label index="no_downloads_message">Aucun téléchargement trouvé</label>
+			<label index="non_public_download_message">Vous avez demandé une version non-public d'un téléchargement ab_downloads.</label>
+			<label index="no_image_message">-</label>
+			<label index="ll_top">HAUT</label>
+			<label index="ll_home">Accueil</label>
+			<label index="ll_cats">Catégories</label>
+			<label index="ll_category">Catégorie</label>
+			<label index="ll_downloads">Téléchargements</label>
+			<label index="ll_downloads_lower">téléchargements</label>
+			<label index="ll_download">Téléchargement</label>
+			<label index="ll_clicks">Clics</label>
+			<label index="ll_clicks_lower">clics</label>
+			<label index="ll_details">Détails</label>
+			<label index="ll_label">Libellé</label>
+			<label index="ll_label_example">par ex. download.tar.gz ou  Mes téléchargements</label>
+			<label index="ll_filename">Nom du fichier</label>
+			<label index="ll_type">Type</label>
+			<label index="ll_size">Taille</label>
+			<label index="ll_description">Description</label>
+			<label index="ll_language">Langue</label>
+			<label index="ll_license">Licence</label>
+			<label index="ll_homepage">Page d'accueil</label>
+			<label index="ll_added">Date d'ajout</label>
+			<label index="ll_rating">Note</label>
+			<label index="ll_rating_current">Note actuelle</label>
+			<label index="ll_votes">Votes</label>
+			<label index="ll_crdate">Date d'ajout</label>
+			<label index="ll_random">Aléatoirement</label>
+			<label index="ll_back">Retour</label>
+			<label index="ll_total">total</label>
+			<label index="ll_very_bad">très mauvais</label>
+			<label index="ll_very_good">très bon</label>
+			<label index="ll_maximum">Maximum</label>
+			<label index="ll_result">Votre recherche de &quot;&lt;b&gt;%s&lt;b&gt;&quot; a retourné &lt;b&gt;%s&lt;b&gt; résultat(s)</label>
+			<label index="ll_report_download_broken">Signaler un lien mort</label>
+			<label index="ll_reported_download_broken">Téléchargement déjà reporté comme lien mort</label>
+			<label index="ll_report_download_broken_text">Voulez-vous signaler ce téléchargement comme lien mort ?</label>
+			<label index="ll_li_broken_thx">Merci beaucoup pour votre aide!</label>
+			<label index="ll_rate_download">Annoter le téléchargement</label>
+			<label index="ll_rate_download_text">Veuillez svp selectionné une note pour ce téléchargement.</label>
+			<label index="ll_li_rate_thx">Merci beaucoup pour votre vote!</label>
+			<label index="ll_add_download">Proposer un nouveau téléchargement</label>
+			<label index="ll_add_download_text">Ici vous pouvez proposer un nouveau téléchargement. Veuillez svp rempir les champs et soumettre le formulaire.</label>
+			<label index="ll_li_add_thx">Merci pour votre proposition!&lt;br /&gt;Après vérification le téléchargement sera approuvé aussitôt que possible.</label>
+			<label index="ll_appr_li_add_thx">Merci pour votre proposition!&lt;br /&gt;Le téléchargement a été approuvé.</label>
+			<label index="ll_file">Fichier</label>
+			<label index="ll_image">Image</label>
+			<label index="ll_contact">Adresse de contact</label>
+			<label index="ll_contact_example">par ex.: me@foo.bar</label>
+		</languageKey>
+		<languageKey index="es" type="array">
+		</languageKey>
+		<languageKey index="nl" type="array">
+		</languageKey>
+		<languageKey index="cz" type="array">
+		</languageKey>
+		<languageKey index="pl" type="array">
+		</languageKey>
+		<languageKey index="si" type="array">
+		</languageKey>
+		<languageKey index="fi" type="array">
+		</languageKey>
+		<languageKey index="tr" type="array">
+		</languageKey>
+		<languageKey index="se" type="array">
+		</languageKey>
+		<languageKey index="pt" type="array">
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="FORM_SUBMIT_BUTTON">Послать</label>
+			<label index="FORM_CANCEL_BUTTON">Отмена</label>
+			<label index="FORM_YES_BUTTON">Да</label>
+			<label index="FORM_NO_BUTTON">Нет</label>
+			<label index="error_required_not_filled">Пожалуйста, заполните необходимые поля.</label>
+			<label index="error_invalid_contact">Контактный адрес недействителен. Пожалуйста, скорректируйте.</label>
+			<label index="error_invalid_captcha">Введённое слово не соответствует изображению на картинке.</label>
+			<label index="error_blacklisted_words">Ваше название и/или описание содержит недопустимые слова. Пожалуйста, исправьте.</label>
+			<label index="no_downloads_message">Не найдено файлов для скачивания</label>
+			<label index="non_public_download_message">Вы запросили а неофициальную версию файла ab_downloads</label>
+			<label index="no_image_message">-</label>
+			<label index="ll_top">TOP</label>
+			<label index="ll_home">Главная</label>
+			<label index="ll_cats">Категории</label>
+			<label index="ll_category">Категория</label>
+			<label index="ll_downloads">Файлы</label>
+			<label index="ll_downloads_lower">файлы</label>
+			<label index="ll_download">Файл</label>
+			<label index="ll_clicks">Скачиваний</label>
+			<label index="ll_clicks_lower">скачиваний</label>
+			<label index="ll_details">Подробно</label>
+			<label index="ll_label">Название</label>
+			<label index="ll_label_example">например, download.tar.gz или Мой файл</label>
+			<label index="ll_filename">Имя файла</label>
+			<label index="ll_type">Тип</label>
+			<label index="ll_size">Размер</label>
+			<label index="ll_description">Описание</label>
+			<label index="ll_added">Дата добавлена</label>
+			<label index="ll_rating">Рейтинг</label>
+			<label index="ll_rating_current">Текущий рейтинг</label>
+			<label index="ll_votes">Голосов</label>
+			<label index="ll_crdate">Дата добавления</label>
+			<label index="ll_back">Назад</label>
+			<label index="ll_total">всего</label>
+			<label index="ll_very_bad">очень плохо</label>
+			<label index="ll_very_good">очень хорошо</label>
+			<label index="ll_maximum">Максимально</label>
+			<label index="ll_result">Вы искали &quot;&lt;b&gt;%s&lt;/b&gt;&quot;. Найдено &lt;b&gt;%s&lt;/b&gt; результат(ов)</label>
+			<label index="ll_report_download_broken">Сообщить о нерабочей ссылке</label>
+			<label index="ll_reported_download_broken">Ссылка уже помечена как нерабочая</label>
+			<label index="ll_report_download_broken_text">Вы хотите сообщить об этой ссылке как о нерабочей?</label>
+			<label index="ll_li_broken_thx">Огромное спасибо за вашу помощь!</label>
+			<label index="ll_rate_download">Оценить файл</label>
+			<label index="ll_rate_download_text">Пожалуйста, выберите оценку для файла</label>
+			<label index="ll_li_rate_thx">Большое спасибо за ваш голос!</label>
+			<label index="ll_add_download">Предложить новую ссылку</label>
+			<label index="ll_add_download_text">Вы можете предложить новую ссылку. Пожалуйста, заполните все поля и отправьте форму.</label>
+			<label index="ll_li_add_thx">Спасибо за вашу ссылку!</label>
+			<label index="ll_file">Файл</label>
+			<label index="ll_image">Изображение</label>
+			<label index="ll_contact">Контактный адрес</label>
+			<label index="ll_contact_example">например, ya@foo.bar</label>
+		</languageKey>
+		<languageKey index="ro" type="array">
+		</languageKey>
+		<languageKey index="ch" type="array">
+		</languageKey>
+		<languageKey index="sk" type="array">
+		</languageKey>
+		<languageKey index="lt" type="array">
+		</languageKey>
+		<languageKey index="is" type="array">
+		</languageKey>
+		<languageKey index="hr" type="array">
+		</languageKey>
+		<languageKey index="hu" type="array">
+		</languageKey>
+		<languageKey index="gl" type="array">
+		</languageKey>
+		<languageKey index="th" type="array">
+		</languageKey>
+		<languageKey index="gr" type="array">
+		</languageKey>
+		<languageKey index="hk" type="array">
+		</languageKey>
+		<languageKey index="eu" type="array">
+		</languageKey>
+		<languageKey index="bg" type="array">
+		</languageKey>
+		<languageKey index="br" type="array">
+		</languageKey>
+		<languageKey index="et" type="array">
+		</languageKey>
+		<languageKey index="ar" type="array">
+		</languageKey>
+		<languageKey index="he" type="array">
+		</languageKey>
+		<languageKey index="ua" type="array">
+		</languageKey>
+		<languageKey index="lv" type="array">
+		</languageKey>
+		<languageKey index="jp" type="array">
+		</languageKey>
+		<languageKey index="vn" type="array">
+		</languageKey>
+		<languageKey index="ca" type="array">
+		</languageKey>
+		<languageKey index="ba" type="array">
+		</languageKey>
+		<languageKey index="kr" type="array">
+		</languageKey>
+		<languageKey index="eo" type="array">
+		</languageKey>
+		<languageKey index="my" type="array">
+		</languageKey>
+		<languageKey index="hi" type="array">
+		</languageKey>
+	</data>
+	<orig_hash type="array">
+		<languageKey index="dk" type="array">
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="FORM_SUBMIT_BUTTON" type="integer">155805401</label>
+			<label index="FORM_CANCEL_BUTTON" type="integer">245659783</label>
+			<label index="FORM_YES_BUTTON" type="integer">154974727</label>
+			<label index="FORM_NO_BUTTON" type="integer">196073266</label>
+			<label index="error_required_not_filled" type="integer">104609005</label>
+			<label index="error_invalid_contact" type="integer">219371118</label>
+			<label index="error_invalid_captcha" type="integer">37882774</label>
+			<label index="error_blacklisted_words" type="integer">204320286</label>
+			<label index="no_downloads_message" type="integer">92305602</label>
+			<label index="no_image_message" type="integer">53925355</label>
+			<label index="ll_top" type="integer">108025719</label>
+			<label index="ll_home" type="integer">147784873</label>
+			<label index="ll_cats" type="integer">183613834</label>
+			<label index="ll_category" type="integer">61717939</label>
+			<label index="ll_downloads" type="integer">203473758</label>
+			<label index="ll_downloads_lower" type="integer">218617098</label>
+			<label index="ll_download" type="integer">134327076</label>
+			<label index="ll_clicks" type="integer">213759315</label>
+			<label index="ll_clicks_lower" type="integer">211721743</label>
+			<label index="ll_details" type="integer">65812061</label>
+			<label index="ll_label" type="integer">184688118</label>
+			<label index="ll_label_example" type="integer">182604437</label>
+			<label index="ll_filename" type="integer">20254743</label>
+			<label index="ll_type" type="integer">169845367</label>
+			<label index="ll_size" type="integer">116837234</label>
+			<label index="ll_description" type="integer">190479069</label>
+			<label index="ll_added" type="integer">140372387</label>
+			<label index="ll_rating" type="integer">232430598</label>
+			<label index="ll_rating_current" type="integer">158839920</label>
+			<label index="ll_votes" type="integer">147019273</label>
+			<label index="ll_crdate" type="integer">4540918</label>
+			<label index="ll_back" type="integer">36398395</label>
+			<label index="ll_total" type="integer">263931060</label>
+			<label index="ll_very_bad" type="integer">241623750</label>
+			<label index="ll_very_good" type="integer">127011465</label>
+			<label index="ll_maximum" type="integer">137502329</label>
+			<label index="ll_result" type="integer">189179061</label>
+			<label index="ll_report_download_broken" type="integer">76070889</label>
+			<label index="ll_reported_download_broken" type="integer">19822631</label>
+			<label index="ll_report_download_broken_text" type="integer">238024362</label>
+			<label index="ll_li_broken_thx" type="integer">125782830</label>
+			<label index="ll_rate_download" type="integer">70077377</label>
+			<label index="ll_rate_download_text" type="integer">62117891</label>
+			<label index="ll_li_rate_thx" type="integer">191006090</label>
+			<label index="ll_add_download" type="integer">37007246</label>
+			<label index="ll_add_download_text" type="integer">122115408</label>
+			<label index="ll_li_add_thx" type="integer">267309820</label>
+			<label index="ll_file" type="integer">11696408</label>
+			<label index="ll_contact" type="integer">108441659</label>
+			<label index="ll_contact_example" type="integer">110781082</label>
+		</languageKey>
+		<languageKey index="no" type="array">
+		</languageKey>
+		<languageKey index="it" type="array">
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="FORM_SUBMIT_BUTTON" type="integer">155805401</label>
+			<label index="FORM_CANCEL_BUTTON" type="integer">245659783</label>
+			<label index="FORM_YES_BUTTON" type="integer">154974727</label>
+			<label index="FORM_NO_BUTTON" type="integer">196073266</label>
+			<label index="error_required_not_filled" type="integer">104609005</label>
+			<label index="error_invalid_contact" type="integer">219371118</label>
+			<label index="error_invalid_captcha" type="integer">37882774</label>
+			<label index="error_blacklisted_words" type="integer">204320286</label>
+			<label index="no_downloads_message" type="integer">92305602</label>
+			<label index="non_public_download_message" type="integer">59679902</label>
+			<label index="no_image_message" type="integer">53925355</label>
+			<label index="ll_top" type="integer">108025719</label>
+			<label index="ll_home" type="integer">147784873</label>
+			<label index="ll_cats" type="integer">183613834</label>
+			<label index="ll_category" type="integer">61717939</label>
+			<label index="ll_downloads" type="integer">203473758</label>
+			<label index="ll_downloads_lower" type="integer">218617098</label>
+			<label index="ll_download" type="integer">134327076</label>
+			<label index="ll_clicks" type="integer">213759315</label>
+			<label index="ll_clicks_lower" type="integer">211721743</label>
+			<label index="ll_details" type="integer">65812061</label>
+			<label index="ll_label" type="integer">184688118</label>
+			<label index="ll_label_example" type="integer">182604437</label>
+			<label index="ll_filename" type="integer">20254743</label>
+			<label index="ll_type" type="integer">169845367</label>
+			<label index="ll_size" type="integer">116837234</label>
+			<label index="ll_description" type="integer">190479069</label>
+			<label index="ll_language" type="integer">77154959</label>
+			<label index="ll_license" type="integer">127196983</label>
+			<label index="ll_homepage" type="integer">54130594</label>
+			<label index="ll_added" type="integer">140372387</label>
+			<label index="ll_rating" type="integer">232430598</label>
+			<label index="ll_rating_current" type="integer">158839920</label>
+			<label index="ll_votes" type="integer">147019273</label>
+			<label index="ll_crdate" type="integer">4540918</label>
+			<label index="ll_random" type="integer">250106742</label>
+			<label index="ll_back" type="integer">36398395</label>
+			<label index="ll_total" type="integer">263931060</label>
+			<label index="ll_very_bad" type="integer">241623750</label>
+			<label index="ll_very_good" type="integer">127011465</label>
+			<label index="ll_maximum" type="integer">137502329</label>
+			<label index="ll_result" type="integer">189179061</label>
+			<label index="ll_report_download_broken" type="integer">76070889</label>
+			<label index="ll_reported_download_broken" type="integer">19822631</label>
+			<label index="ll_report_download_broken_text" type="integer">238024362</label>
+			<label index="ll_li_broken_thx" type="integer">125782830</label>
+			<label index="ll_rate_download" type="integer">70077377</label>
+			<label index="ll_rate_download_text" type="integer">62117891</label>
+			<label index="ll_li_rate_thx" type="integer">191006090</label>
+			<label index="ll_add_download" type="integer">37007246</label>
+			<label index="ll_add_download_text" type="integer">122115408</label>
+			<label index="ll_li_add_thx" type="integer">39587519</label>
+			<label index="ll_appr_li_add_thx" type="integer">132427523</label>
+			<label index="ll_file" type="integer">11696408</label>
+			<label index="ll_image" type="integer">199571973</label>
+			<label index="ll_contact" type="integer">108441659</label>
+			<label index="ll_contact_example" type="integer">110781082</label>
+		</languageKey>
+		<languageKey index="es" type="array">
+		</languageKey>
+		<languageKey index="nl" type="array">
+		</languageKey>
+		<languageKey index="cz" type="array">
+		</languageKey>
+		<languageKey index="pl" type="array">
+		</languageKey>
+		<languageKey index="si" type="array">
+		</languageKey>
+		<languageKey index="fi" type="array">
+		</languageKey>
+		<languageKey index="tr" type="array">
+		</languageKey>
+		<languageKey index="se" type="array">
+		</languageKey>
+		<languageKey index="pt" type="array">
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="FORM_SUBMIT_BUTTON" type="integer">155805401</label>
+			<label index="FORM_CANCEL_BUTTON" type="integer">245659783</label>
+			<label index="FORM_YES_BUTTON" type="integer">154974727</label>
+			<label index="FORM_NO_BUTTON" type="integer">196073266</label>
+			<label index="error_required_not_filled" type="integer">104609005</label>
+			<label index="error_invalid_contact" type="integer">219371118</label>
+			<label index="error_invalid_captcha" type="integer">37882774</label>
+			<label index="error_blacklisted_words" type="integer">204320286</label>
+			<label index="no_downloads_message" type="integer">92305602</label>
+			<label index="non_public_download_message" type="integer">59679902</label>
+			<label index="no_image_message" type="integer">53925355</label>
+			<label index="ll_top" type="integer">108025719</label>
+			<label index="ll_home" type="integer">147784873</label>
+			<label index="ll_cats" type="integer">183613834</label>
+			<label index="ll_category" type="integer">61717939</label>
+			<label index="ll_downloads" type="integer">203473758</label>
+			<label index="ll_downloads_lower" type="integer">218617098</label>
+			<label index="ll_download" type="integer">134327076</label>
+			<label index="ll_clicks" type="integer">213759315</label>
+			<label index="ll_clicks_lower" type="integer">211721743</label>
+			<label index="ll_details" type="integer">65812061</label>
+			<label index="ll_label" type="integer">184688118</label>
+			<label index="ll_label_example" type="integer">182604437</label>
+			<label index="ll_filename" type="integer">20254743</label>
+			<label index="ll_type" type="integer">169845367</label>
+			<label index="ll_size" type="integer">116837234</label>
+			<label index="ll_description" type="integer">190479069</label>
+			<label index="ll_added" type="integer">140372387</label>
+			<label index="ll_rating" type="integer">232430598</label>
+			<label index="ll_rating_current" type="integer">158839920</label>
+			<label index="ll_votes" type="integer">147019273</label>
+			<label index="ll_crdate" type="integer">4540918</label>
+			<label index="ll_back" type="integer">36398395</label>
+			<label index="ll_total" type="integer">263931060</label>
+			<label index="ll_very_bad" type="integer">241623750</label>
+			<label index="ll_very_good" type="integer">127011465</label>
+			<label index="ll_maximum" type="integer">137502329</label>
+			<label index="ll_result" type="integer">189179061</label>
+			<label index="ll_report_download_broken" type="integer">76070889</label>
+			<label index="ll_reported_download_broken" type="integer">19822631</label>
+			<label index="ll_report_download_broken_text" type="integer">238024362</label>
+			<label index="ll_li_broken_thx" type="integer">125782830</label>
+			<label index="ll_rate_download" type="integer">70077377</label>
+			<label index="ll_rate_download_text" type="integer">62117891</label>
+			<label index="ll_li_rate_thx" type="integer">191006090</label>
+			<label index="ll_add_download" type="integer">37007246</label>
+			<label index="ll_add_download_text" type="integer">122115408</label>
+			<label index="ll_li_add_thx" type="integer">267309820</label>
+			<label index="ll_file" type="integer">11696408</label>
+			<label index="ll_image" type="integer">199571973</label>
+			<label index="ll_contact" type="integer">108441659</label>
+			<label index="ll_contact_example" type="integer">110781082</label>
+		</languageKey>
+		<languageKey index="ro" type="array">
+		</languageKey>
+		<languageKey index="ch" type="array">
+		</languageKey>
+		<languageKey index="sk" type="array">
+		</languageKey>
+		<languageKey index="lt" type="array">
+		</languageKey>
+		<languageKey index="is" type="array">
+		</languageKey>
+		<languageKey index="hr" type="array">
+		</languageKey>
+		<languageKey index="hu" type="array">
+		</languageKey>
+		<languageKey index="gl" type="array">
+		</languageKey>
+		<languageKey index="th" type="array">
+		</languageKey>
+		<languageKey index="gr" type="array">
+		</languageKey>
+		<languageKey index="hk" type="array">
+		</languageKey>
+		<languageKey index="eu" type="array">
+		</languageKey>
+		<languageKey index="bg" type="array">
+		</languageKey>
+		<languageKey index="br" type="array">
+		</languageKey>
+		<languageKey index="et" type="array">
+		</languageKey>
+		<languageKey index="ar" type="array">
+		</languageKey>
+		<languageKey index="he" type="array">
+		</languageKey>
+		<languageKey index="ua" type="array">
+		</languageKey>
+		<languageKey index="lv" type="array">
+		</languageKey>
+		<languageKey index="jp" type="array">
+		</languageKey>
+		<languageKey index="vn" type="array">
+		</languageKey>
+		<languageKey index="ca" type="array">
+		</languageKey>
+		<languageKey index="ba" type="array">
+		</languageKey>
+		<languageKey index="kr" type="array">
+		</languageKey>
+		<languageKey index="eo" type="array">
+		</languageKey>
+		<languageKey index="my" type="array">
+		</languageKey>
+		<languageKey index="hi" type="array">
+		</languageKey>
+	</orig_hash>
+	<orig_text type="array">
+		<languageKey index="dk" type="array">
+		</languageKey>
+		<languageKey index="de" type="array">
+		</languageKey>
+		<languageKey index="no" type="array">
+		</languageKey>
+		<languageKey index="it" type="array">
+		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="FORM_SUBMIT_BUTTON">Send</label>
+			<label index="FORM_CANCEL_BUTTON">Cancel</label>
+			<label index="FORM_YES_BUTTON">Yes</label>
+			<label index="FORM_NO_BUTTON">No</label>
+			<label index="error_required_not_filled">Please fill in all required fields. </label>
+			<label index="error_invalid_contact">The contact address given is not valid. Please correct your input.</label>
+			<label index="error_invalid_captcha">The word did not match the one displayed in the image.</label>
+			<label index="error_blacklisted_words">Your label and/or description contains blacklisted words. Pleaste correct your input.</label>
+			<label index="no_downloads_message">No downloads found</label>
+			<label index="non_public_download_message">You requested a non-public version of an ab_downloads download.</label>
+			<label index="no_image_message">-</label>
+			<label index="ll_top">TOP</label>
+			<label index="ll_home">Home</label>
+			<label index="ll_cats">Categories</label>
+			<label index="ll_category">Category</label>
+			<label index="ll_downloads">Downloads</label>
+			<label index="ll_downloads_lower">downloads</label>
+			<label index="ll_download">Download</label>
+			<label index="ll_clicks">Clicks</label>
+			<label index="ll_clicks_lower">clicks</label>
+			<label index="ll_details">Details</label>
+			<label index="ll_label">Label</label>
+			<label index="ll_label_example">e.g. download.tar.gz or My download</label>
+			<label index="ll_filename">Filename</label>
+			<label index="ll_type">Type</label>
+			<label index="ll_size">Size</label>
+			<label index="ll_description">Description</label>
+			<label index="ll_language">Language</label>
+			<label index="ll_license">License</label>
+			<label index="ll_homepage">Homepage</label>
+			<label index="ll_added">Date added</label>
+			<label index="ll_rating">Rating</label>
+			<label index="ll_rating_current">Current Rating</label>
+			<label index="ll_votes">Votes</label>
+			<label index="ll_crdate">Date of adding</label>
+			<label index="ll_random">Randomly</label>
+			<label index="ll_back">Go back</label>
+			<label index="ll_total">total</label>
+			<label index="ll_very_bad">very bad</label>
+			<label index="ll_very_good">very good</label>
+			<label index="ll_maximum">Maximum</label>
+			<label index="ll_result">Your search for &quot;&lt;b&gt;%s&lt;/b&gt;&quot; yielded &lt;b&gt;%s&lt;/b&gt; result(s)</label>
+			<label index="ll_report_download_broken">Report broken download</label>
+			<label index="ll_reported_download_broken">Download already reported broken</label>
+			<label index="ll_report_download_broken_text">Do you want to report this download as broken?</label>
+			<label index="ll_li_broken_thx">Thank you very much for your help!</label>
+			<label index="ll_rate_download">Rate download</label>
+			<label index="ll_rate_download_text">Please select a mark for the following download. </label>
+			<label index="ll_li_rate_thx">Thank you very much for your voting!</label>
+			<label index="ll_add_download">Propose a new download</label>
+			<label index="ll_add_download_text">Here you are able to propose a new download. Please fill in all fields and submit the form. </label>
+			<label index="ll_li_add_thx">Thanks for your proposal!&lt;br /&gt;After verification the download will be approved as soon as possible.</label>
+			<label index="ll_appr_li_add_thx">Thanks for your proposal!&lt;br /&gt;The download has been approved.</label>
+			<label index="ll_file">File</label>
+			<label index="ll_image">Image</label>
+			<label index="ll_contact">Contact Address</label>
+			<label index="ll_contact_example">e.g. me@foo.bar</label>
+		</languageKey>
+		<languageKey index="es" type="array">
+		</languageKey>
+		<languageKey index="nl" type="array">
+		</languageKey>
+		<languageKey index="cz" type="array">
+		</languageKey>
+		<languageKey index="pl" type="array">
+		</languageKey>
+		<languageKey index="si" type="array">
+		</languageKey>
+		<languageKey index="fi" type="array">
+		</languageKey>
+		<languageKey index="tr" type="array">
+		</languageKey>
+		<languageKey index="se" type="array">
+		</languageKey>
+		<languageKey index="pt" type="array">
+		</languageKey>
+		<languageKey index="ru" type="array">
+			<label index="FORM_SUBMIT_BUTTON">Send</label>
+			<label index="FORM_CANCEL_BUTTON">Cancel</label>
+			<label index="FORM_YES_BUTTON">Yes</label>
+			<label index="FORM_NO_BUTTON">No</label>
+			<label index="error_required_not_filled">Please fill in all required fields. </label>
+			<label index="error_invalid_contact">The contact address given is not valid. Please correct your input.</label>
+			<label index="error_invalid_captcha">The word did not match the one displayed in the image.</label>
+			<label index="error_blacklisted_words">Your label and/or description contains blacklisted words. Pleaste correct your input.</label>
+			<label index="no_downloads_message">No downloads found</label>
+			<label index="non_public_download_message">You requested a non-public version of an ab_downloads download.</label>
+			<label index="no_image_message">-</label>
+			<label index="ll_top">TOP</label>
+			<label index="ll_home">Home</label>
+			<label index="ll_cats">Categories</label>
+			<label index="ll_category">Category</label>
+			<label index="ll_downloads">Downloads</label>
+			<label index="ll_downloads_lower">downloads</label>
+			<label index="ll_download">Download</label>
+			<label index="ll_clicks">Clicks</label>
+			<label index="ll_clicks_lower">clicks</label>
+			<label index="ll_details">Details</label>
+			<label index="ll_label">Label</label>
+			<label index="ll_label_example">e.g. download.tar.gz or My download</label>
+			<label index="ll_filename">Filename</label>
+			<label index="ll_type">Type</label>
+			<label index="ll_size">Size</label>
+			<label index="ll_description">Description</label>
+			<label index="ll_added">Date added</label>
+			<label index="ll_rating">Rating</label>
+			<label index="ll_rating_current">Current Rating</label>
+			<label index="ll_votes">Votes</label>
+			<label index="ll_crdate">Date of adding</label>
+			<label index="ll_back">Go back</label>
+			<label index="ll_total">total</label>
+			<label index="ll_very_bad">very bad</label>
+			<label index="ll_very_good">very good</label>
+			<label index="ll_maximum">Maximum</label>
+			<label index="ll_result">Your search for &quot;&lt;b&gt;%s&lt;/b&gt;&quot; yielded &lt;b&gt;%s&lt;/b&gt; result(s)</label>
+			<label index="ll_report_download_broken">Report broken download</label>
+			<label index="ll_reported_download_broken">Download already reported broken</label>
+			<label index="ll_report_download_broken_text">Do you want to report this download as broken?</label>
+			<label index="ll_li_broken_thx">Thank you very much for your help!</label>
+			<label index="ll_rate_download">Rate download</label>
+			<label index="ll_rate_download_text">Please select a mark for the following download. </label>
+			<label index="ll_li_rate_thx">Thank you very much for your voting!</label>
+			<label index="ll_add_download">Propose a new download</label>
+			<label index="ll_add_download_text">Here you are able to propose a new download. Please fill in all fields and submit the form. </label>
+			<label index="ll_li_add_thx">Thanks for your download!</label>
+			<label index="ll_file">File</label>
+			<label index="ll_image">Image</label>
+			<label index="ll_contact">Contact Address</label>
+			<label index="ll_contact_example">e.g. me@foo.bar</label>
+		</languageKey>
+		<languageKey index="ro" type="array">
+		</languageKey>
+		<languageKey index="ch" type="array">
+		</languageKey>
+		<languageKey index="sk" type="array">
+		</languageKey>
+		<languageKey index="lt" type="array">
+		</languageKey>
+		<languageKey index="is" type="array">
+		</languageKey>
+		<languageKey index="hr" type="array">
+		</languageKey>
+		<languageKey index="hu" type="array">
+		</languageKey>
+		<languageKey index="gl" type="array">
+		</languageKey>
+		<languageKey index="th" type="array">
+		</languageKey>
+		<languageKey index="gr" type="array">
+		</languageKey>
+		<languageKey index="hk" type="array">
+		</languageKey>
+		<languageKey index="eu" type="array">
+		</languageKey>
+		<languageKey index="bg" type="array">
+		</languageKey>
+		<languageKey index="br" type="array">
+		</languageKey>
+		<languageKey index="et" type="array">
+		</languageKey>
+		<languageKey index="ar" type="array">
+		</languageKey>
+		<languageKey index="he" type="array">
+		</languageKey>
+		<languageKey index="ua" type="array">
+		</languageKey>
+		<languageKey index="lv" type="array">
+		</languageKey>
+		<languageKey index="jp" type="array">
+		</languageKey>
+		<languageKey index="vn" type="array">
+		</languageKey>
+		<languageKey index="ca" type="array">
+		</languageKey>
+		<languageKey index="ba" type="array">
+		</languageKey>
+		<languageKey index="kr" type="array">
+		</languageKey>
+		<languageKey index="eo" type="array">
+		</languageKey>
+		<languageKey index="my" type="array">
+		</languageKey>
+		<languageKey index="hi" type="array">
+		</languageKey>
+	</orig_text>
+</T3locallang>

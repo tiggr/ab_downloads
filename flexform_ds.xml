@@ -1,0 +1,818 @@
+<?xml version="1.0"?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<whatToDisplay>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_whatToDisplay</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">CATEGORY</numIndex>
+										<numIndex index="1">CATEGORY</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">TREE</numIndex>
+										<numIndex index="1">TREE</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">CATALOG</numIndex>
+										<numIndex index="1">CATALOG</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">SEARCH</numIndex>
+										<numIndex index="1">SEARCH</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">TOP</numIndex>
+										<numIndex index="1">TOP</numIndex>
+									</numIndex>
+								</items>
+								<maxitems>100</maxitems>
+								<size>5</size>
+								<multiple>1</multiple>
+								<selectedListStyle>width:150px</selectedListStyle>
+								<itemListStyle>width:150px</itemListStyle>
+							</config>
+						</TCEforms>
+					</whatToDisplay>
+					<allowAddDownloads>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_allowAddDownloads</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</allowAddDownloads>
+					<statusAddedDownloads>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_statusAddedDownloads</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_db.xml:tx_abdownloads_download.status.i.0</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_db.xml:tx_abdownloads_download.status.i.1</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_db.xml:tx_abdownloads_download.status.i.2</numIndex>
+										<numIndex index="1">2</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_db.xml:tx_abdownloads_download.status.i.3</numIndex>
+										<numIndex index="1">3</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</statusAddedDownloads>
+					<maxFileSize>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_maxFileSize</label>
+							<config>
+								<type>input</type>
+								<size>25</size>
+							</config>
+						</TCEforms>
+					</maxFileSize>
+					<blacklist>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_blacklist</label>
+							<config>
+								<type>input</type>
+								<size>25</size>
+							</config>
+						</TCEforms>
+					</blacklist>
+					<mandatoryFields>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.0</numIndex>
+										<numIndex index="1">label</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.1</numIndex>
+										<numIndex index="1">category</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.2</numIndex>
+										<numIndex index="1">contact</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.3</numIndex>
+										<numIndex index="1">image</numIndex>
+									</numIndex>
+									<numIndex index="5" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.4</numIndex>
+										<numIndex index="1">file</numIndex>
+									</numIndex>
+									<numIndex index="6" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.5</numIndex>
+										<numIndex index="1">description</numIndex>
+									</numIndex>
+								</items>
+								<maxitems>100</maxitems>
+								<size>6</size>
+								<multiple>1</multiple>
+								<selectedListStyle>width:150px</selectedListStyle>
+								<itemListStyle>width:150px</itemListStyle>
+							</config>
+						</TCEforms>
+					</mandatoryFields>
+					<pageListPlugin>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_pageListPlugin</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</pageListPlugin>
+					<captchaExtension>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_captchaExtension</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_captchaExtension.i.0</numIndex>
+										<numIndex index="1">none</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_captchaExtension.i.1</numIndex>
+										<numIndex index="1">sr_freecap</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_captchaExtension.i.2</numIndex>
+										<numIndex index="1">captcha</numIndex>
+									</numIndex>
+								</items>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+							</config>
+						</TCEforms>
+					</captchaExtension>
+					<!--				<categoryMode>
+					<TCEforms>
+						<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categoryMode</label>
+						<config>
+							<type>select</type>
+							<items type="array">
+								<numIndex index="0" type="array">
+									<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categoryMode_showAll</numIndex>
+									<numIndex index="1">0</numIndex>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categoryMode_showSelectedOR</numIndex>
+									<numIndex index="1">1</numIndex>
+								</numIndex>
+								<numIndex index="2" type="array">
+									<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categoryMode_showSelectedAND</numIndex>
+									<numIndex index="1">2</numIndex>
+								</numIndex>
+								<numIndex index="3" type="array">
+									<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categoryMode_DontShowSelectedOR</numIndex>
+									<numIndex index="1">-1</numIndex>
+								</numIndex>
+								<numIndex index="4" type="array">
+									<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categoryMode_DontShowSelectedAND</numIndex>
+									<numIndex index="1">-2</numIndex>
+								</numIndex>
+							</items>
+							<maxitems>1</maxitems>
+							<size>1</size>
+						</config>
+					</TCEforms>
+				</categoryMode>
+				<categorySelection>
+					<TCEforms>
+						<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categorySelection</label>
+						<config>
+							<type>select</type>
+							<form_type>user</form_type>
+							<userFunc>tx_abdownloads_treeview->displayCategoryTree</userFunc>
+							<treeView>1</treeView>
+							<foreign_table>tx_abdownloads_category</foreign_table>
+							<foreign_table_where>AND tx_abdownloads_category.pid=###STORAGE_PID### ORDER BY tx_abdownloads_category.sorting</foreign_table_where>
+							<size>10</size>
+							<autoSizeMax>10</autoSizeMax>
+							<minitems>0</minitems>
+							<maxitems>99</maxitems>
+							<allowNonIdValues>1</allowNonIdValues>
+							<itemsHeader>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categorySelection_itemsHeader</itemsHeader>
+							<items type="array">
+								<numIndex index="100" type="array">
+									<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_general_categorySelection_notCategorized</numIndex>
+									<numIndex index="1">0</numIndex>
+								</numIndex>
+							</items>
+						</config>
+					</TCEforms>
+				</categorySelection>
+-->
+					<pages>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:lang/locallang_general.php:LGL.startingpoint</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>3</size>
+								<maxitems>22</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</pages>
+					<recursive>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_general.php:LGL.recursive</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0"/>
+										<numIndex index="1"/>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.php:recursive.I.1</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.php:recursive.I.2</numIndex>
+										<numIndex index="1">2</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.php:recursive.I.3</numIndex>
+										<numIndex index="1">3</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.php:recursive.I.4</numIndex>
+										<numIndex index="1">4</numIndex>
+									</numIndex>
+									<numIndex index="5" type="array">
+										<numIndex index="0">LLL:EXT:cms/locallang_ttc.php:recursive.I.5</numIndex>
+										<numIndex index="1">250</numIndex>
+									</numIndex>
+								</items>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+							</config>
+						</TCEforms>
+					</recursive>
+				</el>
+			</ROOT>
+		</sDEF>
+		<s_template>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_template</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<templateFile>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_template_templateFile</label>
+							<config>
+								<type>group</type>
+								<internal_type>file</internal_type>
+								<allowed>tmpl,html,htm</allowed>
+								<max_size>100</max_size>
+								<uploadfolder>uploads/tx_abdownloads</uploadfolder>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<selectedListStyle>Width:180px</selectedListStyle>
+							</config>
+						</TCEforms>
+					</templateFile>
+					<alternatingLayouts>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_template_alternatingLayouts</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</alternatingLayouts>
+				</el>
+			</ROOT>
+		</s_template>
+		<s_notification>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_notification</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<adminName>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_notification_adminName</label>
+							<config>
+								<type>input</type>
+								<size>25</size>
+							</config>
+						</TCEforms>
+					</adminName>
+					<adminEmail>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_notification_adminEmail</label>
+							<config>
+								<type>input</type>
+								<size>25</size>
+							</config>
+						</TCEforms>
+					</adminEmail>
+					<emailSubjectAdd>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_notification_emailSubjectAdd</label>
+							<config>
+								<type>input</type>
+								<size>25</size>
+							</config>
+						</TCEforms>
+					</emailSubjectAdd>
+					<emailSubjectBroken>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_notification_emailSubjectBroken</label>
+							<config>
+								<type>input</type>
+								<size>25</size>
+							</config>
+						</TCEforms>
+					</emailSubjectBroken>
+				</el>
+			</ROOT>
+		</s_notification>
+		<s_display>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<startCategoryID>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_startCategory</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_abdownloads_category</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+							</config>
+						</TCEforms>
+					</startCategoryID>
+					<downloadSortBy>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.0</numIndex>
+										<numIndex index="1">label</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.1</numIndex>
+										<numIndex index="1">crdate</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.2</numIndex>
+										<numIndex index="1">clicks</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.3</numIndex>
+										<numIndex index="1">rating</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.4</numIndex>
+										<numIndex index="1">votes</numIndex>
+									</numIndex>
+									<numIndex index="5">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.5</numIndex>
+										<numIndex index="1">sorting</numIndex>
+									</numIndex>
+									<numIndex index="6">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.6</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</downloadSortBy>
+					<downloadSortOrder>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortOrder</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortOrder.i.0</numIndex>
+										<numIndex index="1">ASC</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_downloadSortOrder.i.1</numIndex>
+										<numIndex index="1">DESC</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</downloadSortOrder>
+					<listLimit>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_listLimit</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>3</size>
+							</config>
+						</TCEforms>
+					</listLimit>
+					<categorySortBy>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortBy</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortBy.i.0</numIndex>
+										<numIndex index="1">label</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortBy.i.1</numIndex>
+										<numIndex index="1">crdate</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortBy.i.2</numIndex>
+										<numIndex index="1">sorting</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortBy.i.3</numIndex>
+										<numIndex index="1">random</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</categorySortBy>
+					<categorySortOrder>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortOrder</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortOrder.i.0</numIndex>
+										<numIndex index="1">ASC</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_categorySortOrder.i.1</numIndex>
+										<numIndex index="1">DESC</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</categorySortOrder>
+					<noPageBrowser>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_noPageBrowser</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</noPageBrowser>
+					<noStarsInCategoryView>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_noStarsInCategoryView</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</noStarsInCategoryView>
+					<noDetailsInCategoryView>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_noDetailsInCategoryView</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</noDetailsInCategoryView>
+					<noReportingInCategoryView>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_noReportingInCategoryView</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</noReportingInCategoryView>
+					<noRatingInCategoryView>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_noRatingInCategoryView</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</noRatingInCategoryView>
+					<noSponsoredPreference>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_noSponsoredPreference</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</noSponsoredPreference>
+					<iconsForLinks>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_iconsForLinks</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</iconsForLinks>
+					<linkImages>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkImages</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkImages.i.0</numIndex>
+										<numIndex index="1">none</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkImages.i.1</numIndex>
+										<numIndex index="1">direct</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkImages.i.2</numIndex>
+										<numIndex index="1">details</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkImages.i.3</numIndex>
+										<numIndex index="1">target</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</linkImages>
+					<linkLabels>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkLabels</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkLabels.i.0</numIndex>
+										<numIndex index="1">none</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkLabels.i.1</numIndex>
+										<numIndex index="1">direct</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkLabels.i.2</numIndex>
+										<numIndex index="1">details</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_display_linkLabels.i.3</numIndex>
+										<numIndex index="1">target</numIndex>
+									</numIndex>
+								</items>
+								<minitems>1</minitems>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<multiple>0</multiple>
+							</config>
+						</TCEforms>
+					</linkLabels>
+				</el>
+			</ROOT>
+		</s_display>
+		<s_image>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<imageMaxWidthCategory>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image_imageMaxWidthCategory</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</imageMaxWidthCategory>
+					<imageMaxHeightCategory>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image_imageMaxHeightCategory</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</imageMaxHeightCategory>
+					<imageMaxWidthDetailed>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image_imageMaxWidthDetailed</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</imageMaxWidthDetailed>
+					<imageMaxHeightDetailed>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image_imageMaxHeightDetailed</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</imageMaxHeightDetailed>
+					<categoryImageMaxWidth>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image_categoryImageMaxWidth</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</categoryImageMaxWidth>
+					<categoryImageMaxHeight>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_image_categoryImageMaxHeight</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</categoryImageMaxHeight>
+				</el>
+			</ROOT>
+		</s_image>
+		<s_top>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_top</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<stickToStartCategoryID>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_top_stickToStartCategoryID</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</stickToStartCategoryID>
+					<showTopRated>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_top_showTopRated</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</showTopRated>
+					<showTopAccessed>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_top_showTopAccessed</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</showTopAccessed>
+					<showMostRecent>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_top_showMostRecent</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</showMostRecent>
+					<showRandom>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_top_showRandom</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</showRandom>
+				</el>
+			</ROOT>
+		</s_top>
+		<s_catalog>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_catalog</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<numColumns>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_catalog_numColumns</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</numColumns>
+					<maxSubcategories>
+						<TCEforms>
+							<label>LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.pi_flexform.sheet_catalog_maxSubcategories</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<checkbox/>
+								<size>5</size>
+							</config>
+						</TCEforms>
+					</maxSubcategories>
+				</el>
+			</ROOT>
+		</s_catalog>
+	</sheets>
+</T3DataStructure>

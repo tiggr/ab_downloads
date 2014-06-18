@@ -1,0 +1,266 @@
+plugin.tx_abdownloads_pi1 {
+
+	_CSS_DEFAULT_STYLE (
+
+/* --------------------  general styles  -------------------- */
+
+.tx_abdownloads_viewDetailsForDownload {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_viewAddNewDownload {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_viewAddNewDownloadResult {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_viewReportBrokenDownload {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_viewReportBrokenDownloadResult {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_viewRateDownload {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_viewRateDownloadResult {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_categoryPath {
+	font-size : small;
+}
+
+.tx_abdownloads_formErrorMsg {
+	color : red;
+	margin-top : 10px;
+	margin-bottom : 10px;
+}
+
+/* --------------------  listView  -------------------- */
+
+.tx_abdownloads_listView_categoryPath {
+	font-size : small;
+}
+
+.tx_abdownloads_listView_categories {
+	margin-top : 10px;
+}
+
+.tx_abdownloads_listView_category {
+	margin-top : 10px;
+}
+
+.tx_abdownloads_listView_categoryLabel { }
+
+.tx_abdownloads_listView_downloads {
+	margin-top : 10px;
+}
+
+.tx_abdownloads_listView_download_1 { }
+
+.tx_abdownloads_listView_download_2 { }
+
+.tx_abdownloads_listView_downloadAddNew {
+	margin-top : 10px;
+}
+
+.tx_abdownloads_listView_downloadLabel { }
+
+.tx_abdownloads_listView_downloadDetails { }
+
+.tx_abdownloads_listView_downloadReportBroken { }
+
+.tx_abdownloads_listView_downloadRate { }
+
+.tx_abdownloads_listView_downloadImage { }
+
+/* --------------------  treeView  -------------------- */
+
+.tx_abdownloads_treeView_category {
+	margin-top : 10px;
+	margin-bottom : 10px;
+}
+
+.tx_abdownloads_treeView_category_level_1 { }
+
+.tx_abdownloads_treeView_category_level_2 { }
+
+.tx_abdownloads_treeView_category_level_3 { }
+
+.tx_abdownloads_treeView_category_level_4 { }
+
+.tx_abdownloads_treeView_downloads {
+	margin-bottom : 10px;
+}
+
+.tx_abdownloads_treeView_downloadAddNew {
+	font-size : small;
+}
+
+.tx_abdownloads_treeView_downloadLabel { }
+
+.tx_abdownloads_treeView_downloadDetails { }
+
+.tx_abdownloads_treeView_downloadReportBroken { }
+
+.tx_abdownloads_treeView_downloadRate { }
+
+.tx_abdownloads_treeView_downloadImage { }
+
+/* --------------------  searchView  -------------------- */
+
+.tx_abdownloads_searchView_searchBox { }
+
+.tx_abdownloads_searchView_searchBox_searchWord { }
+
+.tx_abdownloads_searchView_searchBox_button { }
+
+.tx_abdownloads_searchView_resultMessage {
+	margin-top : 10px;
+	margin-bottom : 10px;
+}
+
+.tx_abdownloads_searchView_noDownloadsMessage {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-top : 10px;
+	margin-bottom : 10px;
+	display : block;
+	text-align : center;
+}
+
+.tx_abdownloads_searchView_categoryPath {
+	font-size : small;
+}
+
+.tx_abdownloads_searchView_categoryLabel { }
+
+.tx_abdownloads_searchView_downloads {
+	margin-top : 10px;
+}
+
+.tx_abdownloads_searchView_downloadLabel { }
+
+.tx_abdownloads_searchView_downloadDetails { }
+
+.tx_abdownloads_searchView_downloadReportBroken { }
+
+.tx_abdownloads_searchView_downloadRate { }
+
+.tx_abdownloads_searchView_downloadImage { }
+
+/* --------------------  topView  -------------------- */
+
+.tx_abdownloads_topView_downloads {
+	font-size : medium;
+	border : solid 1px #C5C5C5;
+	background-color : #E5E5E5;
+	padding : 5px;
+	margin-bottom : 10px;
+	display : block;
+	text-align : left;
+}
+
+.tx_abdownloads_topView_download {
+	margin-top : 5px;
+}
+
+.tx_abdownloads_topView_downloadLabel { }
+
+.tx_abdownloads_topView_downloadDetails { }
+
+.tx_abdownloads_topView_downloadImage { }
+
+/* --------------------  catalogView  -------------------- */
+
+.tx_abdownloads_catalogView_categoryPath {
+	font-size : small;
+}
+
+.tx_abdownloads_catalogView_category {
+	float : left;
+	width : 300px;
+	padding-top : 20px;
+}
+
+.tx_abdownloads_catalogView_subcategories {
+	font-size : small;
+}
+
+.tx_abdownloads_catalogView_categoryLabel { }
+
+.tx_abdownloads_catalogView_downloads {
+	clear : both;
+	padding-top : 20px;
+}
+
+.tx_abdownloads_catalogView_download_1 { }
+
+.tx_abdownloads_catalogView_download_2 { }
+
+.tx_abdownloads_catalogView_downloadAddNew {
+	margin-top : 10px;
+}
+
+.tx_abdownloads_catalogView_downloadLabel { }
+
+.tx_abdownloads_catalogView_downloadDetails { }
+
+.tx_abdownloads_catalogView_downloadReportBroken { }
+
+.tx_abdownloads_catalogView_downloadRate { }
+
+.tx_abdownloads_catalogView_downloadImage { }
+
+	)
+}

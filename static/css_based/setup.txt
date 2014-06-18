@@ -1,0 +1,375 @@
+# Include the php class
+# includeLibs.ts_ab_downloads = EXT:ab_downloads/pi1/class.tx_abdownloads_pi1.php
+
+plugin.tx_abdownloads_pi1 = USER
+plugin.tx_abdownloads_pi1 {
+
+	# Start the php script
+	userFunc = tx_abdownloads_pi1->main
+
+	# Template file
+	templateFile = {$plugin.tx_abdownloads_pi1.file.templateFile}
+
+	# Page to get the categories/downloads from -> "Startingpoint"
+	sysfolderList = {$plugin.tx_abdownloads_pi1.sysfolderList}
+
+	# Recursive
+	recursive = 2
+
+	# Default status of downloads
+	statusAddedDownloads = {$plugin.tx_abdownloads_pi1.statusAddedDownloads}
+
+	# Admin name and e-mail
+	adminName = {$plugin.tx_abdownloads_pi1.adminName}
+	adminEmail = {$plugin.tx_abdownloads_pi1.adminEmail}
+
+	# E-mail subjects
+	emailSubjectAdd = {$plugin.tx_abdownloads_pi1.emailSubjectAdd}
+	emailSubjectBroken = {$plugin.tx_abdownloads_pi1.emailSubjectBroken}
+
+	# Date and time formats
+	date_stdWrap.strftime = {$plugin.tx_abdownloads_pi1.date_stdWrap.strftime}
+	time_stdWrap.strftime = {$plugin.tx_abdownloads_pi1.time_stdWrap.strftime}
+
+	# Limit the number of displayed downloads
+	listLimit = {$plugin.tx_abdownloads_pi1.listLimit}
+
+	# Relative path to the files.
+	filePath = {$plugin.tx_abdownloads_pi1.filePath}
+
+	# Maximum filesize for downloads
+	maxFileSize = {$plugin.tx_abdownloads_pi1.maxFileSize}
+	
+	# Icons
+	iconCategory = {$plugin.tx_abdownloads_pi1.file.iconCategory}
+	iconDownload = {$plugin.tx_abdownloads_pi1.file.iconDownload}
+	iconStar = {$plugin.tx_abdownloads_pi1.file.iconStar}
+	iconHalfStar = {$plugin.tx_abdownloads_pi1.file.iconHalfStar}
+	iconDisabledStar = {$plugin.tx_abdownloads_pi1.file.iconDisabledStar}
+	iconDetails = {$plugin.tx_abdownloads_pi1.file.iconDetails}
+	iconReportBroken = {$plugin.tx_abdownloads_pi1.file.iconReportBroken}
+	iconReportBrokenDisabled = {$plugin.tx_abdownloads_pi1.file.iconReportBrokenDisabled}
+	iconRate = {$plugin.tx_abdownloads_pi1.file.iconRate}
+
+	# Maximum image dimensions for the category view
+	imageMaxWidthCategory = {$plugin.tx_abdownloads_pi1.imageMaxWidthCategory}
+	imageMaxHeightCategory = {$plugin.tx_abdownloads_pi1.imageMaxHeightCategory}
+
+	# Maximum image dimensions for the detailed link view
+	imageMaxWidthDetailed = {$plugin.tx_abdownloads_pi1.imageMaxWidthDetailed}
+	imageMaxHeightDetailed = {$plugin.tx_abdownloads_pi1.imageMaxHeightDetailed}
+
+	# Maximum image dimensions for category images
+	categoryImageMaxWidth = {$plugin.tx_abdownloads_pi1.categoryImageMaxWidth}
+	categoryImageMaxHeight = {$plugin.tx_abdownloads_pi1.categoryImageMaxHeight}
+
+	# Caching
+	allowCaching = {$plugin.tx_abdownloads_pi1.allowCaching}
+
+	# Display settings
+	noRatingInCategoryView = {$plugin.tx_abdownloads_pi1.noRatingInCategoryView}
+	noStarsInCategoryView = {$plugin.tx_abdownloads_pi1.noStarsInCategoryView}
+	teaseDownloads = {$plugin.tx_abdownloads_pi1.teaseDownloads}
+	allowAddDownloads = {$plugin.tx_abdownloads_pi1.allowAddDownloads}
+
+	# Substitute the title of the page with the current category/download label
+	substitutePageTitle = 1
+
+	# Pagebrowser settings
+	noPageBrowser = {$plugin.tx_abdownloads_pi1.noPageBrowser}
+
+	usePiBasePagebrowser = 0
+	pageBrowser {
+		maxPages = 50
+		showResultCount = 1
+		showPBrowserText = 0
+		dontDownloadActivePage = 1
+		tableParams = cellpadding="2" align="center"
+		hscText = 1
+
+		# settings for the extended pagebrowser from TYPO3 3.8.0
+		showFirstLast = 0
+		pagefloat = center
+		showRange = 0
+		disabledDownloadWrap = <span style="color:#bbb;">|</span>
+		inactiveDownloadWrap = |
+		activeDownloadWrap = <b>|</b>
+		browseDownloadsWrap = |
+		showResultsWrap = |<br />
+		showResultsNumbersWrap = |
+		browseBoxWrap = <div class="tx-abdownloads-pi1-browsebox">|</div>
+	}
+
+	# General stdWraps
+	categoryPath_stdWrap.wrap = |
+	addDownload_stdWrap.wrap = <b>|</b>
+	addDownloadText_stdWrap.wrap = <b>|</b>
+	mandatoryField_stdWrap.wrap = <span style="color:red;">*</span>|
+	reportDownloadBrokenText_stdWrap.wrap = <b>|</b>
+	rateDownloadText_stdWrap.wrap = <b>|</b>
+	formErrorMsg_stdWrap.wrap = |
+	nonPublicDownloadMessage_stdWrap = |
+	downloadLabel_stdWrap.wrap = |
+	downloadDescription_stdWrap.wrap = |
+	downloadSponsoredDescription_stdWrap.wrap = |
+	downloadLanguage_stdWrap.wrap = |
+	downloadLicense_stdWrap.wrap = |
+	downloadHomepage_stdWrap.wrap = |
+	downloadImage.imageLinkWrap = 1
+	downloadImage.imageLinkWrap {
+		enable = 1
+		bodyTag = <body bgColor="#ffffff">
+		wrap = <a href="javascript:close();"> | </a>
+		width = 500m
+		height = 500
+		JSwindow = 1
+		JSwindow.newWindow = 1
+		JSwindow.expand = 17,20
+	}
+
+	# listView download/category parameter settings
+	listView {
+		# Wraps
+		categories_stdWrap.wrap = |
+		category_stdWrap.wrap = |
+		categoryPath_stdWrap.wrap = |
+		categoryLabel_stdWrap.wrap = |
+		categoryDescription_stdWrap {
+			wrap = <i>|</i>
+			crop =
+		}
+
+		downloads_stdWrap.wrap = <b>|</b>
+		downloadAddNew_stdWrap.wrap = |
+		downloadTeaser_stdWrap {
+			wrap = |
+			crop = 30 | ... | 1
+		}
+		downloadLabel_stdWrap.wrap = |
+		downloadDescription_stdWrap.wrap = |
+		downloadSponsoredDescription_stdWrap.wrap = |
+		downloadImage.imageLinkWrap = 1
+		downloadImage.imageLinkWrap {
+			enable = 1
+			bodyTag = <body bgColor="#ffffff">
+			wrap = <a href="javascript:close();"> | </a>
+			width = 500m
+			height = 500
+			JSwindow = 1
+			JSwindow.newWindow = 1
+			JSwindow.expand = 17,20
+		}
+		downloadLanguage_stdWrap.wrap = |
+		downloadLicense_stdWrap.wrap = |
+		downloadHomepage_stdWrap.wrap = |
+		downloadDetails_stdWrap.wrap = |
+		downloadReportBroken_stdWrap.wrap = |
+		downloadRate_stdWrap.wrap = |
+
+		# ATagParams
+		categoryLabel.ATagParams = class="tx_abdownloads_listView_categoryLabel"
+
+		downloadAddNew.ATagParams = class="tx_abdownloads_listView_downloadAddNew"
+		downloadLabel.ATagParams = class="tx_abdownloads_listView_downloadLabel"
+		downloadDetails.ATagParams = class="tx_abdownloads_listView_downloadDetails"
+		downloadReportBroken.ATagParams = class="tx_abdownloads_listView_downloadReportBroken"
+		downloadRate.ATagParams = class="tx_abdownloads_listView_downloadRate"
+		downloadImage.ATagParams = class="tx_abdownloads_listView_downloadImage"
+	}
+
+	# treeView download parameter settings
+	treeView {
+		# Wraps
+		categoryLabel_stdWrap.wrap = <b>|</b>
+		categoryDescription_stdWrap {
+			wrap = <i>|</i>
+			crop =
+		}
+
+		downloadAddNew_stdWrap.wrap = |
+		downloadTeaser_stdWrap {
+			wrap = |
+			crop = 30 | ... | 1
+		}
+		downloadLabel_stdWrap.wrap = |
+		downloadDescription_stdWrap.wrap = |
+		downloadSponsoredDescription_stdWrap.wrap = |
+		downloadImage.imageLinkWrap = 1
+		downloadImage.imageLinkWrap {
+			enable = 1
+			bodyTag = <body bgColor="#ffffff">
+			wrap = <a href="javascript:close();"> | </a>
+			width = 500m
+			height = 500
+			JSwindow = 1
+			JSwindow.newWindow = 1
+			JSwindow.expand = 17,20
+		}
+		downloadLanguage_stdWrap.wrap = |
+		downloadLicense_stdWrap.wrap = |
+		downloadHomepage_stdWrap.wrap = |
+		downloadDetails_stdWrap.wrap = |
+		downloadReportBroken_stdWrap.wrap = |
+		downloadRate_stdWrap.wrap = |
+
+		# ATagParams
+		downloadAddNew.ATagParams = class="tx_abdownloads_treeView_downloadAddNew"
+		downloadLabel.ATagParams = class="tx_abdownloads_treeView_downloadLabel"
+		downloadDetails.ATagParams = class="tx_abdownloads_treeView_downloadDetails"
+		downloadReportBroken.ATagParams = class="tx_abdownloads_treeView_downloadReportBroken"
+		downloadRate.ATagParams = class="tx_abdownloads_treeView_downloadRate"
+		downloadImage.ATagParams = class="tx_abdownloads_treeView_downloadImage"
+
+		# indentionFactor
+		indentionFactor = 40
+	}
+
+	# searchView download parameter settings
+	searchView {
+		# Wraps
+		resultMessage_stdWrap.wrap = |
+		noDownloadsMessage_stdWrap.wrap = |
+
+		categoryPath_stdWrap.wrap = |
+		categoryLabel_stdWrap.wrap = <b>|</b>
+		categoryDescription_stdWrap {
+			wrap = <i>|</i>
+			crop =
+		}
+
+		downloads_stdWrap.wrap = <b>|</b>
+		downloadTeaser_stdWrap {
+			wrap = |
+			crop = 30 | ... | 1
+		}
+		downloadLabel_stdWrap.wrap = |
+		downloadDescription_stdWrap.wrap = |
+		downloadSponsoredDescription_stdWrap.wrap = |
+		downloadImage.imageLinkWrap = 1
+		downloadImage.imageLinkWrap {
+			enable = 1
+			bodyTag = <body bgColor="#ffffff">
+			wrap = <a href="javascript:close();"> | </a>
+			width = 500m
+			height = 500
+			JSwindow = 1
+			JSwindow.newWindow = 1
+			JSwindow.expand = 17,20
+		}
+		downloadLanguage_stdWrap.wrap = |
+		downloadLicense_stdWrap.wrap = |
+		downloadHomepage_stdWrap.wrap = |
+		downloadDetails_stdWrap.wrap = |
+		downloadReportBroken_stdWrap.wrap = |
+		downloadRate_stdWrap.wrap = |
+
+		# ATagParams
+		categoryLabel.ATagParams = class="tx_abdownloads_searchView_categoryLabel"
+
+		downloadLabel.ATagParams = class="tx_abdownloads_searchView_downloadLabel"
+		downloadDetails.ATagParams = class="tx_abdownloads_searchView_downloadDetails"
+		downloadReportBroken.ATagParams = class="tx_abdownloads_searchView_downloadReportBroken"
+		downloadRate.ATagParams = class="tx_abdownloads_searchView_downloadRate"
+		downloadImage.ATagParams = class="tx_abdownloads_searchView_downloadImage"
+	}
+
+	# topView download parameter settings
+	topView {
+		# Wraps
+		topMessage_stdWrap.wrap = <b>|</b>
+
+		categoryPath_stdWrap.wrap = |
+		categoryLabel_stdWrap.wrap = <b>|</b>
+		categoryDescription_stdWrap {
+			wrap = <i>|</i>
+			crop =
+		}
+
+		downloadTeaser_stdWrap {
+			wrap = |
+			crop = 30 | ... | 1
+		}
+		downloadLabel_stdWrap.wrap = |
+		downloadDescription_stdWrap.wrap = |
+		downloadSponsoredDescription_stdWrap.wrap = |
+		downloadImage.imageLinkWrap = 1
+		downloadImage.imageLinkWrap {
+			enable = 1
+			bodyTag = <body bgColor="#ffffff">
+			wrap = <a href="javascript:close();"> | </a>
+			width = 500m
+			height = 500
+			JSwindow = 1
+			JSwindow.newWindow = 1
+			JSwindow.expand = 17,20
+		}
+		downloadLanguage_stdWrap.wrap = |
+		downloadLicense_stdWrap.wrap = |
+		downloadHomepage_stdWrap.wrap = |
+		downloadDetails_stdWrap.wrap = |
+
+		# ATagParams
+		downloadLabel.ATagParams = class="tx_abdownloads_topView_downloadLabel"
+		downloadDetails.ATagParams = class="tx_abdownloads_topView_downloadDetails"
+		downloadImage.ATagParams = class="tx_abdownloads_topView_downloadImage"
+	}
+
+	# catalogView download parameter settings
+	catalogView {
+		# Separator and appendix
+		separator = ,&nbsp;
+		appendix = ...		
+
+		# Wraps
+		categoryPath_stdWrap.wrap = |
+		categoryLabel_stdWrap.wrap = |
+		categoryDescription_stdWrap {
+			wrap = <i>|</i>
+			crop =
+		}
+
+		subcategoryLabel_stdWrap.wrap = |
+		subcategoryDescription_stdWrap {
+			wrap = <i>|</i>
+			crop =
+		}
+
+		downloads_stdWrap.wrap = <b>|</b>
+		downloadAddNew_stdWrap.wrap = |
+		downloadTeaser_stdWrap {
+			wrap = |
+			crop = 30 | ... | 1
+		}
+		downloadLabel_stdWrap.wrap = |
+		downloadDescription_stdWrap.wrap = |
+		downloadSponsoredDescription_stdWrap.wrap = |
+		downloadImage.imageLinkWrap = 1
+		downloadImage.imageLinkWrap {
+			enable = 1
+			bodyTag = <body bgColor="#ffffff">
+			wrap = <a href="javascript:close();"> | </a>
+			width = 500m
+			height = 500
+			JSwindow = 1
+			JSwindow.newWindow = 1
+			JSwindow.expand = 17,20
+		}
+		downloadLanguage_stdWrap.wrap = |
+		downloadLicense_stdWrap.wrap = |
+		downloadHomepage_stdWrap.wrap = |
+		downloadDetails_stdWrap.wrap = |
+		downloadReportBroken_stdWrap.wrap = |
+		downloadRate_stdWrap.wrap = |
+
+		# ATagParams
+		categoryLabel.ATagParams = class="tx_abdownloads_catalogView_categoryLabel"
+		subcategoryLabel.ATagParams = class="tx_abdownloads_catalogView_subcategoryLabel"
+
+		downloadAddNew.ATagParams = class="tx_abdownloads_catalogView_downloadAddNew"
+		downloadLabel.ATagParams = class="tx_abdownloads_catalogView_downloadLabel"
+		downloadDetails.ATagParams = class="tx_abdownloads_catalogView_downloadDetails"
+		downloadReportBroken.ATagParams = class="tx_abdownloads_catalogView_downloadReportBroken"
+		downloadRate.ATagParams = class="tx_abdownloads_catalogView_downloadRate"
+		downloadImage.ATagParams = class="tx_abdownloads_catalogView_downloadImage"
+	}
+}
