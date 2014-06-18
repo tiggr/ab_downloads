@@ -216,7 +216,6 @@ class tx_abdownloads_module1 extends t3lib_SCbase {
 	function printContent() {
 		global $SOBE;
 
-		$this->content .= $this->doc->middle();
 		$this->content .= $this->doc->endPage();
 		echo $this->content;
 	}
