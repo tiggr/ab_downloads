@@ -75,7 +75,7 @@ class tx_abdownloads_pi1_wizicon {
 	 */
 	function includeLocalLang() {
 		$llFile = t3lib_extMgm::extPath( 'ab_downloads' ) . 'locallang.xml';
-		$LOCAL_LANG = t3lib_div::readLLXMLfile( $llFile, $GLOBALS['LANG']->lang );
+		$LOCAL_LANG = t3lib_div::readLLfile( $llFile, $GLOBALS['LANG']->lang );
 
 		return $LOCAL_LANG;
 	}
