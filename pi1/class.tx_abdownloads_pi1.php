@@ -519,7 +519,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$markerArrayCategory['###LL_TOTAL###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_total' ) ) ), '' );
 
 				if( $categoryLabels[$i]['description'] ) {
-					$markerArrayCategory['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $categoryLabels[$i]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
+					$markerArrayCategory['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $categoryLabels[$i]['description'] ), $localConf['categoryDescription_stdWrap.'] ) );
 				} else {
 					$markerArrayCategory['###CATEGORY_DESCRIPTION###'] = '';
 				}
@@ -823,7 +823,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			}
 
 			if( $category[0]['description'] ) {
-				$markerArrayMessage['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $category[0]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
+				$markerArrayMessage['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $category[0]['description'] ), $localConf['categoryDescription_stdWrap.'] ) );
 			} else {
 				$markerArrayMessage['###CATEGORY_DESCRIPTION###'] = '';
 			}
@@ -854,7 +854,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			}
 
 			if( $category[0]['description'] ) {
-				$markerArrayMessage['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $category[0]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
+				$markerArrayMessage['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $category[0]['description'] ), $localConf['categoryDescription_stdWrap.'] ) );
 			} else {
 				$markerArrayMessage['###CATEGORY_DESCRIPTION###'] = '';
 			}
@@ -1008,7 +1008,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$markerArray['###CATEGORY_LABEL###'] = $this->local_cObj->stdWrap( $download, $localConf['categoryLabel_stdWrap.'] );
 
 				if( $category[0]['description'] ) {
-					$markerArray['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $category[0]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
+					$markerArray['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $category[0]['description'] ), $localConf['categoryDescription_stdWrap.'] ) );
 				} else {
 					$markerArray['###CATEGORY_DESCRIPTION###'] = '';
 				}
@@ -1244,7 +1244,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 						$markerArrayDownload['###CATEGORY_LABEL###'] = $this->local_cObj->stdWrap( $download, $localConf['categoryLabel_stdWrap.'] );
 
 						if( $topDownloads[$i]['description'] ) {
-							$markerArrayDownload['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $topDownloads[$i]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
+							$markerArrayDownload['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $topDownloads[$i]['description'] ), $localConf['categoryDescription_stdWrap.'] ) );
 						} else {
 							$markerArrayDownload['###CATEGORY_DESCRIPTION###'] = '';
 						}
@@ -1456,7 +1456,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 				$markerArrayCategory['###LL_TOTAL###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_total' ) ) ), '' );
 
 				if( $categoryLabels[$i]['description'] ) {
-					$markerArrayCategory['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $categoryLabels[$i]['description'] ) ), $localConf['categoryDescription_stdWrap.'] ) );
+					$markerArrayCategory['###CATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $categoryLabels[$i]['description'] ), $localConf['categoryDescription_stdWrap.'] ) );
 				} else {
 					$markerArrayCategory['###CATEGORY_DESCRIPTION###'] = '';
 				}
@@ -1488,7 +1488,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 						$markerArraySubcategory['###LL_TOTAL###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_total' ) ) ), '' );
 
 						if( $subcategoryLabels[$j]['description'] ) {
-							$markerArraySubcategory['###SUBCATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( htmlspecialchars( trim( $subcategoryLabels[$j]['description'] ) ), $localConf['subcategoryDescription_stdWrap.'] ) );
+							$markerArraySubcategory['###SUBCATEGORY_DESCRIPTION###'] = $this->pi_RTEcssText( $this->local_cObj->stdWrap( trim( $subcategoryLabels[$j]['description'] ), $localConf['subcategoryDescription_stdWrap.'] ) );
 						} else {
 							$markerArraySubcategory['###SUBCATEGORY_DESCRIPTION###'] = '';
 						}
@@ -3080,7 +3080,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$teaseDownloads = $this->conf['teaseDownloads'];
 		$downloadteaser = '';
 		if( $teaseDownloads && $record['description'] != null ) {
-			$downloadteaser = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['description'] ) ), $localConf['downloadTeaser_stdWrap.'] ) ) );
+			$downloadteaser = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( trim( $record['description'] ), $localConf['downloadTeaser_stdWrap.'] ) ) );
 		}
 		$array['###DOWNLOAD_TEASER###'] = $downloadteaser;
 
@@ -3169,8 +3169,8 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$array['###DOWNLOAD_IMAGE###'] = $this->getImageLink( $record, 'image', 'link', 'list', $categoryUID );
 
 		// MISC
-		$array['###DOWNLOAD_DESCRIPTION###'] = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['description'] ) ), $localConf['downloadDescription_stdWrap.'] ) ) );
-		$array['###DOWNLOAD_SPONSORED_DESCRIPTION###'] = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['sponsored_description'] ) ), $localConf['downloadSponsoredDescription_stdWrap.'] ) ) );
+		$array['###DOWNLOAD_DESCRIPTION###'] = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( trim( $record['description'] ), $localConf['downloadDescription_stdWrap.'] ) ) );
+		$array['###DOWNLOAD_SPONSORED_DESCRIPTION###'] = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( trim( $record['sponsored_description'] ), $localConf['downloadSponsoredDescription_stdWrap.'] ) ) );
 		$array['###DOWNLOAD_LANGUAGE###'] = $this->local_cObj->stdWrap( $this->getLanguage( $record['language_uid'] ), $localConf['downloadLanguage_stdWrap.'] );
 		$array['###DOWNLOAD_LICENSE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['license'] ) ), $localConf['downloadLicense_stdWrap.'] );
 		$array['###DOWNLOAD_HOMEPAGE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['homepage'] ) ), $localConf['downloadHomepage_stdWrap.'] );
