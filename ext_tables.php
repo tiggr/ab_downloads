@@ -89,7 +89,6 @@ if( t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version ) >
 	$TCA['tx_abdownloads_download']['ctrl']['versioning'] = true;
 
 	// Disable support for nested fe_groups in tx_abdownloads_download records in TYPO3 versions lower than 4.0
-	t3lib_div::loadTCA( 'tx_abdownloads_download' );
 
 	$TCA['tx_abdownloads_download']['columns']['fe_group'] = Array(
 		'l10n_mode' => 'mergeIfNotBlank',
@@ -111,7 +110,6 @@ if( t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version ) >
 	$TCA['tx_abdownloads_download']['ctrl']['mainpalette'] = false;
 
 	// Disable support for nested fe_groups in tx_abdownloads_category records in TYPO3 versions lower than 4.0
-	t3lib_div::loadTCA( 'tx_abdownloads_category' );
 
 	$TCA['tx_abdownloads_category']['columns']['fe_group'] = Array(
 		'l10n_mode' => 'mergeIfNotBlank',
@@ -142,7 +140,6 @@ t3lib_extMgm::addToInsertRecords('tx_abdownloads_download');
 t3lib_extMgm::addToInsertRecords('tx_abdownloads_category');
 
 // Load tt_content to $TCA array
-t3lib_div::loadTCA( 'tt_content' );
 
 // Remove some fields from the tt_content content element
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1'] ='layout,select_key,pages,recursive';
@@ -209,7 +206,6 @@ $tempColumns = Array (
 );
 
 
-t3lib_div::loadTCA('be_groups');
 t3lib_extMgm::addTCAcolumns('be_groups',$tempColumns,1);
 t3lib_extMgm::addToAllTCAtypes('be_groups','ab_downloads_categorymounts;;;;1-1-1');
 
@@ -217,7 +213,6 @@ $tempColumns['ab_downloads_categorymounts']['displayCond'] = 'FIELD:admin:=:0';
 // $tempColumns['ab_downloads_cmounts_usesubcats']['displayCond'] = 'FIELD:admin:=:0';
 
 
-t3lib_div::loadTCA('be_users');
 t3lib_extMgm::addTCAcolumns('be_users',$tempColumns,1);
 t3lib_extMgm::addToAllTCAtypes('be_users','ab_downloads_categorymounts;;;;1-1-1');
 
