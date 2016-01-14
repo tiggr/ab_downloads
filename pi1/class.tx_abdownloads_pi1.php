@@ -3173,7 +3173,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$array['###DOWNLOAD_SPONSORED_DESCRIPTION###'] = $this->pi_RTEcssText( nl2br( $this->local_cObj->stdWrap( trim( $record['sponsored_description'] ), $localConf['downloadSponsoredDescription_stdWrap.'] ) ) );
 		$array['###DOWNLOAD_LANGUAGE###'] = $this->local_cObj->stdWrap( $this->getLanguage( $record['language_uid'] ), $localConf['downloadLanguage_stdWrap.'] );
 		$array['###DOWNLOAD_LICENSE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['license'] ) ), $localConf['downloadLicense_stdWrap.'] );
-		$array['###DOWNLOAD_HOMEPAGE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['homepage'] ) ), $localConf['downloadHomepage_stdWrap.'] );
+		$array['###DOWNLOAD_HOMEPAGE###'] = '<a href="' . $record['homepage'] . '">' . $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['homepage'] ) ), $localConf['downloadHomepage_stdWrap.'] ) . '</a>';
 		$array['###DOWNLOAD_FILENAME###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['file'] ) ), '' );
 		$array['###DOWNLOAD_FILEICON###'] = $this->getFileIcon( $record );
 		$array['###DOWNLOAD_TYPE###'] = $this->local_cObj->stdWrap( strtoupper( $fileInformation['fileext'] ), '' );
