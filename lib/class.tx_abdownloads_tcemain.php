@@ -55,7 +55,7 @@
  * @subpackage	tx_ablinklist
  */
 
-require_once(t3lib_extMgm::extPath('ab_downloads').'lib/class.tx_abdownloads_div.php');;
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads').'lib/class.tx_abdownloads_div.php');;
 
 class tx_abdownloads_tcemain {
 
@@ -138,7 +138,7 @@ class tx_abdownloads_tcemain {
 			$newParent = intval($fieldArray['parent_category']);
 			if ($newParent) {
 				$subcategories = $this->getSubCategories($id);
-				if (t3lib_div::inList($subcategories,$newParent)) {
+				if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList($subcategories,$newParent)) {
 					$sourceRec = t3lib_BEfunc::getRecord($table,$id,'label');
 					$targetRec = t3lib_BEfunc::getRecord($table,$fieldArray['parent_category'],'label');
 					$pObj->log($table,$id,2,0,1,"processDatamap: Attempt to move category '%s' (%s) to inside of its own rootline (at category '%s' (%s)).",1,array($sourceRec['label'],$id,$targetRec['label'],$newParent));
@@ -166,10 +166,10 @@ class tx_abdownloads_tcemain {
 				}
 
 			}
-// 			debug(t3lib_div::_GP('popViewId_addParams'),__FUNCTION__);
+// 			debug(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP('popViewId_addParams'),__FUNCTION__);
 
 			if (!is_object($divObj)) {
-				$divObj = t3lib_div::makeInstance('tx_abdownloads_div');
+				$divObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_div');
 			}
 				// check permissions of assigned categories
 			if ($divObj->useAllowedCategories() && is_int($id)) {
@@ -188,7 +188,7 @@ class tx_abdownloads_tcemain {
 						$allowedItemsList = $divObj->getCategoryTreeIDs();
 					}
 					foreach ($categories as $k) {
-						if(!t3lib_div::inList($allowedItemsList,$k)) {
+						if(!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($allowedItemsList,$k)) {
 							$notAllowedItems[]=$k;
 						}
 					}
@@ -237,7 +237,7 @@ class tx_abdownloads_tcemain_cmdmap {
 			}
 
 			if (!is_object($divObj)) {
-				$divObj = t3lib_div::makeInstance('tx_abdownloads_div');
+				$divObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_div');
 			}
 
 			if ($divObj->useAllowedCategories() && is_int($id)) {
@@ -258,7 +258,7 @@ class tx_abdownloads_tcemain_cmdmap {
 						}
 						$notAllowedItems = array();
 						foreach ($categories as $k) {
-							if(!t3lib_div::inList($allowedItemsList,$k)) {
+							if(!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($allowedItemsList,$k)) {
 								$notAllowedItems[]=$k;
 							}
 						}

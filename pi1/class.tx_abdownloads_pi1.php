@@ -27,7 +27,7 @@
  *
  *
  *
- *  100: class tx_abdownloads_pi1 extends tslib_pibase
+ *  100: class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
  *
  *              SECTION: Main function
  *  133:     function main( $content, $conf )
@@ -94,7 +94,7 @@
  * @See ab_downloads Manual: http://typo3.org/documentation/document-library/extension-manuals/ab_downloads/current/
  * @See TSref: http://typo3.org/documentation/document-library/references/doc_core_tsref/current/
  */
-class tx_abdownloads_pi1 extends tslib_pibase {
+class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	var $prefixId = 'tx_abdownloads_pi1';				// Same as class name
 	var $scriptRelPath ='pi1/class.tx_abdownloads_pi1.php';		// Path to this script relative to the extension directory.
 	var $extKey = 'ab_downloads';					// The extension key.
@@ -135,10 +135,10 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		}
 
 		// Initialize new cObj object
-		$this->local_cObj = t3lib_div::makeInstance( 'tslib_cObj' );
+		$this->local_cObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance( \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class );
 
 		// Initialize new fileFunc object
-		$this->fileFunc = t3lib_div::makeInstance( 't3lib_basicFileFunctions' );
+		$this->fileFunc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance( \TYPO3\CMS\Core\Utility\File\BasicFileUtility::class );
 
 		// Init config for flexform
 		$this->pi_initPIflexForm();
@@ -148,13 +148,13 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$this->captchaExtension = $this->pi_getFFvalue( $this->flexform, 'captchaExtension', 'sDEF' );
 
 		// Check for extension "sr_freecap"
-		if( $this->captchaExtension == 'sr_freecap' && t3lib_extMgm::isLoaded( 'sr_freecap' ) ) {
-			require_once( t3lib_extMgm::extPath( 'sr_freecap' ) . 'pi2/class.tx_srfreecap_pi2.php' );
-			$this->freeCap = t3lib_div::makeInstance( 'tx_srfreecap_pi2' );
+		if( $this->captchaExtension == 'sr_freecap' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded( 'sr_freecap' ) ) {
+			require_once( \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'sr_freecap' ) . 'pi2/class.tx_srfreecap_pi2.php' );
+			$this->freeCap = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance( 'tx_srfreecap_pi2' );
 		}
 
 		// Check for extension "version"
-		if( t3lib_extMgm::isLoaded( 'version' ) ) {
+		if( \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded( 'version' ) ) {
 			$this->versioningEnabled = true;
 		}
 
@@ -221,7 +221,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$this->conf['code'] = $code ? $code : 'CATEGORY';
 
 		// Get the view mode(s)
-		$viewModes = t3lib_div::trimExplode( ',', $this->conf['code'], 1 );
+		$viewModes = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', $this->conf['code'], 1 );
 		if( !count( $viewModes ) ) {
 			$viewModes = array();
 		}
@@ -654,7 +654,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					$this->internal['showRange'] = $this->conf['pageBrowser.']['showRange'];
 					$this->internal['dontDownloadActivePage'] = $this->conf['pageBrowser.']['dontDownloadActivePage'];
 
-					$wrapArrFields = t3lib_div::trimExplode( ',', 'disabledDownloadWrap,inactiveDownloadWrap,activeDownloadWrap,browseDownloadsWrap,showResultsWrap,showResultsNumbersWrap,browseBoxWrap' );
+					$wrapArrFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', 'disabledDownloadWrap,inactiveDownloadWrap,activeDownloadWrap,browseDownloadsWrap,showResultsWrap,showResultsNumbersWrap,browseBoxWrap' );
 					$wrapArr = array();
 					foreach( $wrapArrFields as $key ) {
 						if( $this->conf['pageBrowser.'][$key] ) {
@@ -925,7 +925,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		// Create marker array
 		$markerArrayForm = array();
-		$markerArrayForm['###FORM_ACTION###'] = htmlspecialchars( t3lib_div::getIndpEnv( 'REQUEST_URI' ) );
+		$markerArrayForm['###FORM_ACTION###'] = htmlspecialchars( \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( 'REQUEST_URI' ) );
 		$markerArrayForm['###FORM_SEARCH_VALUE###'] = $searchWords;
 		$markerArrayForm['###FORM_SUBMIT_BUTTON_VALUE###'] = htmlspecialchars( trim( $this->pi_getLL( 'pi_list_searchBox_search', 'Search', true ) ) );
 		$markerArrayForm['###FORM_POINTER_VALUE###'] = '';
@@ -934,7 +934,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$templateCode = $this->cObj->substituteSubpart( $templateCode, '###' . $subSub_form . '###', $formContent );
 
 		if( $searchWords != null ) {
-			$searchWordsArray = t3lib_div::trimExplode( ' ', $searchWords );
+			$searchWordsArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ' ', $searchWords );
 
 			// Remove duplicates
 			$searchWordsArray = array_unique( $searchWordsArray );
@@ -1090,7 +1090,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					$this->internal['showRange'] = $this->conf['pageBrowser.']['showRange'];
 					$this->internal['dontDownloadActivePage'] = $this->conf['pageBrowser.']['dontDownloadActivePage'];
 
-					$wrapArrFields = t3lib_div::trimExplode( ',', 'disabledDownloadWrap,inactiveDownloadWrap,activeDownloadWrap,browseDownloadsWrap,showResultsWrap,showResultsNumbersWrap,browseBoxWrap' );
+					$wrapArrFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', 'disabledDownloadWrap,inactiveDownloadWrap,activeDownloadWrap,browseDownloadsWrap,showResultsWrap,showResultsNumbersWrap,browseBoxWrap' );
 					$wrapArr = array();
 					foreach( $wrapArrFields as $key ) {
 						if( $this->conf['pageBrowser.'][$key] ) {
@@ -1625,7 +1625,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					$this->internal['showRange'] = $this->conf['pageBrowser.']['showRange'];
 					$this->internal['dontDownloadActivePage'] = $this->conf['pageBrowser.']['dontDownloadActivePage'];
 
-					$wrapArrFields = t3lib_div::trimExplode( ',', 'disabledDownloadWrap,inactiveDownloadWrap,activeDownloadWrap,browseDownloadsWrap,showResultsWrap,showResultsNumbersWrap,browseBoxWrap' );
+					$wrapArrFields = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', 'disabledDownloadWrap,inactiveDownloadWrap,activeDownloadWrap,browseDownloadsWrap,showResultsWrap,showResultsNumbersWrap,browseBoxWrap' );
 					$wrapArr = array();
 					foreach( $wrapArrFields as $key ) {
 						if( $this->conf['pageBrowser.'][$key] ) {
@@ -1680,10 +1680,10 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$download = $this->getRecordOverlay( $downloadResult, $this->tablePrefix . 'download' );
 
 			// Get user's IP address
-			$ip = t3lib_div::getIndpEnv( 'REMOTE_ADDR' );
+			$ip = \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( 'REMOTE_ADDR' );
 
 			// Check for multiple-click
-			if( !t3lib_div::cmpIP( $ip, $download[0]['click_ip'] ) ) {
+			if( !\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP( $ip, $download[0]['click_ip'] ) ) {
 				// Update clicks and click_ip of the download
 				$whereClause = "uid=$uid";
 				$updateFields = array(
@@ -1697,7 +1697,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		}
 
 		// Send file to browser
-		$file = t3lib_div::getFileAbsFileName( $this->filePath . $download[0]['file'] );
+		$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $download[0]['file'] );
 		$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
 
 		header( 'Content-Description: Modern Downloads File Transfer' );
@@ -1744,7 +1744,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			if( is_array( $download ) && $download[0]['pid'] > 0 ) {
 				// Get file information
-				$file = t3lib_div::getFileAbsFileName( $this->filePath . $download[0]['file'] );
+				$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $download[0]['file'] );
 				$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
 
 				// Create marker array
@@ -1816,7 +1816,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$form_label_name = $this->prefixId . '[label]';
 		$form_label_value = htmlspecialchars( strip_tags( $this->piVars['label'] ) );
 		$form_description_name = $this->prefixId . '[description]';
-		$form_description_value = t3lib_div::formatForTextarea( strip_tags( $this->piVars['description'] ) );
+		$form_description_value = \TYPO3\CMS\Core\Utility\GeneralUtility::formatForTextarea( strip_tags( $this->piVars['description'] ) );
 		$form_contact_name = $this->prefixId . '[contact]';
 		$form_contact_value = htmlspecialchars( strip_tags( $this->piVars['contact'] ) );
 		$form_image_name = $this->prefixId . '[image]';
@@ -1845,13 +1845,13 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 			$markerArray['###SR_FREECAP_NOTICE###'] = $this->local_cObj->stdWrap( $markerArray['###SR_FREECAP_NOTICE###'], $this->conf['mandatoryField_stdWrap.'] );
 			$markerArray = array_merge( $markerArray, $this->freeCap->makeCaptcha() );
-		} elseif( $this->captchaExtension == 'captcha' && t3lib_extMgm::isLoaded( 'captcha' ) ) {
+		} elseif( $this->captchaExtension == 'captcha' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded( 'captcha' ) ) {
 			$markerArray['###SR_FREECAP_NOTICE###'] = '';
 			$markerArray['###SR_FREECAP_CANT_READ###'] = '';
 			$markerArray['###SR_FREECAP_IMAGE###'] = '';
 
 			$markerArray['###CAPTCHA_NOTICE###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'captcha_notice' ) ) ), $this->conf['mandatoryField_stdWrap.'] );
-			$markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . t3lib_extMgm::siteRelPath('captcha') . 'captcha/captcha.php" alt="" />';
+			$markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('captcha') . 'captcha/captcha.php" alt="" />';
 		} else {
 			$templateCode = $this->cObj->substituteSubpart( $templateCode, '###' . $subSub_captcha . '###', '' );
 		}
@@ -1875,7 +1875,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$markerArray['###LL_MAXIMUM###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $this->pi_getLL( 'll_maximum' ) ) ), '' );
 
 		foreach( $possibleFields as $id => $possibleField ) {
-			if( t3lib_div::inList( $mandatoryFields, $possibleField ) ) {
+			if( \TYPO3\CMS\Core\Utility\GeneralUtility::inList( $mandatoryFields, $possibleField ) ) {
 				$wrap = $this->conf['mandatoryField_stdWrap.'];
 			}
 
@@ -1915,16 +1915,16 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$description = htmlspecialchars( strip_tags( $this->piVars['description'] ) );
 		$category = $this->getCategoryPath( $categoryUID, false );
 		$contact = htmlspecialchars( strip_tags( $this->piVars['contact'] ) );
-		$ip = t3lib_div::getIndpEnv( 'REMOTE_ADDR' );
+		$ip = \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( 'REMOTE_ADDR' );
 
 		// Handle image (if present)
 		$imageName = $this->fileFunc->cleanFileName( $_FILES['image']['name'] );
 		// TODO: Make the image path configurable
 		$uniqueImagePath = $this->fileFunc->getUniqueName( $imageName, PATH_site . 'uploads/tx_abdownloads/downloadImages/' );
 		if( $imageName ) {
-			$uploadedTempFile = t3lib_div::upload_to_tempfile( $_FILES['image']['tmp_name'] );
-			t3lib_div::upload_copy_move( $uploadedTempFile, $uniqueImagePath );
-			t3lib_div::unlink_tempfile( $uploadedTempFile );
+			$uploadedTempFile = \TYPO3\CMS\Core\Utility\GeneralUtility::upload_to_tempfile( $_FILES['image']['tmp_name'] );
+			\TYPO3\CMS\Core\Utility\GeneralUtility::upload_copy_move( $uploadedTempFile, $uniqueImagePath );
+			\TYPO3\CMS\Core\Utility\GeneralUtility::unlink_tempfile( $uploadedTempFile );
 		}
 
 		// Get file name and path
@@ -1933,9 +1933,9 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		if( $fileName ) {
 			$uniqueFilePath = $this->fileFunc->getUniqueName( $fileName, PATH_site . $this->filePath );
-			$uploadedTempFile = t3lib_div::upload_to_tempfile( $_FILES['file']['tmp_name'] );
-			t3lib_div::upload_copy_move( $uploadedTempFile, $uniqueFilePath );
-			t3lib_div::unlink_tempfile( $uploadedTempFile );
+			$uploadedTempFile = \TYPO3\CMS\Core\Utility\GeneralUtility::upload_to_tempfile( $_FILES['file']['tmp_name'] );
+			\TYPO3\CMS\Core\Utility\GeneralUtility::upload_copy_move( $uploadedTempFile, $uniqueFilePath );
+			\TYPO3\CMS\Core\Utility\GeneralUtility::unlink_tempfile( $uploadedTempFile );
 		}
 
 		$allowAddDownloads = $this->pi_getFFvalue( $this->flexform, 'allowAddDownloads', 'sDEF' ) ? $this->pi_getFFvalue( $this->flexform, 'allowAddDownloads', 'sDEF' ) : $this->conf['allowAddDownloads'];
@@ -2016,7 +2016,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 		$encoding = $GLOBALS['TSFE']->config['config']['notification_email_encoding'] ? $GLOBALS['TSFE']->config['config']['notification_email_encoding'] : 'quoted-printable';
 
-		t3lib_div::plainMailEncoded( $email, $subject, $message, $headers, $encoding );
+		\TYPO3\CMS\Core\Utility\GeneralUtility::plainMailEncoded( $email, $subject, $message, $headers, $encoding );
 
 		// Get the html source between subpart markers from the template file
 		$templateCode = $this->cObj->getSubpart( $this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###' );
@@ -2158,7 +2158,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 
 				$encoding = $GLOBALS['TSFE']->config['config']['notification_email_encoding'] ? $GLOBALS['TSFE']->config['config']['notification_email_encoding'] : 'quoted-printable';
 
-				t3lib_div::plainMailEncoded( $email, $subject, $message, $headers, $encoding );
+				\TYPO3\CMS\Core\Utility\GeneralUtility::plainMailEncoded( $email, $subject, $message, $headers, $encoding );
 
 				$markerArray = array();
 
@@ -2279,10 +2279,10 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			$download = $this->getRecordOverlay( $downloadResult, $this->tablePrefix . 'download' );
 
 			// Get user's IP address
-			$ip = t3lib_div::getIndpEnv( 'REMOTE_ADDR' );
+			$ip = \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( 'REMOTE_ADDR' );
 
 			// Check for multiple-rating
-			if( !t3lib_div::cmpIP( $ip, $download[0]['vote_ip'] ) ) {
+			if( !\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP( $ip, $download[0]['vote_ip'] ) ) {
 
 				// Get old rating and votes of the download
 				$oldRating = $download[0]['rating'];
@@ -2417,7 +2417,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		// Create sysfolderList with page IDs from where to fetch the category/download records
 		$pidList = $this->pi_getFFvalue( $this->cObj->data['pi_flexform'], 'pages', 'sDEF' );
 		$pidList = $pidList ? $pidList : trim( $this->cObj->stdWrap( $this->conf['sysfolderList'], $this->conf['sysfolderList.'] ) );
-		$pidList = $pidList ? implode( ',', t3lib_div::intExplode( ',', $pidList ) ) : $GLOBALS['TSFE']->id;
+		$pidList = $pidList ? implode( ',', \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode( ',', $pidList ) ) : $GLOBALS['TSFE']->id;
 
 		// Set recursive setting
 		$recursive = $this->pi_getFFvalue( $this->cObj->data['pi_flexform'], 'recursive', 'sDEF' );
@@ -2540,7 +2540,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 							'parameter' => $pageID,
 							'section' => 'cat_' . $categoryUID,
 							// FIXME: Repair empty GET parameter or remove additionalParams at all if possible
-							'additionalParams' => t3lib_div::implodeArrayForUrl( '', array( 'tx_abdownloads_pi1[category_uid]' => '' ), '', 0 ),
+							'additionalParams' => \TYPO3\CMS\Core\Utility\GeneralUtility::implodeArrayForUrl( '', array( 'tx_abdownloads_pi1[category_uid]' => '' ), '', 0 ),
 						);
 						$link = $this->local_cObj->typoLink( $categoryLabel, $conf );
 
@@ -2785,7 +2785,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$blacklist = $this->pi_getFFvalue( $this->flexform, 'blacklist', 'sDEF' );
 
 		if( $blacklist ) {
-			$blacklistArray = t3lib_div::trimExplode( ',', $blacklist );
+			$blacklistArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', $blacklist );
 
 			foreach( $blacklistArray as $index => $word ) {
 				if( stristr( $text, $word ) )
@@ -2810,7 +2810,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$errormsg = '';
 
 		if( $mandatoryFields ) {
-			$mandatoryFieldsExploded = t3lib_div::trimExplode( ',', $mandatoryFields );
+			$mandatoryFieldsExploded = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', $mandatoryFields );
 		}
 
 		if( $this->debug ) {
@@ -2838,7 +2838,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 					}
 
 					if( $mandatoryField == 'contact' ) {
-						if( !t3lib_div::validEmail( $value ) ) {
+						if( !\TYPO3\CMS\Core\Utility\GeneralUtility::validEmail( $value ) ) {
 							$errormsg = htmlspecialchars( trim( $this->pi_getLL( 'error_invalid_contact' ) ) );
 						}
 					}
@@ -2852,7 +2852,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 			if( !$this->freeCap->checkWord( $value ) ) {
 				$errormsg = htmlspecialchars( trim( $this->pi_getLL( 'error_invalid_captcha' ) ) );
 			}
-		} elseif( $this->captchaExtension == 'captcha' && t3lib_extMgm::isLoaded( 'captcha' ) ) {
+		} elseif( $this->captchaExtension == 'captcha' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded( 'captcha' ) ) {
 			$value = htmlspecialchars( strip_tags( $this->piVars['captchaResponse'] ) );
 
 			session_start();
@@ -2976,13 +2976,13 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 	 */
 	function getFileIcon( $record ) {
 
-		$file = t3lib_div::getFileAbsFileName( $this->filePath . $record['file'] );
+		$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $record['file'] );
 		$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
 
-		if( file_exists( t3lib_div::getFileAbsFileName( 'typo3/gfx/fileicons/' . strtolower( $fileInformation['fileext'] ) . '.gif' ) ) ) {
-			$fileIcon = '<img src="' . t3lib_div::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/gfx/fileicons/' . strtolower( $fileInformation['fileext'] ) . '.gif" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
+		if( file_exists( \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( 'typo3/gfx/fileicons/' . strtolower( $fileInformation['fileext'] ) . '.gif' ) ) ) {
+			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/gfx/fileicons/' . strtolower( $fileInformation['fileext'] ) . '.gif" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
 		} else {
-			$fileIcon = '<img src="' . t3lib_div::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/gfx/fileicons/default.gif" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
+			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/gfx/fileicons/default.gif" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
 		}
 
 		return $fileIcon;
@@ -3073,7 +3073,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 	 */
 	function fillMarkerArray( &$array, $record, $localConf, $categoryUID, $pageID = '' ) {
 
-		$file = t3lib_div::getFileAbsFileName( $this->filePath . $record['file'] );
+		$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $record['file'] );
 		$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
 
 		// TEASER
@@ -3177,7 +3177,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		$array['###DOWNLOAD_FILENAME###'] = $this->local_cObj->stdWrap( htmlspecialchars( trim( $record['file'] ) ), '' );
 		$array['###DOWNLOAD_FILEICON###'] = $this->getFileIcon( $record );
 		$array['###DOWNLOAD_TYPE###'] = $this->local_cObj->stdWrap( strtoupper( $fileInformation['fileext'] ), '' );
-		$array['###DOWNLOAD_SIZE###'] = $this->local_cObj->stdWrap( t3lib_div::formatSize( $fileInformation['size'] ) . 'Byte', '' );
+		$array['###DOWNLOAD_SIZE###'] = $this->local_cObj->stdWrap( \TYPO3\CMS\Core\Utility\GeneralUtility::formatSize( $fileInformation['size'] ) . 'Byte', '' );
 		$array['###DOWNLOAD_DATE###'] = $this->local_cObj->stdWrap( $record['crdate'], $this->conf['date_stdWrap.'] );
 		$array['###DOWNLOAD_TIME###'] = $this->local_cObj->stdWrap( $record['crdate'], $this->conf['time_stdWrap.'] );
 		$array['###DOWNLOAD_CLICKS###'] = $this->local_cObj->stdWrap( $record['clicks'], '' );
@@ -3213,7 +3213,7 @@ class tx_abdownloads_pi1 extends tslib_pibase {
 		// RECORD MARKER HOOK
 		if( is_array( $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ab_downloads']['recordMarkerHook'] ) ) {
 			foreach( $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ab_downloads']['recordMarkerHook'] as $_classRef ) {
-				$_procObj = &t3lib_div::getUserObj( $_classRef );
+				$_procObj = &\TYPO3\CMS\Core\Utility\GeneralUtility::getUserObj( $_classRef );
 				$array = $_procObj->recordMarkerProcessor( $array, $record, $localConf, $this );
 			}
 		}

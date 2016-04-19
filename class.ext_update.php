@@ -72,8 +72,8 @@ class ext_update {
 			$countCategoriesMM = $GLOBALS['TYPO3_DB']->sql_num_rows( $res );
 		}
 
-		if( !t3lib_div::_GP( 'do_update' ) ) {
-			$onClick = "document.location='".t3lib_div::linkThisScript( Array( 'do_update' => 1 ) ) . "'; return false;";
+		if( !\TYPO3\CMS\Core\Utility\GeneralUtility::_GP( 'do_update' ) ) {
+			$onClick = "document.location='".\TYPO3\CMS\Core\Utility\GeneralUtility::linkThisScript( Array( 'do_update' => 1 ) ) . "'; return false;";
 
 			if ( $countDownloads ) {
 				$returnThis = '<b>'.$countDownloads.' downloads should be updated to reflect the changes concerning versioning of downloads and workspaces.</b><br /><br />';

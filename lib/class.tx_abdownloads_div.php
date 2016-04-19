@@ -111,7 +111,7 @@ class tx_abdownloads_div {
 			if ($tmpres) {
 				while ($tmprow = $TYPO3_DB->sql_fetch_assoc($tmpres)) {
 
-					if (!t3lib_div::inList($categoryMounts,$tmprow['parent_category'])) {
+					if (!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($categoryMounts,$tmprow['parent_category'])) {
 						// 					$dontStartFromRootRecord = true;
 						$cleanedCategoryMounts[] = $tmprow['uid'];
 					}
@@ -134,7 +134,7 @@ class tx_abdownloads_div {
 	 */
 	function getCategoryTreeIDs() {
 
-		require_once(t3lib_extMgm::extPath('ab_downloads').'lib/class.tx_abdownloads_treeview.php');;
+		require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads').'lib/class.tx_abdownloads_treeview.php');;
 
 		global $TCA,$BE_USER;
 
@@ -147,10 +147,10 @@ class tx_abdownloads_div {
 		}
 
 		if ($excludeList) {
-			$catlistWhere = ' AND tx_abdownloads_category.uid NOT IN ('.implode(t3lib_div::intExplode(',',$excludeList),',').')';
+			$catlistWhere = ' AND tx_abdownloads_category.uid NOT IN ('.implode(\TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',',$excludeList),',').')';
 		}
 
-		$treeViewObj = t3lib_div::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
+		$treeViewObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
 		$treeViewObj->table = 'tx_abdownloads_category';
 		$treeViewObj->init($catlistWhere);
 		// 	$treeViewObj->backPath = $this->pObj->backPath;
@@ -160,7 +160,7 @@ class tx_abdownloads_div {
 		$treeViewObj->fieldArray = array('uid','label','description'); // those fields will be filled to the array $treeViewObj->tree
 
 		if ($includeList) {
-			$treeViewObj->MOUNTS = t3lib_div::intExplode(',',$includeList);
+			$treeViewObj->MOUNTS = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',',$includeList);
 		}
 
 		$treeViewObj->TCEforms_selectedItemsArray = array();
