@@ -204,14 +204,14 @@ $tempColumns = Array (
 );
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('be_groups',$tempColumns,1);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('be_groups',$tempColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('be_groups','ab_downloads_categorymounts;;;;1-1-1');
 
 $tempColumns['ab_downloads_categorymounts']['displayCond'] = 'FIELD:admin:=:0';
 // $tempColumns['ab_downloads_cmounts_usesubcats']['displayCond'] = 'FIELD:admin:=:0';
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('be_users',$tempColumns,1);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('be_users',$tempColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('be_users','ab_downloads_categorymounts;;;;1-1-1');
 
 if( TYPO3_MODE == 'BE' )	{

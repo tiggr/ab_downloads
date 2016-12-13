@@ -70,11 +70,11 @@ $TCA['tx_abdownloads_download'] = Array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_tca.xml:editlock',
 			'config' => Array(
-				'type' => 'check' 
+				'type' => 'check'
 			)
 		),
 		'hidden' => Array(
-			'l10n_mode' => $hideNewLocalizations,	
+			'l10n_mode' => $hideNewLocalizations,
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
 			'config' => Array(
@@ -131,7 +131,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'label' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.label',
 			'config' => Array(
 				'type' => 'input',
@@ -149,28 +149,31 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'description' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.description',
+            'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
 			'config' => Array(
 				'type' => 'text',
 				'cols' => '50',
 				'rows' => '5',
-				'wizards' => Array(
-					'_PADDING' => 4,
-					'RTE' => Array(
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'type' => 'script',
-						'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
-						'icon' => 'wizard_rte2.gif',
-						'script' => 'wizard_rte.php'
-					)
-				)
+                'softref' => 'typolink_tag,images,email[subst],url',
+                'wizards' => Array(
+                    'RTE' => array(
+                        'notNewRecords' => 1,
+                        'RTEonly' => 1,
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
+                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_rte.gif',
+                        'module' => array(
+                            'name' => 'wizard_rte'
+                        )
+                    )
+                )
 			)
 		),
 		'tags' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.tags',
 			'config' => Array(
 				'type' => 'input',
@@ -179,28 +182,31 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'sponsored_description' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.sponsored_description',
+            'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
 			'config' => Array(
 				'type' => 'text',
 				'cols' => '50',
 				'rows' => '5',
-				'wizards' => Array(
-					'_PADDING' => 4,
-					'RTE' => Array(
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'type' => 'script',
-						'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
-						'icon' => 'wizard_rte2.gif',
-						'script' => 'wizard_rte.php'
-					)
-				)
+                'softref' => 'typolink_tag,images,email[subst],url',
+                'wizards' => Array(
+                    'RTE' => array(
+                        'notNewRecords' => 1,
+                        'RTEonly' => 1,
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
+                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_rte.gif',
+                        'module' => array(
+                            'name' => 'wizard_rte'
+                        )
+                    )
+                )
 			)
 		),
 		'license' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.license',
 			'config' => Array(
 				'type' => 'input',
@@ -209,7 +215,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'language_uid' => Array (
 			'l10n_mode' => 'exclude',
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.language',
 			'config' => Array (
 				'type' => 'select',
@@ -222,7 +228,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'clicks' => Array(
 			'l10n_mode' => 'exclude',
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.clicks',
 			'config' => Array(
 				'type' => 'input',
@@ -235,7 +241,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'rating' => Array(
 			'l10n_mode' => 'exclude',
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.rating',
 			'config' => Array(
 				'type' => 'input',
@@ -252,7 +258,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'votes' => Array(
 			'l10n_mode' => 'exclude',
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.votes',
 			'config' => Array(
 				'type' => 'input',
@@ -265,7 +271,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'status' => Array(
 			'l10n_mode' => 'exclude',
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status',
 			'config' => Array(
 				'type' => 'select',
@@ -330,7 +336,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'contact' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.contact',
 			'config' => Array(
 				'type' => 'input',
@@ -339,10 +345,10 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'homepage' => Array(
 			'l10n_mode' => $l10n_mode_homepage,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.homepage',
 			'config' => Array(
-				'type' => 'input',	
+				'type' => 'input',
 				'size' => '40',
 				'max' => '255',
 				'checkbox' => '',
@@ -406,7 +412,7 @@ $TCA['tx_abdownloads_download'] = Array(
 		),
 		'sponsored' => Array(
 			'l10n_mode' => 'exclude',
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.sponsored',
 			'config' => Array(
 				'type' => 'check',
@@ -521,7 +527,7 @@ $TCA['tx_abdownloads_category'] = Array(
 		),
 		'label' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.label',
 			'config' => Array(
 				'type' => 'input',
@@ -531,23 +537,26 @@ $TCA['tx_abdownloads_category'] = Array(
 		),
 		'description' => Array(
 			'l10n_mode' => $l10n_mode,
-			'exclude' => 1,	
+			'exclude' => 1,
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.description',
+            'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
 			'config' => Array(
 				'type' => 'text',
 				'cols' => '50',
 				'rows' => '5',
-				'wizards' => Array(
-					'_PADDING' => 4,
-					'RTE' => Array(
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'type' => 'script',
-						'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
-						'icon' => 'wizard_rte2.gif',
-						'script' => 'wizard_rte.php'
-					)
-				)
+                'softref' => 'typolink_tag,images,email[subst],url',
+                'wizards' => Array(
+                    'RTE' => array(
+                        'notNewRecords' => 1,
+                        'RTEonly' => 1,
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
+                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_rte.gif',
+                        'module' => array(
+                            'name' => 'wizard_rte'
+                        )
+                    )
+                )
 			)
 		),
 		'parent_category' => Array (
