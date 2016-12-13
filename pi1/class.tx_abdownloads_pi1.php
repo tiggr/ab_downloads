@@ -1698,7 +1698,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 		// Send file to browser
 		$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $download[0]['file'] );
-		$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
+		$fileInformation = $this->getTotalFileInfo( $file );
 
 		header( 'Content-Description: Modern Downloads File Transfer' );
 		header( 'Content-type: application/force-download' );
@@ -1745,7 +1745,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 			if( is_array( $download ) && $download[0]['pid'] > 0 ) {
 				// Get file information
 				$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $download[0]['file'] );
-				$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
+				$fileInformation = $this->getTotalFileInfo( $file );
 
 				// Create marker array
 				$markerArray = array();
@@ -2977,12 +2977,12 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	function getFileIcon( $record ) {
 
 		$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $record['file'] );
-		$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
+		$fileInformation = $this->getTotalFileInfo( $file );
 
-		if( file_exists( \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( 'typo3/gfx/fileicons/' . strtolower( $fileInformation['fileext'] ) . '.gif' ) ) ) {
-			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/gfx/fileicons/' . strtolower( $fileInformation['fileext'] ) . '.gif" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
+		if( file_exists( \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg' ) ) ) {
+			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
 		} else {
-			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/gfx/fileicons/default.gif" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
+			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-other-other.svg" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
 		}
 
 		return $fileIcon;
@@ -3074,7 +3074,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 	function fillMarkerArray( &$array, $record, $localConf, $categoryUID, $pageID = '' ) {
 
 		$file = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( $this->filePath . $record['file'] );
-		$fileInformation = $this->fileFunc->getTotalFileInfo( $file );
+		$fileInformation = $this->getTotalFileInfo( $file );
 
 		// TEASER
 		$teaseDownloads = $this->conf['teaseDownloads'];
@@ -3218,10 +3218,28 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 			}
 		}
 	}
+
+	protected function getTotalFileInfo($file) {
+        $pathInfo = pathinfo($file);
+        $mimeType = 'other-other';
+        if (file_exists($file)) {
+            switch (mime_content_type($file)) {
+                case 'application/pdf':
+                    $mimeType = 'pdf';
+                    break;
+                case 'application/zip':
+                    $mimeType = 'compressed';
+                    break;
+                case 'application/x-dosexec':
+                    $mimeType = 'application';
+                    break;
+            }
+        }
+		return [
+		    'fileext' => $pathInfo['extension'],
+            'size' => file_exists($file) ? filesize($file) : 0,
+            'mimetype' => $mimeType,
+        ];
+	}
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/pi1/class.tx_abdownloads_pi1.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/pi1/class.tx_abdownloads_pi1.php']);
-}
-
-?>
