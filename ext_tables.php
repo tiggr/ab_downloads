@@ -6,7 +6,7 @@
 if( !defined ( 'TYPO3_MODE' ) ) die ( 'Access denied.' );
 
 if( TYPO3_MODE=='BE' )	{
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule( 'web', 'txabdownloadsM1', '', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( $_EXTKEY) . 'mod1/' );
+#	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule( 'web', 'txabdownloadsM1', '', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( $_EXTKEY) . 'mod1/' );
 }
 
 // Get extension configuration
@@ -217,4 +217,3 @@ $tempColumns['ab_downloads_categorymounts']['displayCond'] = 'FIELD:admin:=:0';
 if( TYPO3_MODE == 'BE' )	{
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_abdownloads_pi1_wizicon'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( $_EXTKEY ) . 'pi1/class.tx_abdownloads_pi1_wizicon.php';
 }
-?>
