@@ -35,7 +35,7 @@ $EM_CONF[$_EXTKEY] = array (
 				http://typo3.andreas-bulling.de/en/demos/modern-downloads/',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '7.6.1',
+	'version' => '7.6.2',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
