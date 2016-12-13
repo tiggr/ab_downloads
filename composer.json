@@ -1,0 +1,22 @@
+{
+  "name": "davitec/ab-downloads",
+  "type": "typo3-cms-extension",
+  "description": "Modern Downloads",
+  "homepage": "https://matthies.de",
+  "license": [
+    "GPL-2.0+"
+  ],
+  "require": {
+    "typo3/cms-core": ">=7.6"
+  },
+  "replace": {
+    "ab_downloads": "self.version"
+  },
+  "autoload": {
+    "classmap": [
+      "pi1"
+    ]
+  },
+  "extra": {
+  }
+}
