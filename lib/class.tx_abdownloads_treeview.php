@@ -195,9 +195,9 @@ class tx_abdownloads_treeview {
 		--> this is needed because xajax collides with rtehtmlarea and prevents rtehtmlarea from loading
 		*/
 		// debug($GLOBALS['BE_USER']->uc);
-		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 4001000 && $this->table == 'tx_abdownloads_download' && !$GLOBALS['BE_USER']->uc['moduleData']['xMOD_alt_doc.php']['disableRTE'] && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea')) {
-			$this->useXajax = false;
-		}
+#		if (t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 4001000 && $this->table == 'tx_abdownloads_download' && !$GLOBALS['BE_USER']->uc['moduleData']['xMOD_alt_doc.php']['disableRTE'] && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('rtehtmlarea')) {
+#			$this->useXajax = false;
+#		}
 
 		if ($this->useXajax) {
 			global $TYPO3_CONF_VARS;
