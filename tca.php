@@ -35,29 +35,34 @@ $TCA['tx_abdownloads_download'] = Array(
 	'feInterface' => $TCA['tx_abdownloads_download']['feInterface'],
 	'columns' => Array(
 		'sys_language_uid' => Array(
-		    'exclude' => 1,
-		    'label' => 'LLL:EXT:lang/locallang_general.php:LGL.language',
-		    'config' => Array(
-			'type' => 'select',
-			'foreign_table' => 'sys_language',
-			'foreign_table_where' => 'ORDER BY sys_language.title',
-			'items' => Array(
-			    Array( 'LLL:EXT:lang/locallang_general.php:LGL.allLanguages', -1 ),
-			    Array( 'LLL:EXT:lang/locallang_general.php:LGL.default_value', 0 )
-			)
-		    )
+            'exclude' => 1,
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'special' => 'languages',
+                'items' => array(
+                    array(
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                        -1,
+                        'flags-multiple'
+                    ),
+                ),
+                'default' => 0,
+            )
 		),
 		'l18n_parent' => Array(
 		    'displayCond' => 'FIELD:sys_language_uid:>:0',
 		    'exclude' => 1,
 		    'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
 		    'config' => Array(
-			'type' => 'select',
-			'items' => Array(
-			    Array( '', 0 )
-			),
-			'foreign_table' => 'tx_abdownloads_download',
-			'foreign_table_where' => 'AND tx_abdownloads_download.uid=###REC_FIELD_l18n_parent### AND tx_abdownloads_download.sys_language_uid IN (-1,0)'
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => Array(
+                    Array( '', 0 )
+                ),
+                'foreign_table' => 'tx_abdownloads_download',
+                'foreign_table_where' => 'AND tx_abdownloads_download.uid=###REC_FIELD_l18n_parent### AND tx_abdownloads_download.sys_language_uid IN (-1,0)'
 		    )
 		),
 		'l18n_diffsource' => Array(
@@ -118,6 +123,7 @@ $TCA['tx_abdownloads_download'] = Array(
 			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.fe_group',
 			'config' => Array(
 				'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
 				'size' => 5,
 				'maxitems' => 20,
 				'items' => Array(
@@ -219,6 +225,7 @@ $TCA['tx_abdownloads_download'] = Array(
 			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.language',
 			'config' => Array (
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'foreign_table' => 'static_languages',
 				'foreign_table_where' => '',
 				'items' => Array(
@@ -275,6 +282,7 @@ $TCA['tx_abdownloads_download'] = Array(
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status',
 			'config' => Array(
 				'type' => 'select',
+                'renderType' => 'selectSingle',
 				'items' => Array(
 					Array( 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status.i.0', '0' ),
 					Array( 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status.i.1', '1' ),
@@ -289,47 +297,55 @@ $TCA['tx_abdownloads_download'] = Array(
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.category',
 			'config' => Array (
 				'type' => 'select',
-				'form_type' => 'user',
-				'userFunc' => 'tx_abdownloads_treeview->displayCategoryTree',
-				'treeClass' => 'tx_abdownloads_tceFunc_categoryTree',
-				'treeView' => 1,
+				'renderType' => 'selectTree',
 				'foreign_table' => 'tx_abdownloads_category',
 				'size' => 10,
 				'autoSizeMax' => $configArray['categoryTreeHeigth'],
 				'minitems' => 0,
 				'maxitems' => 500,
 				'MM' => 'tx_abdownloads_category_mm',
+				'treeConfig' => [
+					'parentField' => 'parent_category',
+					'appearance' => [
+                        'expandAll' => TRUE,
+                        'showHeader' => TRUE,
+					]
+				],
 				'wizards' => Array(
-					'_PADDING' => 5,
-					'_VERTICAL' => 1,
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory',
-						'icon' => 'EXT:ab_downloads/res/add_cat.gif',
+						'icon' => 'actions-add',
 						'params' => Array(
 							'table'=>'tx_abdownloads_category',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'set'
 						),
-						'script' => 'wizard_add.php'
+						'module' => [
+							'name' => 'wizard_add',
+						],
 					),
 					'edit' => Array(
 						'type' => 'popup',
 						'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory',
-						'script' => 'wizard_edit.php',
+						'module' => [
+							'name' => 'wizard_edit',
+                        ],
 						'popup_onlyOpenIfSelected' => 1,
-						'icon' => 'edit2.gif',
+						'icon' => 'actions-open',
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
 					'list' => Array(
 						'type' => 'script',
 						'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories',
-						'icon' => 'list.gif',
+						'icon' => 'actions-system-list-open',
 						'params' => Array(
 							'table'=>'tx_abdownloads_category',
 							'pid' => '###CURRENT_PID###',
 						),
-						'script' => 'wizard_list.php'
+						'module' => [
+                            'name' => 'wizard_list',
+						],
 					)
 				)
 			)
@@ -357,10 +373,17 @@ $TCA['tx_abdownloads_download'] = Array(
 					'_PADDING' => 2,
 					'link' => Array(
 						'type' => 'popup',
-						'title' => 'Link',
-						'icon' => 'link_popup.gif',
-						'script' => 'browse_links.php?mode=wizard',
-						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+						'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel',
+                        'icon' => 'actions-wizard-link',
+                        'module' => [
+                            'name' => 'wizard_link',
+                        ],
+                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+                        #'params' => [
+                        #    'blindLinkOptions' => 'folder',
+                        #    'blindLinkFields' => 'class, target',
+                        #    'allowedExtensions' => 'jpg',
+                        #],
 					)
 				)
 			)
@@ -439,29 +462,34 @@ $TCA['tx_abdownloads_category'] = Array(
 	'feInterface' => $TCA['tx_abdownloads_category']['feInterface'],
 	'columns' => Array(
 		'sys_language_uid' => Array(
-		    'exclude' => 1,
-		    'label' => 'LLL:EXT:lang/locallang_general.php:LGL.language',
-		    'config' => Array(
-			'type' => 'select',
-			'foreign_table' => 'sys_language',
-			'foreign_table_where' => 'ORDER BY sys_language.title',
-			'items' => Array(
-			    Array( 'LLL:EXT:lang/locallang_general.php:LGL.allLanguages', -1 ),
-			    Array( 'LLL:EXT:lang/locallang_general.php:LGL.default_value', 0 )
-			)
-		    )
+            'exclude' => 1,
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'special' => 'languages',
+                'items' => array(
+                    array(
+                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                        -1,
+                        'flags-multiple'
+                    ),
+                ),
+                'default' => 0,
+            )
 		),
 		'l18n_parent' => Array(
 		    'displayCond' => 'FIELD:sys_language_uid:>:0',
 		    'exclude' => 1,
 		    'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
 		    'config' => Array(
-			'type' => 'select',
-			'items' => Array(
-			    Array( '', 0 )
-			),
-			'foreign_table' => 'tx_abdownloads_category',
-			'foreign_table_where' => 'AND tx_abdownloads_category.uid=###REC_FIELD_l18n_parent### AND tx_abdownloads_category.sys_language_uid IN (-1,0)'
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => Array(
+                    Array( '', 0 )
+                ),
+                'foreign_table' => 'tx_abdownloads_category',
+                'foreign_table_where' => 'AND tx_abdownloads_category.uid=###REC_FIELD_l18n_parent### AND tx_abdownloads_category.sys_language_uid IN (-1,0)'
 		    )
 		),
 		'l18n_diffsource' => Array(
@@ -565,48 +593,56 @@ $TCA['tx_abdownloads_category'] = Array(
 			'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.parent_category',
 			'config' => Array (
 				'type' => 'select',
-				'form_type' => 'user',
-				'userFunc' => 'tx_abdownloads_treeview->displayCategoryTree',
-				'treeClass' => 'tx_abdownloads_tceFunc_categoryTree',
-				'treeView' => 1,
+                'renderType' => 'selectTree',
 				'size' => 10,
 				'autoSizeMax' => $configArray['categoryTreeHeigth'],
 				'minitems' => 0,
 				'maxitems' => 2,
 				'foreign_table' => 'tx_abdownloads_category',
-				'wizards' => Array(
-					'_PADDING' => 5,
-					'_VERTICAL' => 1,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory',
-						'icon' => 'EXT:ab_downloads/res/add_cat.gif',
-						'params' => Array(
-							'table'=>'tx_abdownloads_category',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'set'
-						),
-						'script' => 'wizard_add.php'
-					),
-					'edit' => Array(
-						'type' => 'popup',
-						'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory',
-						'script' => 'wizard_edit.php',
-						'popup_onlyOpenIfSelected' => 1,
-						'icon' => 'edit2.gif',
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'list' => Array(
-						'type' => 'script',
-						'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories',
-						'icon' => 'list.gif',
-						'params' => Array(
-							'table'=>'tx_abdownloads_category',
-							'pid' => '###CURRENT_PID###',
-						),
-						'script' => 'wizard_list.php'
-					)
-				)
+                'treeConfig' => array(
+                    'parentField' => 'parent_category',
+                    'appearance' => array(
+                        'showHeader' => TRUE,
+                        'expandAll' => true,
+                    ),
+                ),
+                'wizards' => Array(
+                    'add' => Array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory',
+                        'icon' => 'actions-add',
+                        'params' => Array(
+                            'table'=>'tx_abdownloads_category',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'set'
+                        ),
+                        'module' => [
+                            'name' => 'wizard_add',
+                        ],
+                    ),
+                    'edit' => Array(
+                        'type' => 'popup',
+                        'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory',
+                        'module' => [
+                            'name' => 'wizard_edit',
+                        ],
+                        'popup_onlyOpenIfSelected' => 1,
+                        'icon' => 'actions-open',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                    ),
+                    'list' => Array(
+                        'type' => 'script',
+                        'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories',
+                        'icon' => 'actions-system-list-open',
+                        'params' => Array(
+                            'table'=>'tx_abdownloads_category',
+                            'pid' => '###CURRENT_PID###',
+                        ),
+                        'module' => [
+                            'name' => 'wizard_list',
+                        ],
+                    )
+                )
 
 			)
 		),
