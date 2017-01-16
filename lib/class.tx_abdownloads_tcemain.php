@@ -71,17 +71,6 @@ class tx_abdownloads_tcemain {
 	 * @access public
 	 */
 	function processDatamap_postProcessFieldArray ($status, $table, $id, &$fieldArray, &$pObj) {
-		if (($table == 'tx_abdownloads_download' || $table == 'tx_abdownloads_category') && t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) < 4000000) {
-			if ($status == 'new') {
-				if (!strcmp($fieldArray['fe_group'],'')) {
-					$fieldArray['fe_group'] = '0';
-				}
-			} elseif ($status == 'update') {
-				if (isset($fieldArray['fe_group']) && !strcmp($fieldArray['fe_group'],'')) {
-					$fieldArray['fe_group'] = '0';
-				}
-			}
-		}
 	}
 
 	/**
