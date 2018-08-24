@@ -95,7 +95,7 @@ CREATE TABLE tx_abdownloads_category_mm (
 # Table structure for table 'be_groups'
 #
 CREATE TABLE be_groups (
-	ab_downloads_categorymounts tinytext NOT NULL,
+	ab_downloads_categorymounts tinytext,
 # 	ab_downloads_cmounts_usesubcats tinyint(4) unsigned DEFAULT '0' NOT NULL
 	
 );
@@ -104,6 +104,6 @@ CREATE TABLE be_groups (
 # Table structure for table 'be_users'
 #
 CREATE TABLE be_users (
-	ab_downloads_categorymounts tinytext NOT NULL,
+	ab_downloads_categorymounts tinytext,
 # 	ab_downloads_cmounts_usesubcats tinyint(4) unsigned DEFAULT '0' NOT NULL
 );
