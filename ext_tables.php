@@ -12,7 +12,7 @@ if( TYPO3_MODE=='BE' )	{
 // Get extension configuration
 $configArray = unserialize( $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads'] );
 
-$TCA['tx_abdownloads_download'] = Array (
+/*$TCA['tx_abdownloads_download'] = Array (
 	'ctrl' => Array (
 		'title' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download',
 		'label' => 'label',
@@ -76,7 +76,7 @@ $TCA['tx_abdownloads_category'] = Array (
 	'feInterface' => Array (
 		'fe_admin_fieldList' => 'hidden, fe_group, label, parent_category, image'
 	)
-);
+);*/
 
 /**
  * Compatibility with TYPO3 versions lower than 4.0
@@ -140,10 +140,10 @@ $TCA['tx_abdownloads_category'] = Array (
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords('tx_abdownloads_category');
 
 // Remove some fields from the tt_content content element
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1'] ='layout,select_key,pages,recursive';
+/*$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1'] ='layout,select_key,pages,recursive';
 
 // Add FlexForm field to tt_content
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1'] = 'pi_flexform';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1'] = 'pi_flexform';*/
 
 // Sets the transformation mode for the RTE to "ts_css" if the extension css_styled_content is installed (default: "ts")
 if( \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded( 'css_styled_content' ) )	{

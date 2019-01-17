@@ -494,7 +494,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 		// Get record overlay
 		$categoryLabels = $this->getRecordOverlay( $categoryLabelsResults, $this->tablePrefix . 'category' );
-
+        $categoryLabels = $categoryLabels?$categoryLabels:[];
 		// Output the labels
 		if( count( $categoryLabels ) > 0 ) {
 			$categoryList = null;
@@ -882,7 +882,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 		// Get record overlay
 		$subcategories = $this->getRecordOverlay( $subcategoriesResults, $this->tablePrefix . 'category' );
-
+        $subcategories = $subcategories ? $subcategories : [];
 		if( count( $subcategories ) > 0 ) {
 			// Do the recursion for all subcategories
 			for( $i = 0; $i < count( $subcategories ); $i++ ) {
@@ -932,6 +932,8 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 		$formContent = $this->cObj->substituteMarkerArray( $this->cObj->getSubpart( $templateCode, '###' . $subSub_form . '###' ), $markerArrayForm );
 		$templateCode = $this->cObj->substituteSubpart( $templateCode, '###' . $subSub_form . '###', $formContent );
+
+		$downloads = [];
 
 		if( $searchWords != null ) {
 			$searchWordsArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ' ', $searchWords );
@@ -983,6 +985,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 			// Get record overlay
 			$downloads = $this->getRecordOverlay( $downloadsResults, $this->tablePrefix . 'download' );
+
+			$downloads = $downloads ? $downloads : [];
+
 
 			for( $i = 0; $i < count( $downloads ); $i++ ) {
 				$categoryUID = $this->getCategoryUID( $downloads[$i]['uid'] );
@@ -1312,7 +1317,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 		$subSub_downloads = 'DOWNLOADS';
 		$subSubSub_subcategories = 'SUBCATEGORIES';
 		$subSubSub_download = 'DOWNLOAD';
-
+        $categoryLabels=[];
 		// Get the html source between subpart markers from the template file
 		$templateCode = $this->cObj->getSubpart( $this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###' );
 
@@ -1426,7 +1431,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 		// Get record overlay
 		$categoryLabels = $this->getRecordOverlay( $categoryLabelsResults, $this->tablePrefix . 'category' );
-
+        $categoryLabels = $categoryLabels ? $categoryLabels : [];
 		// Output the category labels
 		if( count( $categoryLabels ) > 0 ) {
 			$subpartContent = null;
@@ -2483,7 +2488,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 		// Get record overlay
 		$categories = $this->getRecordOverlay( $categoriesResults, $this->tablePrefix . 'category' );
-
+		$categories = $categories ? $categories : [];
 		$array = array();
 
 		if( count( $categories ) > 0 ) {
@@ -2922,14 +2927,14 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 					$linkImages = $this->pi_getFFvalue( $this->flexform, 'linkImages', 's_display' );
 					if( $linkImages != 'none' ) {
 						if( $linkImages == 'direct' ) {
-							$linkImage = $this->pi_LinkTP( $this->local_cObj->IMAGE( $pictureConfig['image.'] ), array( 'tx_abdownloads_pi1[action]' => 'getviewclickeddownload', 'tx_abdownloads_pi1[uid]' => $record['uid'], 'tx_abdownloads_pi1[cid]' => $this->cObj->data['uid'] ), 0 );
+							$linkImage = $this->pi_LinkTP( $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.'] ), array( 'tx_abdownloads_pi1[action]' => 'getviewclickeddownload', 'tx_abdownloads_pi1[uid]' => $record['uid'], 'tx_abdownloads_pi1[cid]' => $this->cObj->data['uid'] ), 0 );
 						} elseif( $linkImages == 'details' && !$detailedView ) {
-							$linkImage = $this->pi_LinkTP( $this->local_cObj->IMAGE( $pictureConfig['image.'] ), array( 'tx_abdownloads_pi1[action]' => 'getviewdetailsfordownload', 'tx_abdownloads_pi1[uid]' => $record['uid'], 'tx_abdownloads_pi1[category_uid]' => $categoryUID, 'tx_abdownloads_pi1[cid]' => $this->cObj->data['uid'] ), $this->allowCaching );
+							$linkImage = $this->pi_LinkTP( $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.'] ), array( 'tx_abdownloads_pi1[action]' => 'getviewdetailsfordownload', 'tx_abdownloads_pi1[uid]' => $record['uid'], 'tx_abdownloads_pi1[category_uid]' => $categoryUID, 'tx_abdownloads_pi1[cid]' => $this->cObj->data['uid'] ), $this->allowCaching );
 						} elseif( $linkImages == 'target' ) {
 							$linkImage = '<a href="' . $this->filePath . $record['file'] . '">' . $this->local_cObj->IMAGE( $pictureConfig['image.'] ) . '</a>';
 						} else {
 							$pictureConfig['image.'] = array_merge( $pictureConfig['image.'], $this->conf['downloadImage.'] );
-							$linkImage = $this->local_cObj->IMAGE( $pictureConfig['image.'] );
+							$linkImage = $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.'] );
 						}
 
 						$GLOBALS['TSFE']->ATagParams = $originalATagParams;
@@ -2980,9 +2985,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 		$fileInformation = $this->getTotalFileInfo( $file );
 
 		if( file_exists( \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName( 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg' ) ) ) {
-			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
+			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_URL_GENERAL ) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
 		} else {
-			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_SITE_URL ) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-other-other.svg" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
+			$fileIcon = '<img src="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv( TYPO3_URL_GENERAL ) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-other-other.svg" width="18" height="16" border="0" title="' . htmlspecialchars( $record['file'] ) . '" alt="" />';
 		}
 
 		return $fileIcon;
