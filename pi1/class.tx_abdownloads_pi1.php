@@ -3258,7 +3258,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                                 'tx_abdownloads_pi1[cid]'          => $this->cObj->data['uid'],
                             ], $this->allowCaching);
                         } elseif ($linkImages == 'target') {
-                            $linkImage = '<a href="' . $this->filePath . $record['file'] . '">' . $this->local_cObj->IMAGE($pictureConfig['image.']) . '</a>';
+                            $linkImage = '<a href="' . $this->filePath . $record['file'] . '">' . $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.']) . '</a>';
                         } else {
                             $pictureConfig['image.'] = array_merge($pictureConfig['image.'],
                                 $this->conf['downloadImage.']);
@@ -3270,7 +3270,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     } else {
                         $GLOBALS['TSFE']->ATagParams = $originalATagParams;
                         $pictureConfig['image.'] = array_merge($pictureConfig['image.'], $localConf['downloadImage.']);
-                        return $this->local_cObj->IMAGE($pictureConfig['image.']);
+                        return $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.']);
                     }
                 } else {
                     return $this->local_cObj->stdWrap(htmlspecialchars(trim($this->pi_getLL('no_image_message'))), '');
@@ -3295,7 +3295,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     $pictureConfig['image.']['altText'] = htmlspecialchars(trim($record['label']));
                     $pictureConfig['image.']['titleText'] = htmlspecialchars(trim($record['label']));
 
-                    return $this->local_cObj->IMAGE($pictureConfig['image.']);
+                    return $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.']);
                 } else {
                     return $this->local_cObj->fileResource($this->conf['iconCategory'],
                         'alt="' . htmlspecialchars(trim($record['label'])) . '" title="' . htmlspecialchars(trim($record['label'])) . '"');
