@@ -17,6 +17,10 @@ $hideNewLocalizations = ( $configArray['hideNewLocalizations'] ? 'mergeIfNotBlan
 
 // Use template references
 $useTemplateReferences = ( $configArray['useTemplateReferences'] ? '' : '' );
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages( 'tx_abdownloads_download' );
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToInsertRecords('tx_abdownloads_download');
+
 return [
     'ctrl'        => [
         'title'                           => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download',
