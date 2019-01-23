@@ -516,9 +516,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Get record overlay
         $categoryLabels = $this->getRecordOverlay($categoryLabelsResults, $this->tablePrefix . 'category');
-        $categoryLabels = $categoryLabels ? $categoryLabels : [];
+
         // Output the labels
-        if (count($categoryLabels) > 0) {
+        if (is_array($categoryLabels) && count($categoryLabels) > 0) {
             $categoryList = null;
             $subpartContent = null;
 
@@ -643,7 +643,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $downloads = $this->getRecordOverlay($downloadsResults, $this->tablePrefix . 'download');
 
         // Display downloads
-        if (count($downloads) > 0) {
+        if (is_array($downloads) && count($downloads) > 0) {
             $downloadList = null;
             $subpartContent = null;
 
@@ -846,7 +846,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $downloads = $this->getRecordOverlay($downloadsResults, $this->tablePrefix . 'download');
 
         // Display downloads
-        if (count($downloads) > 0) {
+        if (is_array($downloads) && count($downloads) > 0) {
             for ($j = 0; $j < count($downloads); $j++) {
                 // Create marker array
                 $markerArray = [];
@@ -963,8 +963,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Get record overlay
         $subcategories = $this->getRecordOverlay($subcategoriesResults, $this->tablePrefix . 'category');
-        $subcategories = $subcategories ? $subcategories : [];
-        if (count($subcategories) > 0) {
+        if (is_array($subcategories) && count($subcategories) > 0) {
             // Do the recursion for all subcategories
             for ($i = 0; $i < count($subcategories); $i++) {
                 $content .= $this->displayTree($subcategories[$i]['uid'], $level);
@@ -1073,8 +1072,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             // Get record overlay
             $downloads = $this->getRecordOverlay($downloadsResults, $this->tablePrefix . 'download');
 
-            $downloads = $downloads ? $downloads : [];
-
+            $downloads = $downloads ?? [];
 
             for ($i = 0; $i < count($downloads); $i++) {
                 $categoryUID = $this->getCategoryUID($downloads[$i]['uid']);
@@ -1576,9 +1574,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Get record overlay
         $categoryLabels = $this->getRecordOverlay($categoryLabelsResults, $this->tablePrefix . 'category');
-        $categoryLabels = $categoryLabels ? $categoryLabels : [];
+
         // Output the category labels
-        if (count($categoryLabels) > 0) {
+        if (is_array($categoryLabels) && count($categoryLabels) > 0) {
             $subpartContent = null;
 
             for ($i = 0; $i < count($categoryLabels); $i++) {
@@ -2749,8 +2747,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Get record overlay
         $downloadsInCurrentCategory = $this->getRecordOverlay($downloadsInCurrentCategoryResults, $databaseTable);
+        $count = 0;
 
-        return count($downloadsInCurrentCategory);
+        if (is_array($downloadsInCurrentCategory)) {
+            $count = count($downloadsInCurrentCategory);
+        }
+
+        return $count;
     }
 
     /**
@@ -2770,10 +2773,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Get record overlay
         $categories = $this->getRecordOverlay($categoriesResults, $this->tablePrefix . 'category');
-        $categories = $categories ? $categories : [];
         $array = [];
 
-        if (count($categories) > 0) {
+        if (is_array($categories) && count($categories) > 0) {
             // Do the recursion for all subcategories
             for ($i = 0; $i < count($categories); $i++) {
                 $array = array_merge($array, $this->recursiveCategoryGet($categories[$i]['uid']));

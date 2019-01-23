@@ -2,30 +2,10 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title'              => 'Modern Downloads',
-    'description'        => 'This is a modern download plugin based on the Modern Linklist (ab_linklist) extension.
-				
-				Please have a look at the documentation for all (additional) features available.
-
-				If you like this extension please consider to rate it at:
-				http://typo3.org/extensions/repository/view/ab_downloads/$CURRENT_VERSION$/rating/
-
-				Project homepage:
-				http://typo3.andreas-bulling.de/en/extensions/modern-downloads/
-
-				Subversion repository:
-				http://repos.andreas-bulling.de/ab_downloads/
-
-				Bugtracker:
-				http://typo3.andreas-bulling.de/en/bug-tracker/
-
-				Donations:
-				http://typo3.andreas-bulling.de/en/donate-money/
-
-				A demo with the most recent features enabled can be found here:
-				http://typo3.andreas-bulling.de/en/demos/modern-downloads/',
+    'description'        => 'This is a modern download plugin based on the Modern Linklist (ab_linklist) extension.',
     'category'           => 'plugin',
     'shy'                => 0,
-    'version'            => '7.6.4',
+    'version'            => '7.6.5',
     'dependencies'       => '',
     'conflicts'          => '',
     'priority'           => '',
