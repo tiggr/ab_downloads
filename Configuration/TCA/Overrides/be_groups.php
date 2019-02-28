@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 // Get extension configuration
-$configArray = unserialize( $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']??'' );
+$configArray = unserialize( $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads'] ?? '' );
 
 $tempColumns = [
     'ab_downloads_categorymounts' => [
