@@ -2018,7 +2018,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $form_label_name = $this->prefixId . '[label]';
         $form_label_value = htmlspecialchars(strip_tags($this->piVars['label']));
         $form_description_name = $this->prefixId . '[description]';
-        $form_description_value = \TYPO3\CMS\Core\Utility\GeneralUtility::formatForTextarea(strip_tags($this->piVars['description']));
+        $form_description_value = strip_tags($this->piVars['description']);
         $form_contact_name = $this->prefixId . '[contact]';
         $form_contact_value = htmlspecialchars(strip_tags($this->piVars['contact']));
         $form_image_name = $this->prefixId . '[image]';

@@ -450,7 +450,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 
 				// Starting content
 				$content .= '<td style="vertical-align:top;"><input type="text" name="label" value="' . $downloadsToApprove[$i]['label'] . '" size="30" /></td>';
-				$content .= '<td><textarea name="description" rows="5">' . \TYPO3\CMS\Core\Utility\GeneralUtility::formatForTextarea( $downloadsToApprove[$i]['description'] ) . '</textarea></td>';
+				$content .= '<td><textarea name="description" rows="5">' . $downloadsToApprove[$i]['description'] . '</textarea></td>';
 				$content .= '<td style="vertical-align:top;"><input type="text" name="file" value="' . $downloadsToApprove[$i]['file'] . '" size="30" /></td>';
 
 				$content .= '<td style="vertical-align:top;"><select name="categoryUID"><option value="0"></option>';
@@ -491,7 +491,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 
 				// Starting content
 				$content .= '<td style="vertical-align:top;"><input type="text" name="label" value="' . $downloadsToApproveWithoutCategory[$i]['label'] . '" size="30" /></td>';
-				$content .= '<td><textarea name="description" rows="5">' . \TYPO3\CMS\Core\Utility\GeneralUtility::formatForTextarea( $downloadsToApproveWithoutCategory[$i]['description'] ) . '</textarea></td>';
+				$content .= '<td><textarea name="description" rows="5">' . $downloadsToApproveWithoutCategory[$i]['description'] . '</textarea></td>';
 				$content .= '<td style="vertical-align:top;"><input type="text" name="file" value="' . $downloadsToApproveWithoutCategory[$i]['file'] . '" size="30" /></td>';
 
 				$content .= '<td style="vertical-align:top;"><select name="categoryUID"><option value="0"></option>';
@@ -1069,7 +1069,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 			$fieldTable = ( $type == 'categories' ) ? 'category' : 'download';
 			$fields = $GLOBALS['TYPO3_DB']->admin_get_fields( $this->tablePrefix . $fieldTable );
 			foreach( $fields as $row ) {
-				if( !\TYPO3\CMS\Core\Utility\GeneralUtility::inArray( $propertyBlacklist, $row['Field'] ) ) {
+				if( !in_array( $propertyBlacklist, $row['Field'] ) ) {
 					$content .= '<tr><td><input type="checkbox" name="properties[]" value="' . $row['Field'];
 
 					if( \TYPO3\CMS\Core\Utility\GeneralUtility::inList( $properties, $row['Field'] ) ) {
@@ -1549,7 +1549,8 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 				break;
 
 				case 'XML':
-					$output .= \TYPO3\CMS\Core\Utility\GeneralUtility::array2xml_cs( $downloads, $identifier );
+					$output .= '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>' . "\n";
+					$output .= \TYPO3\CMS\Core\Utility\GeneralUtility::array2xml( $downloads,'', 0, $identifier );
 				break;
 
 				case 'TXT':
@@ -1564,10 +1565,10 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 				break;
 
 				case 'CSV':
-					$output .= \TYPO3\CMS\Core\Utility\GeneralUtility::csvValues( \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', $properties ) ) . "\n";
+					$output .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues( \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode( ',', $properties ) ) . "\n";
 
 					for( $i = 0; $i < count( $downloads ); $i++ ) {
-						$output .= \TYPO3\CMS\Core\Utility\GeneralUtility::csvValues( $downloads[$i] ) . "\n";
+						$output .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues( $downloads[$i] ) . "\n";
 					}
 				break;
 			}
