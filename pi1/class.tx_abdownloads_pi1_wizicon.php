@@ -60,12 +60,12 @@ class tx_abdownloads_pi1_wizicon
 
 		$LL = $this->includeLocalLang();
 
-		$wizardItems['plugins_tx_abdownloads_pi1'] = [
-			'icon'        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . "pi1/ce_wiz.gif",
-			'title'       => $LANG->getLLL('pi1_title', $LL),
-			'description' => $LANG->getLLL('pi1_plus_wiz_description', $LL),
-			'params'      => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=ab_downloads_pi1',
-		];
+//		$wizardItems['plugins_tx_abdownloads_pi1'] = [
+//			'icon'        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . "pi1/ce_wiz.gif",
+//			'title'       => $LANG->getLLL('pi1_title', $LL),
+//			'description' => $LANG->getLLL('pi1_plus_wiz_description', $LL),
+//			'params'      => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=ab_downloads_pi1',
+//		];
 
 		return $wizardItems;
 	}
