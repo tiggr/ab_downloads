@@ -87,7 +87,7 @@ class tx_abdownloads_tceFunc_selectTreeView extends \TYPO3\CMS\Backend\Tree\View
 				$style = $this->getTitleStyles($v);
 				return '<a href="#" title="'.$hrefTitle.'"><span style="color:#999;cursor:default;'.$style.'">'.$title.'</span></a>';
 			} else {
-				$aOnClick = 'setFormValueFromBrowseWin(\''.$this->TCEforms_itemFormElName.'\','.$v['uid'].',\''.\TYPO3\CMS\Core\Utility\GeneralUtility::slashJS($title).'\'); return false;';
+				$aOnClick = 'setFormValueFromBrowseWin(\''.$this->TCEforms_itemFormElName.'\','.$v['uid'].',\''.addslashes($title).'\'); return false;';
 				$style = $this->getTitleStyles($v);
 				return '<a href="#" onclick="'.htmlspecialchars($aOnClick).'" title="'.$hrefTitle.'"><span style="'.$style.'">'.$title.'</span></a>';
 			}

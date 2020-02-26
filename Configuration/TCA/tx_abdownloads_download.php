@@ -45,7 +45,7 @@ return [
             'fe_group'  => 'fe_group',
         ],
         'dynamicConfigFile'               => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'tca.php',
-        'iconfile'                        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("ab_downloads") . 'icon_tx_abdownloads_download.gif',
+        'iconfile'                        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'icon_tx_abdownloads_download.gif',
         'prependAtCopy'                   => $configArray['prependAtCopy'] ? 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy' : '',
         'mainpalette'                     => '10',
         'versioning_followPages'          => true,
