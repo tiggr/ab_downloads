@@ -213,7 +213,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Set the template
         $templateFile = $this->pi_getFFvalue($this->flexform, 'templateFile', 's_template');
-        $this->originalTemplateCode = $this->cObj->fileResource($templateFile ? 'uploads/tx_abdownloads/' . $templateFile : $this->conf['templateFile']);
+        $this->originalTemplateCode = file_get_contents(
+            PATH_site . ($templateFile ? 'uploads/tx_abdownloads/' . $templateFile : $this->conf['templateFile'])
+        );
 
         // Get category UID from piVars or FlexForm or set to 0
         $startCategoryID = intval($this->pi_getFFvalue($this->flexform, 'startCategoryID', 's_display'));
@@ -1008,8 +1010,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $markerArrayForm = [];
         $markerArrayForm['###FORM_ACTION###'] = htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('REQUEST_URI'));
         $markerArrayForm['###FORM_SEARCH_VALUE###'] = $searchWords;
-        $markerArrayForm['###FORM_SUBMIT_BUTTON_VALUE###'] = htmlspecialchars(trim($this->pi_getLL('pi_list_searchBox_search',
-            'Search', true)));
+        $markerArrayForm['###FORM_SUBMIT_BUTTON_VALUE###'] = htmlspecialchars(trim($this->pi_getLL('pi_list_searchBox_search', 'Search')));
         $markerArrayForm['###FORM_POINTER_VALUE###'] = '';
 
         $formContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
