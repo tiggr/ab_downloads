@@ -44,7 +44,7 @@ return [
         ],
         'dynamicConfigFile'        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'tca.php',
         'iconfile'                 => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'icon_tx_abdownloads_category.gif',
-        'prependAtCopy'            => $configArray['prependAtCopy'] ? 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy' : '',
+        'prependAtCopy'            => $configArray['prependAtCopy'] ? 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy' : '',
         'mainpalette'              => '2, 10',
     ],
     'feInterface' => [
@@ -53,18 +53,18 @@ return [
     'interface'   => [
         'showRecordFieldList' => 'hidden, fe_group, label, parent_category, image',
     ],
-    'feInterface' => $TCA['tx_abdownloads_category']['feInterface'],
+    'feInterface' => $GLOBALS['TCA']['tx_abdownloads_category']['feInterface'],
     'columns'     => [
         'sys_language_uid' => [
             'exclude' => 1,
-            'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'label'   => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config'  => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'special'    => 'languages',
                 'items'      => [
                     [
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1,
                         'flags-multiple',
                     ],
@@ -75,7 +75,7 @@ return [
         'l18n_parent'      => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude'     => 1,
-            'label'       => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
+            'label'       => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
@@ -94,7 +94,7 @@ return [
         'hidden'           => [
             'l10n_mode' => $hideNewLocalizations,
             'exclude'   => 1,
-            'label'     => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+            'label'     => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config'    => [
                 'type'    => 'check',
                 'default' => '0',
@@ -103,7 +103,7 @@ return [
         'starttime'        => [
             'l10n_mode' => 'mergeIfNotBlank',
             'exclude'   => 1,
-            'label'     => 'LLL:EXT:lang/locallang_general.php:LGL.starttime',
+            'label'     => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config'    => [
                 'type'     => 'input',
                 'size'     => '10',
@@ -116,7 +116,7 @@ return [
         'endtime'          => [
             'l10n_mode' => 'mergeIfNotBlank',
             'exclude'   => 1,
-            'label'     => 'LLL:EXT:lang/locallang_general.php:LGL.endtime',
+            'label'     => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config'    => [
                 'type'     => 'input',
                 'size'     => '8',
@@ -133,15 +133,15 @@ return [
         'fe_group'         => [
             'l10n_mode' => 'mergeIfNotBlank',
             'exclude'   => 1,
-            'label'     => 'LLL:EXT:lang/locallang_general.php:LGL.fe_group',
+            'label'     => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config'    => [
                 'type'          => 'select',
                 'size'          => 5,
                 'maxitems'      => 20,
                 'items'         => [
-                    ['LLL:EXT:lang/locallang_general.php:LGL.hide_at_login', -1],
-                    ['LLL:EXT:lang/locallang_general.php:LGL.any_login', -2],
-                    ['LLL:EXT:lang/locallang_general.php:LGL.usergroups', '--div--'],
+                    ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login', -1],
+                    ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.any_login', -2],
+                    ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.usergroups', '--div--'],
                 ],
                 'exclusiveKeys' => '-1,-2',
                 'foreign_table' => 'fe_groups',

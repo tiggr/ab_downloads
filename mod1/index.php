@@ -1487,12 +1487,12 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 			<div>' . ( $showResultCount ? '<p>' .
 				( $this->internal['res_count'] ?
 				   sprintf(
-				 str_replace( '###SPAN_BEGIN###', '<span>', $LANG->getLL( 'pi_list_browseresults_displays', 'Displaying results ###SPAN_BEGIN###%s to %s</span> out of ###SPAN_BEGIN###%s</span>' ) ),
+				 str_replace( '###SPAN_BEGIN###', '<span>', $LANG->getLL( 'pi_list_browseresults_displays') ),
 				 $this->internal['res_count'] > 0 ? $pR1 : 0,
 				 min(array( $this->internal['res_count'], $pR2) ),
 				 $this->internal['res_count']
 				) :
-				$LANG->getLL( 'pi_list_browseresults_noResults', 'Sorry, no items were found. ' ) ) . '</p>' : '' ) . '
+				$LANG->getLL( 'pi_list_browseresults_noResults') ) . '</p>' : '' ) . '
 
 			   <' .trim( 'table ' . $tableParams ) . '>
 				<tr>
