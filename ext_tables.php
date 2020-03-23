@@ -1,8 +1,4 @@
-<?php
-
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
+<?php defined('TYPO3_MODE') or die();
 
 // Sets the transformation mode for the RTE to "ts_css" if the extension css_styled_content is installed (default: "ts")
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('css_styled_content')) {
@@ -18,19 +14,6 @@ RTE.config.tx_abdownloads_download.sponsored_description.proc.overruleMode=ts_cs
 # RTE mode in table "tx_abdownloads_category"
 RTE.config.tx_abdownloads_category.description.proc.overruleMode=ts_css');
 }
-
-// Initialize static extension templates
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('ab_downloads', 'static/table_based/',
-    'Table-based template');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('ab_downloads', 'static/css_based/', 'CSS-based template');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('ab_downloads', 'static/css/', 'Default CSS-styles');
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin([
-    'LLL:EXT:ab_downloads/locallang_db.php:tt_content.list_type',
-    'ab_downloads_pi1',
-], 'list_type');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('ab_downloads_pi1',
-    'FILE:EXT:ab_downloads/flexform_ds.xml');
 
 // class for displaying the category tree in BE forms.
 include_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'lib/class.tx_abdownloads_treeview.php');
