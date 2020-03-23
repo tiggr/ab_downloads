@@ -23,6 +23,7 @@
  ***************************************************************/
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
 
 /**
  * [CLASS/FUNCTION INDEX of SCRIPT]
@@ -104,6 +105,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
     var $tablePrefix = 'tx_abdownloads_';                // The database table prefix.
     var $originalTemplateCode = null;                // Holds template code.
     var $cObj;                            // Reference to the calling cObj.
+    var $markerBasedTemplateService = null;
     var $debug = false;                        // Global debug switch. Change to 'true' for debugging information.
     var $debugDB = false;                        // Database debug switch. Change to 'true' for debugging information.
     var $full_debug = false;                    // Full debug switch. Change to 'true' for full debugging information.
@@ -137,6 +139,8 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         if ($this->piVars['cid'] != '' && ($this->piVars['cid'] != $this->cObj->data['uid'])) {
             return;
         }
+
+        $this->markerBasedTemplateService = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
 
         // Initialize new cObj object
         $this->local_cObj = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
@@ -763,7 +767,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSub_treedownload = 'TREE_DOWNLOAD';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         // Get local config
         $localConf = $this->conf['treeView.'];
@@ -944,7 +948,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             $wrappedSubpartArray = [];
             $subpartArray['###TREE_DOWNLOAD###'] = '';
-            $content = $this->cObj->substituteMarkerArrayCached($templateCode, $markerArrayMessage, $subpartArray,
+            $content = $this->markerBasedTemplateService->substituteMarkerArrayCached($templateCode, $markerArrayMessage, $subpartArray,
                 $wrappedSubpartArray);
         }
 
@@ -3302,8 +3306,18 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                     return $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.']);
                 } else {
-                    return $this->local_cObj->fileResource($this->conf['iconCategory'],
-                        'alt="' . htmlspecialchars(trim($record['label'])) . '" title="' . htmlspecialchars(trim($record['label'])) . '"');
+                    $tsfe = $GLOBALS['TSFE'];
+                    $incFile = $tsfe->tmpl->getFileName($this->conf['iconCategory']);
+                    if ($incFile && file_exists($incFile)) {
+                        $fileInfo = GeneralUtility::split_fileref($incFile);
+                        $extension = $fileInfo['fileext'];
+                        if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'gif' || $extension === 'png') {
+                            $imgFile = $incFile;
+                            $addParams = 'alt="' . htmlspecialchars(trim($record['label'])) . '" title="' . htmlspecialchars(trim($record['label'])) . '"';
+                            $imgInfo = @getimagesize($imgFile);
+                            return '<img src="' . htmlspecialchars($tsfe->absRefPrefix . $imgFile) . '" width="' . (int)$imgInfo[0] . '" height="' . (int)$imgInfo[1] . '"' .  ' ' . $addParams . ' />';
+                        }
+                    }
                 }
                 break;
         }
