@@ -1,11 +1,4 @@
-<?php
-/**
- * $Id: ext_localconf.php 123 2007-07-16 19:42:26Z andreas $
- */
-
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
+<?php defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('options.saveDocNew.tx_abdownloads_category=1');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('options.saveDocNew.tx_abdownloads_download=1');
@@ -33,8 +26,8 @@ $TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_dow
 // This hook is used to prevent saving of category or download records which have categories assigned that are not allowed for the current BE user.
 // The list of allowed categories can be set with 'tx_abdownloads_category.allowedItems' in user/group TSconfig.
 // This check will be disabled until 'options.useListOfAllowedItems' (user/group TSconfig) is set to a value.
-$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'EXT:ab_downloads/lib/class.tx_abdownloads_tcemain.php:tx_abdownloads_tcemain';
+$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'tx_abdownloads_tcemain';
 
 // This hook is used to prevent saving of a download record that has non-allowed categories assigned when a command is executed (modify, copy, move, delete...).
 // It checks if the record has an editlock. If true, nothing will be saved.
-$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass'][] = 'EXT:ab_downloads/lib/class.tx_abdownloads_tcemain.php:tx_abdownloads_tcemain_cmdmap';
+$GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass'][] = 'tx_abdownloads_tcemain_cmdmap';
