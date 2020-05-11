@@ -3399,28 +3399,24 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             while ($rating >= 2) {
                 $rating -= 2;
                 $count += 1;
-                $string .= $this->local_cObj->fileResource($this->conf['iconStar'],
-                    'alt="' . $iconText . '" title="' . $iconText . '"');
+                $string .= $this->getImageTag($this->conf['iconStar'], $iconText, $iconText);
             }
 
             if ($rating >= 1) {
                 $count += 1;
-                $string .= $this->local_cObj->fileResource($this->conf['iconHalfStar'],
-                    'alt="' . $iconText . '" title="' . $iconText . '"');
+                $string .= $this->getImageTag($this->conf['iconHalfStar'], $iconText, $iconText);
             }
 
             while ($count < 5) {
                 $count += 1;
-                $string .= $this->local_cObj->fileResource($this->conf['iconDisabledStar'],
-                    'alt="' . $iconText . '" title="' . $iconText . '"');
+                $string .= $this->getImageTag($this->conf['iconDisabledStar'], $iconText, $iconText);
             }
 
             return $string;
         }
 
         for ($i = 1; $i <= 5; $i++) {
-            $string .= $this->local_cObj->fileResource($this->conf['iconDisabledStar'],
-                'alt="' . $iconText . '" title="' . $iconText . '"');
+            $string .= $this->getImageTag($this->conf['iconDisabledStar'], $iconText, $iconText);
         }
 
         return $string;
@@ -3484,8 +3480,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         // DETAILS
         $GLOBALS['TSFE']->ATagParams = $GLOBALS['TSFE']->ATagParams . ($localConf['downloadDetails.']['ATagParams'] ? ' ' . $localConf['downloadDetails.']['ATagParams'] : '');
         if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
-            $downloadDetails = $this->pi_LinkTP($this->local_cObj->fileResource($this->conf['iconDetails'],
-                'alt="' . htmlspecialchars(trim($this->pi_getLL('ll_details'))) . '" title="' . htmlspecialchars(trim($this->pi_getLL('ll_details'))) . '"'),
+            $downloadDetails = $this->pi_LinkTP($this->getImageTag(
+                $this->conf['iconDetails'],
+                htmlspecialchars(trim($this->pi_getLL('ll_details'))),
+                htmlspecialchars(trim($this->pi_getLL('ll_details')))),
                 [
                     'tx_abdownloads_pi1[action]'       => 'getviewdetailsfordownload',
                     'tx_abdownloads_pi1[uid]'          => $record['uid'],
@@ -3526,8 +3524,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $array['###DOWNLOAD_REPORT_BROKEN###'] = '';
             } else {
                 if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
-                    $array['###DOWNLOAD_REPORT_BROKEN###'] = $this->local_cObj->stdWrap($this->local_cObj->fileResource($this->conf['iconReportBrokenDisabled'],
-                        'alt="' . htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken'))) . '" title="' . htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken'))) . '"'),
+                    $array['###DOWNLOAD_REPORT_BROKEN###'] = $this->local_cObj->stdWrap($this->getImageTag(
+                        $this->conf['iconReportBrokenDisabled'],
+                        htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken'))),
+                        htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken')))),
                         $localConf['downloadReportBroken_stdWrap.']);
                 } else {
                     $array['###DOWNLOAD_REPORT_BROKEN###'] = $this->local_cObj->stdWrap(htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken'))),
@@ -3537,8 +3537,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         } else {
             $GLOBALS['TSFE']->ATagParams = $GLOBALS['TSFE']->ATagParams . ($localConf['downloadReportBroken.']['ATagParams'] ? ' ' . $localConf['downloadReportBroken.']['ATagParams'] : '');
             if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
-                $download = $this->pi_LinkTP($this->local_cObj->fileResource($this->conf['iconReportBroken'],
-                    'alt="' . htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken'))) . '" title="' . htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken'))) . '"'),
+                $download = $this->pi_LinkTP($this->getImageTag(
+                    $this->conf['iconReportBroken'],
+                    htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken'))),
+                    htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken')))),
                     [
                         'tx_abdownloads_pi1[action]'       => 'getviewreportbrokendownload',
                         'tx_abdownloads_pi1[uid]'          => $record['uid'],
@@ -3572,8 +3574,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         } else {
             $GLOBALS['TSFE']->ATagParams = $GLOBALS['TSFE']->ATagParams . ($localConf['downloadRate.']['ATagParams'] ? ' ' . $localConf['downloadRate.']['ATagParams'] : '');
             if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
-                $download = $this->pi_LinkTP($this->local_cObj->fileResource($this->conf['iconRate'],
-                    'alt="' . htmlspecialchars(trim($this->pi_getLL('ll_rate_download'))) . '" title="' . htmlspecialchars(trim($this->pi_getLL('ll_rate_download'))) . '"'),
+                $download = $this->pi_LinkTP($this->getImageTag(
+                    $this->conf['iconRate'],
+                    htmlspecialchars(trim($this->pi_getLL('ll_rate_download'))),
+                    htmlspecialchars(trim($this->pi_getLL('ll_rate_download')))),
                     [
                         'tx_abdownloads_pi1[action]'       => 'getviewratedownload',
                         'tx_abdownloads_pi1[uid]'          => $record['uid'],
@@ -3594,8 +3598,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
 
         // ICON and IMAGE
-        $array['###DOWNLOAD_ICON###'] = $this->local_cObj->fileResource($this->conf['iconDownload'],
-            'alt="Download Icon" title="Download Icon"');
+        $array['###DOWNLOAD_ICON###'] = $this->getImageTag(
+            $this->conf['iconDownload'],
+            'Download Icon',
+            'Download Icon');
         $array['###DOWNLOAD_IMAGE###'] = $this->getImageLink($record, 'image', 'link', 'list', $categoryUID);
 
         // MISC
@@ -3694,6 +3700,19 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             'size'     => file_exists($file) ? filesize($file) : 0,
             'mimetype' => $mimeType,
         ];
+    }
+
+    protected function getImageTag(string $fileName, string $alt = '', string $title= ""): string
+    {
+        $tag = '<img src="' . $GLOBALS['TSFE']->tmpl->getFileName($fileName) . '" ';
+        if ($alt) {
+            $tag .= 'alt="' . $alt . '" ';
+        }
+        if ($title) {
+            $tag .= 'title="' . $title . '" ';
+        }
+        $tag .= '/>';
+        return $tag;
     }
 }
 
