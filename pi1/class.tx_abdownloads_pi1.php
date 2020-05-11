@@ -386,7 +386,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSubSub_download = 'DOWNLOAD';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         // Get local config
         $localConf = $this->conf['listView.'];
@@ -421,11 +421,11 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Substitute the markers in the given sub sub part
         $subpartContent = null;
-        $subpartContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+        $subpartContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
             '###' . $subSub_pathmenu . '###'), $markerArray);
 
         // Substitute the template code with the given subpartcontent
-        $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_pathmenu . '###',
+        $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_pathmenu . '###',
             $subpartContent);
 
         /**
@@ -457,14 +457,14 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             // Substitute the markers in the given sub sub part
             $subpartContent = null;
-            $subpartContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+            $subpartContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                 '###' . $subSub_additional . '###'), $markerArray);
 
             // Substitute the template code with the given subpartcontent
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_additional . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_additional . '###',
                 $subpartContent);
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_additional . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_additional . '###', '');
         }
 
         /**
@@ -565,7 +565,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 }
 
                 // Substitute the markers in the given sub sub part
-                $categoryList .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                $categoryList .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSubSub_category . '###'), $markerArrayCategory);
             }
 
@@ -582,13 +582,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             $wrappedSubpartArray = [];
             $subpartArray['###CATEGORY###'] = $categoryList;
-            $subpartContent = $this->cObj->substituteMarkerArrayCached($this->cObj->getSubpart($templateCode,
+            $subpartContent = $this->markerBasedTemplateService->substituteMarkerArrayCached($this->markerBasedTemplateService->getSubpart($templateCode,
                 '###' . $subSub_categories . '###'), $markerArrayTitle, $subpartArray, $wrappedSubpartArray);
 
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_categories . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_categories . '###',
                 $subpartContent);
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_categories . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_categories . '###', '');
         }
 
         /**
@@ -662,7 +662,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $this->fillMarkerArray($markerArrayDownload, $downloads[$i], $localConf, $categoryUID);
 
                 // Substitute the markers in the given sub sub part
-                $downloadList .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                $downloadList .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSubSub_download . (($i % $this->alternatingLayouts + 1) ? '_' . ($i % $this->alternatingLayouts + 1) : '') . '###'),
                     $markerArrayDownload);
             }
@@ -674,13 +674,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             $wrappedSubpartArray = [];
             $subpartArray['###DOWNLOAD###'] = $downloadList;
-            $subpartContent = $this->cObj->substituteMarkerArrayCached($this->cObj->getSubpart($templateCode,
+            $subpartContent = $this->markerBasedTemplateService->substituteMarkerArrayCached($this->markerBasedTemplateService->getSubpart($templateCode,
                 '###' . $subSub_downloads . '###'), $markerArrayTitle, $subpartArray, $wrappedSubpartArray);
 
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###',
                 $subpartContent);
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
         }
 
         /**
@@ -736,7 +736,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
 
         // Finally substitute the marker array
-        $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+        $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
 
         /**
          * TOP LISTS
@@ -865,7 +865,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $markerArray['###LEVEL###'] = $level;
 
                 // Substitute the markers in the given sub sub part
-                $downloadList .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                $downloadList .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSub_treedownload . '###'), $markerArray);
             }
 
@@ -907,7 +907,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             $wrappedSubpartArray = [];
             $subpartArray['###TREE_DOWNLOAD###'] = $downloadList;
-            $content = $this->cObj->substituteMarkerArrayCached($templateCode, $markerArrayMessage, $subpartArray,
+            $content = $this->markerBasedTemplateService->substituteMarkerArrayCached($templateCode, $markerArrayMessage, $subpartArray,
                 $wrappedSubpartArray);
         } else {
             $markerArrayMessage = [];
@@ -1001,7 +1001,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSub_nodownloads = 'NODOWNLOADS';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         // Get local config
         $localConf = $this->conf['searchView.'];
@@ -1019,9 +1019,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $markerArrayForm['###FORM_SUBMIT_BUTTON_VALUE###'] = htmlspecialchars(trim($this->pi_getLL('pi_list_searchBox_search', 'Search')));
         $markerArrayForm['###FORM_POINTER_VALUE###'] = '';
 
-        $formContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+        $formContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
             '###' . $subSub_form . '###'), $markerArrayForm);
-        $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_form . '###', $formContent);
+        $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_form . '###', $formContent);
 
         $downloads = [];
 
@@ -1125,14 +1125,14 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $this->fillMarkerArray($markerArray, $downloads[$i], $localConf, $categoryUID, $pageID);
 
                 // Substitute the markers in the given sub sub part
-                $subpartContent .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                $subpartContent .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSub_downloads . '###'), $markerArray);
             }
 
             if (count($downloads) != 0) {
                 // Substitute the sub sub part markers with the given subpartcontents.
-                $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_nodownloads . '###', '');
-                $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###',
+                $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_nodownloads . '###', '');
+                $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###',
                     $subpartContent);
 
                 // For next step -> LL VALUES
@@ -1147,13 +1147,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     $localConf['noDownloadsMessage_stdWrap.']);
 
                 // Substitute the markers in the given sub sub part
-                $subpartContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                $subpartContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSub_nodownloads . '###'), $markerArray);
 
                 // Substitute the sub sub part markers with the given subpartcontents.
-                $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_nodownloads . '###',
+                $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_nodownloads . '###',
                     $subpartContent);
-                $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
+                $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
             }
         } else {
             // No searchword(s) defined
@@ -1162,13 +1162,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $localConf['noDownloadsMessage_stdWrap.']);
 
             // Substitute the markers in the given sub sub part
-            $subpartContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+            $subpartContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                 '###' . $subSub_nodownloads . '###'), $markerArray);
 
             // Substitute the sub sub part markers with the given subpartcontents.
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_nodownloads . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_nodownloads . '###',
                 $subpartContent);
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
 
             // For next step -> LL VALUES
             $markerArray = [];
@@ -1231,7 +1231,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
 
         // Finally substitute the marker array
-        $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+        $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
 
         // Return the generated content
         $content .= $templateCode;
@@ -1258,7 +1258,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSub_topdownload = 'TOP_DOWNLOAD';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         // Get local config
         $localConf = $this->conf['topView.'];
@@ -1388,7 +1388,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                         }
 
                         // Substitute the markers in the given sub sub part
-                        $downloadList .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                        $downloadList .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                             '###' . $subSub_topdownload . '###'), $markerArrayDownload);
                     }
 
@@ -1400,7 +1400,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                         $wrappedSubpartArray = [];
                         $subpartArray['###TOP_DOWNLOAD###'] = $downloadList;
-                        $content .= $this->cObj->substituteMarkerArrayCached($templateCode, $markerArrayMessage,
+                        $content .= $this->markerBasedTemplateService->substituteMarkerArrayCached($templateCode, $markerArrayMessage,
                             $subpartArray, $wrappedSubpartArray);
                     } else {
                         // Prepare top message
@@ -1410,7 +1410,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                         $wrappedSubpartArray = [];
                         $subpartArray['###TOP_DOWNLOAD###'] = '-';
-                        $content .= $this->cObj->substituteMarkerArrayCached($templateCode, $markerArrayMessage,
+                        $content .= $this->markerBasedTemplateService->substituteMarkerArrayCached($templateCode, $markerArrayMessage,
                             $subpartArray, $wrappedSubpartArray);
                     }
                 }
@@ -1450,7 +1450,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSubSub_download = 'DOWNLOAD';
         $categoryLabels = [];
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         // Get local config
         $localConf = $this->conf['catalogView.'];
@@ -1485,11 +1485,11 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
         // Substitute the markers in the given sub sub part
         $subpartContent = null;
-        $subpartContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+        $subpartContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
             '###' . $subSub_pathmenu . '###'), $markerArray);
 
         // Substitute the template code with the given subpartcontent
-        $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_pathmenu . '###',
+        $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_pathmenu . '###',
             $subpartContent);
 
         /**
@@ -1513,7 +1513,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             $download = $this->pi_LinkTP(htmlspecialchars(trim($this->pi_getLL('ll_add_download'))), [
                 'tx_abdownloads_pi1[action]'       => 'getviewaddnewdownload',
                 'tx_abdownloads_pi1[category_uid]' => $categoryUID,
-                'tx_abdownloads_pi1[cid]'          => $this->cObj->data['uid'],
+                'tx_abdownloads_pi1[cid]'          => $this->markerBasedTemplateService->data['uid'],
             ], $this->allowCaching);
             $markerArray['###DOWNLOAD_ADD_NEW###'] = $this->local_cObj->stdWrap($download,
                 $localConf['downloadAddNew_stdWrap.']);
@@ -1521,14 +1521,14 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             // Substitute the markers in the given sub sub part
             $subpartContent = null;
-            $subpartContent = $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+            $subpartContent = $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                 '###' . $subSub_additional . '###'), $markerArray);
 
             // Substitute the template code with the given subpartcontent
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_additional . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_additional . '###',
                 $subpartContent);
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_additional . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_additional . '###', '');
         }
 
         /**
@@ -1594,7 +1594,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                 // Start new row
                 if ($i > 0 && $i % $numberOfColumns == 0) {
-                    $subpartContent .= $this->cObj->getSubpart($templateCode, '###NEXT_ROW###');
+                    $subpartContent .= $this->markerBasedTemplateService->getSubpart($templateCode, '###NEXT_ROW###');
                 }
 
                 // Start the recursion to count the total number of downloads below the current category
@@ -1677,7 +1677,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                         }
 
                         // Substitute the markers in the given sub sub part
-                        $subcategoryList .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                        $subcategoryList .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                                 '###' . $subSubSub_subcategories . '###'), $markerArraySubcategory) . $separator;
                     }
                 }
@@ -1687,14 +1687,14 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                 $wrappedSubpartArray = [];
                 $subpartArray['###SUBCATEGORIES###'] = $subcategoryList;
-                $subpartContent .= $this->cObj->substituteMarkerArrayCached($this->cObj->getSubpart($templateCode,
+                $subpartContent .= $this->markerBasedTemplateService->substituteMarkerArrayCached($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSub_category . '###'), $markerArrayCategory, $subpartArray, $wrappedSubpartArray);
             }
 
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_category . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_category . '###',
                 $subpartContent);
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_category . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_category . '###', '');
         }
 
         /**
@@ -1768,7 +1768,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $this->fillMarkerArray($markerArrayDownload, $downloads[$i], $localConf, $categoryUID);
 
                 // Substitute the markers in the given sub sub part
-                $downloadList .= $this->cObj->substituteMarkerArray($this->cObj->getSubpart($templateCode,
+                $downloadList .= $this->markerBasedTemplateService->substituteMarkerArray($this->markerBasedTemplateService->getSubpart($templateCode,
                     '###' . $subSubSub_download . (($i % $this->alternatingLayouts + 1) ? '_' . ($i % $this->alternatingLayouts + 1) : '') . '###'),
                     $markerArrayDownload);
             }
@@ -1780,13 +1780,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
             $wrappedSubpartArray = [];
             $subpartArray['###DOWNLOAD###'] = $downloadList;
-            $subpartContent = $this->cObj->substituteMarkerArrayCached($this->cObj->getSubpart($templateCode,
+            $subpartContent = $this->markerBasedTemplateService->substituteMarkerArrayCached($this->markerBasedTemplateService->getSubpart($templateCode,
                 '###' . $subSub_downloads . '###'), $markerArrayTitle, $subpartArray, $wrappedSubpartArray);
 
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###',
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###',
                 $subpartContent);
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_downloads . '###', '');
         }
 
         /**
@@ -1842,7 +1842,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
 
         // Finally substitute the marker array
-        $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+        $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
 
         // Return the generated content
         $content = $templateCode;
@@ -1923,7 +1923,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $conf['subpartMarker'] = 'VIEW_DETAILS_FOR_DOWNLOAD';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         if ($uid != null) {
             // Disable caching to always get recent data
@@ -1964,7 +1964,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 }
 
                 // Finally substitute the marker array
-                $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+                $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
             } else {
                 $templateCode = $this->local_cObj->stdWrap(htmlspecialchars(trim($this->pi_getLL('non_public_download_message'))),
                     $this->conf['nonPublicDownloadMessage_stdWrap.']);
@@ -1999,7 +1999,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSub_captcha = 'CAPTCHA';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         $selectedCategoryUID = intval($this->piVars['selectedCategoryUID']) ? intval($this->piVars['selectedCategoryUID']) : 0;
 
@@ -2062,7 +2062,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $this->conf['mandatoryField_stdWrap.']);
             $markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('captcha') . 'captcha/captcha.php" alt="" />';
         } else {
-            $templateCode = $this->cObj->substituteSubpart($templateCode, '###' . $subSub_captcha . '###', '');
+            $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_captcha . '###', '');
         }
 
         $markerArray['###FORM_SUBMIT_BUTTON_NAME###'] = $this->local_cObj->stdWrap($form_submit_button_name, '');
@@ -2101,7 +2101,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
 
         // Finally substitute the marker array
-        $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+        $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
 
         // Return the generated content
         $content = $templateCode;
@@ -2248,7 +2248,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         GeneralUtility::plainMailEncoded($email, $subject, $message, $headers, $encoding);
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         $markerArray = [];
 
@@ -2263,7 +2263,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         }
 
         // Finally substitute the marker array
-        $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+        $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
 
         // Return the generated content
         $content = $templateCode;
@@ -2289,7 +2289,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $conf['subpartMarker'] = 'VIEW_REPORT_BROKEN_DOWNLOAD';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         if ($uid != null) {
 
@@ -2334,7 +2334,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $this->conf['reportDownloadBrokenText_stdWrap.']);
 
             // Finally substitute the marker array
-            $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+            $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
         } else {
             die('ERROR: No download UID given!');
         }
@@ -2362,7 +2362,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $conf['subpartMarker'] = 'VIEW_REPORT_BROKEN_DOWNLOAD_RESULT';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         if ($uid != null) {
 
@@ -2414,7 +2414,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     '');
 
                 // Finally substitute the marker array
-                $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+                $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
             } else {
                 die('ERROR: Wrong download UID given!');
             }
@@ -2446,7 +2446,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $conf['subpartMarker'] = 'VIEW_RATE_DOWNLOAD'; // Holds a subpart marker.
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         if ($uid != null) {
 
@@ -2501,7 +2501,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 '');
 
             // Finally substitute the marker array
-            $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+            $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
         } else {
             die('ERROR: No download UID given!');
         }
@@ -2529,7 +2529,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $subSub_download = 'DOWNLOAD';
 
         // Get the html source between subpart markers from the template file
-        $templateCode = $this->cObj->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
+        $templateCode = $this->markerBasedTemplateService->getSubpart($this->originalTemplateCode, '###' . $conf['subpartMarker'] . '###');
 
         if ($uid != null) {
 
@@ -2575,7 +2575,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 '');
 
             // Finally substitute the marker array
-            $templateCode = $this->cObj->substituteMarkerArray($templateCode, $markerArray);
+            $templateCode = $this->markerBasedTemplateService->substituteMarkerArray($templateCode, $markerArray);
         } else {
             die('ERROR: No download UID given!');
         }
