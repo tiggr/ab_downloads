@@ -3704,6 +3704,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
     protected function getImageTag(string $fileName, string $alt = '', string $title= ""): string
     {
+        if (!$fileName) {
+            return '';
+        }
         $tag = '<img src="' . $GLOBALS['TSFE']->tmpl->getFileName($fileName) . '" ';
         if ($alt) {
             $tag .= 'alt="' . $alt . '" ';
