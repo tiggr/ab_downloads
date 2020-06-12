@@ -950,6 +950,11 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             $subpartArray['###TREE_DOWNLOAD###'] = '';
             $content = $this->markerBasedTemplateService->substituteMarkerArrayCached($templateCode, $markerArrayMessage, $subpartArray,
                 $wrappedSubpartArray);
+
+            // hide empty subtrees
+            if ($categoryDownloadCount === 0) {
+                $content = '';
+            }
         }
 
         /**
