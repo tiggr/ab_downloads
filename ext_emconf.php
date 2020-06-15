@@ -4,7 +4,7 @@ $EM_CONF[$_EXTKEY] = [
     'title'            => 'Modern Downloads',
     'description'      => 'This is a modern download plugin based on the Modern Linklist (ab_linklist) extension.',
     'category'         => 'plugin',
-    'version'          => '8.7.1',
+    'version'          => '9.5.0',
     'module'           => 'mod1',
     'state'            => 'stable',
     'uploadfolder'     => 1,
@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = [
                 [
                     'static_info_tables' => '2.0.0',
                     'php'                => '4.1.0-0.0.0',
-                    'typo3'              => '3.6.0-0.0.0',
+                    'typo3'              => '9.5.0-0.0.0',
                 ],
             'conflicts' =>
                 [
