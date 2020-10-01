@@ -10,7 +10,7 @@
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     'ab_downloads_pi1',
-    'FILE:EXT:ab_downloads/flexform_ds.xml'
+    'FILE:EXT:ab_downloads/Configuration/FlexForms/flexform_ds.xml'
 );
 
 return ([
