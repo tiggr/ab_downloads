@@ -861,6 +861,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 
                 $this->fillMarkerArray($markerArray, $downloads[$j], $localConf, $categoryUID);
 
+                if (!$downloads[$j]['file']) {
+                    $markerArray['###DOWNLOAD_LABEL###'] = $downloads[$j]['label'];
+                }
                 $markerArray['###INDENTION###'] = $indention;
                 $markerArray['###LEVEL###'] = $level;
 
