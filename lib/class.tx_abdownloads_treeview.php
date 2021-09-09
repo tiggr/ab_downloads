@@ -107,9 +107,9 @@ class tx_abdownloads_tceFunc_selectTreeView extends \TYPO3\CMS\Backend\Tree\View
 	function getTitleStr($row,$titleLen=30)	{
 
 		if( $row['uid'] == 0)	{
-			$title = (!strcmp(trim($row['title']),'')) ? '<em>['.$GLOBALS['LANG']->sL('LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.no_title').']</em>' : htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($row['title'],$titleLen));
+			$title = (!strcmp(trim($row['title']),'')) ? '<em>['.$GLOBALS['LANG']->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.no_title').']</em>' : htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($row['title'],$titleLen));
 		} else {
-			$title = (!strcmp(trim($row['label']),'')) ? '<em>['.$GLOBALS['LANG']->sL('LLL:EXT:lang/Resources/Private/Language/locallang_core.xlf:labels.no_title').']</em>' : htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($row['label'],$titleLen));
+			$title = (!strcmp(trim($row['label']),'')) ? '<em>['.$GLOBALS['LANG']->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.no_title').']</em>' : htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($row['label'],$titleLen));
 		}
 
 		return $title;
