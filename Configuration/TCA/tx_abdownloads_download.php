@@ -53,9 +53,6 @@ return [
     'feInterface' => [
         'fe_admin_fieldList' => 'hidden, fe_group, label, description, sponsored_description, license, language_uid, clicks, rating, votes, status, category, contact, homepage, image, file',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden, fe_group, label, description, sponsored_description, license, language_uid, clicks, rating, votes, status, category, contact, homepage, image, file',
-    ],
     'feInterface' => $GLOBALS['TCA']['tx_abdownloads_download']['feInterface'],
     'columns' => [
         'sys_language_uid' => [
@@ -77,7 +74,6 @@ return [
         ],
         'l18n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
