@@ -1,4 +1,9 @@
 <?php
+
+use TYPO3\CMS\Backend\Tree\View\AbstractTreeView;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /***************************************************************
  * Copyright notice
  *
@@ -61,13 +66,11 @@
  * @subpackage	tx_abdownloads
  */
 
-require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'lib/class.tx_abdownloads_div.php');
-
 /**
  * extend class t3lib_treeview to change function wrapTitle().
  *
  */
-class tx_abdownloads_tceFunc_selectTreeView extends \TYPO3\CMS\Backend\Tree\View\AbstractTreeView
+class tx_abdownloads_tceFunc_selectTreeView extends AbstractTreeView
 {
     public $TCEforms_itemFormElName = '';
     public $TCEforms_nonSelectableItemsArray = array();
@@ -108,9 +111,9 @@ class tx_abdownloads_tceFunc_selectTreeView extends \TYPO3\CMS\Backend\Tree\View
     public function getTitleStr($row, $titleLen = 30)
     {
         if ($row['uid'] == 0) {
-            $title = (!strcmp(trim($row['title']), '')) ? '<em>[' . $GLOBALS['LANG']->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.no_title') . ']</em>' : htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($row['title'], $titleLen));
+            $title = (!strcmp(trim($row['title']), '')) ? '<em>[' . $GLOBALS['LANG']->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.no_title') . ']</em>' : htmlspecialchars(GeneralUtility::fixed_lgd_cs($row['title'], $titleLen));
         } else {
-            $title = (!strcmp(trim($row['label']), '')) ? '<em>[' . $GLOBALS['LANG']->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.no_title') . ']</em>' : htmlspecialchars(\TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($row['label'], $titleLen));
+            $title = (!strcmp(trim($row['label']), '')) ? '<em>[' . $GLOBALS['LANG']->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.no_title') . ']</em>' : htmlspecialchars(GeneralUtility::fixed_lgd_cs($row['label'], $titleLen));
         }
 
         return $title;
@@ -190,7 +193,7 @@ class tx_abdownloads_treeview
         $this->pObj = &$this->PA['pObj'];
 
         $content = '';
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('xajax')) {
+        if (ExtensionManagementUtility::isLoaded('xajax')) {
             $this->useXajax = true;
         }
 
@@ -212,12 +215,12 @@ class tx_abdownloads_treeview
                 define('XAJAX_DEFAULT_CHAR_ENCODING', 'iso-8859-15');
             }
 
-            require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('xajax') . 'class.tx_xajax.php');
-            $this->xajax = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_xajax');
+            require_once(ExtensionManagementUtility::extPath('xajax') . 'class.tx_xajax.php');
+            $this->xajax = GeneralUtility::makeInstance('tx_xajax');
             $this->xajax->setWrapperPrefix('tx_abdownloads_');
             $this->xajax->registerFunction(array('sendResponse', &$this, 'sendResponse'));
             // 			$fobj->additionalCode_pre['ab_downloads_xajax'] = $this->xajax->getJavascript('../'.\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('xajax'));
-            $content .= $this->xajax->getJavascript('../' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('xajax'));
+            $content .= $this->xajax->getJavascript('../' . ExtensionManagementUtility::siteRelPath('xajax'));
 
             $this->xajax->processRequests();
         }
@@ -229,7 +232,7 @@ class tx_abdownloads_treeview
             $this->confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']);
         }
         if (!is_object($this->divObj)) {
-            $this->divObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_div');
+            $this->divObj = GeneralUtility::makeInstance('tx_abdownloads_div');
         }
 
         $content .= $this->renderCategoryFields();
@@ -248,7 +251,7 @@ class tx_abdownloads_treeview
             $this->confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']);
         }
         if (!is_object($this->divObj)) {
-            $this->divObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_div');
+            $this->divObj = GeneralUtility::makeInstance('tx_abdownloads_div');
         }
         $objResponse = new tx_xajax_response();
 
@@ -261,7 +264,7 @@ class tx_abdownloads_treeview
         if ($cmd == 'show' || $cmd == 'hide') {
             $content = $this->renderCatTree($cmd);
         } else {
-            \TYPO3\CMS\Core\Utility\GeneralUtility::_GETset($cmd, 'PM');
+            GeneralUtility::_GETset($cmd, 'PM');
             $content = $this->renderCatTree();
         }
 
@@ -305,7 +308,7 @@ class tx_abdownloads_treeview
         }
 
         if (!is_object($treeViewObj)) {
-            $treeViewObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
+            $treeViewObj = GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
         }
 
         if ($this->table == 'tx_abdownloads_download' || $this->table == 'tx_abdownloads_category') {
@@ -325,7 +328,7 @@ class tx_abdownloads_treeview
         }
 
         if ($this->excludeList) {
-            $catlistWhere = ' AND tx_abdownloads_category.uid NOT IN (' . implode(\TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $this->excludeList), ',') . ')';
+            $catlistWhere = ' AND tx_abdownloads_category.uid NOT IN (' . implode(GeneralUtility::intExplode(',', $this->excludeList), ',') . ')';
         }
         $treeOrderBy = $this->confArr['treeOrderBy'] ? $this->confArr['treeOrderBy'] : 'uid';
 
@@ -340,7 +343,7 @@ class tx_abdownloads_treeview
         $treeViewObj->useXajax = $this->useXajax;
 
         if ($this->includeList) {
-            $treeViewObj->MOUNTS = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $this->includeList);
+            $treeViewObj->MOUNTS = GeneralUtility::intExplode(',', $this->includeList);
         }
 
         $treeViewObj->ext_IconMode = '1'; // no context menu on icons
@@ -364,7 +367,7 @@ class tx_abdownloads_treeview
         } elseif ($this->row['category']) { // tx_abdownloads_download
             $selectedCategories = $this->row['category'];
         } elseif ($this->row['pi_flexform']) { // tt_content
-            $cfgArr = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($this->row['pi_flexform']);
+            $cfgArr = GeneralUtility::xml2array($this->row['pi_flexform']);
             if (is_array($cfgArr) && is_array($cfgArr['data']['sDEF']['lDEF']) && is_array($cfgArr['data']['sDEF']['lDEF']['categorySelection'])) {
                 $selectedCategories = $cfgArr['data']['sDEF']['lDEF']['categorySelection']['vDEF'];
             }
@@ -481,7 +484,7 @@ class tx_abdownloads_treeview
 
 
         // Possibly remove some items:
-        $removeItems = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $PA['fieldTSConfig']['removeItems'], 1);
+        $removeItems = GeneralUtility::trimExplode(',', $PA['fieldTSConfig']['removeItems'], 1);
 
 
         foreach ($selItems as $tk => $p) {
@@ -493,7 +496,7 @@ class tx_abdownloads_treeview
 
             // Removing doktypes with no access:
             if ($table . '.' . $field == 'pages.doktype') {
-                if (!($GLOBALS['BE_USER']->isAdmin() || \TYPO3\CMS\Core\Utility\GeneralUtility::inList($GLOBALS['BE_USER']->groupData['pagetypes_select'], $p[1]))) {
+                if (!($GLOBALS['BE_USER']->isAdmin() || GeneralUtility::inList($GLOBALS['BE_USER']->groupData['pagetypes_select'], $p[1]))) {
                     unset($selItems[$tk]);
                 }
             }
@@ -630,7 +633,7 @@ class tx_abdownloads_treeview
                 }
 
                 // Perform modification of the selected items array:
-                $itemArray = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $PA['itemFormElValue'], 1);
+                $itemArray = GeneralUtility::trimExplode(',', $PA['itemFormElValue'], 1);
                 foreach ($itemArray as $tk => $tv) {
                     $tvP = explode('|', $tv, 2);
                     $evalValue = rawurldecode($tvP[0]);
@@ -697,7 +700,7 @@ class tx_abdownloads_treeview
             // get all categories
             $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('uid', $fTable, '1=1' . $SPaddWhere . ' AND deleted=0');
             while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-                if (!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($allowedItemsList, $row['uid'])) { // remove all allowed categories from the category result
+                if (!GeneralUtility::inList($allowedItemsList, $row['uid'])) { // remove all allowed categories from the category result
                     $itemArr[] = $row['uid'];
                 }
             }
@@ -707,7 +710,7 @@ class tx_abdownloads_treeview
                 $notAllowedCats = array();
                 foreach ($catvals as $k) {
                     $c = explode('|', $k);
-                    if ($c[0] && !\TYPO3\CMS\Core\Utility\GeneralUtility::inList($allowedItemsList, $c[0])) {
+                    if ($c[0] && !GeneralUtility::inList($allowedItemsList, $c[0])) {
                         $notAllowedCats[] = '<p style="padding:0px;color:red;font-weight:bold;">- ' . $c[1] . ' <span class="typo3-dimmed"><em>[' . $c[0] . ']</em></span></p>';
                     }
                 }
@@ -735,7 +738,7 @@ class tx_abdownloads_treeview
         $row = $PA['row'];
 
         if (!is_object($this->divObj)) {
-            $this->divObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_div');
+            $this->divObj = GeneralUtility::makeInstance('tx_abdownloads_div');
         }
 
         if ($this->divObj->useAllowedCategories()) {

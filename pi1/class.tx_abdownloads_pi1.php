@@ -1,4 +1,13 @@
 <?php
+
+use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
+
 /***************************************************************
  * Copyright notice
  *
@@ -21,9 +30,6 @@
  *
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
-use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * [CLASS/FUNCTION INDEX of SCRIPT]
@@ -97,7 +103,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @See ab_downloads Manual: http://typo3.org/documentation/document-library/extension-manuals/ab_downloads/current/
  * @See TSref: http://typo3.org/documentation/document-library/references/doc_core_tsref/current/
  */
-class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
+class tx_abdownloads_pi1 extends AbstractPlugin
 {
     public $prefixId = 'tx_abdownloads_pi1';                // Same as class name
     public $scriptRelPath = 'pi1/class.tx_abdownloads_pi1.php';        // Path to this script relative to the extension directory.
@@ -143,10 +149,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $this->markerBasedTemplateService = GeneralUtility::makeInstance(MarkerBasedTemplateService::class);
 
         // Initialize new cObj object
-        $this->local_cObj = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::class);
+        $this->local_cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
         // Initialize new fileFunc object
-        $this->fileFunc = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Utility\File\BasicFileUtility::class);
+        $this->fileFunc = GeneralUtility::makeInstance(BasicFileUtility::class);
 
         // Init config for flexform
         $this->pi_initPIflexForm();
@@ -156,13 +162,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         $this->captchaExtension = $this->pi_getFFvalue($this->flexform, 'captchaExtension', 'sDEF');
 
         // Check for extension "sr_freecap"
-        if ($this->captchaExtension == 'sr_freecap' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('sr_freecap')) {
-            require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('sr_freecap') . 'pi2/class.tx_srfreecap_pi2.php');
+        if ($this->captchaExtension == 'sr_freecap' && ExtensionManagementUtility::isLoaded('sr_freecap')) {
+            require_once(ExtensionManagementUtility::extPath('sr_freecap') . 'pi2/class.tx_srfreecap_pi2.php');
             $this->freeCap = GeneralUtility::makeInstance('tx_srfreecap_pi2');
         }
 
         // Check for extension "version"
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('version')) {
+        if (ExtensionManagementUtility::isLoaded('version')) {
             $this->versioningEnabled = true;
         }
 
@@ -445,10 +451,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             'allowAddDownloads',
             'sDEF'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'allowAddDownloads',
-                'sDEF'
-            ) : $this->conf['allowAddDownloads'];
+            $this->flexform,
+            'allowAddDownloads',
+            'sDEF'
+        ) : $this->conf['allowAddDownloads'];
 
         // Check if a frontend user is logged in
         $isLoggedIn = $GLOBALS['TSFE']->loginUser;
@@ -753,9 +759,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 // Substitute the markers in the given sub sub part
                 $downloadList .= $this->markerBasedTemplateService->substituteMarkerArray(
                     $this->markerBasedTemplateService->getSubpart(
-                    $templateCode,
-                    '###' . $subSubSub_download . (($i % $this->alternatingLayouts + 1) ? '_' . ($i % $this->alternatingLayouts + 1) : '') . '###'
-                ),
+                        $templateCode,
+                        '###' . $subSubSub_download . (($i % $this->alternatingLayouts + 1) ? '_' . ($i % $this->alternatingLayouts + 1) : '') . '###'
+                    ),
                     $markerArrayDownload
                 );
             }
@@ -890,10 +896,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             'allowAddDownloads',
             'sDEF'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'allowAddDownloads',
-                'sDEF'
-            ) : $this->conf['allowAddDownloads'];
+            $this->flexform,
+            'allowAddDownloads',
+            'sDEF'
+        ) : $this->conf['allowAddDownloads'];
 
         // Check if a fe_user is logged in
         $isLoggedIn = $GLOBALS['TSFE']->loginUser;
@@ -1229,10 +1235,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 'listLimit',
                 's_display'
             ) ? $this->pi_getFFvalue(
-                    $this->flexform,
-                    'listLimit',
-                    's_display'
-                ) : $this->conf['listLimit']);
+                $this->flexform,
+                'listLimit',
+                's_display'
+            ) : $this->conf['listLimit']);
             $noSponsoredPreference = $this->pi_getFFvalue($this->flexform, 'noSponsoredPreference', 's_display');
 
             $limitStart = 0;
@@ -1788,10 +1794,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             'allowAddDownloads',
             'sDEF'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'allowAddDownloads',
-                'sDEF'
-            ) : $this->conf['allowAddDownloads'];
+            $this->flexform,
+            'allowAddDownloads',
+            'sDEF'
+        ) : $this->conf['allowAddDownloads'];
 
         // Check if a frontend user is logged in
         $isLoggedIn = $GLOBALS['TSFE']->loginUser;
@@ -2155,9 +2161,9 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 // Substitute the markers in the given sub sub part
                 $downloadList .= $this->markerBasedTemplateService->substituteMarkerArray(
                     $this->markerBasedTemplateService->getSubpart(
-                    $templateCode,
-                    '###' . $subSubSub_download . (($i % $this->alternatingLayouts + 1) ? '_' . ($i % $this->alternatingLayouts + 1) : '') . '###'
-                ),
+                        $templateCode,
+                        '###' . $subSubSub_download . (($i % $this->alternatingLayouts + 1) ? '_' . ($i % $this->alternatingLayouts + 1) : '') . '###'
+                    ),
                     $markerArrayDownload
                 );
             }
@@ -2472,7 +2478,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 $this->conf['mandatoryField_stdWrap.']
             );
             $markerArray = array_merge($markerArray, $this->freeCap->makeCaptcha());
-        } elseif ($this->captchaExtension == 'captcha' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('captcha')) {
+        } elseif ($this->captchaExtension == 'captcha' && ExtensionManagementUtility::isLoaded('captcha')) {
             $markerArray['###SR_FREECAP_NOTICE###'] = '';
             $markerArray['###SR_FREECAP_CANT_READ###'] = '';
             $markerArray['###SR_FREECAP_IMAGE###'] = '';
@@ -2481,7 +2487,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 htmlspecialchars(trim($this->pi_getLL('captcha_notice'))),
                 $this->conf['mandatoryField_stdWrap.']
             );
-            $markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('captcha') . 'captcha/captcha.php" alt="" />';
+            $markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . ExtensionManagementUtility::siteRelPath('captcha') . 'captcha/captcha.php" alt="" />';
         } else {
             $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_captcha . '###', '');
         }
@@ -2601,19 +2607,19 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             'allowAddDownloads',
             'sDEF'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'allowAddDownloads',
-                'sDEF'
-            ) : $this->conf['allowAddDownloads'];
+            $this->flexform,
+            'allowAddDownloads',
+            'sDEF'
+        ) : $this->conf['allowAddDownloads'];
         $statusAddedDownloads = $this->pi_getFFvalue(
             $this->flexform,
             'statusAddedDownloads',
             'sDEF'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'statusAddedDownloads',
-                'sDEF'
-            ) : $this->conf['statusAddedDownloads'];
+            $this->flexform,
+            'statusAddedDownloads',
+            'sDEF'
+        ) : $this->conf['statusAddedDownloads'];
 
         if ($cruserID != null) {
             // Do the query for a logged-in user
@@ -2672,28 +2678,28 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             'adminName',
             's_notification'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'adminName',
-                's_notification'
-            ) : $this->conf['adminName'];
+            $this->flexform,
+            'adminName',
+            's_notification'
+        ) : $this->conf['adminName'];
         $email = $this->pi_getFFvalue(
             $this->flexform,
             'adminEmail',
             's_notification'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'adminEmail',
-                's_notification'
-            ) : $this->conf['adminEmail'];
+            $this->flexform,
+            'adminEmail',
+            's_notification'
+        ) : $this->conf['adminEmail'];
         $subject = $this->pi_getFFvalue(
             $this->flexform,
             'emailSubjectAdd',
             's_notification'
         ) ? $this->pi_getFFvalue(
-                $this->flexform,
-                'emailSubjectAdd',
-                's_notification'
-            ) : $this->conf['emailSubjectAdd'];
+            $this->flexform,
+            'emailSubjectAdd',
+            's_notification'
+        ) : $this->conf['emailSubjectAdd'];
         $ll_label = htmlspecialchars(trim($this->pi_getLL('ll_label')));
         $ll_description = htmlspecialchars(trim($this->pi_getLL('ll_description')));
         $ll_category = htmlspecialchars(trim($this->pi_getLL('ll_category')));
@@ -2863,28 +2869,28 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                     'adminName',
                     's_notification'
                 ) ? $this->pi_getFFvalue(
-                        $this->flexform,
-                        'adminName',
-                        's_notification'
-                    ) : $this->conf['adminName'];
+                    $this->flexform,
+                    'adminName',
+                    's_notification'
+                ) : $this->conf['adminName'];
                 $email = $this->pi_getFFvalue(
                     $this->flexform,
                     'adminEmail',
                     's_notification'
                 ) ? $this->pi_getFFvalue(
-                        $this->flexform,
-                        'adminEmail',
-                        's_notification'
-                    ) : $this->conf['adminEmail'];
+                    $this->flexform,
+                    'adminEmail',
+                    's_notification'
+                ) : $this->conf['adminEmail'];
                 $subject = $this->pi_getFFvalue(
                     $this->flexform,
                     'emailSubjectBroken',
                     's_notification'
                 ) ? $this->pi_getFFvalue(
-                        $this->flexform,
-                        'emailSubjectBroken',
-                        's_notification'
-                    ) : $this->conf['emailSubjectBroken'];
+                    $this->flexform,
+                    'emailSubjectBroken',
+                    's_notification'
+                ) : $this->conf['emailSubjectBroken'];
                 $ll_label = htmlspecialchars(trim($this->pi_getLL('ll_label')));
                 $ll_description = htmlspecialchars(trim($this->pi_getLL('ll_description')));
                 $ll_category = htmlspecialchars(trim($this->pi_getLL('ll_category')));
@@ -3185,13 +3191,13 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
 			<div' . $this->pi_classParam('browsebox') . '>' . ($showResultCount ? '<p>' . ($this->internal['res_count'] ?
                     sprintf(
                         str_replace(
-                        '###SPAN_BEGIN###',
-                        '<span' . $this->pi_classParam('browsebox-strong') . '>',
-                        htmlspecialchars(trim($this->pi_getLL(
-                            'pi_list_browseresults_displays',
-                            'Displaying results ###SPAN_BEGIN###%s to %s</span> out of ###SPAN_BEGIN###%s</span>'
-                        )))
-                    ),
+                            '###SPAN_BEGIN###',
+                            '<span' . $this->pi_classParam('browsebox-strong') . '>',
+                            htmlspecialchars(trim($this->pi_getLL(
+                                'pi_list_browseresults_displays',
+                                'Displaying results ###SPAN_BEGIN###%s to %s</span> out of ###SPAN_BEGIN###%s</span>'
+                            )))
+                        ),
                         $this->internal['res_count'] > 0 ? $pR1 : 0,
                         min([$this->internal['res_count'], $pR2]),
                         $this->internal['res_count']
@@ -3752,7 +3758,7 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             if (!$this->freeCap->checkWord($value)) {
                 $errormsg = htmlspecialchars(trim($this->pi_getLL('error_invalid_captcha')));
             }
-        } elseif ($this->captchaExtension == 'captcha' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('captcha')) {
+        } elseif ($this->captchaExtension == 'captcha' && ExtensionManagementUtility::isLoaded('captcha')) {
             $value = htmlspecialchars(strip_tags($this->piVars['captchaResponse']));
 
             session_start();
@@ -3810,38 +3816,38 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                             'imageMaxHeightDetailed',
                             's_image'
                         ) ? $this->pi_getFFvalue(
-                                $this->flexform,
-                                'imageMaxHeightDetailed',
-                                's_image'
-                            ) : $this->conf['imageMaxHeightDetailed']);
+                            $this->flexform,
+                            'imageMaxHeightDetailed',
+                            's_image'
+                        ) : $this->conf['imageMaxHeightDetailed']);
                         $imageMaxWidth = intval($this->pi_getFFvalue(
                             $this->flexform,
                             'imageMaxWidthDetailed',
                             's_image'
                         ) ? $this->pi_getFFvalue(
-                                $this->flexform,
-                                'imageMaxWidthDetailed',
-                                's_image'
-                            ) : $this->conf['imageMaxWidthDetailed']);
+                            $this->flexform,
+                            'imageMaxWidthDetailed',
+                            's_image'
+                        ) : $this->conf['imageMaxWidthDetailed']);
                     } else {
                         $imageMaxHeight = intval($this->pi_getFFvalue(
                             $this->flexform,
                             'imageMaxHeightCategory',
                             's_image'
                         ) ? $this->pi_getFFvalue(
-                                $this->flexform,
-                                'imageMaxHeightCategory',
-                                's_image'
-                            ) : $this->conf['imageMaxHeightCategory']);
+                            $this->flexform,
+                            'imageMaxHeightCategory',
+                            's_image'
+                        ) : $this->conf['imageMaxHeightCategory']);
                         $imageMaxWidth = intval($this->pi_getFFvalue(
                             $this->flexform,
                             'imageMaxWidthCategory',
                             's_image'
                         ) ? $this->pi_getFFvalue(
-                                $this->flexform,
-                                'imageMaxWidthCategory',
-                                's_image'
-                            ) : $this->conf['imageMaxWidthCategory']);
+                            $this->flexform,
+                            'imageMaxWidthCategory',
+                            's_image'
+                        ) : $this->conf['imageMaxWidthCategory']);
                     }
 
                     $pictureConfig = [];
@@ -3904,19 +3910,19 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                         'categoryImageMaxHeight',
                         's_image'
                     ) ? $this->pi_getFFvalue(
-                            $this->flexform,
-                            'categoryImageMaxHeight',
-                            's_image'
-                        ) : $this->conf['categoryImageMaxHeight']);
+                        $this->flexform,
+                        'categoryImageMaxHeight',
+                        's_image'
+                    ) : $this->conf['categoryImageMaxHeight']);
                     $imageMaxWidth = intval($this->pi_getFFvalue(
                         $this->flexform,
                         'categoryImageMaxWidth',
                         's_image'
                     ) ? $this->pi_getFFvalue(
-                            $this->flexform,
-                            'categoryImageMaxWidth',
-                            's_image'
-                        ) : $this->conf['categoryImageMaxWidth']);
+                        $this->flexform,
+                        'categoryImageMaxWidth',
+                        's_image'
+                    ) : $this->conf['categoryImageMaxWidth']);
 
                     $pictureConfig = [];
                     $pictureConfig['image.']['file'] = 'uploads/tx_abdownloads/categoryImages/' . $record[$field];
@@ -4117,10 +4123,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
         if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
             $downloadDetails = $this->pi_LinkTP(
                 $this->getImageTag(
-                $this->conf['iconDetails'],
-                htmlspecialchars(trim($this->pi_getLL('ll_details'))),
-                htmlspecialchars(trim($this->pi_getLL('ll_details')))
-            ),
+                    $this->conf['iconDetails'],
+                    htmlspecialchars(trim($this->pi_getLL('ll_details'))),
+                    htmlspecialchars(trim($this->pi_getLL('ll_details')))
+                ),
                 [
                     'tx_abdownloads_pi1[action]' => 'getviewdetailsfordownload',
                     'tx_abdownloads_pi1[uid]' => $record['uid'],
@@ -4179,10 +4185,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
                 if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
                     $array['###DOWNLOAD_REPORT_BROKEN###'] = $this->local_cObj->stdWrap(
                         $this->getImageTag(
-                        $this->conf['iconReportBrokenDisabled'],
-                        htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken'))),
-                        htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken')))
-                    ),
+                            $this->conf['iconReportBrokenDisabled'],
+                            htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken'))),
+                            htmlspecialchars(trim($this->pi_getLL('ll_reported_download_broken')))
+                        ),
                         $localConf['downloadReportBroken_stdWrap.']
                     );
                 } else {
@@ -4197,10 +4203,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
                 $download = $this->pi_LinkTP(
                     $this->getImageTag(
-                    $this->conf['iconReportBroken'],
-                    htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken'))),
-                    htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken')))
-                ),
+                        $this->conf['iconReportBroken'],
+                        htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken'))),
+                        htmlspecialchars(trim($this->pi_getLL('ll_report_download_broken')))
+                    ),
                     [
                         'tx_abdownloads_pi1[action]' => 'getviewreportbrokendownload',
                         'tx_abdownloads_pi1[uid]' => $record['uid'],
@@ -4249,10 +4255,10 @@ class tx_abdownloads_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
             if ($this->pi_getFFvalue($this->flexform, 'iconsForLinks', 's_display')) {
                 $download = $this->pi_LinkTP(
                     $this->getImageTag(
-                    $this->conf['iconRate'],
-                    htmlspecialchars(trim($this->pi_getLL('ll_rate_download'))),
-                    htmlspecialchars(trim($this->pi_getLL('ll_rate_download')))
-                ),
+                        $this->conf['iconRate'],
+                        htmlspecialchars(trim($this->pi_getLL('ll_rate_download'))),
+                        htmlspecialchars(trim($this->pi_getLL('ll_rate_download')))
+                    ),
                     [
                         'tx_abdownloads_pi1[action]' => 'getviewratedownload',
                         'tx_abdownloads_pi1[uid]' => $record['uid'],

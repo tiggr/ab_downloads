@@ -15,13 +15,13 @@ defined('TYPO3_MODE') or die();
 );
 
 // Define the fields of category records to show in the backend page module
-$TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_category'][0] = [
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_category'][0] = [
     'fList' => 'label,parent_category',
     'icon' => true,
 ];
 
 // Define the fields of download records to show in the backend page module
-$TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_download'][0] = [
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_download'][0] = [
     'fList' => 'label,file,category',
     'icon' => true,
 ];

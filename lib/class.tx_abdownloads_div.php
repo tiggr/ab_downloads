@@ -1,4 +1,8 @@
 <?php
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /***************************************************************
  * Copyright notice
  *
@@ -113,7 +117,7 @@ class tx_abdownloads_div
 
             if ($tmpres) {
                 while ($tmprow = $TYPO3_DB->sql_fetch_assoc($tmpres)) {
-                    if (!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($categoryMounts, $tmprow['parent_category'])) {
+                    if (!GeneralUtility::inList($categoryMounts, $tmprow['parent_category'])) {
                         // 					$dontStartFromRootRecord = true;
                         $cleanedCategoryMounts[] = $tmprow['uid'];
                     }
@@ -136,7 +140,7 @@ class tx_abdownloads_div
      */
     public function getCategoryTreeIDs()
     {
-        require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'lib/class.tx_abdownloads_treeview.php');
+        require_once(ExtensionManagementUtility::extPath('ab_downloads') . 'lib/class.tx_abdownloads_treeview.php');
         ;
 
         global $TCA,$BE_USER;
@@ -150,10 +154,10 @@ class tx_abdownloads_div
         }
 
         if ($excludeList) {
-            $catlistWhere = ' AND tx_abdownloads_category.uid NOT IN (' . implode(\TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $excludeList), ',') . ')';
+            $catlistWhere = ' AND tx_abdownloads_category.uid NOT IN (' . implode(GeneralUtility::intExplode(',', $excludeList), ',') . ')';
         }
 
-        $treeViewObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
+        $treeViewObj = GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
         $treeViewObj->table = 'tx_abdownloads_category';
         $treeViewObj->init($catlistWhere);
         // 	$treeViewObj->backPath = $this->pObj->backPath;
@@ -163,7 +167,7 @@ class tx_abdownloads_div
         $treeViewObj->fieldArray = array('uid', 'label', 'description'); // those fields will be filled to the array $treeViewObj->tree
 
         if ($includeList) {
-            $treeViewObj->MOUNTS = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $includeList);
+            $treeViewObj->MOUNTS = GeneralUtility::intExplode(',', $includeList);
         }
 
         $treeViewObj->TCEforms_selectedItemsArray = array();

@@ -1,4 +1,9 @@
 <?php
+
+use TYPO3\CMS\Core\Localization\LocalizationFactory;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /***************************************************************
  * Copyright notice
  *
@@ -76,8 +81,8 @@ class tx_abdownloads_pi1_wizicon
      */
     public function includeLocalLang()
     {
-        $llFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'locallang.xml';
-        $languageFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Localization\LocalizationFactory::class);
+        $llFile = ExtensionManagementUtility::extPath('ab_downloads') . 'locallang.xml';
+        $languageFactory = GeneralUtility::makeInstance(LocalizationFactory::class);
         $LOCAL_LANG = $languageFactory->getParsedData($llFile, $GLOBALS['LANG']->lang);
 
         return $LOCAL_LANG;

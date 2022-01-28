@@ -1,4 +1,11 @@
 <?php
+
+use TYPO3\CMS\Backend\Module\BaseScriptClass;
+use TYPO3\CMS\Core\Utility\CsvUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /***************************************************************
 * Copyright notice
 *
@@ -80,7 +87,7 @@ require('conf.php');
  * @package TYPO3
  * @subpackage	tx_abdownloads
  */
-class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
+class tx_abdownloads_module1 extends BaseScriptClass
 {
     public $pageinfo;
     public $debug = false;
@@ -107,7 +114,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         parent::init();
 
         // Check for extension "version"
-        if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('version')) {
+        if (ExtensionManagementUtility::isLoaded('version')) {
             $this->versioningEnabled = true;
         }
 
@@ -160,7 +167,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         if (($this->id && $access) || ($BE_USER->user['admin'] && !$this->id)) {
 
             // Draw the header
-            $this->doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('bigDoc');
+            $this->doc = GeneralUtility::makeInstance('bigDoc');
             $this->doc->backPath = $BACK_PATH;
             $this->doc->form = '<form action="' . $_SERVER['PHP_SELF'] . '" method="POST">';
 
@@ -181,7 +188,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 				</script>
 			';
 
-            $headerSection = $this->doc->getHeader('pages', $this->pageinfo, $this->pageinfo['_thePath']) . '<br />' . $LANG->php3Lang['labels']['path'] . ': ' . \TYPO3\CMS\Core\Utility\GeneralUtility::fixed_lgd_cs($this->pageinfo['_thePath'], -50);
+            $headerSection = $this->doc->getHeader('pages', $this->pageinfo, $this->pageinfo['_thePath']) . '<br />' . $LANG->php3Lang['labels']['path'] . ': ' . GeneralUtility::fixed_lgd_cs($this->pageinfo['_thePath'], -50);
 
             $this->content .= $this->doc->startPage($LANG->getLL('title'));
             $this->content .= $this->doc->header($LANG->getLL('title'));
@@ -200,7 +207,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
             $this->content .= $this->doc->spacer(10);
         } else {
             // If no access or if ID == zero
-            $this->doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('bigDoc');
+            $this->doc = GeneralUtility::makeInstance('bigDoc');
             $this->doc->backPath = $BACK_PATH;
 
             $this->content .= $this->doc->startPage($LANG->getLL('title'));
@@ -237,8 +244,8 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         global $LANG;
 
         // Get action and uid values
-        $action = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('action');
-        $uid = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('uid');
+        $action = GeneralUtility::_GP('action');
+        $uid = GeneralUtility::_GP('uid');
 
         switch ((string)$this->MOD_SETTINGS['function']) {
             /**
@@ -311,9 +318,9 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
              * FUNCTION: Import categories/downloads from DB
              */
             case 4:
-                $type = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('type');
-                $table = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('table');
-                $generateQuery = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('generateQuery');
+                $type = GeneralUtility::_GP('type');
+                $table = GeneralUtility::_GP('table');
+                $generateQuery = GeneralUtility::_GP('generateQuery');
 
                 // Decide what to do
                 if ($action == null || $action == '') {
@@ -327,9 +334,9 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
              * FUNCTION: Import categories/downloads from CSV
              */
             case 5:
-                $type = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('type');
-                $importCSV = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('importCSV');
-                $overwriteExisting = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('overwriteExisting');
+                $type = GeneralUtility::_GP('type');
+                $importCSV = GeneralUtility::_GP('importCSV');
+                $overwriteExisting = GeneralUtility::_GP('overwriteExisting');
 
                 // Decide what to do
                 if ($action == null || $action == '') {
@@ -343,14 +350,14 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
              * FUNCTION: Export categories/downloads
              */
             case 6:
-                $type = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('type');
-                $properties = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('properties');
+                $type = GeneralUtility::_GP('type');
+                $properties = GeneralUtility::_GP('properties');
                 if (is_array($properties)) {
                     $properties = implode(',', $properties);
                 }
 
-                $outputFormat = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('outputFormat');
-                $generateOutput = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('generateOutput');
+                $outputFormat = GeneralUtility::_GP('outputFormat');
+                $generateOutput = GeneralUtility::_GP('generateOutput');
 
                 // Decide what to do
                 if ($action == null || $action == '') {
@@ -578,7 +585,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
             // Starting content
             $content .= '<td><a href="../../../../typo3/alt_doc.php?returnUrl=%2Fcms%2Ftypo3%2Fsysext%2Fcms%2Flayout%2Fdb_layout.php%3Fid%3D162&amp;edit[tx_ablinklist_link][' . $downloadsReportedBroken[$i]['uid'] . ']=edit">' . $downloadsReportedBroken[$i]['label'] . '</a></td>';
-            $content .= '<td><a href="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv(TYPO3_SITE_URL) . $this->filePath . $downloadsReportedBroken[$i]['file'] . '">' . $downloadsReportedBroken[$i]['file'] . '</a></td>';
+            $content .= '<td><a href="' . GeneralUtility::getIndpEnv(TYPO3_SITE_URL) . $this->filePath . $downloadsReportedBroken[$i]['file'] . '">' . $downloadsReportedBroken[$i]['file'] . '</a></td>';
             $content .= '<td><a href="?action=getViewAcceptDownload&uid=' . $downloadsReportedBroken[$i]['uid'] . '&id=' . $this->id . '"><img src="action_accept.gif" border="0" alt="' . $LANG->getLL('ViewDownloadsToApprove_accept') . '" title="' . $LANG->getLL('ViewDownloadsToApprove_accept') . '"></a></td>';
             $content .= '<td><a href="?action=getViewDisableDownload&uid=' . $downloadsReportedBroken[$i]['uid'] . '&id=' . $this->id . '"><img src="action_disable.gif" border="0" alt="' . $LANG->getLL('ViewDownloadsReportedBroken_disable') . '" title="' . $LANG->getLL('ViewDownloadsReportedBroken_disable') . '"></a></td>';
             $content .= '</tr>';
@@ -623,7 +630,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         $orderBy = '';
         $limit = '';
         $flexform = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('*', $theTable, $whereClause, $groupBy, $orderBy, $limit);
-        $flexarray = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexform[0]['pi_flexform']);
+        $flexarray = GeneralUtility::xml2array($flexform[0]['pi_flexform']);
 
         if ($this->debug) {
             t3lib_utility_Debug::printArray($flexarray);
@@ -636,7 +643,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         }
 
         // Get and set pagebrowser values
-        $pointer = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('pointer');
+        $pointer = GeneralUtility::_GP('pointer');
         if ($pointer > 0) {
             $pointer = $pointer * $listLimit;
         } else {
@@ -731,7 +738,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
             // Starting content
             $content .= "<td><img src=\"icon_online.gif\" border=\"0\" alt=\"" . $LANG->getLL('ViewCheckForBrokenDownloads_online') . "\" title=\"" . $LANG->getLL('ViewCheckForBrokenDownloads_online') . "\"></td>";
             $content .= '<td><a href="../../../../typo3/alt_doc.php?returnUrl=%2Fcms%2Ftypo3%2Fsysext%2Fcms%2Flayout%2Fdb_layout.php%3Fid%3D162&amp;edit[tx_ablinklist_link][' . $downloadsOnline[$i]['uid'] . ']=edit">' . $downloadsOnline[$i]['label'] . '</a></td>';
-            $content .= '<td><a href="' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv(TYPO3_SITE_URL) . $this->filePath . $downloadsOnline[$i]['file'] . '">' . $downloadsOnline[$i]['file'] . '</a></td>';
+            $content .= '<td><a href="' . GeneralUtility::getIndpEnv(TYPO3_SITE_URL) . $this->filePath . $downloadsOnline[$i]['file'] . '">' . $downloadsOnline[$i]['file'] . '</a></td>';
             $content .= "<td><img src=\"action_enable_disabled.gif\" border=\"0\" alt=\"" . $LANG->getLL('ViewCheckForBrokenDownloads_enable') . "\" title=\"" . $LANG->getLL('ViewCheckForBrokenDownloads_enable') . "\"></td>";
             $content .= "<td><a href=\"?action=getViewDisableDownload&id=" . $this->id . "&uid=" . $downloadsOnline[$i]['uid'] . "\"><img src=\"action_disable.gif\" border=\"0\" alt=\"" . $LANG->getLL('ViewDownloadsReportedBroken_disable') . "\" title=\"" . $LANG->getLL('ViewDownloadsReportedBroken_disable') . "\"></a></td>";
             $content .= '</tr>';
@@ -834,8 +841,8 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
         // Step 3: Show fields form
         if ($type != null && $table != null) {
-            $fields = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('field');
-            $defines = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('define');
+            $fields = GeneralUtility::_GP('field');
+            $defines = GeneralUtility::_GP('define');
             $fieldBlacklist = array( 't3ver_', 't3_' );
 
             $content .= '<img src="import_step_3.gif" border="0" /> <b>Assign the foreign database fields to the available database fields of this extension:</b><br />';
@@ -968,21 +975,21 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
         // Step 3: Import
         if ($type != null && $importCSV != null) {
-            $fileFunc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Utility\File\BasicFileUtility::class);
+            $fileFunc = GeneralUtility::makeInstance(BasicFileUtility::class);
 
             // Get file name and path
             $fileName = $fileFunc->cleanFileName($_FILES['file']['name']);
 
             if ($fileName) {
                 $uniqueFilePath = $fileFunc->getUniqueName($fileName, PATH_site . $this->filePath);
-                $uploadedTempFile = \TYPO3\CMS\Core\Utility\GeneralUtility::upload_to_tempfile($_FILES['file']['tmp_name']);
+                $uploadedTempFile = GeneralUtility::upload_to_tempfile($_FILES['file']['tmp_name']);
 
                 // Read in CSV file
                 $firstLine = true;
-                $lines = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(chr(10), \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($uploadedTempFile), 1);
+                $lines = GeneralUtility::trimExplode(chr(10), GeneralUtility::getUrl($uploadedTempFile), 1);
 
                 foreach ($lines as $line) {
-                    $parts = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', str_replace('"', '', $line));
+                    $parts = GeneralUtility::trimExplode(',', str_replace('"', '', $line));
 
                     if ($firstLine) {
                         $fields = $parts;
@@ -1013,7 +1020,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
                     }
                 }
 
-                \TYPO3\CMS\Core\Utility\GeneralUtility::unlink_tempfile($uploadedTempFile);
+                GeneralUtility::unlink_tempfile($uploadedTempFile);
             }
         }
 
@@ -1080,7 +1087,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
                 if (!in_array($propertyBlacklist, $row['Field'])) {
                     $content .= '<tr><td><input type="checkbox" name="properties[]" value="' . $row['Field'];
 
-                    if (\TYPO3\CMS\Core\Utility\GeneralUtility::inList($properties, $row['Field'])) {
+                    if (GeneralUtility::inList($properties, $row['Field'])) {
                         $content .= '" checked="checked"></td><td>' . $row['Field'] . '</td></tr>';
                     } else {
                         $content .= '"></td><td>' . $row['Field'] . '</td></tr>';
@@ -1131,7 +1138,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
         // Step 5: Generate output
         if ($type != null && $properties != null && $outputFormat != null && $generateOutput != null) {
-            $identifier = 'ab_downloads_' . $type . '_' . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('HTTP_HOST') . '_' . date($TYPO3_CONF_VARS['SYS']['ddmmyy']);
+            $identifier = 'ab_downloads_' . $type . '_' . GeneralUtility::getIndpEnv('HTTP_HOST') . '_' . date($TYPO3_CONF_VARS['SYS']['ddmmyy']);
 
             header('Content-Description: Modern Downloads File Transfer');
             header('Content-type: application/force-download');
@@ -1354,10 +1361,10 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
             $download = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('label,description,file,category', $theTable, $theField . '=' . $GLOBALS['TYPO3_DB']->quoteStr($theValue, $theTable) . ' ' . $whereClause, $groupBy, $orderBy, $limit);
 
             // Get variables from POST values or database record
-            $label = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('label') ? \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('label') : $download[0]['label'];
-            $description = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('description') ? \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('description') : $download[0]['description'];
-            $file = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('file') ? \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('file') : $download[0]['file'];
-            $categoryUID = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('categoryUID') ? \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('categoryUID') : $download[0]['category'];
+            $label = GeneralUtility::_GP('label') ? GeneralUtility::_GP('label') : $download[0]['label'];
+            $description = GeneralUtility::_GP('description') ? GeneralUtility::_GP('description') : $download[0]['description'];
+            $file = GeneralUtility::_GP('file') ? GeneralUtility::_GP('file') : $download[0]['file'];
+            $categoryUID = GeneralUtility::_GP('categoryUID') ? GeneralUtility::_GP('categoryUID') : $download[0]['category'];
 
             if ($this->debug) {
                 echo urldecode($_SERVER['QUERY_STRING']) . "<br />";
@@ -1439,7 +1446,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
             return false;
         }
 
-        return file_exists(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($this->filePath . $file));
+        return file_exists(GeneralUtility::getFileAbsFileName($this->filePath . $file));
     }
 
     /*************************************
@@ -1552,7 +1559,7 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">';
-                    $output .= "\n<head>\n\t<title>Modern Downloads (ab_downloads) $type on " . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('HTTP_HOST') . " : $outputFormat export</title>";
+                    $output .= "\n<head>\n\t<title>Modern Downloads (ab_downloads) $type on " . GeneralUtility::getIndpEnv('HTTP_HOST') . " : $outputFormat export</title>";
                     $output .= "\n\t<meta name=\"author\" content=\"Modern Downloads (ab_downloads) Export Generator\" />";
                     $output .= "\n\t<meta name=\"DC.Creator\" content=\"Modern Downloads (ab_downloads) Export Generator\" />\n</head>\n<body>\n<h2>\n";
 
@@ -1563,12 +1570,12 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
                 case 'XML':
                     $output .= '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>' . "\n";
-                    $output .= \TYPO3\CMS\Core\Utility\GeneralUtility::array2xml($downloads, '', 0, $identifier);
+                    $output .= GeneralUtility::array2xml($downloads, '', 0, $identifier);
                 break;
 
                 case 'TXT':
                     $output .= "=================================================================================\n";
-                    $output .= "Modern Downloads (ab_downloads) $type on " . \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('HTTP_HOST') . " : $outputFormat export\n";
+                    $output .= "Modern Downloads (ab_downloads) $type on " . GeneralUtility::getIndpEnv('HTTP_HOST') . " : $outputFormat export\n";
                     $output .= "=================================================================================\n\n";
 
                     for ($i = 0; $i < count($downloads); $i++) {
@@ -1578,10 +1585,10 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
                 break;
 
                 case 'CSV':
-                    $output .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues(\TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $properties)) . "\n";
+                    $output .= CsvUtility::csvValues(GeneralUtility::trimExplode(',', $properties)) . "\n";
 
                     for ($i = 0; $i < count($downloads); $i++) {
-                        $output .= \TYPO3\CMS\Core\Utility\CsvUtility::csvValues($downloads[$i]) . "\n";
+                        $output .= CsvUtility::csvValues($downloads[$i]) . "\n";
                     }
                 break;
             }
@@ -1627,11 +1634,11 @@ class tx_abdownloads_module1 extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         $config = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('*', $theTable, $whereClause, $groupBy, $orderBy, $limit);
 
         // Get constants
-        $constants = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(chr(10), $config[0][$field], true);
+        $constants = GeneralUtility::trimExplode(chr(10), $config[0][$field], true);
 
         foreach ($constants as $index => $content) {
             if (eregi($string, $content)) {
-                $contentExploded = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode('=', $content, true);
+                $contentExploded = GeneralUtility::trimExplode('=', $content, true);
 
                 return ltrim($contentExploded[1]);
             }
@@ -1671,7 +1678,7 @@ if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_down
 }
 
 // Make instance:
-$SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_module1');
+$SOBE = GeneralUtility::makeInstance('tx_abdownloads_module1');
 $SOBE->init();
 
 // Include files?
