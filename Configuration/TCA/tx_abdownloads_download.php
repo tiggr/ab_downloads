@@ -31,7 +31,6 @@ return [
         'transOrigPointerField' => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'languageField' => 'sys_language_uid',
-        'dividers2tabs' => $configArray['noTabDividers'] ? false : true,
         'shadowColumnsForNewPlaceholders' => 'sys_language_uid, l18n_parent, starttime, endtime, fe_group',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -470,7 +469,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'label;;1;;, description;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];, tags, license, language_uid, crdate;;3;;, status, --div--;Relations, contact, homepage, category, image, file, --div--;Sponsorship, sponsored, sponsored_description;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];, --div--;Statistics, clicks, rating, votes'],
+        '0' => ['showitem' => 'label,--palette--;;1,description,--palette--;;2,tags,license,language_uid,crdate,--palette--;;3,status,--div--;Relations,contact,homepage,category,image,file,--div--;Sponsorship,sponsored,sponsored_description,--palette--;;2,--div--;Statistics,clicks,rating,votes'],
     ],
     'palettes' => [
         '1' => ['showitem' => 'hidden, starttime, endtime, editlock'],

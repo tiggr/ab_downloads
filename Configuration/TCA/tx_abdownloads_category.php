@@ -137,6 +137,7 @@ return [
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
                 'size' => 5,
                 'maxitems' => 20,
                 'items' => [
@@ -259,7 +260,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'label;;1;;, description;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];, image, parent_category'],
+        '0' => ['showitem' => 'label,--palette--;;1,description,--palette--;;2,image,parent_category'],
     ],
     'palettes' => [
         '1' => ['showitem' => 'hidden, starttime, endtime'],

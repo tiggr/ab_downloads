@@ -12,6 +12,7 @@ $tempColumns = [
         'label' => 'LLL:EXT:ab_downloads/locallang_tca.xml:ab_downloads.categoryMounts',
         'config' => [
             'type' => 'select',
+            'renderType' => 'selectMultipleSideBySide',
             'form_type' => 'user',
             'userFunc' => 'tx_abdownloads_treeview->displayCategoryTree',
             'treeView' => 1,
