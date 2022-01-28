@@ -48,7 +48,6 @@ return [
         'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'icon_tx_abdownloads_download.gif',
         'prependAtCopy' => $configArray['prependAtCopy'] ? 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy' : '',
         'mainpalette' => '10',
-        'versioning_followPages' => true,
         'origUid' => 't3_origuid',
     ],
     'feInterface' => [
@@ -96,11 +95,10 @@ return [
             ],
         ],
         'editlock' => [
-            'l10n_mode' => 'mergeIfNotBlank',
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:editlock',
             'config' => [
-                'type' => 'check',
+                'type' => 'check', ['behaviour' => ['allowLanguageSynchronization' => true]],
             ],
         ],
         'hidden' => [
@@ -113,26 +111,24 @@ return [
             ],
         ],
         'starttime' => [
-            'l10n_mode' => 'mergeIfNotBlank',
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'size' => '10',
-                'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
+                'renderType' => 'inputDateTime',
+                ['behaviour' => ['allowLanguageSynchronization' => true]],
             ],
         ],
         'endtime' => [
-            'l10n_mode' => 'mergeIfNotBlank',
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'size' => '8',
-                'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
@@ -140,10 +136,11 @@ return [
                     'upper' => mktime(0, 0, 0, 12, 31, 2020),
                     'lower' => mktime(0, 0, 0, date('m') - 1, date('d'), date('Y')),
                 ],
+                'renderType' => 'inputDateTime',
+                ['behaviour' => ['allowLanguageSynchronization' => true]],
             ],
         ],
         'fe_group' => [
-            'l10n_mode' => 'mergeIfNotBlank',
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
@@ -158,6 +155,7 @@ return [
                 ],
                 'exclusiveKeys' => '-1,-2',
                 'foreign_table' => 'fe_groups',
+                ['behaviour' => ['allowLanguageSynchronization' => true]],
             ],
         ],
         'label' => [
@@ -182,24 +180,14 @@ return [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.description',
-            'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
             'config' => [
                 'type' => 'text',
                 'cols' => '50',
                 'rows' => '5',
                 'softref' => 'typolink_tag,images,email[subst],url',
-                'wizards' => [
-                    'RTE' => [
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'type' => 'script',
-                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_rte.gif',
-                        'module' => [
-                            'name' => 'wizard_rte',
-                        ],
-                    ],
-                ],
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => ['fullScreenRichtext' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE']]],
             ],
         ],
         'tags' => [
@@ -215,24 +203,14 @@ return [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.sponsored_description',
-            'defaultExtras' => 'richtext:rte_transform[mode=ts_css]',
             'config' => [
                 'type' => 'text',
                 'cols' => '50',
                 'rows' => '5',
                 'softref' => 'typolink_tag,images,email[subst],url',
-                'wizards' => [
-                    'RTE' => [
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'type' => 'script',
-                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_rte.gif',
-                        'module' => [
-                            'name' => 'wizard_rte',
-                        ],
-                    ],
-                ],
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+                'fieldControl' => ['fullScreenRichtext' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE']]],
             ],
         ],
         'license' => [
@@ -325,7 +303,7 @@ return [
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_abdownloads_category',
                 'size' => 10,
-                'autoSizeMax' => $configArray['categoryTreeHeigth'],
+                'size' => $configArray['categoryTreeHeigth'],
                 'minitems' => 0,
                 'maxitems' => 500,
                 'MM' => 'tx_abdownloads_category_mm',
@@ -336,43 +314,7 @@ return [
                         'showHeader' => true,
                     ],
                 ],
-                'wizards' => [
-                    'add' => [
-                        'type' => 'script',
-                        'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory',
-                        'icon' => 'actions-add',
-                        'params' => [
-                            'table' => 'tx_abdownloads_category',
-                            'pid' => '###CURRENT_PID###',
-                            'setValue' => 'set',
-                        ],
-                        'module' => [
-                            'name' => 'wizard_add',
-                        ],
-                    ],
-                    'edit' => [
-                        'type' => 'popup',
-                        'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory',
-                        'module' => [
-                            'name' => 'wizard_edit',
-                        ],
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon' => 'actions-open',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                    ],
-                    'list' => [
-                        'type' => 'script',
-                        'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories',
-                        'icon' => 'actions-system-list-open',
-                        'params' => [
-                            'table' => 'tx_abdownloads_category',
-                            'pid' => '###CURRENT_PID###',
-                        ],
-                        'module' => [
-                            'name' => 'wizard_list',
-                        ],
-                    ],
-                ],
+                'fieldControl' => ['addRecord' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory', 'table' => 'tx_abdownloads_category', 'pid' => '###CURRENT_PID###', 'setValue' => 'set']], 'editPopup' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory']], 'listModule' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories', 'table' => 'tx_abdownloads_category', 'pid' => '###CURRENT_PID###']]],
             ],
         ],
         'contact' => [
@@ -394,23 +336,8 @@ return [
                 'max' => '255',
                 'checkbox' => '',
                 'eval' => 'trim',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel',
-                        'icon' => 'actions-wizard-link',
-                        'module' => [
-                            'name' => 'wizard_link',
-                        ],
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
-                        #'params' => [
-                        #    'blindLinkOptions' => 'folder',
-                        #    'blindLinkFields' => 'class, target',
-                        #    'allowedExtensions' => 'jpg',
-                        #],
-                    ],
-                ],
+                'renderType' => 'inputLink',
+                'fieldControl' => ['linkPopup' => ['options' => ['title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel']]],
             ],
         ],
         'image' => [
@@ -423,7 +350,6 @@ return [
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'max_size' => '30000',
                 'uploadfolder' => 'uploads/tx_abdownloads/downloadImages',
-                'show_thumbs' => '1',
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
@@ -440,22 +366,22 @@ return [
                 'disallowed' => 'php, php3',
                 'max_size' => '500000',
                 'uploadfolder' => 'uploads/tx_abdownloads/files',
-                'show_thumbs' => '0',
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
+                'fieldWizard' => ['fileThumbnails' => ['disabled' => true]],
             ],
         ],
         'crdate' => [
-            'l10n_mode' => 'mergeIfNotBlank',
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.crdate',
             'config' => [
                 'type' => 'input',
                 'size' => '10',
-                'max' => '20',
                 'eval' => 'datetime',
                 'default' => mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y')),
+                'renderType' => 'inputDateTime',
+                ['behaviour' => ['allowLanguageSynchronization' => true]],
             ],
         ],
         'sponsored' => [

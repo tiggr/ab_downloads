@@ -813,7 +813,7 @@ class tx_abdownloads_module1 extends BaseScriptClass
             $content .= '<form action="' . $_SERVER['PHP_SELF'] . '" method="POST"><select name="table" onchange="jumpToUrl(\'?id=' . $this->id . '&amp;type=' . $type . '&amp;table=\'+this.options[this.selectedIndex].value,this);">';
             $content .= '<option value=""></option>';
 
-            $tables = $GLOBALS['TYPO3_DB']->admin_get_tables(TYPO3_db);
+            $tables = $GLOBALS['TYPO3_DB']->admin_get_tables($GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['dbname']);
             foreach ($tables as $tableName => $tableStatus) {
                 $hide = false;
 
