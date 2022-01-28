@@ -1,11 +1,14 @@
 <?php
 
+use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-
+use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\Page\PageRepository;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 
 /***************************************************************
@@ -168,7 +171,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         }
 
         // Check for extension "version"
-        if (ExtensionManagementUtility::isLoaded('version')) {
+        if (ExtensionManagementUtility::isLoaded('workspaces')) {
             $this->versioningEnabled = true;
         }
 
@@ -190,12 +193,12 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         $this->filePath = $this->conf['filePath'] ? $this->conf['filePath'] : 'uploads/tx_abdownloads/files/';
 
         // Extend enable fields
-        $this->enableFields = ' AND ' . $this->tablePrefix . 'download.status IN (1,2) AND ' . $this->tablePrefix . 'download.sys_language_uid IN (-1,0) AND ' . $this->tablePrefix . 'download.pid IN (' . $this->sysfolderList . ')' . $this->cObj->enableFields($this->tablePrefix . 'download');
-        $this->enableFieldsCategory = ' AND ' . $this->tablePrefix . 'category.sys_language_uid IN (-1,0) AND ' . $this->tablePrefix . 'category.pid IN (' . $this->sysfolderList . ')' . $this->cObj->enableFields($this->tablePrefix . 'category');
+        $this->enableFields = ' AND ' . $this->tablePrefix . 'download.status IN (1,2) AND ' . $this->tablePrefix . 'download.sys_language_uid IN (-1,0) AND ' . $this->tablePrefix . 'download.pid IN (' . $this->sysfolderList . ')' . GeneralUtility::makeInstance(PageRepository::class)->enableFields($this->tablePrefix . 'download');
+        $this->enableFieldsCategory = ' AND ' . $this->tablePrefix . 'category.sys_language_uid IN (-1,0) AND ' . $this->tablePrefix . 'category.pid IN (' . $this->sysfolderList . ')' . GeneralUtility::makeInstance(PageRepository::class)->enableFields($this->tablePrefix . 'category');
 
         // Set sys_language_mode
         // sys_language_mode == 'strict': If a certain language is requested, select only download records from the default language which have a translation.
-        $this->sys_language_mode = $this->conf['sys_language_mode'] ? $this->conf['sys_language_mode'] : $GLOBALS['TSFE']->sys_language_mode;
+        $this->sys_language_mode = $this->conf['sys_language_mode'] ? $this->conf['sys_language_mode'] : GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'legacyLanguageMode');
 
         // Set the number of alternating layouts (default is 2)
         $alternatingLayouts = intval($this->pi_getFFvalue($this->flexform, 'alternatingLayouts', 's_template'));
@@ -226,7 +229,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         // Set the template
         $templateFile = $this->pi_getFFvalue($this->flexform, 'templateFile', 's_template');
         $this->originalTemplateCode = file_get_contents(
-            PATH_site . ($templateFile ? 'uploads/tx_abdownloads/' . $templateFile : $this->conf['templateFile'])
+            Environment::getPublicPath() . '/' . ($templateFile ? 'uploads/tx_abdownloads/' . $templateFile : $this->conf['templateFile'])
         );
 
         // Get category UID from piVars or FlexForm or set to 0
@@ -457,7 +460,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         ) : $this->conf['allowAddDownloads'];
 
         // Check if a frontend user is logged in
-        $isLoggedIn = $GLOBALS['TSFE']->loginUser;
+        $isLoggedIn = GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
         // Create add download
         if ($isLoggedIn == 1 || $allowAddDownloads == 1) {
@@ -902,7 +905,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         ) : $this->conf['allowAddDownloads'];
 
         // Check if a fe_user is logged in
-        $isLoggedIn = $GLOBALS['TSFE']->loginUser;
+        $isLoggedIn = GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
         // Calculate indention from the current level
         $indention = $level * $localConf['indentionFactor'];
@@ -1800,7 +1803,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         ) : $this->conf['allowAddDownloads'];
 
         // Check if a frontend user is logged in
-        $isLoggedIn = $GLOBALS['TSFE']->loginUser;
+        $isLoggedIn = GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
         // Create add download
         if ($isLoggedIn == 1 || $allowAddDownloads == 1) {
@@ -2487,7 +2490,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                 htmlspecialchars(trim($this->pi_getLL('captcha_notice'))),
                 $this->conf['mandatoryField_stdWrap.']
             );
-            $markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . ExtensionManagementUtility::siteRelPath('captcha') . 'captcha/captcha.php" alt="" />';
+            $markerArray['###CAPTCHA_IMAGE###'] = '<img src="' . PathUtility::stripPathSitePrefix(ExtensionManagementUtility::extPath('captcha')) . 'captcha/captcha.php" alt="" />';
         } else {
             $templateCode = $this->markerBasedTemplateService->substituteSubpart($templateCode, '###' . $subSub_captcha . '###', '');
         }
@@ -2583,7 +2586,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         // TODO: Make the image path configurable
         $uniqueImagePath = $this->fileFunc->getUniqueName(
             $imageName,
-            PATH_site . 'uploads/tx_abdownloads/downloadImages/'
+            Environment::getPublicPath() . '/' . 'uploads/tx_abdownloads/downloadImages/'
         );
         if ($imageName) {
             $uploadedTempFile = GeneralUtility::upload_to_tempfile($_FILES['image']['tmp_name']);
@@ -2596,7 +2599,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         $uniqueFilePath = '';
 
         if ($fileName) {
-            $uniqueFilePath = $this->fileFunc->getUniqueName($fileName, PATH_site . $this->filePath);
+            $uniqueFilePath = $this->fileFunc->getUniqueName($fileName, Environment::getPublicPath() . '/' . $this->filePath);
             $uploadedTempFile = GeneralUtility::upload_to_tempfile($_FILES['file']['tmp_name']);
             GeneralUtility::upload_copy_move($uploadedTempFile, $uniqueFilePath);
             GeneralUtility::unlink_tempfile($uploadedTempFile);
@@ -3460,12 +3463,12 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         if ($resultSet != null && $databaseTable != null) {
             while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($resultSet)) {
                 // get the translated record if the content language is not the default language
-                if ($GLOBALS['TSFE']->sys_language_content) {
+                if (GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId')) {
                     $OLmode = ($this->sys_language_mode == 'strict' ? 'hideNonTranslated' : '');
                     $row = $GLOBALS['TSFE']->sys_page->getRecordOverlay(
                         $databaseTable,
                         $row,
-                        $GLOBALS['TSFE']->sys_language_content,
+                        GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('language', 'contentId'),
                         $OLmode
                     );
                 }

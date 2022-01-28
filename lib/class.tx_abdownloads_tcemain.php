@@ -175,7 +175,7 @@ class tx_abdownloads_tcemain
                 $notAllowedItems = array();
                 if ($categories[0]) { // original record has categories
                     if (!$divObj->allowedItemsFromTreeSelector) {
-                        $allowedItemsList = $GLOBALS['BE_USER']->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.allowedItems');
+                        $allowedItemsList = $GLOBALS['BE_USER']->getTSConfig()['ab_downloadsPerms.']['tx_abdownloads_category.']['allowedItems.'] ?? null;
                     } else {
                         $allowedItemsList = $divObj->getCategoryTreeIDs();
                     }
@@ -241,7 +241,7 @@ class tx_abdownloads_tcemain_cmdmap
                         $notAllowedItems = array();
                     } else { // original record has categories
                         if (!$divObj->allowedItemsFromTreeSelector) {
-                            $allowedItemsList = $GLOBALS['BE_USER']->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.allowedItems');
+                            $allowedItemsList = $GLOBALS['BE_USER']->getTSConfig()['ab_downloadsPerms.']['tx_abdownloads_category.']['allowedItems.'] ?? null;
                         } else {
                             $allowedItemsList = $divObj->getCategoryTreeIDs();
                         }

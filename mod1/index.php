@@ -1,6 +1,7 @@
 <?php
 
 use TYPO3\CMS\Backend\Module\BaseScriptClass;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\CsvUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
@@ -114,7 +115,7 @@ class tx_abdownloads_module1 extends BaseScriptClass
         parent::init();
 
         // Check for extension "version"
-        if (ExtensionManagementUtility::isLoaded('version')) {
+        if (ExtensionManagementUtility::isLoaded('workspaces')) {
             $this->versioningEnabled = true;
         }
 
@@ -981,7 +982,7 @@ class tx_abdownloads_module1 extends BaseScriptClass
             $fileName = $fileFunc->cleanFileName($_FILES['file']['name']);
 
             if ($fileName) {
-                $uniqueFilePath = $fileFunc->getUniqueName($fileName, PATH_site . $this->filePath);
+                $uniqueFilePath = $fileFunc->getUniqueName($fileName, Environment::getPublicPath() . '/' . $this->filePath);
                 $uploadedTempFile = GeneralUtility::upload_to_tempfile($_FILES['file']['tmp_name']);
 
                 // Read in CSV file

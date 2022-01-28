@@ -1,8 +1,10 @@
 <?php
 
 use TYPO3\CMS\Backend\Tree\View\AbstractTreeView;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 
 /***************************************************************
  * Copyright notice
@@ -220,7 +222,7 @@ class tx_abdownloads_treeview
             $this->xajax->setWrapperPrefix('tx_abdownloads_');
             $this->xajax->registerFunction(array('sendResponse', &$this, 'sendResponse'));
             // 			$fobj->additionalCode_pre['ab_downloads_xajax'] = $this->xajax->getJavascript('../'.\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('xajax'));
-            $content .= $this->xajax->getJavascript('../' . ExtensionManagementUtility::siteRelPath('xajax'));
+            $content .= $this->xajax->getJavascript('../' . PathUtility::stripPathSitePrefix(ExtensionManagementUtility::extPath('xajax')));
 
             $this->xajax->processRequests();
         }
@@ -228,8 +230,8 @@ class tx_abdownloads_treeview
         // 		debug($fobj->additionalCode_pre);
 
 
-        if ($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']) { // get ab_downloads extConf array
-            $this->confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']);
+        if (GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ab_downloads')) { // get ab_downloads extConf array
+            $this->confArr = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ab_downloads');
         }
         if (!is_object($this->divObj)) {
             $this->divObj = GeneralUtility::makeInstance('tx_abdownloads_div');
@@ -247,8 +249,8 @@ class tx_abdownloads_treeview
      */
     public function sendResponse($cmd)
     {
-        if ($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']) { // get ab_downloads extConf array
-            $this->confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']);
+        if (GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ab_downloads')) { // get ab_downloads extConf array
+            $this->confArr = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ab_downloads');
         }
         if (!is_object($this->divObj)) {
             $this->divObj = GeneralUtility::makeInstance('tx_abdownloads_div');
@@ -314,8 +316,8 @@ class tx_abdownloads_treeview
         if ($this->table == 'tx_abdownloads_download' || $this->table == 'tx_abdownloads_category') {
 
             // get include/exclude items
-            $this->excludeList = $GLOBALS['BE_USER']->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.excludeList');
-            $this->includeList = $GLOBALS['BE_USER']->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.includeList');
+            $this->excludeList = $GLOBALS['BE_USER']->getTSConfig()['ab_downloadsPerms.']['tx_abdownloads_category.']['excludeList.'] ?? null;
+            $this->includeList = $GLOBALS['BE_USER']->getTSConfig()['ab_downloadsPerms.']['tx_abdownloads_category.']['includeList.'] ?? null;
             $catmounts = $this->divObj->getAllowedCategories();
 
             if ($catmounts) {
@@ -692,7 +694,7 @@ class tx_abdownloads_treeview
         $fTable = $PA['fieldConf']['config']['foreign_table'];
         // get list of allowed categories for the current BE user
         if (!$allowedItemsList) {
-            $allowedItemsList = $GLOBALS['BE_USER']->getTSConfigVal('ab_downloadsPerms.' . $fTable . '.allowedItems');
+            $allowedItemsList = $GLOBALS['BE_USER']->getTSConfig()['ab_downloadsPerms.']['.']['allowedItems.'] ?? null;
         }
 
         $itemArr = array();
@@ -743,8 +745,8 @@ class tx_abdownloads_treeview
 
         if ($this->divObj->useAllowedCategories()) {
             $notAllowedItems = array();
-            if ($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']) { // get ab_downloads extConf array
-                $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ab_downloads']);
+            if (GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ab_downloads')) { // get ab_downloads extConf array
+                $confArr = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ab_downloads');
             }
             if ($confArr['useStoragePid']) {
                 $TSconfig = t3lib_BEfunc::getTCEFORM_TSconfig($table, $row);
