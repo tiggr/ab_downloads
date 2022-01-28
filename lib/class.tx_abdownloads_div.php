@@ -47,141 +47,146 @@
  * @package	TYPO3
  * @subpackage	tx_abdownloads
  */
-class tx_abdownloads_div {
+class tx_abdownloads_div
+{
+    public function useAllowedCategories()
+    {
+        global $BE_USER;
+        if (!$BE_USER->isAdmin()) {
+            if ($BE_USER->user['ab_downloads_categorymounts']) {
+                $this->allowedItemsFromTreeSelector = true;
+                return true;
+            } else { // no categorymounts set in be_user record - check groups
+                if (is_array($BE_USER->userGroups)) {
+                    $cmounts = array();
+                    foreach ($BE_USER->userGroups as $gid => $group) {
+                        if ($group['ab_downloads_categorymounts']) {
+                            $cmounts[] = $group['ab_downloads_categorymounts'];
+                        }
+                    }
+                    $cMountList = implode(',', $cmounts);
+                    if ($cMountList) {
+                        $this->allowedItemsFromTreeSelector = true;
+                        return true;
+                    }
+                }
+            }
+            if ($BE_USER->getTSConfigVal('options.useListOfAllowedItems')) {
+                return true;
+            }
+        }
+    }
 
-	function useAllowedCategories () {
-		global $BE_USER;
-		if (!$BE_USER->isAdmin()) {
-			if ($BE_USER->user['ab_downloads_categorymounts']) {
-				$this->allowedItemsFromTreeSelector = true;
-				return true;
-			} else { // no categorymounts set in be_user record - check groups
-				if (is_array($BE_USER->userGroups)) {
-					$cmounts = array();
-					foreach ($BE_USER->userGroups as $gid => $group) {
-						if ($group['ab_downloads_categorymounts']) {
-							$cmounts[] = $group['ab_downloads_categorymounts'];
-						}
-					}
-					$cMountList = implode(',',$cmounts);
-					if ($cMountList) {
-						$this->allowedItemsFromTreeSelector = true;
-						return true;
-					}
-				}
-			}
-			if ($BE_USER->getTSConfigVal('options.useListOfAllowedItems')) {
-				return true;
-			}
-		}
-	}
+    /**
+     * [Describe function...]
+     *
+     * @return	[type]		...
+     */
+    public function getAllowedCategories()
+    {
+        global $BE_USER, $TYPO3_DB;
 
-	/**
-	 * [Describe function...]
-	 *
-	 * @return	[type]		...
-	 */
-	function getAllowedCategories() {
-		global $BE_USER, $TYPO3_DB;
+        $cmounts = array();
 
-		$cmounts = array();
+        if (is_array($BE_USER->userGroups)) {
+            foreach ($BE_USER->userGroups as $gid => $group) {
+                if ($group['ab_downloads_categorymounts']) {
+                    $cmounts[] = $group['ab_downloads_categorymounts'];
+                }
+            }
+        }
+        if ($BE_USER->user['ab_downloads_categorymounts']) {
+            $cmounts[] = $BE_USER->user['ab_downloads_categorymounts'];
+        }
+        // MOUNTS must only contain the main/parent categories. Therefore it is required to filter out the subcategories from $this->catExclusive or $lConf['includeList']
+        $categoryMounts = implode(',', $cmounts);
+        if ($categoryMounts) {
+            $tmpres = $TYPO3_DB->exec_SELECTquery(
+                'uid,parent_category',
+                'tx_abdownloads_category',
+                'tx_abdownloads_category.uid IN (' . $categoryMounts . ')'/*.$this->SPaddWhere.$this->enableCatFields,
+            '',
+            'tx_abdownloads_category.'.$this->config['catOrderBy']*/
+            );
 
-		if (is_array($BE_USER->userGroups)) {
-			foreach ($BE_USER->userGroups as $gid => $group) {
-				if ($group['ab_downloads_categorymounts']) {
-					$cmounts[] = $group['ab_downloads_categorymounts'];
-				}
-			}
-		}
-		if ($BE_USER->user['ab_downloads_categorymounts']) {
-			$cmounts[] = $BE_USER->user['ab_downloads_categorymounts'];
-		}
-		// MOUNTS must only contain the main/parent categories. Therefore it is required to filter out the subcategories from $this->catExclusive or $lConf['includeList']
-		$categoryMounts = implode(',',$cmounts);
-		if ($categoryMounts) {
-			$tmpres = $TYPO3_DB->exec_SELECTquery(
-			'uid,parent_category',
-			'tx_abdownloads_category',
-			'tx_abdownloads_category.uid IN ('.$categoryMounts.')'/*.$this->SPaddWhere.$this->enableCatFields,
-			'',
-			'tx_abdownloads_category.'.$this->config['catOrderBy']*/);
+            $cleanedCategoryMounts = array();
 
-			$cleanedCategoryMounts = array();
+            if ($tmpres) {
+                while ($tmprow = $TYPO3_DB->sql_fetch_assoc($tmpres)) {
+                    if (!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($categoryMounts, $tmprow['parent_category'])) {
+                        // 					$dontStartFromRootRecord = true;
+                        $cleanedCategoryMounts[] = $tmprow['uid'];
+                    }
+                }
+            }
+            $cMountList = implode(',', $cleanedCategoryMounts);
+        }
 
-			if ($tmpres) {
-				while ($tmprow = $TYPO3_DB->sql_fetch_assoc($tmpres)) {
+        // 		 			debug ($cMountList);
 
-					if (!\TYPO3\CMS\Core\Utility\GeneralUtility::inList($categoryMounts,$tmprow['parent_category'])) {
-						// 					$dontStartFromRootRecord = true;
-						$cleanedCategoryMounts[] = $tmprow['uid'];
-					}
-				}
-			}
-			$cMountList = implode(',',$cleanedCategoryMounts);
-		}
+        if ($cMountList) {
+            return $cMountList;
+        }
+    }
 
-		// 		 			debug ($cMountList);
+    /**
+     * [Describe function...]
+     *
+     * @return	[type]		...
+     */
+    public function getCategoryTreeIDs()
+    {
+        require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'lib/class.tx_abdownloads_treeview.php');
+        ;
 
-		if ($cMountList) {
-			return $cMountList;
-		}
-	}
+        global $TCA,$BE_USER;
 
-	/**
-	 * [Describe function...]
-	 *
-	 * @return	[type]		...
-	 */
-	function getCategoryTreeIDs() {
+        // get include/exclude items
+        $excludeList = $BE_USER->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.excludeList');
+        $includeList = $BE_USER->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.includeList');
+        $catmounts = $this->getAllowedCategories();
+        if ($catmounts) {
+            $includeList = $catmounts;
+        }
 
-		require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads').'lib/class.tx_abdownloads_treeview.php');;
+        if ($excludeList) {
+            $catlistWhere = ' AND tx_abdownloads_category.uid NOT IN (' . implode(\TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $excludeList), ',') . ')';
+        }
 
-		global $TCA,$BE_USER;
+        $treeViewObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
+        $treeViewObj->table = 'tx_abdownloads_category';
+        $treeViewObj->init($catlistWhere);
+        // 	$treeViewObj->backPath = $this->pObj->backPath;
+        $treeViewObj->parentField = 'parent_category';
+        $treeViewObj->expandAll = 1;
+        $treeViewObj->expandFirst = 1;
+        $treeViewObj->fieldArray = array('uid', 'label', 'description'); // those fields will be filled to the array $treeViewObj->tree
 
-		// get include/exclude items
-		$excludeList = $BE_USER->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.excludeList');
-		$includeList = $BE_USER->getTSConfigVal('ab_downloadsPerms.tx_abdownloads_category.includeList');
-		$catmounts = $this->getAllowedCategories();
-		if ($catmounts) {
-			$includeList = $catmounts;
-		}
+        if ($includeList) {
+            $treeViewObj->MOUNTS = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',', $includeList);
+        }
 
-		if ($excludeList) {
-			$catlistWhere = ' AND tx_abdownloads_category.uid NOT IN ('.implode(\TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',',$excludeList),',').')';
-		}
+        $treeViewObj->TCEforms_selectedItemsArray = array();
+        $treeViewObj->TCEforms_nonSelectableItemsArray = array();
+        $treeViewObj->makeHTML = 0;
+        $treeViewObj->getBrowsableTree();
 
-		$treeViewObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tx_abdownloads_tceFunc_selectTreeView');
-		$treeViewObj->table = 'tx_abdownloads_category';
-		$treeViewObj->init($catlistWhere);
-		// 	$treeViewObj->backPath = $this->pObj->backPath;
-		$treeViewObj->parentField = 'parent_category';
-		$treeViewObj->expandAll = 1;
-		$treeViewObj->expandFirst = 1;
-		$treeViewObj->fieldArray = array('uid','label','description'); // those fields will be filled to the array $treeViewObj->tree
+        if (!is_array($treeViewObj->MOUNTS)) {
+            $treeViewObj->MOUNTS = array();
+        }
+        if (!is_array($treeViewObj->ids)) {
+            $treeViewObj->ids = array();
+        }
+        $treeIdArray = array_merge($treeViewObj->MOUNTS, $treeViewObj->ids);
 
-		if ($includeList) {
-			$treeViewObj->MOUNTS = \TYPO3\CMS\Core\Utility\GeneralUtility::intExplode(',',$includeList);
-		}
-
-		$treeViewObj->TCEforms_selectedItemsArray = array();
-		$treeViewObj->TCEforms_nonSelectableItemsArray = array();
-		$treeViewObj->makeHTML = 0;
-		$treeViewObj->getBrowsableTree();
-
-		if (!is_array($treeViewObj->MOUNTS)) { $treeViewObj->MOUNTS = array(); }
-		if (!is_array($treeViewObj->ids)) { $treeViewObj->ids = array(); }
-		$treeIdArray = array_merge($treeViewObj->MOUNTS,$treeViewObj->ids);
-
-		if (is_array($treeIdArray)) {
-			$treeIDs = implode(',',$treeIdArray);
-
-		}
-		// 			debug ($treeIDs,'$treeIDs',__FUNCTION__,__CLASS__);
-		return $treeIDs;
-	}
+        if (is_array($treeIdArray)) {
+            $treeIDs = implode(',', $treeIdArray);
+        }
+        // 			debug ($treeIDs,'$treeIDs',__FUNCTION__,__CLASS__);
+        return $treeIDs;
+    }
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/lib/class.tx_abdownloads_div.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/lib/class.tx_abdownloads_div.php']);
+    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/lib/class.tx_abdownloads_div.php']);
 }
-?>

@@ -1,22 +1,29 @@
-<?php defined('TYPO3_MODE') or die();
+<?php
+
+defined('TYPO3_MODE') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('options.saveDocNew.tx_abdownloads_category=1');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('options.saveDocNew.tx_abdownloads_download=1');
 
 // Add PlugIn to Static Template #43 and create USER cObject
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43('ab_downloads', 'pi1/class.tx_abdownloads_pi1.php', "_pi1",
-	'list_type', 1);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
+    'ab_downloads',
+    'pi1/class.tx_abdownloads_pi1.php',
+    "_pi1",
+    'list_type',
+    1
+);
 
 // Define the fields of category records to show in the backend page module
 $TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_category'][0] = [
-	'fList' => 'label,parent_category',
-	'icon'  => true,
+    'fList' => 'label,parent_category',
+    'icon' => true,
 ];
 
 // Define the fields of download records to show in the backend page module
 $TYPO3_CONF_VARS['EXTCONF']['cms']['db_layout']['addTables']['tx_abdownloads_download'][0] = [
-	'fList' => 'label,file,category',
-	'icon'  => true,
+    'fList' => 'label,file,category',
+    'icon' => true,
 ];
 
 /**

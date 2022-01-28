@@ -47,44 +47,43 @@
  */
 class tx_abdownloads_pi1_wizicon
 {
+    /**
+     * Adds the ab_downloads wizard icon
+     *
+     * @param    array        Input array with wizard items for plugins.
+     * @return    array        Modified input array, having the item for ab_downloads added.
+     */
+    public function proc($wizardItems)
+    {
+        global $LANG;
 
-	/**
-	 * Adds the ab_downloads wizard icon
-	 *
-	 * @param    array        Input array with wizard items for plugins.
-	 * @return    array        Modified input array, having the item for ab_downloads added.
-	 */
-	function proc($wizardItems)
-	{
-		global $LANG;
+        $LL = $this->includeLocalLang();
 
-		$LL = $this->includeLocalLang();
+        //		$wizardItems['plugins_tx_abdownloads_pi1'] = [
+        //			'icon'        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . "pi1/ce_wiz.gif",
+        //			'title'       => $LANG->getLLL('pi1_title', $LL),
+        //			'description' => $LANG->getLLL('pi1_plus_wiz_description', $LL),
+        //			'params'      => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=ab_downloads_pi1',
+        //		];
 
-//		$wizardItems['plugins_tx_abdownloads_pi1'] = [
-//			'icon'        => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . "pi1/ce_wiz.gif",
-//			'title'       => $LANG->getLLL('pi1_title', $LL),
-//			'description' => $LANG->getLLL('pi1_plus_wiz_description', $LL),
-//			'params'      => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=ab_downloads_pi1',
-//		];
+        return $wizardItems;
+    }
 
-		return $wizardItems;
-	}
+    /**
+     * Includes the locallang file for the 'ab_downloads' extension
+     *
+     * @return    array        The LOCAL_LANG array
+     */
+    public function includeLocalLang()
+    {
+        $llFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'locallang.xml';
+        $languageFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Localization\LocalizationFactory::class);
+        $LOCAL_LANG = $languageFactory->getParsedData($llFile, $GLOBALS['LANG']->lang);
 
-	/**
-	 * Includes the locallang file for the 'ab_downloads' extension
-	 *
-	 * @return    array        The LOCAL_LANG array
-	 */
-	function includeLocalLang()
-	{
-		$llFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('ab_downloads') . 'locallang.xml';
-		$languageFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Localization\LocalizationFactory::class);
-		$LOCAL_LANG = $languageFactory->getParsedData($llFile, $GLOBALS['LANG']->lang);
-
-		return $LOCAL_LANG;
-	}
+        return $LOCAL_LANG;
+    }
 }
 
 if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/pi1/class.tx_abdownloads_pi1_wizicon.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/pi1/class.tx_abdownloads_pi1_wizicon.php']);
+    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/pi1/class.tx_abdownloads_pi1_wizicon.php']);
 }
