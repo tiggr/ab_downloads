@@ -196,7 +196,18 @@ return [
             'l10n_mode' => $l10n_mode_image,
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/categoryImages', 'maxitems' => 1], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'file',
+                'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+                'max_size' => '30000',
+                'uploadfolder' => 'uploads/tx_abdownloads/categoryImages',
+                'size' => 1,
+                'minitems' => 0,
+                'maxitems' => 1,
+            ],
+            // TODO check TCA migration by rector
+            // 'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/categoryImages', 'maxitems' => 1], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
         ],
     ],
     'types' => [
