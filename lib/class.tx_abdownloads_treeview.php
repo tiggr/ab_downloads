@@ -162,7 +162,7 @@ class tx_abdownloads_tceFunc_selectTreeView extends AbstractTreeView
      * @return	string		Link-wrapped input string
      * @access private
      */
-    public function PM_ATagWrap($icon, $cmd, $bMark = '', $isOpen = false)
+    public function PM_ATagWrap($bMark = '', $isOpen = false)
     {
         if ($this->useXajax) {
             $cmdParts = explode('_', $cmd);
@@ -172,7 +172,7 @@ class tx_abdownloads_tceFunc_selectTreeView extends AbstractTreeView
             }
             return '<span onclick="tx_abdownloads_sendResponse(\'' . $cmd . '\');" style="cursor:pointer;" title="' . $title . '">' . $icon . '</span>';
         } else {
-            return parent::PM_ATagWrap($icon, $cmd, $bMark, $isOpen);
+            return parent::PM_ATagWrap($bMark, $isOpen);
         }
     }
 }
