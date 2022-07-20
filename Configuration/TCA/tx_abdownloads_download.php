@@ -340,7 +340,7 @@ return [
             'l10n_mode' => $l10n_mode_image,
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.image',
-            'config' => [
+/*            'config' => [
                 'type' => 'group',
                 'internal_type' => 'file',
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
@@ -349,15 +349,15 @@ return [
                 'size' => 1,
                 'minitems' => 0,
                 'maxitems' => 1,
-            ],
+            ],*/
             // TODO check TCA migration by rector
-            // 'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/downloadImages', 'maxitems' => 1], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/downloadImages', 'maxitems' => 1], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
         ],
         'file' => [
             'l10n_mode' => $l10n_mode_file,
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.file',
-            'config' => [
+/*            'config' => [
                 'type' => 'group',
                 'internal_type' => 'file',
                 'allowed' => '',
@@ -368,9 +368,9 @@ return [
                 'minitems' => 0,
                 'maxitems' => 1,
                 'fieldWizard' => ['fileThumbnails' => ['disabled' => true]],
-            ],
-            // TODO check TCA migration by rector
-            // 'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('file', ['max_size' => '500000', 'uploadfolder' => 'uploads/tx_abdownloads/files', 'maxitems' => 1], ''),
+            ],*/
+//             TODO check TCA migration by rector
+             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('file', ['max_size' => '500000', 'uploadfolder' => 'uploads/tx_abdownloads/files', 'maxitems' => 1], ''),
         ],
         'crdate' => [
             'exclude' => 1,

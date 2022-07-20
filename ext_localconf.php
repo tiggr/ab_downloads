@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('options.saveDocNew.tx_abdownloads_category=1');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('options.saveDocNew.tx_abdownloads_download=1');
@@ -38,3 +38,7 @@ $GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['pro
 // This hook is used to prevent saving of a download record that has non-allowed categories assigned when a command is executed (modify, copy, move, delete...).
 // It checks if the record has an editlock. If true, nothing will be saved.
 $GLOBALS ['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processCmdmapClass'][] = 'tx_abdownloads_tcemain_cmdmap';
+
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['ab_downloads_images']
+    = \Davitec\AbDownloads\Updates\ImageUpdate::class;
