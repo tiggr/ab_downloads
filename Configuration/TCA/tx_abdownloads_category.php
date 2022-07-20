@@ -54,20 +54,10 @@ return [
     'feInterface' => $GLOBALS['TCA']['tx_abdownloads_category']['feInterface'],
     'columns' => [
         'sys_language_uid' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'special' => 'languages',
-                'items' => [
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
-                        -1,
-                        'flags-multiple',
-                    ],
-                ],
-                'default' => 0,
+                'type' => 'language',
             ],
         ],
         'l18n_parent' => [
@@ -90,41 +80,46 @@ return [
         ],
         'hidden' => [
             'l10n_mode' => $hideNewLocalizations,
-            'exclude' => 1,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
-                'default' => '0',
+                'renderType' => 'checkboxToggle',
+                'default' => 1,
+                'items' => [
+                    [
+                        0 => '',
+                        'invertStateDisplay' => true,
+                    ],
+                ],
             ],
         ],
         'starttime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
-                'size' => '10',
-                'eval' => 'datetime',
-                'checkbox' => '0',
-                'default' => '0',
                 'renderType' => 'inputDateTime',
-                ['behaviour' => ['allowLanguageSynchronization' => true]],
+                'eval' => 'datetime,int',
+                'default' => 0,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'endtime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
-                'size' => '8',
-                'eval' => 'datetime',
-                'checkbox' => '0',
-                'default' => '0',
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 12, 31, 2020),
-                    'lower' => mktime(0, 0, 0, date('m') - 1, date('d'), date('Y')),
-                ],
                 'renderType' => 'inputDateTime',
-                ['behaviour' => ['allowLanguageSynchronization' => true]],
+                'eval' => 'datetime,int',
+                'default' => 0,
+                'range' => [
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
+                ],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'fe_group' => [
@@ -176,7 +171,6 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectTree',
-                'size' => 10,
                 'size' => $configArray['categoryTreeHeigth'],
                 'minitems' => 0,
                 'maxitems' => 2,
@@ -188,26 +182,42 @@ return [
                         'expandAll' => true,
                     ],
                 ],
-                'fieldControl' => ['addRecord' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory', 'table' => 'tx_abdownloads_category', 'pid' => '###CURRENT_PID###', 'setValue' => 'set']], 'editPopup' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory']], 'listModule' => ['disabled' => false, 'options' => ['title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories', 'table' => 'tx_abdownloads_category', 'pid' => '###CURRENT_PID###']]],
-
+                'fieldControl' => [
+                    'addRecord' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.createNewCategory',
+                            'table' => 'tx_abdownloads_category',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'set'
+                        ]
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.editCategory'
+                        ]
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:ab_downloads/locallang_tca.php:ab_downloads.listCategories',
+                            'table' => 'tx_abdownloads_category',
+                            'pid' => '###CURRENT_PID###'
+                        ]
+                    ]
+                ],
             ],
         ],
         'image' => [
             'l10n_mode' => $l10n_mode_image,
             'exclude' => 1,
             'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.image',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'file',
-                'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
-                'max_size' => '30000',
-                'uploadfolder' => 'uploads/tx_abdownloads/categoryImages',
-                'size' => 1,
-                'minitems' => 0,
-                'maxitems' => 1,
-            ],
-            // TODO check TCA migration by rector
-            // 'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/categoryImages', 'maxitems' => 1], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/categoryImages', 'maxitems' => 1],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
         ],
     ],
     'types' => [
@@ -218,5 +228,4 @@ return [
         '10' => ['showitem' => 'fe_group'],
         '2' => ['showitem' => 'l18n_parent, sys_language_uid'],
     ],
-
 ];
