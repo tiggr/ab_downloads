@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file t3:id="1658329456" source-language="en" datatype="plaintext" original="messages" date="2022-07-20T15:04:16Z" product-name="ab_downloads">
+		<header/>
+		<body>
+			<trans-unit id="FORM_SUBMIT_BUTTON" resname="FORM_SUBMIT_BUTTON" >
+				<source>Send</source>
+			</trans-unit>
+			<trans-unit id="FORM_CANCEL_BUTTON" resname="FORM_CANCEL_BUTTON" >
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="FORM_YES_BUTTON" resname="FORM_YES_BUTTON" >
+				<source>Yes</source>
+			</trans-unit>
+			<trans-unit id="FORM_NO_BUTTON" resname="FORM_NO_BUTTON" >
+				<source>No</source>
+			</trans-unit>
+			<trans-unit id="error_required_not_filled" resname="error_required_not_filled" >
+				<source>Please fill in all required fields. </source>
+			</trans-unit>
+			<trans-unit id="error_invalid_contact" resname="error_invalid_contact" >
+				<source>The contact address given is not valid. Please correct your input.</source>
+			</trans-unit>
+			<trans-unit id="error_invalid_captcha" resname="error_invalid_captcha" >
+				<source>The word did not match the one displayed in the image.</source>
+			</trans-unit>
+			<trans-unit id="error_blacklisted_words" resname="error_blacklisted_words" >
+				<source>Your label and/or description contains blacklisted words. Pleaste correct your input.</source>
+			</trans-unit>
+			<trans-unit id="no_downloads_message" resname="no_downloads_message" >
+				<source>No downloads found</source>
+			</trans-unit>
+			<trans-unit id="non_public_download_message" resname="non_public_download_message" >
+				<source>You requested a non-public version of an ab_downloads download.</source>
+			</trans-unit>
+			<trans-unit id="no_image_message" resname="no_image_message" >
+				<source>-</source>
+			</trans-unit>
+			<trans-unit id="captcha_notice" resname="captcha_notice" >
+				<source>Please enter here the word as displayed in the picture.</source>
+			</trans-unit>
+			<trans-unit id="ll_top" resname="ll_top" >
+				<source>TOP</source>
+			</trans-unit>
+			<trans-unit id="ll_home" resname="ll_home" >
+				<source>Home</source>
+			</trans-unit>
+			<trans-unit id="ll_cats" resname="ll_cats" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="ll_category" resname="ll_category" >
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="ll_downloads" resname="ll_downloads" >
+				<source>Downloads</source>
+			</trans-unit>
+			<trans-unit id="ll_downloads_lower" resname="ll_downloads_lower" >
+				<source>downloads</source>
+			</trans-unit>
+			<trans-unit id="ll_download" resname="ll_download" >
+				<source>Download</source>
+			</trans-unit>
+			<trans-unit id="ll_clicks" resname="ll_clicks" >
+				<source>Clicks</source>
+			</trans-unit>
+			<trans-unit id="ll_clicks_lower" resname="ll_clicks_lower" >
+				<source>clicks</source>
+			</trans-unit>
+			<trans-unit id="ll_details" resname="ll_details" >
+				<source>Details</source>
+			</trans-unit>
+			<trans-unit id="ll_label" resname="ll_label" >
+				<source>Label</source>
+			</trans-unit>
+			<trans-unit id="ll_label_example" resname="ll_label_example" >
+				<source>e.g. download.tar.gz or My download</source>
+			</trans-unit>
+			<trans-unit id="ll_filename" resname="ll_filename" >
+				<source>Filename</source>
+			</trans-unit>
+			<trans-unit id="ll_type" resname="ll_type" >
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="ll_size" resname="ll_size" >
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="ll_description" resname="ll_description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="ll_sponsored_description" resname="ll_sponsored_description" >
+				<source>Sponsored Description</source>
+			</trans-unit>
+			<trans-unit id="ll_language" resname="ll_language" >
+				<source>Language</source>
+			</trans-unit>
+			<trans-unit id="ll_license" resname="ll_license" >
+				<source>License</source>
+			</trans-unit>
+			<trans-unit id="ll_homepage" resname="ll_homepage" >
+				<source>Homepage</source>
+			</trans-unit>
+			<trans-unit id="ll_added" resname="ll_added" >
+				<source>Date added</source>
+			</trans-unit>
+			<trans-unit id="ll_rating" resname="ll_rating" >
+				<source>Rating</source>
+			</trans-unit>
+			<trans-unit id="ll_rating_current" resname="ll_rating_current" >
+				<source>Current Rating</source>
+			</trans-unit>
+			<trans-unit id="ll_votes" resname="ll_votes" >
+				<source>Votes</source>
+			</trans-unit>
+			<trans-unit id="ll_crdate" resname="ll_crdate" >
+				<source>Date of adding</source>
+			</trans-unit>
+			<trans-unit id="ll_random" resname="ll_random" >
+				<source>Randomly</source>
+			</trans-unit>
+			<trans-unit id="ll_back" resname="ll_back" >
+				<source>Go back</source>
+			</trans-unit>
+			<trans-unit id="ll_total" resname="ll_total" >
+				<source>total</source>
+			</trans-unit>
+			<trans-unit id="ll_very_bad" resname="ll_very_bad" >
+				<source>very bad</source>
+			</trans-unit>
+			<trans-unit id="ll_very_good" resname="ll_very_good" >
+				<source>very good</source>
+			</trans-unit>
+			<trans-unit id="ll_maximum" resname="ll_maximum" >
+				<source>Maximum</source>
+			</trans-unit>
+			<trans-unit id="ll_result" resname="ll_result" >
+				<source>Your search for &quot;&lt;b&gt;%s&lt;/b&gt;&quot; yielded &lt;b&gt;%s&lt;/b&gt; result(s)</source>
+			</trans-unit>
+			<trans-unit id="ll_report_download_broken" resname="ll_report_download_broken" >
+				<source>Report broken download</source>
+			</trans-unit>
+			<trans-unit id="ll_reported_download_broken" resname="ll_reported_download_broken" >
+				<source>Download already reported broken</source>
+			</trans-unit>
+			<trans-unit id="ll_report_download_broken_text" resname="ll_report_download_broken_text" >
+				<source>Do you want to report this download as broken?</source>
+			</trans-unit>
+			<trans-unit id="ll_li_broken_thx" resname="ll_li_broken_thx" >
+				<source>Thank you very much for your help!</source>
+			</trans-unit>
+			<trans-unit id="ll_rate_download" resname="ll_rate_download" >
+				<source>Rate download</source>
+			</trans-unit>
+			<trans-unit id="ll_rate_download_text" resname="ll_rate_download_text" >
+				<source>Please select a mark for the following download. </source>
+			</trans-unit>
+			<trans-unit id="ll_li_rate_thx" resname="ll_li_rate_thx" >
+				<source>Thank you very much for your voting!</source>
+			</trans-unit>
+			<trans-unit id="ll_add_download" resname="ll_add_download" >
+				<source>Propose a new download</source>
+			</trans-unit>
+			<trans-unit id="ll_add_download_text" resname="ll_add_download_text" >
+				<source>Here you are able to propose a new download. Please fill in all fields and submit the form. </source>
+			</trans-unit>
+			<trans-unit id="ll_li_add_thx" resname="ll_li_add_thx" >
+				<source>Thanks for your proposal!&lt;br /&gt;After verification the download will be approved as soon as possible.</source>
+			</trans-unit>
+			<trans-unit id="ll_appr_li_add_thx" resname="ll_appr_li_add_thx" >
+				<source>Thanks for your proposal!&lt;br /&gt;The download has been approved.</source>
+			</trans-unit>
+			<trans-unit id="ll_file" resname="ll_file" >
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="ll_image" resname="ll_image" >
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="ll_contact" resname="ll_contact" >
+				<source>Contact Address</source>
+			</trans-unit>
+			<trans-unit id="ll_contact_example" resname="ll_contact_example" >
+				<source>e.g. me@foo.bar</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

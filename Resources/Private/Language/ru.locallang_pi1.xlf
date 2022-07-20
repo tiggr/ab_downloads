@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file t3:id="1658329457" source-language="en" target-language="ru" datatype="plaintext" original="messages" date="2022-07-20T15:04:17Z" product-name="ab_downloads">
+		<header/>
+		<body>
+			<trans-unit id="FORM_SUBMIT_BUTTON" resname="FORM_SUBMIT_BUTTON"  approved="yes">
+				<source>Send</source>
+				<target>Послать</target>
+			</trans-unit>
+			<trans-unit id="FORM_CANCEL_BUTTON" resname="FORM_CANCEL_BUTTON"  approved="yes">
+				<source>Cancel</source>
+				<target>Отмена</target>
+			</trans-unit>
+			<trans-unit id="FORM_YES_BUTTON" resname="FORM_YES_BUTTON"  approved="yes">
+				<source>Yes</source>
+				<target>Да</target>
+			</trans-unit>
+			<trans-unit id="FORM_NO_BUTTON" resname="FORM_NO_BUTTON"  approved="yes">
+				<source>No</source>
+				<target>Нет</target>
+			</trans-unit>
+			<trans-unit id="error_required_not_filled" resname="error_required_not_filled"  approved="yes">
+				<source>Please fill in all required fields. </source>
+				<target>Пожалуйста, заполните необходимые поля.</target>
+			</trans-unit>
+			<trans-unit id="error_invalid_contact" resname="error_invalid_contact"  approved="yes">
+				<source>The contact address given is not valid. Please correct your input.</source>
+				<target>Контактный адрес недействителен. Пожалуйста, скорректируйте.</target>
+			</trans-unit>
+			<trans-unit id="error_invalid_captcha" resname="error_invalid_captcha"  approved="yes">
+				<source>The word did not match the one displayed in the image.</source>
+				<target>Введённое слово не соответствует изображению на картинке.</target>
+			</trans-unit>
+			<trans-unit id="error_blacklisted_words" resname="error_blacklisted_words"  approved="yes">
+				<source>Your label and/or description contains blacklisted words. Pleaste correct your input.</source>
+				<target>Ваше название и/или описание содержит недопустимые слова. Пожалуйста, исправьте.</target>
+			</trans-unit>
+			<trans-unit id="no_downloads_message" resname="no_downloads_message"  approved="yes">
+				<source>No downloads found</source>
+				<target>Не найдено файлов для скачивания</target>
+			</trans-unit>
+			<trans-unit id="non_public_download_message" resname="non_public_download_message"  approved="yes">
+				<source>You requested a non-public version of an ab_downloads download.</source>
+				<target>Вы запросили а неофициальную версию файла ab_downloads</target>
+			</trans-unit>
+			<trans-unit id="no_image_message" resname="no_image_message"  approved="yes">
+				<source>-</source>
+				<target>-</target>
+			</trans-unit>
+			<trans-unit id="captcha_notice" resname="captcha_notice"  approved="yes">
+				<source>Please enter here the word as displayed in the picture.</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_top" resname="ll_top"  approved="yes">
+				<source>TOP</source>
+				<target>TOP</target>
+			</trans-unit>
+			<trans-unit id="ll_home" resname="ll_home"  approved="yes">
+				<source>Home</source>
+				<target>Главная</target>
+			</trans-unit>
+			<trans-unit id="ll_cats" resname="ll_cats"  approved="yes">
+				<source>Categories</source>
+				<target>Категории</target>
+			</trans-unit>
+			<trans-unit id="ll_category" resname="ll_category"  approved="yes">
+				<source>Category</source>
+				<target>Категория</target>
+			</trans-unit>
+			<trans-unit id="ll_downloads" resname="ll_downloads"  approved="yes">
+				<source>Downloads</source>
+				<target>Файлы</target>
+			</trans-unit>
+			<trans-unit id="ll_downloads_lower" resname="ll_downloads_lower"  approved="yes">
+				<source>downloads</source>
+				<target>файлы</target>
+			</trans-unit>
+			<trans-unit id="ll_download" resname="ll_download"  approved="yes">
+				<source>Download</source>
+				<target>Файл</target>
+			</trans-unit>
+			<trans-unit id="ll_clicks" resname="ll_clicks"  approved="yes">
+				<source>Clicks</source>
+				<target>Скачиваний</target>
+			</trans-unit>
+			<trans-unit id="ll_clicks_lower" resname="ll_clicks_lower"  approved="yes">
+				<source>clicks</source>
+				<target>скачиваний</target>
+			</trans-unit>
+			<trans-unit id="ll_details" resname="ll_details"  approved="yes">
+				<source>Details</source>
+				<target>Подробно</target>
+			</trans-unit>
+			<trans-unit id="ll_label" resname="ll_label"  approved="yes">
+				<source>Label</source>
+				<target>Название</target>
+			</trans-unit>
+			<trans-unit id="ll_label_example" resname="ll_label_example"  approved="yes">
+				<source>e.g. download.tar.gz or My download</source>
+				<target>например, download.tar.gz или Мой файл</target>
+			</trans-unit>
+			<trans-unit id="ll_filename" resname="ll_filename"  approved="yes">
+				<source>Filename</source>
+				<target>Имя файла</target>
+			</trans-unit>
+			<trans-unit id="ll_type" resname="ll_type"  approved="yes">
+				<source>Type</source>
+				<target>Тип</target>
+			</trans-unit>
+			<trans-unit id="ll_size" resname="ll_size"  approved="yes">
+				<source>Size</source>
+				<target>Размер</target>
+			</trans-unit>
+			<trans-unit id="ll_description" resname="ll_description"  approved="yes">
+				<source>Description</source>
+				<target>Описание</target>
+			</trans-unit>
+			<trans-unit id="ll_sponsored_description" resname="ll_sponsored_description"  approved="yes">
+				<source>Sponsored Description</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_language" resname="ll_language"  approved="yes">
+				<source>Language</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_license" resname="ll_license"  approved="yes">
+				<source>License</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_homepage" resname="ll_homepage"  approved="yes">
+				<source>Homepage</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_added" resname="ll_added"  approved="yes">
+				<source>Date added</source>
+				<target>Дата добавлена</target>
+			</trans-unit>
+			<trans-unit id="ll_rating" resname="ll_rating"  approved="yes">
+				<source>Rating</source>
+				<target>Рейтинг</target>
+			</trans-unit>
+			<trans-unit id="ll_rating_current" resname="ll_rating_current"  approved="yes">
+				<source>Current Rating</source>
+				<target>Текущий рейтинг</target>
+			</trans-unit>
+			<trans-unit id="ll_votes" resname="ll_votes"  approved="yes">
+				<source>Votes</source>
+				<target>Голосов</target>
+			</trans-unit>
+			<trans-unit id="ll_crdate" resname="ll_crdate"  approved="yes">
+				<source>Date of adding</source>
+				<target>Дата добавления</target>
+			</trans-unit>
+			<trans-unit id="ll_random" resname="ll_random"  approved="yes">
+				<source>Randomly</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_back" resname="ll_back"  approved="yes">
+				<source>Go back</source>
+				<target>Назад</target>
+			</trans-unit>
+			<trans-unit id="ll_total" resname="ll_total"  approved="yes">
+				<source>total</source>
+				<target>всего</target>
+			</trans-unit>
+			<trans-unit id="ll_very_bad" resname="ll_very_bad"  approved="yes">
+				<source>very bad</source>
+				<target>очень плохо</target>
+			</trans-unit>
+			<trans-unit id="ll_very_good" resname="ll_very_good"  approved="yes">
+				<source>very good</source>
+				<target>очень хорошо</target>
+			</trans-unit>
+			<trans-unit id="ll_maximum" resname="ll_maximum"  approved="yes">
+				<source>Maximum</source>
+				<target>Максимально</target>
+			</trans-unit>
+			<trans-unit id="ll_result" resname="ll_result"  approved="yes">
+				<source>Your search for &quot;&lt;b&gt;%s&lt;/b&gt;&quot; yielded &lt;b&gt;%s&lt;/b&gt; result(s)</source>
+				<target>Вы искали &quot;&lt;b&gt;%s&lt;/b&gt;&quot;. Найдено &lt;b&gt;%s&lt;/b&gt; результат(ов)</target>
+			</trans-unit>
+			<trans-unit id="ll_report_download_broken" resname="ll_report_download_broken"  approved="yes">
+				<source>Report broken download</source>
+				<target>Сообщить о нерабочей ссылке</target>
+			</trans-unit>
+			<trans-unit id="ll_reported_download_broken" resname="ll_reported_download_broken"  approved="yes">
+				<source>Download already reported broken</source>
+				<target>Ссылка уже помечена как нерабочая</target>
+			</trans-unit>
+			<trans-unit id="ll_report_download_broken_text" resname="ll_report_download_broken_text"  approved="yes">
+				<source>Do you want to report this download as broken?</source>
+				<target>Вы хотите сообщить об этой ссылке как о нерабочей?</target>
+			</trans-unit>
+			<trans-unit id="ll_li_broken_thx" resname="ll_li_broken_thx"  approved="yes">
+				<source>Thank you very much for your help!</source>
+				<target>Огромное спасибо за вашу помощь!</target>
+			</trans-unit>
+			<trans-unit id="ll_rate_download" resname="ll_rate_download"  approved="yes">
+				<source>Rate download</source>
+				<target>Оценить файл</target>
+			</trans-unit>
+			<trans-unit id="ll_rate_download_text" resname="ll_rate_download_text"  approved="yes">
+				<source>Please select a mark for the following download. </source>
+				<target>Пожалуйста, выберите оценку для файла</target>
+			</trans-unit>
+			<trans-unit id="ll_li_rate_thx" resname="ll_li_rate_thx"  approved="yes">
+				<source>Thank you very much for your voting!</source>
+				<target>Большое спасибо за ваш голос!</target>
+			</trans-unit>
+			<trans-unit id="ll_add_download" resname="ll_add_download"  approved="yes">
+				<source>Propose a new download</source>
+				<target>Предложить новую ссылку</target>
+			</trans-unit>
+			<trans-unit id="ll_add_download_text" resname="ll_add_download_text"  approved="yes">
+				<source>Here you are able to propose a new download. Please fill in all fields and submit the form. </source>
+				<target>Вы можете предложить новую ссылку. Пожалуйста, заполните все поля и отправьте форму.</target>
+			</trans-unit>
+			<trans-unit id="ll_li_add_thx" resname="ll_li_add_thx"  approved="yes">
+				<source>Thanks for your proposal!&lt;br /&gt;After verification the download will be approved as soon as possible.</source>
+				<target>Спасибо за вашу ссылку!</target>
+			</trans-unit>
+			<trans-unit id="ll_appr_li_add_thx" resname="ll_appr_li_add_thx"  approved="yes">
+				<source>Thanks for your proposal!&lt;br /&gt;The download has been approved.</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_file" resname="ll_file"  approved="yes">
+				<source>File</source>
+				<target>Файл</target>
+			</trans-unit>
+			<trans-unit id="ll_image" resname="ll_image"  approved="yes">
+				<source>Image</source>
+				<target>Изображение</target>
+			</trans-unit>
+			<trans-unit id="ll_contact" resname="ll_contact"  approved="yes">
+				<source>Contact Address</source>
+				<target>Контактный адрес</target>
+			</trans-unit>
+			<trans-unit id="ll_contact_example" resname="ll_contact_example"  approved="yes">
+				<source>e.g. me@foo.bar</source>
+				<target>например, ya@foo.bar</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

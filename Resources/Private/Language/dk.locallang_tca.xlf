@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file t3:id="1658329464" source-language="en" target-language="dk" datatype="plaintext" original="messages" date="2022-07-20T15:04:24Z" product-name="ab_downloads">
+		<header/>
+		<body>
+			<trans-unit id="ab_downloads.createNewCategory" resname="ab_downloads.createNewCategory"  approved="yes">
+				<source>Create new category</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.editCategory" resname="ab_downloads.editCategory"  approved="yes">
+				<source>Edit category</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.listCategories" resname="ab_downloads.listCategories"  approved="yes">
+				<source>List categories</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.categoryMounts" resname="ab_downloads.categoryMounts"  approved="yes">
+				<source>ab_downloads: allowed/visible categories</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.cmountsUseSubcats" resname="ab_downloads.cmountsUseSubcats"  approved="yes">
+				<source>ab_downloads: use subcategories</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general" resname="ab_downloads.pi_flexform.sheet_general"  approved="yes">
+				<source>General Settings</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_whatToDisplay" resname="ab_downloads.pi_flexform.sheet_general_whatToDisplay"  approved="yes">
+				<source>Which view to display:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_allowAddDownloads" resname="ab_downloads.pi_flexform.sheet_general_allowAddDownloads"  approved="yes">
+				<source>Allow not logged-in users to propose new downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_statusAddedDownloads" resname="ab_downloads.pi_flexform.sheet_general_statusAddedDownloads"  approved="yes">
+				<source>Default status of proposed downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_maxFileSize" resname="ab_downloads.pi_flexform.sheet_general_maxFileSize"  approved="yes">
+				<source>Maximum filesize of downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_blacklist" resname="ab_downloads.pi_flexform.sheet_general_blacklist"  approved="yes">
+				<source>Blacklisted words for label and description (separated by comma):</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields"  approved="yes">
+				<source>Mandatory fields for frontend form:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.0" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.0"  approved="yes">
+				<source>Label</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.1" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.1"  approved="yes">
+				<source>Category</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.2" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.2"  approved="yes">
+				<source>Contact Address</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.3" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.3"  approved="yes">
+				<source>Image</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.4" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.4"  approved="yes">
+				<source>File</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.5" resname="ab_downloads.pi_flexform.sheet_general_mandatoryFields.i.5"  approved="yes">
+				<source>Description</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_pageListPlugin" resname="ab_downloads.pi_flexform.sheet_general_pageListPlugin"  approved="yes">
+				<source>Page with CATEGORY/TREE/CATALOG/TOP plugin (if different):</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_captchaExtension" resname="ab_downloads.pi_flexform.sheet_general_captchaExtension"  approved="yes">
+				<source>Use captcha extension:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_captchaExtension.i.0" resname="ab_downloads.pi_flexform.sheet_general_captchaExtension.i.0"  approved="yes">
+				<source/>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_captchaExtension.i.1" resname="ab_downloads.pi_flexform.sheet_general_captchaExtension.i.1"  approved="yes">
+				<source>freeCap CAPTCHA (sr_freecap)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_captchaExtension.i.2" resname="ab_downloads.pi_flexform.sheet_general_captchaExtension.i.2"  approved="yes">
+				<source>Captcha Library (captcha)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categoryMode" resname="ab_downloads.pi_flexform.sheet_general_categoryMode"  approved="yes">
+				<source>Category mode:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categoryMode_showAll" resname="ab_downloads.pi_flexform.sheet_general_categoryMode_showAll"  approved="yes">
+				<source>Show all (don't care about selection below)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categoryMode_showSelectedOR" resname="ab_downloads.pi_flexform.sheet_general_categoryMode_showSelectedOR"  approved="yes">
+				<source>Show items with selected categories (OR)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categoryMode_showSelectedAND" resname="ab_downloads.pi_flexform.sheet_general_categoryMode_showSelectedAND"  approved="yes">
+				<source>Show items with selected categories (AND)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categoryMode_DontShowSelectedOR" resname="ab_downloads.pi_flexform.sheet_general_categoryMode_DontShowSelectedOR"  approved="yes">
+				<source>Do NOT show items with selected categories (OR)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categoryMode_DontShowSelectedAND" resname="ab_downloads.pi_flexform.sheet_general_categoryMode_DontShowSelectedAND"  approved="yes">
+				<source>Do NOT show items with selected categories (AND)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categorySelection" resname="ab_downloads.pi_flexform.sheet_general_categorySelection"  approved="yes">
+				<source>Category selection:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categorySelection_itemsHeader" resname="ab_downloads.pi_flexform.sheet_general_categorySelection_itemsHeader"  approved="yes">
+				<source>Special options:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_general_categorySelection_notCategorized" resname="ab_downloads.pi_flexform.sheet_general_categorySelection_notCategorized"  approved="yes">
+				<source>[not categorized]</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_template" resname="ab_downloads.pi_flexform.sheet_template"  approved="yes">
+				<source>Template</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_template_templateFile" resname="ab_downloads.pi_flexform.sheet_template_templateFile"  approved="yes">
+				<source>Template file:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_template_alternatingLayouts" resname="ab_downloads.pi_flexform.sheet_template_alternatingLayouts"  approved="yes">
+				<source>Number of alternating template layouts:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_notification" resname="ab_downloads.pi_flexform.sheet_notification"  approved="yes">
+				<source>Notification Settings</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_notification_adminName" resname="ab_downloads.pi_flexform.sheet_notification_adminName"  approved="yes">
+				<source>Admin name:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_notification_adminEmail" resname="ab_downloads.pi_flexform.sheet_notification_adminEmail"  approved="yes">
+				<source>Admin e-mail address:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_notification_emailSubjectAdd" resname="ab_downloads.pi_flexform.sheet_notification_emailSubjectAdd"  approved="yes">
+				<source>Subject for 'added download' notification e-mails:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_notification_emailSubjectBroken" resname="ab_downloads.pi_flexform.sheet_notification_emailSubjectBroken"  approved="yes">
+				<source>Subject for 'broken download' notification e-mails:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display" resname="ab_downloads.pi_flexform.sheet_display"  approved="yes">
+				<source>Display Settings</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_startCategory" resname="ab_downloads.pi_flexform.sheet_display_startCategory"  approved="yes">
+				<source>Start category:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy"  approved="yes">
+				<source>Sort downloads by:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.0" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.0"  approved="yes">
+				<source>Label</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.1" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.1"  approved="yes">
+				<source>Date of creation</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.2" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.2"  approved="yes">
+				<source>Clicks</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.3" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.3"  approved="yes">
+				<source>Rating</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.4" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.4"  approved="yes">
+				<source>Votes</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.5" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.5"  approved="yes">
+				<source>Manual</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.6" resname="ab_downloads.pi_flexform.sheet_display_downloadSortBy.i.6"  approved="yes">
+				<source>Random</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortOrder" resname="ab_downloads.pi_flexform.sheet_display_downloadSortOrder"  approved="yes">
+				<source>Sort order (downloads):</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortOrder.i.0" resname="ab_downloads.pi_flexform.sheet_display_downloadSortOrder.i.0"  approved="yes">
+				<source>Ascending</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_downloadSortOrder.i.1" resname="ab_downloads.pi_flexform.sheet_display_downloadSortOrder.i.1"  approved="yes">
+				<source>Descending</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortBy" resname="ab_downloads.pi_flexform.sheet_display_categorySortBy"  approved="yes">
+				<source>Sort categories by:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.0" resname="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.0"  approved="yes">
+				<source>Label</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.1" resname="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.1"  approved="yes">
+				<source>Date of creation</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.2" resname="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.2"  approved="yes">
+				<source>Manual</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.3" resname="ab_downloads.pi_flexform.sheet_display_categorySortBy.i.3"  approved="yes">
+				<source>Random</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortOrder" resname="ab_downloads.pi_flexform.sheet_display_categorySortOrder"  approved="yes">
+				<source>Sort order (categories):</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortOrder.i.0" resname="ab_downloads.pi_flexform.sheet_display_categorySortOrder.i.0"  approved="yes">
+				<source>Ascending</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_categorySortOrder.i.1" resname="ab_downloads.pi_flexform.sheet_display_categorySortOrder.i.1"  approved="yes">
+				<source>Descending</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_listLimit" resname="ab_downloads.pi_flexform.sheet_display_listLimit"  approved="yes">
+				<source>Maximum number of downloads shown per category:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_noPageBrowser" resname="ab_downloads.pi_flexform.sheet_display_noPageBrowser"  approved="yes">
+				<source>Hide pagebrowser:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_noStarsInCategoryView" resname="ab_downloads.pi_flexform.sheet_display_noStarsInCategoryView"  approved="yes">
+				<source>Hide rating stars:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_noDetailsInCategoryView" resname="ab_downloads.pi_flexform.sheet_display_noDetailsInCategoryView"  approved="yes">
+				<source>Hide details link:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_noReportingInCategoryView" resname="ab_downloads.pi_flexform.sheet_display_noReportingInCategoryView"  approved="yes">
+				<source>Hide report broken link:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_noRatingInCategoryView" resname="ab_downloads.pi_flexform.sheet_display_noRatingInCategoryView"  approved="yes">
+				<source>Hide rate link:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_noSponsoredPreference" resname="ab_downloads.pi_flexform.sheet_display_noSponsoredPreference"  approved="yes">
+				<source>Don't prefer sponsored downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_iconsForLinks" resname="ab_downloads.pi_flexform.sheet_display_iconsForLinks"  approved="yes">
+				<source>Show icons instead of links:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkImages" resname="ab_downloads.pi_flexform.sheet_display_linkImages"  approved="yes">
+				<source>Link images:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkImages.i.0" resname="ab_downloads.pi_flexform.sheet_display_linkImages.i.0"  approved="yes">
+				<source/>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkImages.i.1" resname="ab_downloads.pi_flexform.sheet_display_linkImages.i.1"  approved="yes">
+				<source>Direct</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkImages.i.2" resname="ab_downloads.pi_flexform.sheet_display_linkImages.i.2"  approved="yes">
+				<source>Details</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkImages.i.3" resname="ab_downloads.pi_flexform.sheet_display_linkImages.i.3"  approved="yes">
+				<source>Target</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkLabels" resname="ab_downloads.pi_flexform.sheet_display_linkLabels"  approved="yes">
+				<source>Link labels:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkLabels.i.0" resname="ab_downloads.pi_flexform.sheet_display_linkLabels.i.0"  approved="yes">
+				<source/>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkLabels.i.1" resname="ab_downloads.pi_flexform.sheet_display_linkLabels.i.1"  approved="yes">
+				<source>Direct</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkLabels.i.2" resname="ab_downloads.pi_flexform.sheet_display_linkLabels.i.2"  approved="yes">
+				<source>Details</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_display_linkLabels.i.3" resname="ab_downloads.pi_flexform.sheet_display_linkLabels.i.3"  approved="yes">
+				<source>Target</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image" resname="ab_downloads.pi_flexform.sheet_image"  approved="yes">
+				<source>Image Settings</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image_imageMaxWidthCategory" resname="ab_downloads.pi_flexform.sheet_image_imageMaxWidthCategory"  approved="yes">
+				<source>Max width for images in the category view:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image_imageMaxHeightCategory" resname="ab_downloads.pi_flexform.sheet_image_imageMaxHeightCategory"  approved="yes">
+				<source>Max height for images in the category view:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image_imageMaxWidthDetailed" resname="ab_downloads.pi_flexform.sheet_image_imageMaxWidthDetailed"  approved="yes">
+				<source>Max width for images in the detailed download view:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image_imageMaxHeightDetailed" resname="ab_downloads.pi_flexform.sheet_image_imageMaxHeightDetailed"  approved="yes">
+				<source>Max height for images in the detailed download view:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image_categoryImageMaxWidth" resname="ab_downloads.pi_flexform.sheet_image_categoryImageMaxWidth"  approved="yes">
+				<source>Max width for category images:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_image_categoryImageMaxHeight" resname="ab_downloads.pi_flexform.sheet_image_categoryImageMaxHeight"  approved="yes">
+				<source>Max height for category images:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_top" resname="ab_downloads.pi_flexform.sheet_top"  approved="yes">
+				<source>TOP Settings</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_top_stickToStartCategoryID" resname="ab_downloads.pi_flexform.sheet_top_stickToStartCategoryID"  approved="yes">
+				<source>Stick to start category ID:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_top_showTopRated" resname="ab_downloads.pi_flexform.sheet_top_showTopRated"  approved="yes">
+				<source>Number of top rated downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_top_showTopAccessed" resname="ab_downloads.pi_flexform.sheet_top_showTopAccessed"  approved="yes">
+				<source>Number of top accessed downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_top_showMostRecent" resname="ab_downloads.pi_flexform.sheet_top_showMostRecent"  approved="yes">
+				<source>Number of most recent downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_top_showRandom" resname="ab_downloads.pi_flexform.sheet_top_showRandom"  approved="yes">
+				<source>Number of random downloads:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_catalog" resname="ab_downloads.pi_flexform.sheet_catalog"  approved="yes">
+				<source>CATALOG Settings</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_catalog_numColumns" resname="ab_downloads.pi_flexform.sheet_catalog_numColumns"  approved="yes">
+				<source>Number of columns:</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ab_downloads.pi_flexform.sheet_catalog_maxSubcategories" resname="ab_downloads.pi_flexform.sheet_catalog_maxSubcategories"  approved="yes">
+				<source>Max number of subcategories:</source>
+				<target/>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

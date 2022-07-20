@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file t3:id="1658329450" source-language="en" target-language="ua" datatype="plaintext" original="messages" date="2022-07-20T15:04:10Z" product-name="ab_downloads">
+		<header/>
+		<body>
+			<trans-unit id="tx_abdownloads_category" resname="tx_abdownloads_category"  approved="yes">
+				<source>Modern Downloads Category</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_categories" resname="tx_abdownloads_categories"  approved="yes">
+				<source>Download Categories</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_category.label" resname="tx_abdownloads_category.label"  approved="yes">
+				<source>Label</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_category.description" resname="tx_abdownloads_category.description"  approved="yes">
+				<source>Description</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_category.parent_category" resname="tx_abdownloads_category.parent_category"  approved="yes">
+				<source>Parent Category</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_category.image" resname="tx_abdownloads_category.image"  approved="yes">
+				<source>Image</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download" resname="tx_abdownloads_download"  approved="yes">
+				<source>Modern Downloads Download</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.label" resname="tx_abdownloads_download.label"  approved="yes">
+				<source>Label</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.description" resname="tx_abdownloads_download.description"  approved="yes">
+				<source>Description</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.tags" resname="tx_abdownloads_download.tags"  approved="yes">
+				<source>Tags (separated by comma)</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.sponsored_description" resname="tx_abdownloads_download.sponsored_description"  approved="yes">
+				<source>Sponsored Description</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.license" resname="tx_abdownloads_download.license"  approved="yes">
+				<source>License</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.crdate" resname="tx_abdownloads_download.crdate"  approved="yes">
+				<source>Date/Time</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.clicks" resname="tx_abdownloads_download.clicks"  approved="yes">
+				<source>Clicks</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.status" resname="tx_abdownloads_download.status"  approved="yes">
+				<source>Status</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.status.i.0" resname="tx_abdownloads_download.status.i.0"  approved="yes">
+				<source>Pending</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.status.i.1" resname="tx_abdownloads_download.status.i.1"  approved="yes">
+				<source>Approved</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.status.i.2" resname="tx_abdownloads_download.status.i.2"  approved="yes">
+				<source>Reported Broken</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.status.i.3" resname="tx_abdownloads_download.status.i.3"  approved="yes">
+				<source>Disabled</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.category" resname="tx_abdownloads_download.category"  approved="yes">
+				<source>Category</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.image" resname="tx_abdownloads_download.image"  approved="yes">
+				<source>Image</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.file" resname="tx_abdownloads_download.file"  approved="yes">
+				<source>File</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.contact" resname="tx_abdownloads_download.contact"  approved="yes">
+				<source>Contact Address</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.homepage" resname="tx_abdownloads_download.homepage"  approved="yes">
+				<source>Homepage</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.rating" resname="tx_abdownloads_download.rating"  approved="yes">
+				<source>Rating</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.votes" resname="tx_abdownloads_download.votes"  approved="yes">
+				<source>Votes</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tx_abdownloads_download.sponsored" resname="tx_abdownloads_download.sponsored"  approved="yes">
+				<source>Sponsored</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type" resname="tt_content.list_type"  approved="yes">
+				<source>Modern Downloads</source>
+				<target/>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

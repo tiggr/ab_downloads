@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file t3:id="1658329440" source-language="en" target-language="gl" datatype="plaintext" original="messages" date="2022-07-20T15:04:00Z" product-name="ab_downloads">
+		<header/>
+		<body>
+			<trans-unit id="pi1_title" resname="pi1_title"  approved="yes">
+				<source>Modern Downloads</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="pi1_plus_wiz_description" resname="pi1_plus_wiz_description"  approved="yes">
+				<source>Adds downloads with categories to the page.</source>
+				<target/>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

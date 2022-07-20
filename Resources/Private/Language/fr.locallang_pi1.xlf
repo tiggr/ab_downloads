@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file t3:id="1658329456" source-language="en" target-language="fr" datatype="plaintext" original="messages" date="2022-07-20T15:04:16Z" product-name="ab_downloads">
+		<header/>
+		<body>
+			<trans-unit id="FORM_SUBMIT_BUTTON" resname="FORM_SUBMIT_BUTTON"  approved="yes">
+				<source>Send</source>
+				<target>Envoyer</target>
+			</trans-unit>
+			<trans-unit id="FORM_CANCEL_BUTTON" resname="FORM_CANCEL_BUTTON"  approved="yes">
+				<source>Cancel</source>
+				<target>Annuler</target>
+			</trans-unit>
+			<trans-unit id="FORM_YES_BUTTON" resname="FORM_YES_BUTTON"  approved="yes">
+				<source>Yes</source>
+				<target>Oui</target>
+			</trans-unit>
+			<trans-unit id="FORM_NO_BUTTON" resname="FORM_NO_BUTTON"  approved="yes">
+				<source>No</source>
+				<target>Non</target>
+			</trans-unit>
+			<trans-unit id="error_required_not_filled" resname="error_required_not_filled"  approved="yes">
+				<source>Please fill in all required fields. </source>
+				<target>Veuillez saisir tous les champs obligatoires.</target>
+			</trans-unit>
+			<trans-unit id="error_invalid_contact" resname="error_invalid_contact"  approved="yes">
+				<source>The contact address given is not valid. Please correct your input.</source>
+				<target>L'adresse de contact n'est pas valide. Veuillez svp corriger votre saisie.</target>
+			</trans-unit>
+			<trans-unit id="error_invalid_captcha" resname="error_invalid_captcha"  approved="yes">
+				<source>The word did not match the one displayed in the image.</source>
+				<target>La saisie ne correspond pas à l'image affichée.</target>
+			</trans-unit>
+			<trans-unit id="error_blacklisted_words" resname="error_blacklisted_words"  approved="yes">
+				<source>Your label and/or description contains blacklisted words. Pleaste correct your input.</source>
+				<target>Votre libellé et/ou votre description contient des mots non-autorisé, veuillez svp corriger votre saisie.</target>
+			</trans-unit>
+			<trans-unit id="no_downloads_message" resname="no_downloads_message"  approved="yes">
+				<source>No downloads found</source>
+				<target>Aucun téléchargement trouvé</target>
+			</trans-unit>
+			<trans-unit id="non_public_download_message" resname="non_public_download_message"  approved="yes">
+				<source>You requested a non-public version of an ab_downloads download.</source>
+				<target>Vous avez demandé une version non-public d'un téléchargement ab_downloads.</target>
+			</trans-unit>
+			<trans-unit id="no_image_message" resname="no_image_message"  approved="yes">
+				<source>-</source>
+				<target>-</target>
+			</trans-unit>
+			<trans-unit id="captcha_notice" resname="captcha_notice"  approved="yes">
+				<source>Please enter here the word as displayed in the picture.</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_top" resname="ll_top"  approved="yes">
+				<source>TOP</source>
+				<target>HAUT</target>
+			</trans-unit>
+			<trans-unit id="ll_home" resname="ll_home"  approved="yes">
+				<source>Home</source>
+				<target>Accueil</target>
+			</trans-unit>
+			<trans-unit id="ll_cats" resname="ll_cats"  approved="yes">
+				<source>Categories</source>
+				<target>Catégories</target>
+			</trans-unit>
+			<trans-unit id="ll_category" resname="ll_category"  approved="yes">
+				<source>Category</source>
+				<target>Catégorie</target>
+			</trans-unit>
+			<trans-unit id="ll_downloads" resname="ll_downloads"  approved="yes">
+				<source>Downloads</source>
+				<target>Téléchargements</target>
+			</trans-unit>
+			<trans-unit id="ll_downloads_lower" resname="ll_downloads_lower"  approved="yes">
+				<source>downloads</source>
+				<target>téléchargements</target>
+			</trans-unit>
+			<trans-unit id="ll_download" resname="ll_download"  approved="yes">
+				<source>Download</source>
+				<target>Téléchargement</target>
+			</trans-unit>
+			<trans-unit id="ll_clicks" resname="ll_clicks"  approved="yes">
+				<source>Clicks</source>
+				<target>Clics</target>
+			</trans-unit>
+			<trans-unit id="ll_clicks_lower" resname="ll_clicks_lower"  approved="yes">
+				<source>clicks</source>
+				<target>clics</target>
+			</trans-unit>
+			<trans-unit id="ll_details" resname="ll_details"  approved="yes">
+				<source>Details</source>
+				<target>Détails</target>
+			</trans-unit>
+			<trans-unit id="ll_label" resname="ll_label"  approved="yes">
+				<source>Label</source>
+				<target>Libellé</target>
+			</trans-unit>
+			<trans-unit id="ll_label_example" resname="ll_label_example"  approved="yes">
+				<source>e.g. download.tar.gz or My download</source>
+				<target>par ex. download.tar.gz ou  Mes téléchargements</target>
+			</trans-unit>
+			<trans-unit id="ll_filename" resname="ll_filename"  approved="yes">
+				<source>Filename</source>
+				<target>Nom du fichier</target>
+			</trans-unit>
+			<trans-unit id="ll_type" resname="ll_type"  approved="yes">
+				<source>Type</source>
+				<target>Type</target>
+			</trans-unit>
+			<trans-unit id="ll_size" resname="ll_size"  approved="yes">
+				<source>Size</source>
+				<target>Taille</target>
+			</trans-unit>
+			<trans-unit id="ll_description" resname="ll_description"  approved="yes">
+				<source>Description</source>
+				<target>Description</target>
+			</trans-unit>
+			<trans-unit id="ll_sponsored_description" resname="ll_sponsored_description"  approved="yes">
+				<source>Sponsored Description</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_language" resname="ll_language"  approved="yes">
+				<source>Language</source>
+				<target>Langue</target>
+			</trans-unit>
+			<trans-unit id="ll_license" resname="ll_license"  approved="yes">
+				<source>License</source>
+				<target>Licence</target>
+			</trans-unit>
+			<trans-unit id="ll_homepage" resname="ll_homepage"  approved="yes">
+				<source>Homepage</source>
+				<target>Page d'accueil</target>
+			</trans-unit>
+			<trans-unit id="ll_added" resname="ll_added"  approved="yes">
+				<source>Date added</source>
+				<target>Date d'ajout</target>
+			</trans-unit>
+			<trans-unit id="ll_rating" resname="ll_rating"  approved="yes">
+				<source>Rating</source>
+				<target>Note</target>
+			</trans-unit>
+			<trans-unit id="ll_rating_current" resname="ll_rating_current"  approved="yes">
+				<source>Current Rating</source>
+				<target>Note actuelle</target>
+			</trans-unit>
+			<trans-unit id="ll_votes" resname="ll_votes"  approved="yes">
+				<source>Votes</source>
+				<target>Votes</target>
+			</trans-unit>
+			<trans-unit id="ll_crdate" resname="ll_crdate"  approved="yes">
+				<source>Date of adding</source>
+				<target>Date d'ajout</target>
+			</trans-unit>
+			<trans-unit id="ll_random" resname="ll_random"  approved="yes">
+				<source>Randomly</source>
+				<target>Aléatoirement</target>
+			</trans-unit>
+			<trans-unit id="ll_back" resname="ll_back"  approved="yes">
+				<source>Go back</source>
+				<target>Retour</target>
+			</trans-unit>
+			<trans-unit id="ll_total" resname="ll_total"  approved="yes">
+				<source>total</source>
+				<target>total</target>
+			</trans-unit>
+			<trans-unit id="ll_very_bad" resname="ll_very_bad"  approved="yes">
+				<source>very bad</source>
+				<target>très mauvais</target>
+			</trans-unit>
+			<trans-unit id="ll_very_good" resname="ll_very_good"  approved="yes">
+				<source>very good</source>
+				<target>très bon</target>
+			</trans-unit>
+			<trans-unit id="ll_maximum" resname="ll_maximum"  approved="yes">
+				<source>Maximum</source>
+				<target>Maximum</target>
+			</trans-unit>
+			<trans-unit id="ll_result" resname="ll_result"  approved="yes">
+				<source>Your search for &quot;&lt;b&gt;%s&lt;/b&gt;&quot; yielded &lt;b&gt;%s&lt;/b&gt; result(s)</source>
+				<target>Votre recherche de &quot;&lt;b&gt;%s&lt;b&gt;&quot; a retourné &lt;b&gt;%s&lt;b&gt; résultat(s)</target>
+			</trans-unit>
+			<trans-unit id="ll_report_download_broken" resname="ll_report_download_broken"  approved="yes">
+				<source>Report broken download</source>
+				<target>Signaler un lien mort</target>
+			</trans-unit>
+			<trans-unit id="ll_reported_download_broken" resname="ll_reported_download_broken"  approved="yes">
+				<source>Download already reported broken</source>
+				<target>Téléchargement déjà reporté comme lien mort</target>
+			</trans-unit>
+			<trans-unit id="ll_report_download_broken_text" resname="ll_report_download_broken_text"  approved="yes">
+				<source>Do you want to report this download as broken?</source>
+				<target>Voulez-vous signaler ce téléchargement comme lien mort ?</target>
+			</trans-unit>
+			<trans-unit id="ll_li_broken_thx" resname="ll_li_broken_thx"  approved="yes">
+				<source>Thank you very much for your help!</source>
+				<target>Merci beaucoup pour votre aide!</target>
+			</trans-unit>
+			<trans-unit id="ll_rate_download" resname="ll_rate_download"  approved="yes">
+				<source>Rate download</source>
+				<target>Annoter le téléchargement</target>
+			</trans-unit>
+			<trans-unit id="ll_rate_download_text" resname="ll_rate_download_text"  approved="yes">
+				<source>Please select a mark for the following download. </source>
+				<target>Veuillez svp selectionné une note pour ce téléchargement.</target>
+			</trans-unit>
+			<trans-unit id="ll_li_rate_thx" resname="ll_li_rate_thx"  approved="yes">
+				<source>Thank you very much for your voting!</source>
+				<target>Merci beaucoup pour votre vote!</target>
+			</trans-unit>
+			<trans-unit id="ll_add_download" resname="ll_add_download"  approved="yes">
+				<source>Propose a new download</source>
+				<target>Proposer un nouveau téléchargement</target>
+			</trans-unit>
+			<trans-unit id="ll_add_download_text" resname="ll_add_download_text"  approved="yes">
+				<source>Here you are able to propose a new download. Please fill in all fields and submit the form. </source>
+				<target>Ici vous pouvez proposer un nouveau téléchargement. Veuillez svp rempir les champs et soumettre le formulaire.</target>
+			</trans-unit>
+			<trans-unit id="ll_li_add_thx" resname="ll_li_add_thx"  approved="yes">
+				<source>Thanks for your proposal!&lt;br /&gt;After verification the download will be approved as soon as possible.</source>
+				<target>Merci pour votre proposition!&lt;br /&gt;Après vérification le téléchargement sera approuvé aussitôt que possible.</target>
+			</trans-unit>
+			<trans-unit id="ll_appr_li_add_thx" resname="ll_appr_li_add_thx"  approved="yes">
+				<source>Thanks for your proposal!&lt;br /&gt;The download has been approved.</source>
+				<target>Merci pour votre proposition!&lt;br /&gt;Le téléchargement a été approuvé.</target>
+			</trans-unit>
+			<trans-unit id="ll_file" resname="ll_file"  approved="yes">
+				<source>File</source>
+				<target>Fichier</target>
+			</trans-unit>
+			<trans-unit id="ll_image" resname="ll_image"  approved="yes">
+				<source>Image</source>
+				<target>Image</target>
+			</trans-unit>
+			<trans-unit id="ll_contact" resname="ll_contact"  approved="yes">
+				<source>Contact Address</source>
+				<target>Adresse de contact</target>
+			</trans-unit>
+			<trans-unit id="ll_contact_example" resname="ll_contact_example"  approved="yes">
+				<source>e.g. me@foo.bar</source>
+				<target>par ex.: me@foo.bar</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

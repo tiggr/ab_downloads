@@ -82,7 +82,7 @@ class tx_abdownloads_pi1_wizicon
     public function includeLocalLang()
     {
         $languageFactory = GeneralUtility::makeInstance(LocalizationFactory::class);
-        $LOCAL_LANG = $languageFactory->getParsedData('EXT:ab_downloads/Resources/Public/Language/locallang_pi1.xml', $GLOBALS['LANG']->lang);
+        $LOCAL_LANG = $languageFactory->getParsedData('EXT:ab_downloads/Resources/Public/Language/locallang_pi1.xlf', $GLOBALS['LANG']->lang);
 
         return $LOCAL_LANG;
     }

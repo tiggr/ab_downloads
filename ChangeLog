@@ -365,7 +365,7 @@
 2006-12-06 Andreas Bulling <typo3@andreas-bulling.de>
 
 	* Version 1.8.1
-	  Fixed a bug where the locallang.xml was not included correctly in class.tx_abdownloads_pi1_wizicon.php.
+	  Fixed a bug where the locallang.xlf was not included correctly in class.tx_abdownloads_pi1_wizicon.php.
 	  Thanks to Stefan Galinski for pointing this out and providing the corresponding code.
 
 	  Fixed a bug with "config.sys_language_overlay" set to "hideNonTranslated" and the language overlay result set of categories/links being empty.
