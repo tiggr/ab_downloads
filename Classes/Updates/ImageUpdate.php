@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 namespace Davitec\AbDownloads\Updates;
 
@@ -155,8 +156,6 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
         } catch (\Exception $e) {
             $messages[] = $e->getMessage();
         }
-
-
     }
 
     /**
