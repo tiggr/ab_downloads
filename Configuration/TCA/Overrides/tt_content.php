@@ -4,7 +4,7 @@ defined('TYPO3') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
     [
-        'LLL:EXT:ab_downloads/locallang_db.php:tt_content.list_type',
+        'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tt_content.list_type',
         'ab_downloads_pi1',
     ],
     'list_type',

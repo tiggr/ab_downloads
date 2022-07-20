@@ -24,7 +24,7 @@ $useTemplateReferences = ($configArray['useTemplateReferences'] ? '' : '');
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category',
+        'title' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_category',
         'label' => 'label',
         'tstamp' => 'tstamp',
         'thumbnail' => 'image',
@@ -43,8 +43,7 @@ return [
             'endtime' => 'endtime',
             'fe_group' => 'fe_group',
         ],
-        'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'tca.php',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("ab_downloads") . 'icon_tx_abdownloads_category.gif',
+        'iconfile' => 'EXT:ab_downloads/Resources/Public/Icons/icon_tx_abdownloads_category.gif',
         'prependAtCopy' => $configArray['prependAtCopy'] ? 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.prependAtCopy' : '',
         'mainpalette' => '2, 10',
     ],
@@ -143,7 +142,7 @@ return [
         'label' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.label',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_category.label',
             'config' => [
                 'type' => 'input',
                 'size' => '40',
@@ -153,7 +152,7 @@ return [
         'description' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.description',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_category.description',
             'config' => [
                 'type' => 'text',
                 'cols' => '50',
@@ -167,7 +166,7 @@ return [
         'parent_category' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.parent_category',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_category.parent_category',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectTree',
@@ -212,10 +211,14 @@ return [
         'image' => [
             'l10n_mode' => $l10n_mode_image,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_category.image',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_category.image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'image',
-                ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/categoryImages', 'maxitems' => 1],
+                [
+                    'max_size' => '30000',
+                    'uploadfolder' => 'uploads/tx_abdownloads/categoryImages',
+                    'maxitems' => 1
+                ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
         ],

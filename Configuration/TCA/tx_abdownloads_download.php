@@ -24,7 +24,7 @@ $useTemplateReferences = ($configArray['useTemplateReferences'] ? '' : '');
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download',
+        'title' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download',
         'label' => 'label',
         'tstamp' => 'tstamp',
         'thumbnail' => 'image',
@@ -153,7 +153,7 @@ return [
         'label' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.label',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.label',
             'config' => [
                 'type' => 'input',
                 'size' => '40',
@@ -171,7 +171,7 @@ return [
         'description' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.description',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.description',
             'config' => [
                 'type' => 'text',
                 'cols' => '50',
@@ -185,7 +185,7 @@ return [
         'tags' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.tags',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.tags',
             'config' => [
                 'type' => 'input',
                 'size' => '40',
@@ -194,7 +194,7 @@ return [
         'sponsored_description' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.sponsored_description',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.sponsored_description',
             'config' => [
                 'type' => 'text',
                 'cols' => '50',
@@ -208,7 +208,7 @@ return [
         'license' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.license',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.license',
             'config' => [
                 'type' => 'input',
                 'size' => '40',
@@ -231,7 +231,7 @@ return [
         'clicks' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.clicks',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.clicks',
             'config' => [
                 'type' => 'input',
                 'size' => '5',
@@ -244,7 +244,7 @@ return [
         'rating' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.rating',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.rating',
             'config' => [
                 'type' => 'input',
                 'size' => '5',
@@ -261,7 +261,7 @@ return [
         'votes' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.votes',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.votes',
             'config' => [
                 'type' => 'input',
                 'size' => '5',
@@ -274,22 +274,22 @@ return [
         'status' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.status',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status.i.0', '0'],
-                    ['LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status.i.1', '1'],
-                    ['LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status.i.2', '2'],
-                    ['LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.status.i.3', '3'],
+                    ['LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.status.i.0', '0'],
+                    ['LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.status.i.1', '1'],
+                    ['LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.status.i.2', '2'],
+                    ['LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.status.i.3', '3'],
                 ],
             ],
         ],
         'category' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.category',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.category',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectTree',
@@ -335,7 +335,7 @@ return [
         'contact' => [
             'l10n_mode' => $l10n_mode,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.contact',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.contact',
             'config' => [
                 'type' => 'input',
                 'size' => '40',
@@ -344,7 +344,7 @@ return [
         'homepage' => [
             'l10n_mode' => $l10n_mode_homepage,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.homepage',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.homepage',
             'config' => [
                 'type' => 'input',
                 'size' => '40',
@@ -358,26 +358,34 @@ return [
         'image' => [
             'l10n_mode' => $l10n_mode_image,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.image',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.image',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'image',
-                ['max_size' => '30000', 'uploadfolder' => 'uploads/tx_abdownloads/downloadImages', 'maxitems' => 1],
+                [
+                    'max_size' => '30000',
+                    'uploadfolder' => 'uploads/tx_abdownloads/downloadImages',
+                    'maxitems' => 1
+                ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
         ],
         'file' => [
             'l10n_mode' => $l10n_mode_file,
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.file',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.file',
              'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                  'file',
-                 ['max_size' => '500000', 'uploadfolder' => 'uploads/tx_abdownloads/files', 'maxitems' => 1],
+                 [
+                     'max_size' => '500000',
+                     'uploadfolder' => 'uploads/tx_abdownloads/files',
+                     'maxitems' => 1
+                 ],
                  '*'
              ),
         ],
         'crdate' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.crdate',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.crdate',
             'config' => [
                 'type' => 'input',
                 'size' => '10',
@@ -390,7 +398,7 @@ return [
         'sponsored' => [
             'l10n_mode' => 'exclude',
             'exclude' => 1,
-            'label' => 'LLL:EXT:ab_downloads/locallang_db.php:tx_abdownloads_download.sponsored',
+            'label' => 'LLL:EXT:ab_downloads/Resources/Private/Language/locallang_db.xlf:tx_abdownloads_download.sponsored',
             'config' => [
                 'type' => 'check',
                 'default' => 0,
