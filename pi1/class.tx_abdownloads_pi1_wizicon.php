@@ -81,9 +81,8 @@ class tx_abdownloads_pi1_wizicon
      */
     public function includeLocalLang()
     {
-        $llFile = ExtensionManagementUtility::extPath('ab_downloads') . 'locallang.xml';
         $languageFactory = GeneralUtility::makeInstance(LocalizationFactory::class);
-        $LOCAL_LANG = $languageFactory->getParsedData($llFile, $GLOBALS['LANG']->lang);
+        $LOCAL_LANG = $languageFactory->getParsedData('EXT:ab_downloads/Resources/Public/Language/locallang_pi1.xml', $GLOBALS['LANG']->lang);
 
         return $LOCAL_LANG;
     }
