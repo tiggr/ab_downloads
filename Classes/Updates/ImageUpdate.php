@@ -80,11 +80,11 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
 
     protected $migrate = [
         'tx_abdownloads_download' => [
-            'image' => 'uploads/tx_abdownloads/downloadImages',
-            'file' => 'uploads/tx_abdownloads/files',
+            'image' => 'uploads/tx_abdownloads/downloadImages/',
+            'file' => 'uploads/tx_abdownloads/files/',
         ],
         'tx_abdownloads_category' => [
-            'image' => 'uploads/tx_abdownloads/categoryImages',
+            'image' => 'uploads/tx_abdownloads/categoryImages/',
         ],
     ];
 
@@ -135,7 +135,7 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
 
         foreach ($messages as $message) {
             $this->output->writeln(
-                '<error>' . $message . '</error>'
+                '<error>' . $message . '</error>' . "\n"
             );
         }
 
@@ -228,18 +228,18 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
 
         foreach ($fieldItems as $item) {
             $fileUid = null;
-            $sourcePath = Environment::getPublicPath() . '/' . $sourcePath . $item;
+            $sourceFile = Environment::getPublicPath() . '/' . $sourcePath . $item;
             $targetDirectory = Environment::getPublicPath() . '/' . $fileadminDirectory . $targetPath;
-            $targetPath = $targetDirectory . basename($item);
+            $targetFile = $targetDirectory . basename($item);
 
             // maybe the file was already moved, so check if the original file still exists
-            if (file_exists($sourcePath)) {
+            if (file_exists($sourceFile)) {
                 if (!is_dir($targetDirectory)) {
                     GeneralUtility::mkdir_deep($targetDirectory);
                 }
 
                 // see if the file already exists in the storage
-                $fileSha1 = sha1_file($sourcePath);
+                $fileSha1 = sha1_file($sourceFile);
 
                 $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file');
                 $queryBuilder->getRestrictions()->removeAll();
@@ -259,7 +259,7 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
                     $fileUid = $existingFileRecord['uid'];
                 } else {
                     // just move the file (no duplicate)
-                    rename($sourcePath, $targetPath);
+                    rename($sourceFile, $targetFile);
                 }
             }
 
@@ -291,7 +291,7 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
                         $row['uid'],
                         $field
                     );
-                    $messages[] = $message;
+                    $customMessage .= PHP_EOL . $message;
                     continue;
                 }
             }
