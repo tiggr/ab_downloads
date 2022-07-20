@@ -3,6 +3,7 @@
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Domain\Repository\PageRepository;
+use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Service\MarkerBasedTemplateService;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\File\BasicFileUtility;
@@ -10,6 +11,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
+use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
 
 /***************************************************************
  * Copyright notice
@@ -145,7 +147,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
      */
     public function main($content, $conf)
     {
-        $this->filePathSanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
+        $this->filePathSanitizer = GeneralUtility::makeInstance(FilePathSanitizer::class);
 
         // Check if this plugin instance is the correct target
         if ($this->piVars['cid'] != '' && ($this->piVars['cid'] != $this->cObj->data['uid'])) {
@@ -3856,7 +3858,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                         ) : $this->conf['imageMaxWidthCategory']);
                     }
 
-                    $fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+                    $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
                     $fileObjects = $fileRepository->findByRelation('tx_abdownloads_download', $field, $record['uid']);
 
                     $pictureConfig = [];
@@ -3933,7 +3935,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                         's_image'
                     ) : $this->conf['categoryImageMaxWidth']);
 
-                    $fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+                    $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
                     $fileObjects = $fileRepository->findByRelation('tx_abdownloads_category', $field, $record['uid']);
 
                     $pictureConfig = [];
