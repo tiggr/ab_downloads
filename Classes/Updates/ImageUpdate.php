@@ -15,6 +15,8 @@ namespace Davitec\AbDownloads\Updates;
  * The TYPO3 project - inspiring people to share!
  */
 use Doctrine\DBAL\DBALException;
+use Symfony\Component\Console\Output\OutputInterface;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
 use TYPO3\CMS\Core\Log\Logger;
@@ -23,27 +25,58 @@ use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\ResourceStorage;
 use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Updates\ChattyInterface;
+use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * Upgrade wizard which goes through all files referenced in backend_layout.icon
  * and creates sys_file records as well as sys_file_reference records for each hit.
  */
-class ImageUpdate extends AbstractUpdate
+class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
 {
-    /**
-     * @var string
-     */
-    protected $title = 'Migrate all file relations from backend_layout.icon to sys_file_references';
-
     /**
      * @var ResourceStorage
      */
     protected $storage;
 
     /**
-     * @var Logger
+     * @var OutputInterface
      */
-    protected $logger;
+    protected $output;
+
+    /**
+     * @inheritDoc
+     */
+    public function getIdentifier(): string
+    {
+        return 'davitec.abdownloads.image';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getTitle(): string
+    {
+        return 'AB Downloads: Migrate all file relations to sys_file_references';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getDescription(): string
+    {
+        return 'This update wizard goes through all files that are referenced '
+            . ' and adds the files to the FAL File Index.<br />'
+            . 'It also moves the files from uploads/... to the fileadmin/uploads/... path.';
+    }
+
+    /**
+     * @param OutputInterface $output
+     */
+    public function setOutput(OutputInterface $output): void
+    {
+        $this->output = $output;
+    }
 
     protected $migrate = [
         'tx_abdownloads_download' => [
@@ -66,50 +99,50 @@ class ImageUpdate extends AbstractUpdate
     /**
      * Checks if an update is needed
      *
-     * @param string &$description The description for the update
-     *
      * @return bool TRUE if an update is needed, FALSE otherwise
      */
-    public function checkForUpdate(&$description)
+    public function updateNecessary(): bool
     {
-        if ($this->isWizardDone()) {
-            return false;
-        }
-
-        // If there are no valid records, the wizard can be marked as done directly
-        $dbQueries = [];
-/*        $records = $this->getRecordsFromTable($dbQueries);
-        if (empty($records)) {
-            $this->markWizardAsDone();
-            return false;
-        }*/
-
-        $description = 'This update wizard goes through all files that are referenced '
-            . ' and adds the files to the FAL File Index.<br />'
-            . 'It also moves the files from uploads/... to the fileadmin/uploads/... path.';
-
         return true;
+    }
+
+    /**
+     * Returns an array of class names of Prerequisite classes
+     *
+     * This way a wizard can define dependencies like "database up-to-date" or
+     * "reference index updated"
+     *
+     * @return string[]
+     */
+    public function getPrerequisites(): array
+    {
+        return [];
     }
 
     /**
      * Performs the database update.
      *
-     * @param array &$dbQueries Queries done in this update
-     * @param string &$customMessage Custom message
      * @return bool TRUE on success, FALSE on error
      */
-    public function performUpdate(array &$dbQueries, &$customMessage)
+    public function executeUpdate(): bool
     {
-        $customMessage = '';
+        $messages = [];
         foreach ($this->migrate as $table => $fieldsToMigrate) {
             foreach ($fieldsToMigrate as $field => $sourcePath) {
-                $this->performUpdateForTableAndField($table, $field, $sourcePath, $customMessage);
+                $this->performUpdateForTableAndField($table, $field, $sourcePath, $messages);
             }
         }
-        return empty($customMessage);
+
+        foreach ($messages as $message) {
+            $this->output->writeln(
+                '<error>' . $message . '</error>'
+            );
+        }
+
+        return empty($messages);
     }
 
-    public function performUpdateForTableAndField($table, $field, $sourcePath, &$customMessage)
+    public function performUpdateForTableAndField($table, $field, $sourcePath, &$messages)
     {
         try {
             $storages = GeneralUtility::makeInstance(StorageRepository::class)->findAll();
@@ -117,12 +150,10 @@ class ImageUpdate extends AbstractUpdate
 
             $records = $this->getRecordsFromTable($table, $field, $dbQueries);
             foreach ($records as $record) {
-                $this->migrateField($record, $table, $field, $sourcePath, $customMessage, $dbQueries);
+                $this->migrateField($record, $table, $field, $sourcePath, $messages, $dbQueries);
             }
-
-            $this->markWizardAsDone();
         } catch (\Exception $e) {
-            $customMessage .= PHP_EOL . $e->getMessage();
+            $messages[] = $e->getMessage();
         }
 
 
@@ -177,12 +208,12 @@ class ImageUpdate extends AbstractUpdate
      * Migrates a single field.
      *
      * @param array $row
-     * @param string $customMessage
+     * @param array $messages
      * @param array $dbQueries
      *
      * @throws \Exception
      */
-    protected function migrateField($row, $table, $field, $sourcePath, &$customMessage, &$dbQueries)
+    protected function migrateField($row, $table, $field, $sourcePath, &$messages, &$dbQueries)
     {
         $targetPath = $sourcePath;
         $fieldItems = GeneralUtility::trimExplode(',', $row[$field], true);
@@ -197,8 +228,8 @@ class ImageUpdate extends AbstractUpdate
 
         foreach ($fieldItems as $item) {
             $fileUid = null;
-            $sourcePath = PATH_site . $sourcePath . $item;
-            $targetDirectory = PATH_site . $fileadminDirectory . $targetPath;
+            $sourcePath = Environment::getPublicPath() . '/' . $sourcePath . $item;
+            $targetDirectory = Environment::getPublicPath() . '/' . $fileadminDirectory . $targetPath;
             $targetPath = $targetDirectory . basename($item);
 
             // maybe the file was already moved, so check if the original file still exists
@@ -260,7 +291,7 @@ class ImageUpdate extends AbstractUpdate
                         $row['uid'],
                         $field
                     );
-                    $customMessage .= PHP_EOL . $message;
+                    $messages[] = $message;
                     continue;
                 }
             }
