@@ -3860,7 +3860,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                     $fileObjects = $fileRepository->findByRelation('tx_abdownloads_download', $field, $record['uid']);
 
                     $pictureConfig = [];
-                    $pictureConfig['image.']['file.import']['data'] = $fileObjects[0];
+                    $pictureConfig['image.']['file'] = $fileObjects[0];
                     $pictureConfig['image.']['file.']['maxW'] = intval($imageMaxWidth);
                     $pictureConfig['image.']['file.']['maxH'] = intval($imageMaxHeight);
                     $pictureConfig['image.']['altText'] = htmlspecialchars(trim($record['label']));
