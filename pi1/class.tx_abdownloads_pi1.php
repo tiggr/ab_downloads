@@ -96,7 +96,7 @@ use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
  * @author    Andreas Bulling    <typo3@andreas-bulling.de>
  * @package    TYPO3
  * @subpackage    tx_abdownloads
- *
+© *
  * TypoScript setup:
  * @See static/css_based/setup.txt
  * @See static/table_based/setup.txt
@@ -128,6 +128,8 @@ class tx_abdownloads_pi1 extends AbstractPlugin
     public $versioningEnabled = false;                    // Is the extension 'version' loaded
     public $downloadMode;                        // Holds the download mode.
 
+    protected $filePathSanitizer;
+
     /*************************************
      *
      * Main function
@@ -143,6 +145,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
      */
     public function main($content, $conf)
     {
+        $this->filePathSanitizer = GeneralUtility::makeInstance(\TYPO3\CMS\Frontend\Resource\FilePathSanitizer::class);
 
         // Check if this plugin instance is the correct target
         if ($this->piVars['cid'] != '' && ($this->piVars['cid'] != $this->cObj->data['uid'])) {
@@ -229,7 +232,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         // Set the template
         $templateFile = $this->pi_getFFvalue($this->flexform, 'templateFile', 's_template');
         $this->originalTemplateCode = file_get_contents(
-            Environment::getPublicPath() . '/' . ($templateFile ? 'uploads/tx_abdownloads/' . $templateFile : $this->conf['templateFile'])
+            GeneralUtility::getFileAbsFileName($templateFile ? 'uploads/tx_abdownloads/' . $templateFile : $this->conf['templateFile'])
         );
 
         // Get category UID from piVars or FlexForm or set to 0
@@ -3853,8 +3856,11 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                         ) : $this->conf['imageMaxWidthCategory']);
                     }
 
+                    $fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+                    $fileObjects = $fileRepository->findByRelation('tx_abdownloads_download', $field, $record['uid']);
+
                     $pictureConfig = [];
-                    $pictureConfig['image.']['file'] = 'uploads/tx_abdownloads/downloadImages/' . $record[$field];
+                    $pictureConfig['image.']['file.import']['data'] = $fileObjects[0];
                     $pictureConfig['image.']['file.']['maxW'] = intval($imageMaxWidth);
                     $pictureConfig['image.']['file.']['maxH'] = intval($imageMaxHeight);
                     $pictureConfig['image.']['altText'] = htmlspecialchars(trim($record['label']));
@@ -3927,8 +3933,11 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                         's_image'
                     ) : $this->conf['categoryImageMaxWidth']);
 
+                    $fileRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\FileRepository::class);
+                    $fileObjects = $fileRepository->findByRelation('tx_abdownloads_category', $field, $record['uid']);
+
                     $pictureConfig = [];
-                    $pictureConfig['image.']['file'] = 'uploads/tx_abdownloads/categoryImages/' . $record[$field];
+                    $pictureConfig['image.']['file'] = $fileObjects[0];
                     $pictureConfig['image.']['file.']['maxW'] = intval($imageMaxWidth);
                     $pictureConfig['image.']['file.']['maxH'] = intval($imageMaxHeight);
                     $pictureConfig['image.']['altText'] = htmlspecialchars(trim($record['label']));
@@ -3937,7 +3946,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
                     return $this->local_cObj->cObjGetSingle('IMAGE', $pictureConfig['image.']);
                 } else {
                     $tsfe = $GLOBALS['TSFE'];
-                    $incFile = $tsfe->tmpl->getFileName($this->conf['iconCategory']);
+                    $incFile = $this->filePathSanitizer->sanitize($this->conf['iconCategory']);
                     if ($incFile && file_exists($incFile)) {
                         $fileInfo = GeneralUtility::split_fileref($incFile);
                         $extension = $fileInfo['fileext'];
@@ -3967,9 +3976,9 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         $fileInformation = $this->getTotalFileInfo($file);
 
         if (file_exists(GeneralUtility::getFileAbsFileName('typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg'))) {
-            $fileIcon = '<img src="' . GeneralUtility::getIndpEnv(TYPO3_URL_GENERAL) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
+            $fileIcon = '<img src="' . $this->filePathSanitizer->sanitize('typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg') . '" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
         } else {
-            $fileIcon = '<img src="' . GeneralUtility::getIndpEnv(TYPO3_URL_GENERAL) . 'typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-other-other.svg" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
+            $fileIcon = '<img src="' . $this->filePathSanitizer->sanitize('typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-other-other.svg') . '" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
         }
 
         return $fileIcon;
@@ -4437,7 +4446,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         if (!$fileName) {
             return '';
         }
-        $tag = '<img src="' . $GLOBALS['TSFE']->tmpl->getFileName($fileName) . '" ';
+        $tag = '<img src="/' . $this->filePathSanitizer->sanitize($fileName) . '" ';
         if ($alt) {
             $tag .= 'alt="' . $alt . '" ';
         }

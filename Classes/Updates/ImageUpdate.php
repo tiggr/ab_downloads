@@ -146,8 +146,8 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
     public function performUpdateForTableAndField($table, $field, $sourcePath, &$messages)
     {
         try {
-            $storages = GeneralUtility::makeInstance(StorageRepository::class)->findAll();
-            $this->storage = $storages[0];
+            $storeForPath = 'fileadmin';
+            $this->storage = GeneralUtility::makeInstance(StorageRepository::class)->getStorageObject(0, [], $storeForPath);
 
             $records = $this->getRecordsFromTable($table, $field, $dbQueries);
             foreach ($records as $record) {
