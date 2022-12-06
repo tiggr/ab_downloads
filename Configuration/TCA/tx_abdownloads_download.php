@@ -53,7 +53,6 @@ return [
     'feInterface' => [
         'fe_admin_fieldList' => 'hidden, fe_group, label, description, sponsored_description, license, language_uid, clicks, rating, votes, status, category, contact, homepage, image, file',
     ],
-    'feInterface' => $GLOBALS['TCA']['tx_abdownloads_download']['feInterface'],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,

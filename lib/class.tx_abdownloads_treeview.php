@@ -792,8 +792,3 @@ class tx_abdownloads_treeview
         return $NA_Items . $fieldHTML;
     }
 }
-
-
-    if (defined('TYPO3') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/lib/class.tx_abdownloads_treeview.php']) {
-        include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/ab_downloads/lib/class.tx_abdownloads_treeview.php']);
-    }

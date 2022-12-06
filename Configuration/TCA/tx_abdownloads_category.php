@@ -50,7 +50,6 @@ return [
     'feInterface' => [
         'fe_admin_fieldList' => 'hidden, fe_group, label, parent_category, image',
     ],
-    'feInterface' => $GLOBALS['TCA']['tx_abdownloads_category']['feInterface'],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
