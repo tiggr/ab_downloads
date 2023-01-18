@@ -131,6 +131,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
     public $downloadMode;                        // Holds the download mode.
 
     protected $filePathSanitizer;
+    protected $fileRepository;
 
     /*************************************
      *
@@ -148,6 +149,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
     public function main($content, $conf)
     {
         $this->filePathSanitizer = GeneralUtility::makeInstance(FilePathSanitizer::class);
+        $this->fileRepository = GeneralUtility::makeInstance(FileRepository::class);
 
         // Check if this plugin instance is the correct target
         if ($this->piVars['cid'] != '' && ($this->piVars['cid'] != $this->cObj->data['uid'])) {
@@ -2312,14 +2314,18 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         }
 
         // Send file to browser
-        $file = GeneralUtility::getFileAbsFileName($this->filePath . $download[0]['file']);
-        $fileInformation = $this->getTotalFileInfo($file);
+        $fileObjects = $this->fileRepository->findByRelation('tx_abdownloads_download', 'file', $uid);
+        $fileObject = $fileObjects[0];
+        if ($fileObject) {
+            $file = GeneralUtility::getFileAbsFileName($this->filePath . $fileObject->getName());
+            $fileInformation = $this->getTotalFileInfo($file);
 
-        header('Content-Description: Modern Downloads File Transfer');
-        header('Content-type: application/force-download');
-        header('Content-Disposition: attachment; filename="' . $download[0]['file'] . '"');
-        header('Content-Length: ' . $fileInformation['size']);
-        @readfile($file) || die;
+            header('Content-Description: Modern Downloads File Transfer');
+            header('Content-type: application/force-download');
+            header('Content-Disposition: attachment; filename="' . $fileObject->getName() . '"');
+            header('Content-Length: ' . $fileInformation['size']);
+            @readfile($file) || die;
+        }
         exit;
     }
 
@@ -2360,8 +2366,14 @@ class tx_abdownloads_pi1 extends AbstractPlugin
 
             if (is_array($download) && $download[0]['pid'] > 0) {
                 // Get file information
-                $file = GeneralUtility::getFileAbsFileName($this->filePath . $download[0]['file']);
-                $fileInformation = $this->getTotalFileInfo($file);
+                $fileObjects = $this->fileRepository->findByRelation('tx_abdownloads_download', 'file', $uid);
+                $fileObject = $fileObjects[0];
+                if ($fileObject) {
+                    /** @var \TYPO3\CMS\Core\Resource\FileReference $fileObject */
+                    $file = $fileObject->getOriginalFile();
+                    $download[0]['file'] = $file->getName();
+//                    $fileInformation = $this->getTotalFileInfo($file);
+                }
 
                 // Create marker array
                 $markerArray = [];
