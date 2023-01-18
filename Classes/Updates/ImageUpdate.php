@@ -305,7 +305,7 @@ class ImageUpdate implements UpgradeWizardInterface, ChattyInterface
                     'tablenames' => $table,
                     'crdate' => time(),
                     'tstamp' => time(),
-                    'sorting' => ($i + 256),
+//                    'sorting' => ($i + 256),
                     'sorting_foreign' => $i,
                 ];
 
