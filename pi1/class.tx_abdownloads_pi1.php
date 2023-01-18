@@ -3989,10 +3989,10 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         $file = GeneralUtility::getFileAbsFileName($this->filePath . $record['file']);
         $fileInformation = $this->getTotalFileInfo($file);
 
-        if (file_exists(GeneralUtility::getFileAbsFileName('typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg'))) {
-            $fileIcon = '<img src="' . $this->filePathSanitizer->sanitize('typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg') . '" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
+        if (file_exists(GeneralUtility::getFileAbsFileName('typo3/sysext/core/Resources/Public/Icons/T3Icons/svgs/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg'))) {
+            $fileIcon = '<img src="' . $this->filePathSanitizer->sanitize('typo3/sysext/core/Resources/Public/Icons/T3Icons/svgs/mimetypes/mimetypes-' . $fileInformation['mimetype'] . '.svg') . '" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
         } else {
-            $fileIcon = '<img src="' . $this->filePathSanitizer->sanitize('typo3/sysext/core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-other-other.svg') . '" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
+            $fileIcon = '<img src="' . $this->filePathSanitizer->sanitize('typo3/sysext/core/Resources/Public/Icons/T3Icons/svgs/mimetypes/mimetypes-other-other.svg') . '" width="18" height="16" border="0" title="' . htmlspecialchars($record['file']) . '" alt="" />';
         }
 
         return $fileIcon;
