@@ -98,7 +98,7 @@ use TYPO3\CMS\Frontend\Resource\FilePathSanitizer;
  * @author    Andreas Bulling    <typo3@andreas-bulling.de>
  * @package    TYPO3
  * @subpackage    tx_abdownloads
-© *
+ *
  * TypoScript setup:
  * @See static/css_based/setup.txt
  * @See static/table_based/setup.txt
@@ -183,7 +183,7 @@ class tx_abdownloads_pi1 extends AbstractPlugin
         // Do some configuration
         $this->conf = $conf;
         $this->pi_setPiVarDefaults();
-        $this->pi_loadLL();
+        $this->pi_loadLL('EXT:ab_downloads/Resources/Private/Language/locallang_pi1.xlf');
 
         // Configure caching
         $this->allowCaching = $this->conf['allowCaching'] ? 1 : 0;
